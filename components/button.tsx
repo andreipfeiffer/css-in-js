@@ -12,10 +12,10 @@ type Props = {
 };
 
 export function Button(props: Props) {
-  const { children, color = "dodgerblue" } = props;
+  const { children, color = "blue" } = props;
 
   return (
-    <button className={styles.button} style={{ color }}>
+    <button className={styles.button} style={{ color: Color[color] }}>
       <span>{children}</span>
     </button>
   );
