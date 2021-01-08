@@ -1,11 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project.
+Various **CSS-in-JS** solutions comparison in React, using **CSS modules** as a baseline and **Next.js** as a fully featured framework for building resources.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+// install dependencies
+yarn
+
+// for development
 yarn dev
+
+// for production
+yarn build
+yarn start
 ```
 <br />
 
