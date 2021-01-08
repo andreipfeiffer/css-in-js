@@ -11,15 +11,15 @@ yarn dev
 
 ## Overview
 
-|       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | Bundle |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
-| Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ? |
-|  Styled Components |  |  |  |  |  |  |  |
-|  Emotion |  |  |  |  |  |  |  |
-|  Glamor |  |  |  |  |  |  |  |
-|  Cxs |  |  |  |  |  |  |  |
-|  Aphrodite |  |  |  |  |  |  |  |
-|  Linaria |  |  |  |  |  |  |  |
+|       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | External file | Bundle |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
+| Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ✅ | ? |
+|  Styled Components |  |  |  |  |  |  |  |  |
+|  Emotion |  |  |  |  |  |  |  |  |
+|  Glamor |  |  |  |  |  |  |  |  |
+|  Cxs |  |  |  |  |  |  |  |  |
+|  Aphrodite |  |  |  |  |  |  |  |  |
+|  Linaria |  |  |  |  |  |  |  |  |
 
 <br />
 
