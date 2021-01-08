@@ -13,14 +13,18 @@ yarn dev
 
 |       | Global styles | SSR | Dedupe | Dead code elimination | DX    | TS | External | Prefixes | Size | Page |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
-| CSS Modules | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | - | - |
-| Styled JSX | ✅ | ✅ | ? | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
+| CSS Modules | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | - | - |
+| Styled JSX  | ✅ | ✅ | ? | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
 |  Styled Components |  |  |  |  |  |  |  |  |  |
 |  Emotion |  |  |  |  |  |  |  |  |  |
 |  Glamor |  |  |  |  |  |  |  |  |  |
 |  Cxs |  |  |  |  |  |  |  |  |  |
 |  Aphrodite |  |  |  |  |  |  |  |  |  |
 |  Linaria |  |  |  |  |  |  |  |  |  |
+
+<br />
+
+**LEGEND**:
 
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
@@ -39,6 +43,9 @@ yarn dev
 <br />
 
 ### CSS modules
+
+- **TypeScript** can be used, but only as inline styles, not in CSS files
+- same applies for **dynamic or user styles**, which basically is the most performant, right?
 
 ```
 Page                                Size     First Load JS
@@ -65,6 +72,7 @@ Page                                Size     First Load JS
 - 🟠 has types on DT, but not sure if/how they help, as there isn't any library API to use (or very minimal)
 - 🟠 no utilities
 - 🟠 bundles styles even if they are not used in component
+- ✅ out-of-the-box support with Next.js
 - ✅ full CSS support apparently
 - ✅ styles on element/tags like `button` are automatically scoped (unique class names are added)
 - ✅ can get generated `className`, or `styles` object (but it contains an entire React component, with all the static & dynamic styles)
