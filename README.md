@@ -77,10 +77,9 @@ Page                                Size     First Load JS
 - ✅ styles on element/tags like `button` are automatically scoped (unique class names are added)
 - ✅ can get generated `className`, or `styles` object (but it contains an entire React component, with all the static & dynamic styles)
 - ✅ page styles are more convenient, because they can be colocated within the Page component
-- 🟠 requires manual optimisations
-   - need to [split static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), otherwise it will render duplicate output
 
 **Observations**:
+- need to [split static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), otherwise it will render duplicate output
 - cannot use nesting, like `& span`, or `&:hover`
 - don't know how to see/debug client toggled styles, as they are nowhere to be found in dev tools (in production)
 - user input styles: it generates a new class name for each change, but it removes the old one
