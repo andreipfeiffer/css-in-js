@@ -26,11 +26,8 @@ export default function Home() {
 }
 
 const styles = css`
-  div {
-    max-width: 75vw;
-  }
-
   .heading {
+    max-width: 75vw;
     font-size: 1.5rem;
   }
 `;
