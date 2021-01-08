@@ -28,7 +28,7 @@ yarn dev
 
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
-- **Dedupe**: ability to deduplicate served resources, if a component is used on multiple routes (module federation)
+- **Dedupe**: ability to deduplicate served resources, if a component is used on multiple routes (this might be a Next.js limitation, that could be fixed with module federation on build)
 - **Dead code elimination**: out-of-the-box optimisation for not including styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
