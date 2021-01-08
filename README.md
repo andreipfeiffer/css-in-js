@@ -61,3 +61,18 @@ Page                                Size     First Load JS
 - cannot use nesting, like `& span`, or `&:hover`
 - don't know how to see/debug client toggled styles, as they are nowhere to be found in dev tools (in production)
 - user input styles: it generates a new class name for each change, but it removes the old one
+
+```
+Page                                                           Size     First Load JS
+┌ ○ /                                                          2.64 kB        69.3 kB
+├   /_app                                                      0 B            66.6 kB
+├ ○ /404                                                       3.03 kB        69.6 kB
+└ ○ /other                                                     1.17 kB        67.8 kB
++ First Load JS shared by all                                  66.6 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.3baab1.js  3.53 kB
+  ├ chunks/commons.7af247.js                                   13.1 kB
+  ├ chunks/framework.9d5241.js                                 41.8 kB
+  ├ chunks/main.99ad68.js                                      6.62 kB
+  ├ chunks/pages/_app.949398.js                                907 B
+  └ chunks/webpack.50bee0.js                                   751 B
+```
