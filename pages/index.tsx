@@ -1,46 +1,31 @@
-import css from "styled-jsx/css";
+import { useState } from "react";
+import Link from "next/link";
 import { Button } from "../components/button";
+import { Input } from "../components/input";
 
 export default function Home() {
+  const [showButtons, toggleButtons] = useState(false);
+  const [width, setWidth] = useState(100);
+
   return (
     <main>
-      <style global jsx>
-        {global_styles}
-      </style>
+      <Link href="/other">
+        <Button>Other page</Button>
+      </Link>
 
-      <Button>Default color</Button>
-      <Button color="yellow">Yellow color</Button>
-      <Button color="green">Green color</Button>
+      <Button color="blue" onClick={() => toggleButtons(true)}>
+        Show other buttons
+      </Button>
+
+      {showButtons && (
+        <>
+          <Button color="yellow">Yellow button</Button>
+          <Button color="green">Green button</Button>
+          <Button color="red">Red button</Button>
+        </>
+      )}
+
+      <Input value={width} onChange={(val) => setWidth(val)} />
     </main>
   );
 }
-
-const global_styles = css.global`
-  html,
-  body {
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  html,
-  body,
-  button,
-  input {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-`;
