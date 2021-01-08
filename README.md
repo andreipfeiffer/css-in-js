@@ -19,8 +19,8 @@ yarn start
 
 |                   | Global styles | SSR   | Dedupe | Unused code | DX    | TS    | External | Prefixes | Lib  | Page |
 | :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | :------: | ---: | ---: |
-| CSS Modules       | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | -      | -      |
-| Styled JSX        | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
+| [CSS Modules](#css-modules)       | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | -      | -      |
+| [Styled JSX](#styles-jsx)         | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
 | Styled Components |  |  |  |  |  |  |  |  |  |
 | Emotion           |  |  |  |  |  |  |  |  |  |
 | Glamor            |  |  |  |  |  |  |  |  |  |
