@@ -11,15 +11,28 @@ yarn dev
 
 ## Overview
 
-|       | Global styles | SSR | Dead code elimination | DX    | TS | External file | Vendor prefixes | Size | Bundle |
+|       | Global styles | SSR | Dead code elimination | DX    | TS | External | Prefixes | Size | Page Bundle |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
-| Styled JSX | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ✅ | 3.5KB | +4.4KB |
+| Styled JSX | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +0.5KB |
 |  Styled Components |  |  |  |  |  |  |  |  |
 |  Emotion |  |  |  |  |  |  |  |  |
 |  Glamor |  |  |  |  |  |  |  |  |
 |  Cxs |  |  |  |  |  |  |  |  |
 |  Aphrodite |  |  |  |  |  |  |  |  |
 |  Linaria |  |  |  |  |  |  |  |  |
+
+- **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
+- **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
+- **Dead code elimination**: out-of-the-box optimisation for not including styles that are not used in components
+- **DX**: Developer eXperience which includes:
+   - syntax highlighting
+   - code-completion for CSS properties and values
+- **TS**: TypeScript support for library API, either built-in, or via `@types` package
+- **External**: ability to extract styles in a separate file
+- **Prefixes**: out-of-the-box ability to add vendor specific prefixes
+- **Size**: size in KB of the library that is shipped in a production build
+- **Bundle**: increase in KB (as an average), for an entire single page built for production
+<br />
 
 <br />
 
@@ -61,6 +74,8 @@ Page                                Size     First Load JS
 - cannot use nesting, like `& span`, or `&:hover`
 - don't know how to see/debug client toggled styles, as they are nowhere to be found in dev tools (in production)
 - user input styles: it generates a new class name for each change, but it removes the old one
+- unique class names are added to elements that are not targetted in style definition (highly polluted html)
+- SSR styles are sent as `<style>` tag, which prevents paralel resourse fetch, thus increasing FCP
 
 ```
 Page                                                           Size     First Load JS
