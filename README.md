@@ -17,16 +17,16 @@ yarn start
 
 ## Overview
 
-|                   | Global styles | SSR   | Dedupe | Unused code | DX    | TS    | External | Prefixes | Lib  | Page |
-| :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | :------: | ---: | ---: |
-| [CSS Modules](#css-modules)       | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | -      | -      |
-| [Styled JSX](#styled-jsx)         | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
-| Styled Components |  |  |  |  |  |  |  |  |  |
-| Emotion           |  |  |  |  |  |  |  |  |  |
-| Glamor            |  |  |  |  |  |  |  |  |  |
-| Cxs               |  |  |  |  |  |  |  |  |  |
-| Aphrodite         |  |  |  |  |  |  |  |  |  |
-| Linaria           |  |  |  |  |  |  |  |  |  |
+|                   | Global styles | SSR   | Dedupe | Unused code | DX    | TS    | Prefixes | Lib  | Page |
+| :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ? | ✅ | 🟠 | ✅ | -      | -      |
+| [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
+| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | 🟠 | ✅ |  |
+| Emotion           |  |  |  |  |  |  |  |  |
+| Glamor            |  |  |  |  |  |  |  |  |
+| Cxs               |  |  |  |  |  |  |  |  |
+| Aphrodite         |  |  |  |  |  |  |  |  |
+| Linaria           |  |  |  |  |  |  |  |  |
 
 <br />
 
