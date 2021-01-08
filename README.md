@@ -11,18 +11,20 @@ yarn dev
 
 ## Overview
 
-|       | Global styles | SSR | Dead code elimination | DX    | TS | External | Prefixes | Size | Page Bundle |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
-| Styled JSX | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +0.5KB |
-|  Styled Components |  |  |  |  |  |  |  |  |
-|  Emotion |  |  |  |  |  |  |  |  |
-|  Glamor |  |  |  |  |  |  |  |  |
-|  Cxs |  |  |  |  |  |  |  |  |
-|  Aphrodite |  |  |  |  |  |  |  |  |
-|  Linaria |  |  |  |  |  |  |  |  |
+|       | Global styles | SSR | Dedupe | Dead code elimination | DX    | TS | External | Prefixes | Size | Page |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
+| CSS Modules | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | - | - |
+| Styled JSX | ✅ | ✅ | ? | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
+|  Styled Components |  |  |  |  |  |  |  |  |  |
+|  Emotion |  |  |  |  |  |  |  |  |  |
+|  Glamor |  |  |  |  |  |  |  |  |  |
+|  Cxs |  |  |  |  |  |  |  |  |  |
+|  Aphrodite |  |  |  |  |  |  |  |  |  |
+|  Linaria |  |  |  |  |  |  |  |  |  |
 
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
+- **Dedupe**: ability to deduplicate served resources, if a component is used on multiple routes (module federation)
 - **Dead code elimination**: out-of-the-box optimisation for not including styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
