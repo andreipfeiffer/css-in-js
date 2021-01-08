@@ -21,7 +21,7 @@ yarn start
 | :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ? | ✅ | 🟠 | ✅ | -      | -      |
 | [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
-| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | ✅ | ✅ |  |
+| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
 | Emotion           |  |  |  |  |  |  |  |  |
 | Glamor            |  |  |  |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |  |  |  |
@@ -111,6 +111,7 @@ Page                                                           Size     First Lo
 
 ### Styled Components
 
+- 🟠 it has a learning curve
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 no utilities
 - 🟠 bundles nested styles even if they are not used in component
@@ -123,3 +124,18 @@ Page                                                           Size     First Lo
 - need to split static & dynamic styles, otherwise it will render duplicate output
 - de-facto are Tagged Templates, but you can also use Object Styles, however mixing them is confusing, because syntax is different (kebab vs camel, EOL character, quotes, etc)
 - some more complex syntax appears to be a bit cumbersome to get it right
+
+```
+Page                                                           Size     First Load JS
+┌ ○ /                                                          2.5 kB         79.4 kB
+├   /_app                                                      0 B            76.9 kB
+├ ○ /404                                                       3.03 kB        79.9 kB
+└ ○ /other                                                     1.04 kB        77.9 kB
++ First Load JS shared by all                                  76.9 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.3f0ffd.js  13.8 kB
+  ├ chunks/commons.7af247.js                                   13.1 kB
+  ├ chunks/framework.9d5241.js                                 41.8 kB
+  ├ chunks/main.99ad68.js                                      6.62 kB
+  ├ chunks/pages/_app.7093f3.js                                921 B
+  └ chunks/webpack.50bee0.js                                   751 B
+```
