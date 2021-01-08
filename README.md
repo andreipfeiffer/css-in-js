@@ -17,16 +17,16 @@ yarn start
 
 ## Overview
 
-|       | Global styles | SSR | Dedupe | Dead code elimination | DX    | TS | External | Prefixes | Size | Page |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
-| CSS Modules | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | - | - |
-| Styled JSX  | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
-|  Styled Components |  |  |  |  |  |  |  |  |  |
-|  Emotion |  |  |  |  |  |  |  |  |  |
-|  Glamor |  |  |  |  |  |  |  |  |  |
-|  Cxs |  |  |  |  |  |  |  |  |  |
-|  Aphrodite |  |  |  |  |  |  |  |  |  |
-|  Linaria |  |  |  |  |  |  |  |  |  |
+|                   | Global styles | SSR   | Dedupe | Unused code | DX    | TS    | External | Prefixes | Lib  | Page |
+| :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | :------: | ---: | ---: |
+| CSS Modules       | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | -      | -      |
+| Styled JSX        | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
+| Styled Components |  |  |  |  |  |  |  |  |  |
+| Emotion           |  |  |  |  |  |  |  |  |  |
+| Glamor            |  |  |  |  |  |  |  |  |  |
+| Cxs               |  |  |  |  |  |  |  |  |  |
+| Aphrodite         |  |  |  |  |  |  |  |  |  |
+| Linaria           |  |  |  |  |  |  |  |  |  |
 
 <br />
 
@@ -35,14 +35,14 @@ yarn start
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
 - **Dedupe**: ability to deduplicate served resources, if a component is used on multiple routes (this might be a Next.js limitation, that could be fixed with module federation on build)
-- **Dead code elimination**: out-of-the-box optimisation for not including styles that are not used in components
+- **Unused code**: out-of-the-box optimisation for removing styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
 - **External**: ability to extract styles in a separate file
 - **Prefixes**: out-of-the-box ability to add vendor specific prefixes
-- **Size**: size in KB of the library that is shipped in a production build
+- **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 <br />
 
