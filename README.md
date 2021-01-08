@@ -11,7 +11,7 @@ yarn dev
 
 ## Overview
 
-|       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | External file | Bundle |
+|       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | Vendor prefixes | Bundle overhead |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
 | Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ✅ | ? |
 |  Styled Components |  |  |  |  |  |  |  |  |
