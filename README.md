@@ -11,15 +11,15 @@ yarn dev
 
 ## Overview
 
-|       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | Vendor prefixes | Size | Bundle overhead |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
-| Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ✅ | 3.5KB | 4.4KB |
-|  Styled Components |  |  |  |  |  |  |  |  |  |
-|  Emotion |  |  |  |  |  |  |  |  |  |
-|  Glamor |  |  |  |  |  |  |  |  |  |
-|  Cxs |  |  |  |  |  |  |  |  |  |
-|  Aphrodite |  |  |  |  |  |  |  |  |  |
-|  Linaria |  |  |  |  |  |  |  |  |  |
+|       | Global styles | SSR | Dead code elimination | DX    | TS | External file | Vendor prefixes | Size | Bundle |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
+| Styled JSX | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ✅ | 3.5KB | +4.4KB |
+|  Styled Components |  |  |  |  |  |  |  |  |
+|  Emotion |  |  |  |  |  |  |  |  |
+|  Glamor |  |  |  |  |  |  |  |  |
+|  Cxs |  |  |  |  |  |  |  |  |
+|  Aphrodite |  |  |  |  |  |  |  |  |
+|  Linaria |  |  |  |  |  |  |  |  |
 
 <br />
 
