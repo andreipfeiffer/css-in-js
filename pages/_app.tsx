@@ -36,9 +36,13 @@ const global_styles = css.global`
     font-size: 16px;
   }
 
-  a {
-    color: inherit;
+  a:link,
+  a:visited {
+    color: dodgerblue;
     text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 
   * {

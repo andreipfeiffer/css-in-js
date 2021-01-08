@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <Link href="/other">
-        <Button>Other page</Button>
+        <a>Other page</a>
       </Link>
 
       <Button color="blue" onClick={() => toggleButtons(true)}>
