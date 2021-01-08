@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main>
-      <Link href="/other">
+      <Link href="/other" prefetch={false}>
         <a>Other page</a>
       </Link>
 
