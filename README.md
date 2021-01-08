@@ -25,8 +25,8 @@ yarn dev
 
 ### Styled JSX
 
-- 🟠 need editor plugin for highlight & language service
-- 🟠 has types on DT, but not sure if/how they help
+- 🟠 need additional editor plugin for highlight & language service
+- 🟠 has types on DT, but not sure if/how they help, as there isn't any library API to use (or very minimal)
 - 🟠 no utilities
 - 🟠 bundles styles even if they are not used in component
 - ✅ full CSS support apparently
