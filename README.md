@@ -21,7 +21,7 @@ yarn start
 | :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ? | ✅ | 🟠 | ✅ | -      | -      |
 | [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
-| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | 🟠 | ✅ |  |
+| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | ✅ | ✅ |  |
 | Emotion           |  |  |  |  |  |  |  |  |
 | Glamor            |  |  |  |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |  |  |  |
@@ -106,3 +106,20 @@ Page                                                           Size     First Lo
   ├ chunks/pages/_app.949398.js                                907 B
   └ chunks/webpack.50bee0.js                                   751 B
 ```
+
+<br />
+
+### Styled Components
+
+- 🟠 need additional editor plugin for highlight & language service
+- 🟠 no utilities
+- 🟠 bundles nested styles even if they are not used in component
+- ✅ full CSS support apparently
+- ✅ pretty good TS support, except when using Object Styles, which is a newer approach apparently
+- ✅ provides nesting selectors
+- ✅ out-of-the-box theming support
+
+**Observations**:
+- need to split static & dynamic styles, otherwise it will render duplicate output
+- de-facto are Tagged Templates, but you can also use Object Styles, however mixing them is confusing, because syntax is different (kebab vs camel, EOL character, quotes, etc)
+- some more complex syntax appears to be a bit cumbersome to get it right
