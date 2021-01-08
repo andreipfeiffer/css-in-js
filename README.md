@@ -3,13 +3,13 @@ Various **CSS-in-JS** solutions comparison in React, using **CSS modules** as a 
 ## Getting Started
 
 ```bash
-// install dependencies
+# install dependencies
 yarn
 
-// for development
+# for development
 yarn dev
 
-// for production
+# for production
 yarn build
 yarn start
 ```
