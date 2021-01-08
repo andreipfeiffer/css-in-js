@@ -23,6 +23,27 @@ yarn dev
 
 <br />
 
+### CSS modules
+
+```
+Page                                Size     First Load JS
+┌ ○ /                               2.15 kB        64.9 kB
+├   └ css/7a5b6d23ea12e90bddea.css  407 B
+├   /_app                           0 B            62.7 kB
+├ ○ /404                            3.03 kB        65.7 kB
+└ ○ /other                          706 B          63.4 kB
+    └ css/57bb8cd5308b249275fa.css  443 B
++ First Load JS shared by all       62.7 kB
+  ├ chunks/commons.7af247.js        13.1 kB
+  ├ chunks/framework.9d5241.js      41.8 kB
+  ├ chunks/main.03531f.js           6.62 kB
+  ├ chunks/pages/_app.6e472f.js     526 B
+  ├ chunks/webpack.50bee0.js        751 B
+  └ css/d9aac052842a915b5cc7.css    325 B
+```
+
+<br />
+
 ### Styled JSX
 
 - 🟠 need additional editor plugin for highlight & language service
