@@ -13,7 +13,7 @@ yarn dev
 
 |       | Global styles | SSR | Dead code elimination | Code Split    | Auto-complete    | TS | External file | Vendor prefixes | Bundle overhead |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
-| Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ✅ | ? |
+| Styled JSX | ✅ | ✅ | ❌ | ? | 🟠 | 🟠 | ✅ | ✅ | 4.4KB (3.5 lib) |
 |  Styled Components |  |  |  |  |  |  |  |  |
 |  Emotion |  |  |  |  |  |  |  |  |
 |  Glamor |  |  |  |  |  |  |  |  |
