@@ -14,7 +14,7 @@ yarn dev
 |       | Global styles | SSR | Dedupe | Dead code elimination | DX    | TS | External | Prefixes | Size | Page |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: | ---: |
 | CSS Modules | ✅ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | ✅ | - | - |
-| Styled JSX  | ✅ | ✅ | ? | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
+| Styled JSX  | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | ✅ | +3.5KB | +4.4KB |
 |  Styled Components |  |  |  |  |  |  |  |  |  |
 |  Emotion |  |  |  |  |  |  |  |  |  |
 |  Glamor |  |  |  |  |  |  |  |  |  |
