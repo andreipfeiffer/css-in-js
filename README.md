@@ -71,6 +71,7 @@ If a component is imported by 2 different routes, it will be send twice to the c
 
 - **TypeScript** can be used, but only as inline styles, not in CSS files
 - same applies for **dynamic or user styles**, which basically is the most performant, right?
+- media queries with TS/JS values cannot be used, so they should ne handled as inline styles with JS match media, or via SSR props from user agent
 
 ```
 Page                                Size     First Load JS
