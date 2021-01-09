@@ -25,7 +25,6 @@ yarn start
 | [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
 | Glamor            |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |
-| Aphrodite         |  |  |  |  |  |
 | Linaria           |  |  |  |  |  |
 
 <br />
@@ -51,7 +50,8 @@ yarn start
 Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
 
 ✅ **Global styles**  
-All solutions offer a way to define global styles, some with a separate API.
+All solutions offer a way to define global styles, some with a separate API.  
+⚠️ Exception: Aphrodite
 
 ✅ **SSR**  
 All solutions are able to be Server-Side Rendered by Next.js.
@@ -198,3 +198,17 @@ Page                                                           Size     First Lo
   ├ chunks/pages/_app.2f0633.js                                880 B
   └ chunks/webpack.50bee0.js                                   751 B
 ```
+
+<br />
+
+### Dismissed solutions
+
+#### Aphrodite
+
+It's not a popular solution, the approach is similar to **React Native StyleSheets**  way of styling components. Has built-in TypeScript support and a simple API.
+
+- global styles are a bit cumbersome to define
+- no nesting support, apart from media queries & pseudo selectors
+- no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
+
+**Conclusion**: doesn't add any real value, except the ergonomics to colocate styles with the component.
