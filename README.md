@@ -17,11 +17,11 @@ yarn start
 
 ## Overview
 
-|                   | Global styles | SSR   | Dedupe | Unused code | DX    | TS    | Prefixes | Lib  | Page |
-| :---------------- | :-----------: | :---: | :----: | :---------: | :---: | :---: | :------: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ? | ✅ | 🟠 | ✅ | -      | -      |
-| [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
-| [Styled Components](#styled-components) | 🟠 | ✅ | ? | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
+|                   | Global styles | SSR   | Unused code | DX    | TS    | Prefixes | Lib  | Page |
+| :---------------- | :-----------: | :---: | :---------: | :---: | :---: | :------: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ✅ | 🟠 | ✅ | -      | -      |
+| [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
+| [Styled Components](#styled-components) | 🟠 | ✅ | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
 | Emotion           |  |  |  |  |  |  |  |  |
 | Glamor            |  |  |  |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |  |  |  |
@@ -34,7 +34,6 @@ yarn start
 
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
-- **Dedupe**: ability to deduplicate served resources, if a component is used on multiple routes (this might be a Next.js limitation, that could be fixed with module federation on build)
 - **Unused code**: out-of-the-box optimisation for removing styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
