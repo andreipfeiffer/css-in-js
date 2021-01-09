@@ -1,4 +1,5 @@
-import css from "styled-jsx/css";
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
 
 enum Color {
   grey = "#cccccc",
@@ -9,89 +10,81 @@ enum Color {
 }
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
   color?: keyof typeof Color;
   onClick?(): void;
 };
 
 export function Button(props: Props) {
-  const { children, color = "grey", onClick } = props;
+  const { children, onClick } = props;
 
   return (
-    <button onClick={onClick}>
+    <StyledButton onClick={onClick} {...props}>
       <span>{children}</span>
-
-      <style jsx>{button}</style>
-      <style jsx>
-        {`
-          // dynamic styles, need to be split from static styles
-          button {
-            color: ${Color[color]};
-          }
-        `}
-      </style>
-    </button>
+    </StyledButton>
   );
 }
 
-const button = css`
-  button {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
-
-  span {
-    color: white;
-  }
-
-  button:hover {
-    animation-name: button-animation;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
-  }
-
-  @media only screen and (min-width: 640px) {
-    button {
-      width: 100%;
-    }
-  }
-
-  @keyframes button-animation {
-    from {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-    to {
-      transform: translateY(-0.5em);
-      box-shadow: 0 0.5em 0 0 #ddd;
-    }
-  }
-
-  // the following styled should be ignored, as they are not needed
-  strong {
-    color: red;
-  }
-
-  .unused_styles {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+const button_animation = keyframes`
+from {
+  transform: translateY(0);
+  box-shadow: none;
+}
+to {
+  transform: translateY(-0.5em);
+  box-shadow: 0 0.5em 0 0 #ddd;
+}
 `;
+
+const DynamicButton = styled.button<Props>();
+const StyledButton = styled(DynamicButton)(
+  {
+    border: 0,
+    height: "3em",
+    padding: "0 2em",
+    borderRadius: "1.5em",
+    cursor: "pointer",
+    fontWeight: "bold",
+    width: "100vw",
+    display: "block",
+    outline: 0,
+    backgroundColor: "currentColor",
+    margin: "1em auto",
+
+    "&:hover": {
+      animationName: button_animation,
+      animationFillMode: "forwards",
+      animationDuration: "0.5s",
+    },
+
+    "& span": {
+      color: "white",
+    },
+
+    "@media only screen and (min-width: 640px)": {
+      width: "100%",
+    },
+
+    // the following styled should be ignored, as they are not needed
+    strong: {
+      color: "red",
+    },
+
+    "& .unused_styles": {
+      border: 0,
+      height: "3em",
+      padding: "0 2em",
+      borderRadius: "1.5em",
+      cursor: "pointer",
+      fontWeight: "bold",
+      width: "100vw",
+      display: "block",
+      outline: 0,
+      backgroundColor: "currentColor",
+      margin: "1em auto",
+    },
+  },
+  (props) => ({
+    color: Color[props.color || "grey"],
+  })
+);
