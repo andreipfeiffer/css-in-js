@@ -17,16 +17,16 @@ yarn start
 
 ## Overview
 
-|                   | Dead code removal | DX    | TS    | Prefixes | Lib  | Page |
-| :---------------- | :---------------: | :---: | :---: | :------: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | ✅ | -      | -      |
-| [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
-| [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
-| [Emotion](#emotion)                     |  |  |  |  |  |  |
-| Glamor            |  |  |  |  |  |  |
-| Cxs               |  |  |  |  |  |  |
-| Aphrodite         |  |  |  |  |  |  |
-| Linaria           |  |  |  |  |  |  |
+|                                         | Dead code removal | DX    | TS    | Lib  | Page |
+| :-------------------------------------- | :---------------: | :---: | :---: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | -        | -        |
+| [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
+| Glamor            |  |  |  |  |  |
+| Cxs               |  |  |  |  |  |
+| Aphrodite         |  |  |  |  |  |
+| Linaria           |  |  |  |  |  |
 
 <br />
 
@@ -40,7 +40,6 @@ yarn start
    - code-completion for CSS properties and values
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
 - **External**: ability to extract styles in a separate file
-- **Prefixes**: out-of-the-box ability to add vendor specific prefixes
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
@@ -56,6 +55,12 @@ All solutions offer a way to define global styles, some with a separate API.
 
 ✅ **SSR**  
 All solutions are able to be Server-Side Rendered by Next.js.
+
+✅ **Vendor prefixes**  
+All solutions add vendor specific prefixes out-of-the-box.
+
+🟠 **Increased FCP**  
+SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML.
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
@@ -88,6 +93,8 @@ Page                                Size     First Load JS
 
 ### Styled JSX
 
+Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
+
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 has TypeScript support (via `@types`), but not sure if/how they help, as there isn't any library API to use, or it's very minimal
 - 🟠 no utilities
@@ -105,7 +112,6 @@ Page                                Size     First Load JS
 - don't know how to see/debug client toggled styles, as they are nowhere to be found in dev tools (in production)
 - user input styles: it generates a new class name for each change, but it removes the old one
 - unique class names are added to elements that are not targetted in style definition (highly polluted html)
-- SSR styles are sent as `<style>` tag, which prevents paralel resourse fetch, thus increasing FCP
 
 ```
 Page                                                           Size     First Load JS
@@ -126,6 +132,8 @@ Page                                                           Size     First Lo
 
 ### Styled Components
 
+Probably the most popular solution, good documentation. It uses Tagged Templates to defines styles, but can use objects as well, but apparently it's a second class citizen.
+
 - 🟠 it has a higher learning curve
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 no utilities
@@ -139,6 +147,7 @@ Page                                                           Size     First Lo
 - need to split static & dynamic styles, otherwise it will render duplicate output
 - de-facto are Tagged Templates, but you can also use Object Styles, however mixing them is confusing, because syntax is different (kebab vs camel, EOL character, quotes, etc)
 - some more complex syntax appears to be a bit cumbersome to get it right
+- user input styles: it generates a new class name for each change, but it does NOT remove the old one
 
 ```
 Page                                                           Size     First Load JS
@@ -159,5 +168,33 @@ Page                                                           Size     First Lo
 
 ### Emotion
 
-- 🟠 -
+Probably the most comprehensive, complete, sofisticated solution. Detailed documentation, built with TypeScript, looks mature being at version 11.
+
+- 🟠 it has a higher learning curve
+- 🟠 no utilities
+- 🟠 bundles nested styles even if they are not used in component
+- ✅ good DX, since you can use objects (not necessarily strings), provides code completion
 - ✅ built-in TypeScript support
+- ✅ provides nesting selectors
+- ✅ out-of-the-box theming support
+
+**Observations**:
+- dynamic props are not as straightforward to use with TS, not sure how to structure the components, I guess it needs a different angle approach
+- there are naming conflicts between Component Props and Element Attribute names (see custom Input component: passed Props `onChange()` and input `onChange()`)
+- user input styles: it generates a new class name for each change, but it does NOT remove the old one
+- cannot (easily) split static and dynamic styles, it doesn't properly separate them, even if defined separately (highly poluted duplicated styles in head)
+
+```
+Page                                                           Size     First Load JS
+┌ ○ /                                                          5.86 kB        76.1 kB
+├   /_app                                                      0 B            70.2 kB
+├ ○ /404                                                       3.03 kB        73.3 kB
+└ ○ /other                                                     4.46 kB        74.7 kB
++ First Load JS shared by all                                  70.2 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.0d44a7.js  7.17 kB
+  ├ chunks/commons.800e6d.js                                   13.1 kB
+  ├ chunks/framework.9d5241.js                                 41.8 kB
+  ├ chunks/main.45755e.js                                      6.55 kB
+  ├ chunks/pages/_app.2f0633.js                                880 B
+  └ chunks/webpack.50bee0.js                                   751 B
+```
