@@ -39,3 +39,19 @@
     box-shadow: 0 0.5em 0 0 #ddd;
   }
 }
+
+/* the following styled should be ignored, as they are not needed */
+.unused_styles {
+  color: red;
+  border: 0;
+  height: 3em;
+  padding: 0 2em;
+  border-radius: 1.5em;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100vw;
+  display: block;
+  outline: 0;
+  background-color: currentColor;
+  margin: 1em auto;
+}
