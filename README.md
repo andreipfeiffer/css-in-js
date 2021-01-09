@@ -17,8 +17,8 @@ yarn start
 
 ## Overview
 
-|                   | Unused code | DX    | TS    | Prefixes | Lib  | Page |
-| :---------------- | :---------: | :---: | :---: | :------: | ---: | ---: |
+|                   | Dead code removal | DX    | TS    | Prefixes | Lib  | Page |
+| :---------------- | :---------------: | :---: | :---: | :------: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | ✅ | -      | -      |
 | [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
 | [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
@@ -34,7 +34,7 @@ yarn start
 
 - **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
 - **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
-- **Unused code**: out-of-the-box optimisation for removing styles that are not used in components
+- **Dead code removal**: out-of-the-box optimisation for removing (not bundling) styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
