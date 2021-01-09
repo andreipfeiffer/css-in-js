@@ -31,14 +31,11 @@ yarn start
 
 **LEGEND**:
 
-- **Global styles**: ability to easily add global styles, as any other style, without the need for using special APIs, or hacks;
-- **SSR**: ability to Server-Side Render the styles, usage with Next.js SSR/SSG
 - **Dead code removal**: out-of-the-box optimisation for removing (not bundling) styles that are not used in components
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
-- **External**: ability to extract styles in a separate file
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
