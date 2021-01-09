@@ -17,16 +17,16 @@ yarn start
 
 ## Overview
 
-|                   | Global styles | SSR   | Unused code | DX    | TS    | Prefixes | Lib  | Page |
-| :---------------- | :-----------: | :---: | :---------: | :---: | :---: | :------: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ✅ | ✅ | ❌ | ✅ | 🟠 | ✅ | -      | -      |
-| [Styled JSX](#styled-jsx)               | ✅ | ✅ | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
-| [Styled Components](#styled-components) | 🟠 | ✅ | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
-| Emotion           |  |  |  |  |  |  |  |  |
-| Glamor            |  |  |  |  |  |  |  |  |
-| Cxs               |  |  |  |  |  |  |  |  |
-| Aphrodite         |  |  |  |  |  |  |  |  |
-| Linaria           |  |  |  |  |  |  |  |  |
+|                   | Unused code | DX    | TS    | Prefixes | Lib  | Page |
+| :---------------- | :---------: | :---: | :---: | :------: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | ✅ | -      | -      |
+| [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 | ✅ | +3.5KB | +4.4KB |
+| [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | ✅ | +13.8KB | +14.5KB |
+| [Emotion](#emotion)                     |  |  |  |  |  |  |
+| Glamor            |  |  |  |  |  |  |
+| Cxs               |  |  |  |  |  |  |
+| Aphrodite         |  |  |  |  |  |  |
+| Linaria           |  |  |  |  |  |  |
 
 <br />
 
@@ -50,6 +50,12 @@ yarn start
 
 ✅ **Code splitting**  
 Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
+
+✅ **Global styles**  
+All solutions offer a way to define global styles, some with a separate API.
+
+✅ **SSR**  
+All solutions are able to be Server-Side Rendered by Next.js.
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
@@ -83,7 +89,7 @@ Page                                Size     First Load JS
 ### Styled JSX
 
 - 🟠 need additional editor plugin for highlight & language service
-- 🟠 has types on DT, but not sure if/how they help, as there isn't any library API to use (or very minimal)
+- 🟠 has TypeScript support (via `@types`), but not sure if/how they help, as there isn't any library API to use, or it's very minimal
 - 🟠 no utilities
 - 🟠 bundles all defined styles even if they are not used in component
 - ✅ out-of-the-box support with Next.js
@@ -125,7 +131,7 @@ Page                                                           Size     First Lo
 - 🟠 no utilities
 - 🟠 bundles nested styles even if they are not used in component (however, if you don't use a StyledComponent, it won't be bundled, as it is not referenced)
 - ✅ full CSS support apparently
-- ✅ pretty good TS support, except when using Object Styles, which is a newer approach apparently
+- ✅ pretty good TS support (via `@types`), except when using Object Styles, which is a newer approach apparently
 - ✅ provides nesting selectors
 - ✅ out-of-the-box theming support
 
@@ -148,3 +154,10 @@ Page                                                           Size     First Lo
   ├ chunks/pages/_app.7093f3.js                                921 B
   └ chunks/webpack.50bee0.js                                   751 B
 ```
+
+<br />
+
+### Emotion
+
+- 🟠 -
+- ✅ built-in TypeScript support
