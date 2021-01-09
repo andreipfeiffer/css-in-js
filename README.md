@@ -44,7 +44,16 @@ yarn start
 - **Prefixes**: out-of-the-box ability to add vendor specific prefixes
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
+
 <br />
+
+### Overall observations
+
+✅ **Code splitting**  
+Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
+
+❌ **No component deduping**  
+If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
 
 <br />
 
@@ -77,8 +86,9 @@ Page                                Size     First Load JS
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 has types on DT, but not sure if/how they help, as there isn't any library API to use (or very minimal)
 - 🟠 no utilities
-- 🟠 bundles styles even if they are not used in component
+- 🟠 bundles all defined styles even if they are not used in component
 - ✅ out-of-the-box support with Next.js
+- ✅ has a minimal API, so it has a low learning curve
 - ✅ full CSS support apparently
 - ✅ styles on element/tags like `button` are automatically scoped (unique class names are added)
 - ✅ can get generated `className`, or `styles` object (but it contains an entire React component, with all the static & dynamic styles)
@@ -111,10 +121,10 @@ Page                                                           Size     First Lo
 
 ### Styled Components
 
-- 🟠 it has a learning curve
+- 🟠 it has a higher learning curve
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 no utilities
-- 🟠 bundles nested styles even if they are not used in component
+- 🟠 bundles nested styles even if they are not used in component (however, if you don't use a StyledComponent, it won't be bundled, as it is not referenced)
 - ✅ full CSS support apparently
 - ✅ pretty good TS support, except when using Object Styles, which is a newer approach apparently
 - ✅ provides nesting selectors
