@@ -1,4 +1,4 @@
-import css from "styled-jsx/css";
+import styled, { css, keyframes } from "styled-components";
 
 enum Color {
   grey = "#cccccc",
@@ -12,86 +12,86 @@ type Props = {
   children: string;
   color?: keyof typeof Color;
   onClick?(): void;
+  className?: string;
 };
 
-export function Button(props: Props) {
-  const { children, color = "grey", onClick } = props;
+function UnstyledButton(props: Props) {
+  const { children, /*color = "grey",*/ onClick, className } = props;
 
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className={className}>
       <span>{children}</span>
-
-      <style jsx>{button}</style>
-      <style jsx>
-        {`
-          // dynamic styles, need to be split from static styles
-          button {
-            color: ${Color[color]};
-          }
-        `}
-      </style>
     </button>
   );
 }
 
-const button = css`
-  button {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+// cannot use objects for keyframes
+// also, we must use "css" here, not "keyframes",
+// because we interpolate in a style object
+const button_animation = keyframes({
+  from: {
+    transform: "translateY(0)",
+    boxShadow: "none",
+  },
+  to: {
+    transform: "translateY(-0.5em)",
+    boxShadow: "0 0.5em 0 0 #ddd",
+  },
+});
 
-  span {
-    color: white;
-  }
-
-  button:hover {
-    animation-name: button-animation;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
-  }
-
-  @media only screen and (min-width: 640px) {
-    button {
-      width: 100%;
-    }
-  }
-
-  @keyframes button-animation {
-    from {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-    to {
-      transform: translateY(-0.5em);
-      box-shadow: 0 0.5em 0 0 #ddd;
-    }
-  }
-
-  // the following styled should be ignored, as they are not needed
-  strong {
-    color: red;
-  }
-
-  .unused_styles {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+// can also use objects, with offer code completion
+const StyledButton = styled(UnstyledButton)`
+  color: ${(props) => Color[props.color || "grey"]};
 `;
+
+export const Button = styled(StyledButton)(
+  {
+    border: 0,
+    height: "3em",
+    padding: "0 2em",
+    borderRadius: "1.5em",
+    cursor: "pointer",
+    fontWeight: "bold",
+    width: "100vw",
+    display: "block",
+    outline: 0,
+    backgroundColor: "currentcolor",
+    margin: "1em auto",
+
+    // "&:hover": {
+    //   // animationName: `${button_animation}`,
+    //   animationFillMode: "forwards",
+    //   // animationDuration: "0.5s",
+    // },
+
+    "@media only screen and (min-width: 640px)": {
+      width: "100%",
+    },
+
+    "& span": {
+      color: "white",
+    },
+
+    // the following styled should be ignored, as they are not needed
+    "& .unused_styles": {
+      border: 0,
+      height: "3em",
+      padding: "0 2em",
+      borderRadius: "1.5em",
+      cursor: "pointer",
+      fontWeight: "bold",
+      width: "100vw",
+      display: "block",
+      outline: 0,
+      backgroundColor: "currentColor",
+      margin: "1em auto",
+    },
+  },
+  css`
+    &:hover {
+      animation-name: ${button_animation};
+      animation-fill-mode: forwards;
+      animation-duration: 0.5s;
+    }
+  `
+);

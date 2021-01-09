@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import css from "styled-jsx/css";
+import styled from "styled-components";
 import { Button } from "../components/button";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
-      <h1 className="heading">Another route</h1>
+      <Heading>Another route</Heading>
 
       <p>
         Styles should be code-splitted, loaded only when the route is loaded.
@@ -19,15 +19,11 @@ export default function Home() {
         The button is loaded on the main route also, so it should not be fetched
         twice.
       </p>
-
-      <style jsx>{styles}</style>
     </main>
   );
 }
 
-const styles = css`
-  .heading {
-    max-width: 75vw;
-    font-size: 1.5rem;
-  }
+const Heading = styled.h1`
+  max-width: 75vw;
+  font-size: 1.5rem;
 `;

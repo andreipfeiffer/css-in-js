@@ -1,21 +1,27 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-import css from "styled-jsx/css";
+import { createGlobalStyle /*, ThemeProvider*/ } from "styled-components";
 
 // import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      {/* <ThemeProvider theme={theme}> */}
       <Component {...pageProps} />
+      {/* </ThemeProvider> */}
 
-      <style global jsx>
-        {global_styles}
-      </style>
+      <GlobalStyle />
     </>
   );
 }
 
-const global_styles = css.global`
+// const theme = {
+//   colors: {
+//     primary: "#0070f3",
+//   },
+// };
+
+const GlobalStyle = createGlobalStyle`
   html,
   body {
     padding: 0;
