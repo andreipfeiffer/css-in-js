@@ -247,3 +247,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 - no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
 
 **Conclusion**: doesn't add any real value, except the ergonomics to colocate styles with the component.
+
+#### Linaria
+
+Didn't manage to start it with Next.js + TypeScript.
