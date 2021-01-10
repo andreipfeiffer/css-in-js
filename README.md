@@ -236,9 +236,7 @@ Page                                Size     First Load JS
 
 <br />
 
-### Dismissed solutions
-
-#### Aphrodite
+### Aphrodite
 
 It's not a popular solution, the approach is similar to **React Native StyleSheets**  way of styling components. Has built-in TypeScript support and a simple API.
 
@@ -248,6 +246,8 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 
 **Conclusion**: doesn't add any real value, except the ergonomics to colocate styles with the component.
 
-#### Linaria
+<br />
+
+### Linaria
 
 Didn't manage to start it with Next.js + TypeScript.
