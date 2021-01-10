@@ -23,7 +23,7 @@ yarn start
 | [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        |  -0.1 KB |
+| [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        | -        |
 | Glamor            |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |
 
