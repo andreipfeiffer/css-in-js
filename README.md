@@ -23,9 +23,9 @@ yarn start
 | [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        |  -0.1 KB |
 | Glamor            |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |
-| Linaria           |  |  |  |  |  |
 
 <br />
 
@@ -95,7 +95,6 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 has TypeScript support (via `@types`), but not sure if/how they help, as there isn't any library API to use, or it's very minimal
-- 🟠 no utilities
 - 🟠 bundles all defined styles even if they are not used in component
 - ✅ out-of-the-box support with Next.js
 - ✅ has a minimal API, so it has a low learning curve
@@ -134,7 +133,6 @@ Probably the most popular solution, good documentation. It uses Tagged Templates
 
 - 🟠 it has a higher learning curve
 - 🟠 need additional editor plugin for highlight & language service
-- 🟠 no utilities
 - 🟠 bundles nested styles even if they are not used in component (however, if you don't use a StyledComponent, it won't be bundled, as it is not referenced)
 - ✅ full CSS support apparently
 - ✅ pretty good TS support (via `@types`), except when using Object Styles, which is a newer approach apparently
@@ -169,7 +167,6 @@ Page                                                           Size     First Lo
 Probably the most comprehensive, complete, sofisticated solution. Detailed documentation, built with TypeScript, looks mature being at version 11.
 
 - 🟠 it has a higher learning curve
-- 🟠 no utilities
 - 🟠 bundles nested styles even if they are not used in component
 - ✅ good DX, since you can use objects (not necessarily strings), provides code completion
 - ✅ built-in TypeScript support
@@ -195,6 +192,46 @@ Page                                                           Size     First Lo
   ├ chunks/main.45755e.js                                      6.55 kB
   ├ chunks/pages/_app.2f0633.js                                880 B
   └ chunks/webpack.50bee0.js                                   751 B
+```
+
+<br />
+
+### Treat
+
+More modern, with great TypeScript integration and low runtime overhead, it's pretty minimal in its features. Everything is processed at compile time, and it generates CSS files, similar to Linaria & CSS modules.
+
+- 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or inline styles for user defined styles)
+- 🟠 it doesn't provide code completion for values, otherwise good DX
+- 🟠 bundles defined styles even if they are not used in component (but a bit more difficult, because you are not allowed nested types)
+- ✅ it has a pretty low learning curve
+- ✅ full CSS support apparently
+- ✅ built-in TypeScript support
+- ✅ out-of-the-box theming support
+
+**Observations**:
+- it's built with restrictions in mind, great TS experience
+- it's pretty similar to CSS modules, like needing external file, having CSS files generated, putting `className` strings on elements, handling dynamic styles differently, etc
+- it's different to CSS modules considering:
+  - TypeScript integration
+  - stricter in defining styles
+  - easier to use media queries with JS values
+- it feels like CSS modules, but you don't write CSS
+
+```
+Page                                Size     First Load JS
+┌ ○ /                               2.11 kB        64.8 kB
+├   └ css/4ca0d586ad5efcd1970b.css  422 B
+├   /_app                           0 B            62.7 kB
+├ ○ /404                            3.03 kB        65.8 kB
+└ ○ /other                          632 B          63.4 kB
+    └ css/adb81858cf67eabcd313.css  435 B
++ First Load JS shared by all       62.7 kB
+  ├ chunks/commons.7af247.js        13.1 kB
+  ├ chunks/framework.9d5241.js      41.8 kB
+  ├ chunks/main.03531f.js           6.62 kB
+  ├ chunks/pages/_app.2baddf.js     546 B
+  ├ chunks/webpack.50bee0.js        751 B
+  └ css/08916f1dfb6533efc4a4.css    286 B
 ```
 
 <br />
