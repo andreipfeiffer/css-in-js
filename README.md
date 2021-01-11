@@ -319,3 +319,11 @@ It looks like a not so popular solution, which also lacks support for TypeScript
 ### Stitches
 
 It looks interesting, will all the features that you'd need, but it's currently in beta, and has no support for Next.js v10 (as of `Jan 2021`). It's built & maintained by the team at Modulz.
+
+### Radium
+
+The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
+
+### Glamorous
+
+The project was [discountinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
