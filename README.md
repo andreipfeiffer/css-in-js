@@ -289,4 +289,8 @@ Didn't manage to start it with Next.js + TypeScript.
 
 ### Cxs
 
-Didn't manage to start it with Next.js + TypeScript. The [Cxs official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6, s the example doesn't work.
+Didn't manage to start it with Next.js + TypeScript. The [Cxs official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
+
+### Fela
+
+Didn't manage to start it with Next.js + TypeScript. The [Fela official example](https://github.com/vercel/next.js/tree/canary/examples/with-fela) uses an older version, today we have version 11.5. The example doesn't work, because the API has changed.
