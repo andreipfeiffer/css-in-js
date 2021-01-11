@@ -311,3 +311,7 @@ The solution looked interesting, because it is marketed to be very light.
 Didn't manage to start it with Next.js + TypeScript. The [Fela official example](https://github.com/vercel/next.js/tree/canary/examples/with-fela) uses an older version, today we have version 11.5. The example doesn't work, because the API has changed.
 
 It looked like a pretty solid approach, with big API, huge documentation and many users.
+
+### Styletron
+
+It looks like a not so popular solution, which also lacks support for TypeScript.
