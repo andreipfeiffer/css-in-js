@@ -287,10 +287,16 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 
 Didn't manage to start it with Next.js + TypeScript.
 
+It was an interesting solution, as it promises zero-runtime overhead, generating `.css` files at build time, while the style are colocated within the components.
+
 ### Cxs
 
 Didn't manage to start it with Next.js + TypeScript. The [Cxs official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
 
+The solution looked interesting, because it is marketed to be very light.
+
 ### Fela
 
 Didn't manage to start it with Next.js + TypeScript. The [Fela official example](https://github.com/vercel/next.js/tree/canary/examples/with-fela) uses an older version, today we have version 11.5. The example doesn't work, because the API has changed.
+
+It looked like a pretty solid approach, with big API, huge documentation and many users.
