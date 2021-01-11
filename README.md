@@ -320,6 +320,10 @@ It looks like a not so popular solution, which also lacks support for TypeScript
 
 It looks interesting, will all the features that you'd need, but it's currently in beta, and has no support for Next.js v10 (as of `Jan 2021`). It's built & maintained by the team at Modulz.
 
+### JSS
+
+I didn't find an integration with Next.js example. It appears that `react-jss` has TS support, although the docs state _"TODO hooks support"_.
+
 ### Radium
 
 The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
