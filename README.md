@@ -304,7 +304,7 @@ It was an interesting solution, as it promises zero-runtime overhead, generating
 
 Didn't manage to start it with Next.js + TypeScript. The [Cxs official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
 
-The solution looked interesting, because it is marketed to be very light.
+The solution looked interesting, because it is supposed to be very light weight.
 
 ### Fela
 
@@ -314,4 +314,8 @@ It looked like a pretty solid approach, with big API, huge documentation and man
 
 ### Styletron
 
-It looks like a not so popular solution, which also lacks support for TypeScript.
+It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers currently work at Uber (not sure if it's used by Uber or not).
+
+### Stitches
+
+It looks interesting, will all the features that you'd need, but it's currently in beta, and has no support for Next.js v10 (as of `Jan 2021`). It's built & maintained by the team at Modulz.
