@@ -25,8 +25,6 @@ yarn start
 | [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        | -        |
 | [TypeStyle](#typestyle)                 | 🟠 | 🟠 | ✅ |  +3.1 KB |  +3.7 KB |
-| Glamor            |  |  |  |  |  |
-| Cxs               |  |  |  |  |  |
 
 <br />
 
@@ -280,6 +278,19 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 - no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
 
 **Conclusion**: doesn't add any real value, except the ergonomics to colocate styles with the component.
+
+<br />
+
+### Glamor
+
+I got it started with Next.js, but it feels fragile. The [Glamor official example](https://github.com/vercel/next.js/tree/canary/examples/with-glamor) throws an error regarding `rehydrate`. When commenting it out, it works, but not sure what the consequences are.
+
+- it looks like an unmaintained or abandoned package
+- documentation is so and so
+- lacks any TS support
+- has a lot of documented experimental features, marked as "buggy"
+
+**Conclusion**: it feels like a side/internal project at FB, that is not used anymore.
 
 <br />
 
