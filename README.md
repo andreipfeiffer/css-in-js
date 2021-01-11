@@ -286,3 +286,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 ### Linaria
 
 Didn't manage to start it with Next.js + TypeScript.
+
+### Cxs
+
+Didn't manage to start it with Next.js + TypeScript. The [Cxs official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6, s the example doesn't work.
