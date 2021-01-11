@@ -24,6 +24,7 @@ yarn start
 | [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        | -        |
+| [TypeStyle](#typestyle)                 | 🟠 | 🟠 | ✅ |  +3.1 KB |  +3.7 KB |
 | Glamor            |  |  |  |  |  |
 | Cxs               |  |  |  |  |  |
 
@@ -57,7 +58,7 @@ All solutions are able to be Server-Side Rendered by Next.js.
 All solutions add vendor specific prefixes out-of-the-box.
 
 🟠 **Increased FCP**  
-SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML.
+SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS modules & Treat**.
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
@@ -201,8 +202,8 @@ Page                                                           Size     First Lo
 More modern, with great TypeScript integration and low runtime overhead, it's pretty minimal in its features. Everything is processed at compile time, and it generates CSS files, similar to Linaria & CSS modules.
 
 - 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or inline styles for user defined styles)
-- 🟠 it doesn't provide code completion for values, otherwise good DX
 - 🟠 bundles defined styles even if they are not used in component (but a bit more difficult, because you are not allowed nested types)
+- ✅ great DX, code completion out-of-the-box
 - ✅ it has a pretty low learning curve
 - ✅ full CSS support apparently
 - ✅ built-in TypeScript support
@@ -232,6 +233,40 @@ Page                                Size     First Load JS
   ├ chunks/pages/_app.2baddf.js     546 B
   ├ chunks/webpack.50bee0.js        751 B
   └ css/08916f1dfb6533efc4a4.css    286 B
+```
+
+<br />
+
+### TypeStyle
+
+Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are React wrappers (at least 2) but the typing feels a bit cumbersome.
+
+- 🟠 it doesn't handle dynamic styles, you have to use JS functions to compute styles
+- 🟠 bundles nested styles even if they are not used in component
+- 🟠 it has a learning curve, you don't feel you write CSS
+- ✅ great DX, code completion out-of-the-box
+- ✅ full CSS support apparently
+- ✅ built-in TypeScript support
+- ✅ out-of-the-box theming support (although it uses namespaces)
+
+**Observations**:
+- it creates a single `<style>` tag, with all the styles bundled, and replaced (don't know if this has a major impact, since it replaces the entire tag)
+- don't know how to split dynamic and static styles, it's easy to create duplicate styles
+- overall, you have to learn new ways to write CSS, with the only benefit of colocating styles
+
+```
+Page                                                           Size     First Load JS
+┌ ○ /                                                          2.41 kB        68.6 kB
+├   /_app                                                      0 B            66.2 kB
+├ ○ /404                                                       3.03 kB        69.2 kB
+└ ○ /other                                                     953 B          67.1 kB
++ First Load JS shared by all                                  66.2 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.250ad4.js  3.09 kB
+  ├ chunks/commons.7af247.js                                   13.1 kB
+  ├ chunks/framework.9d5241.js                                 41.8 kB
+  ├ chunks/main.99ad68.js                                      6.62 kB
+  ├ chunks/pages/_app.d59d73.js                                893 B
+  └ chunks/webpack.50bee0.js                                   751 B
 ```
 
 <br />
