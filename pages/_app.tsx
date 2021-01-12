@@ -1,20 +1,17 @@
+import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
-import css from "styled-jsx/css";
 
-// import "../styles/globals.css";
+export class MyApp extends App {
+  componentDidMount() {
+    const style = document.getElementById("server-side-styles");
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Component {...pageProps} />
-
-      <style global jsx>
-        {global_styles}
-      </style>
-    </>
-  );
+    if (style) {
+      style?.parentNode?.removeChild(style);
+    }
+  }
 }
 
+/*
 const global_styles = css.global`
   html,
   body {
@@ -49,5 +46,5 @@ const global_styles = css.global`
     box-sizing: border-box;
   }
 `;
-
+*/
 export default MyApp;
