@@ -1,20 +1,17 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-import css from "styled-jsx/css";
+import FelaProvider from "../FelaProvider";
 
 // import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, renderer }: AppProps) {
   return (
-    <>
+    <FelaProvider renderer={renderer}>
       <Component {...pageProps} />
-
-      <style global jsx>
-        {global_styles}
-      </style>
-    </>
+    </FelaProvider>
   );
 }
 
+/*
 const global_styles = css.global`
   html,
   body {
@@ -49,5 +46,5 @@ const global_styles = css.global`
     box-sizing: border-box;
   }
 `;
-
+*/
 export default MyApp;
