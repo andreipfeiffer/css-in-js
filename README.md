@@ -51,7 +51,6 @@ Components used only in a specific route will only be bundled for that route. Th
 
 ✅ **Global styles**  
 All solutions offer a way to define global styles, some with a separate API.  
-⚠️ Exception: Aphrodite
 
 ✅ **SSR**  
 All solutions are able to be Server-Side Rendered by Next.js.
@@ -59,15 +58,14 @@ All solutions are able to be Server-Side Rendered by Next.js.
 ✅ **Vendor prefixes**  
 All solutions add vendor specific prefixes out-of-the-box.
 
-✅ **Unique classnames**  
-???
+✅ **Unique class names**  
+All solutions generate unique class names, like CSS Modules do.
 
 🟠 **Increased FCP**  
-SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS modules & Treat**.
+SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS Modules & Treat**.
 
 🟠 **Dead code removal**  
 Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** will bundle unused styles.
-
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
