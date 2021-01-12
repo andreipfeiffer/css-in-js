@@ -36,8 +36,7 @@ to {
 }
 `;
 
-const DynamicButton = styled.button<Props>();
-const StyledButton = styled(DynamicButton)(
+const StyledButton = styled.button<Props>(
   {
     border: 0,
     height: "3em",
