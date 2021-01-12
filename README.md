@@ -27,6 +27,8 @@ yarn start
 | [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
 | [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
+| [JSS](#jss)                             | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
+| [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
 
 <br />
 
@@ -278,6 +280,24 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
+<br />
+
+### Fela
+
+<br />
+
+### Stitches
+
+<br />
+
+### JSS
+
+<br />
+
+### Otion
+
+<br />
+---
 <br />
 
 ### Aphrodite
