@@ -3,28 +3,27 @@ import styled from "@emotion/styled";
 type Props = {
   value: number;
   onChange(value: number): void;
+  className?: string;
 };
 
-export function Input({ value, onChange }: Props) {
+function InputUnstyled({ value, onChange, className }: Props) {
   return (
     <>
       <label>
         User input styles:{" "}
-        <StyledInput
+        <input
+          // if we pass additional className, they will be prepended
+          className={className}
           type="number"
           value={value}
-          // this one is tricky, because we don't render the `input` element anymore
-          // we render the `StyledInput` component, which is typed with Props
-          // so our definition of `onChange` overrides the `input` definition
-          // if we type it as `React.ChangeEvent<HTMLInputElement>` we will get type conflicts
-          onChange={(e: any) => onChange(+e.target.value)}
+          onChange={(e) => onChange(+e.target.value)}
         />
       </label>
     </>
   );
 }
 
-const StyledInput = styled.input<Props>(
+export const Input = styled(InputUnstyled)<Props>(
   {
     padding: "0.5em",
   },
