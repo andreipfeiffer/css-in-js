@@ -17,14 +17,14 @@ yarn start
 
 ## Overview
 
-|                                         | Colocation | DX    | String | Object | TS    | Lib  | Page |
-| :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | 🟠 | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ |  +3.1 KB |  +3.7 KB |
+|                                         | Colocation | DX    | String | Object | TS    | .css  | <style> | Lib  | Page |
+| :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | 🟠 | ✅ | ❌ | -        | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ |  +3.1 KB |  +3.7 KB |
 
 <br />
 
@@ -37,6 +37,8 @@ yarn start
 - **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, like in CSS
 - **Object**: support for defining styles as objects, by writing property names in camelCase
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
+- **.css**: support for serving the styles as `.css` files
+- **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
@@ -56,6 +58,9 @@ All solutions are able to be Server-Side Rendered by Next.js.
 
 ✅ **Vendor prefixes**  
 All solutions add vendor specific prefixes out-of-the-box.
+
+✅ **Unique classnames**  
+???
 
 🟠 **Increased FCP**  
 SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS modules & Treat**.
@@ -320,7 +325,7 @@ It looked like a pretty solid approach, with big API, huge documentation and man
 
 ### Styletron
 
-It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers currently work at Uber (not sure if it's used by Uber or not).
+It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers work at Uber and they use it internally. It focused on generating unique atomic CSS classes, which could potentially deduplicate a lot of code.
 
 ### Stitches
 
