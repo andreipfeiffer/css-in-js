@@ -17,7 +17,7 @@ yarn start
 
 ## Overview
 
-|                                         | Colocated | DX    | TS    | Lib  | Page |
+|                                         | Colocation | DX    | TS    | Lib  | Page |
 | :-------------------------------------- | :---------------: | :---: | :---: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
@@ -30,7 +30,7 @@ yarn start
 
 **LEGEND**:
 
-- **Dead code removal**: out-of-the-box optimisation for removing (not bundling) styles that are not used in components
+- **Colocation**: ability to define styles within the same file as the component (this ability also gives you the option to move the styles into a separate file and import them, but not the other way around).
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
