@@ -17,14 +17,14 @@ yarn start
 
 ## Overview
 
-|                                         | Colocation | DX    | TS    | Lib  | Page |
-| :-------------------------------------- | :---------------: | :---: | :---: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | 🟠 | ✅ | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ✅ |  +3.1 KB |  +3.7 KB |
+|                                         | Colocation | DX    | String | Object | TS    | Lib  | Page |
+| :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | 🟠 | -        | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ |  +3.1 KB |  +3.7 KB |
 
 <br />
 
@@ -34,6 +34,8 @@ yarn start
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
+- **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, like in CSS
+- **Object**: support for defining styles as objects, by writing property names in camelCase
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
