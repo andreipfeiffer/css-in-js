@@ -25,6 +25,8 @@ yarn start
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ |  +3.1 KB |  +3.7 KB |
+| [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
+| [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
 
 <br />
 
@@ -315,12 +317,6 @@ Didn't manage to start it with Next.js + TypeScript. The [official example](http
 
 The solution looked interesting, because it is supposed to be very light weight.
 
-### Fela
-
-Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-fela) uses an older version, today we have version 11.5. The example doesn't work, because the API has changed.
-
-It looked like a pretty solid approach, with big API, huge documentation and many users.
-
 ### Astroturf
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
@@ -330,10 +326,6 @@ The solution is not that popular, but it used `.css` extraction with colocated s
 ### Styletron
 
 It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers work at Uber and they use it internally. It focused on generating unique atomic CSS classes, which could potentially deduplicate a lot of code.
-
-### Stitches
-
-It looks interesting, will all the features that you'd need, but it's currently in beta, and has no support for Next.js v10 (as of `Jan 2021`). It's built & maintained by the team at Modulz.
 
 ### JSS
 
