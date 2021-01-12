@@ -13,6 +13,10 @@ export function Input({ value, onChange }: Props) {
         <StyledInput
           type="number"
           value={value}
+          // this one is tricky, because we don't render the `input` element anymore
+          // we render the `StyledInput` component, which is typed with Props
+          // so our definition of `onChange` overrides the `input` definition
+          // if we type it as `React.ChangeEvent<HTMLInputElement>` we will get type conflicts
           onChange={(e: any) => onChange(+e.target.value)}
         />
       </label>
@@ -20,7 +24,7 @@ export function Input({ value, onChange }: Props) {
   );
 }
 
-const StyledInput = styled("input")<Props>(
+const StyledInput = styled.input<Props>(
   {
     padding: "0.5em",
   },
