@@ -17,14 +17,14 @@ yarn start
 
 ## Overview
 
-|                                         | Dead code removal | DX    | TS    | Lib  | Page |
+|                                         | Colocated | DX    | TS    | Lib  | Page |
 | :-------------------------------------- | :---------------: | :---: | :---: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | 🟠 | -        | -        |
-| [Styled JSX](#styled-jsx)               | ❌ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | 🟠 | 🟠 | ✅ | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | 🟠 | ✅ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | 🟠 | 🟠 | ✅ | -        | -        |
-| [TypeStyle](#typestyle)                 | 🟠 | 🟠 | ✅ |  +3.1 KB |  +3.7 KB |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | 🟠 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | ❌ | 🟠 | ✅ | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ✅ |  +3.1 KB |  +3.7 KB |
 
 <br />
 
@@ -57,6 +57,10 @@ All solutions add vendor specific prefixes out-of-the-box.
 
 🟠 **Increased FCP**  
 SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS modules & Treat**.
+
+🟠 **Dead code removal**  
+Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** will bundle unused styles.
+
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
