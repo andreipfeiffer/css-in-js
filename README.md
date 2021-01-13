@@ -17,18 +17,18 @@ yarn start
 
 ## Overview
 
-|                                         | Colocation | DX    | String | Object | TS    | .css  | <style> | Lib  | Page |
-| :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | 🟠 | ✅ | ❌ | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
-| [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | +19.0 KB | +20.0 KB |
-| [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
+|                                         | Colocation | DX    | String | Object | TS    | .css  | <style> | Theme | Lib  | Page |
+| :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | :---: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -        | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | ❌ | ❌ | ✅ | 🟠 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ | 🟠 |  +3.1 KB |  +3.7 KB |
+| [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
+| [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | +19.0 KB | +20.0 KB |
+| [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
 
 <br />
 
@@ -41,8 +41,9 @@ yarn start
 - **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, like in CSS
 - **Object**: support for defining styles as objects, by writing property names in camelCase
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
-- **.css**: support for serving the styles as `.css` files
+- **.css**: support for extracting and serving the styles as native `.css` files
 - **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
+- **Theme**: built-in support for Theming or managing design tokens/system
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
@@ -55,21 +56,29 @@ Components used only in a specific route will only be bundled for that route. Th
 
 ✅ **Global styles**  
 All solutions offer a way to define global styles, some with a separate API.  
+   - **JSS** has a convoluted API for this, which requires an additional plugin, which we didn't figure out how to implement
 
 ✅ **SSR**  
 All solutions are able to be Server-Side Rendered by Next.js.
 
 ✅ **Vendor prefixes**  
 All solutions add vendor specific prefixes out-of-the-box.
+   - **JSS** requires an additional plugin for this
 
 ✅ **Unique class names**  
 All solutions generate unique class names, like CSS Modules do.
 
+✅ **Full CSS support**  
+All solutions support most CSS properties that you would need: **pseudo classes & elements**, **media queries**, **keyframes** are the ones that we tested.
+
 🟠 **Increased FCP**  
-SSR styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. ⚠️ **Exception: CSS Modules & Treat**.
+For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. 
+- **CSS Modules** and **Treat** dont' have this problem, because they extract
 
 🟠 **Dead code removal**  
-Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** will bundle unused styles.
+Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** or **nested styles** will bundle unused styles. Even solutions that don't offer this option, have the same problem.
+
+Basically, what you get is code removal when you delete the component, because the styles are colocated. Also, when using Styled Components syntax (available with many solutions) you get the styles removed when you delete the Styled Component.
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
@@ -78,9 +87,8 @@ If a component is imported by 2 different routes, it will be send twice to the c
 
 ### CSS modules
 
-- **TypeScript** can be used, but only as inline styles, not in CSS files
-- same applies for **dynamic or user styles**, which basically is the most performant, right?
-- media queries with TS/JS values cannot be used, so they should ne handled as inline styles with JS match media, or via SSR props from user agent
+- **TypeScript** can be used, but only as inline styles, not in CSS files, same applies for **dynamic or user styles**
+- media queries with TS/JS values cannot be used, so they should be handled as inline styles with JS match media, or via SSR props from user agent
 
 ```
 Page                                Size     First Load JS
@@ -110,7 +118,6 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - 🟠 bundles all defined styles even if they are not used in component
 - ✅ out-of-the-box support with Next.js
 - ✅ has a minimal API, so it has a low learning curve
-- ✅ full CSS support apparently
 - ✅ styles on element/tags like `button` are automatically scoped (unique class names are added)
 - ✅ can get generated `className`, or `styles` object (but it contains an entire React component, with all the static & dynamic styles)
 - ✅ page styles are more convenient, because they can be colocated within the Page component
@@ -146,10 +153,8 @@ Probably the most popular solution, good documentation. It uses Tagged Templates
 - 🟠 it has a higher learning curve
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 bundles nested styles even if they are not used in component (however, if you don't use a StyledComponent, it won't be bundled, as it is not referenced)
-- ✅ full CSS support apparently
 - ✅ pretty good TS support (via `@types`), except when using Object Styles, which is a newer approach apparently
 - ✅ provides nesting selectors
-- ✅ out-of-the-box theming support
 
 **Observations**:
 - need to split static & dynamic styles, otherwise it will render duplicate output
@@ -183,7 +188,6 @@ Probably the most comprehensive, complete, sofisticated solution. Detailed docum
 - ✅ good DX, since you can use objects (not necessarily strings), provides code completion
 - ✅ built-in TypeScript support
 - ✅ provides nesting selectors
-- ✅ out-of-the-box theming support
 
 **Observations**:
 - dynamic props are not as straightforward to use with TS, not sure how to structure the components, I guess it needs a different angle approach
@@ -216,9 +220,7 @@ More modern, with great TypeScript integration and low runtime overhead, it's pr
 - 🟠 bundles defined styles even if they are not used in component (but a bit more difficult, because you are not allowed nested types)
 - ✅ great DX, code completion out-of-the-box
 - ✅ it has a pretty low learning curve
-- ✅ full CSS support apparently
 - ✅ built-in TypeScript support
-- ✅ out-of-the-box theming support
 
 **Observations**:
 - it's built with restrictions in mind, great TS experience
@@ -255,10 +257,9 @@ Minimal library, focused only on type-checking. It is framework agnostic, that's
 - 🟠 it doesn't handle dynamic styles, you have to use JS functions to compute styles
 - 🟠 bundles nested styles even if they are not used in component
 - 🟠 it has a learning curve, you don't feel you write CSS
+- 🟠 out-of-the-box theming support (but it uses TS namespaces, which is a non-recommended feature of the language)
 - ✅ great DX, code completion out-of-the-box
-- ✅ full CSS support apparently
 - ✅ built-in TypeScript support
-- ✅ out-of-the-box theming support (although it uses namespaces)
 
 **Observations**:
 - it creates a single `<style>` tag, with all the styles bundled, and replaced (don't know if this has a major impact, since it replaces the entire tag)
@@ -299,11 +300,8 @@ It appears to be a mature solution, with big docs and plugings. The API is intui
 - 🟠 bundles nested styles even if they are not used in component
 - 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
 - ✅ it has a low learning curve
-- ✅ full CSS support apparently (I GUESS ALL DO)
-- ✅ out-of-the-box theming support
 
-**???**
-
+**Observations**:
 - `react-jss` uses className by default. There's also `styled-jss` that uses Styled Components approach, but it has no types, and couldn't make it work on top of `react-jss`.
 - the way you attach styles to components is similar to React Native StyleSheets, you define an object with all subcomponents styles, and attach them to various subcomponents classnames.
 - very easy and simple to use API, intuitive
@@ -311,6 +309,7 @@ It appears to be a mature solution, with big docs and plugings. The API is intui
 - no intellisence on properties/values
 - nesting not supported ootb, but has a plugin for that
 - global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the react-jss SSR setup docs, with the plugin-globals docs on usage, no luck (using the default global stylesheet instead)
+- looks like it's the most heavy-weighted solution
 
 ```
 Page                              Size     First Load JS
