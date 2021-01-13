@@ -25,7 +25,7 @@ yarn start
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ | 🟠 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
+| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ |      ??? |      ??? |
 | [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | +19.0 KB | +20.0 KB |
 | [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
@@ -306,6 +306,20 @@ Page                                                           Size     First Lo
 
 ### Fela
 
+It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks, love it. However, it lacks some modern features, especially TS support and code completion. The docs are also minimal, the information is spread in on various pages sometimes hard to find without a search feature, and the examples and use cases are not comprehensive.
+
+- ❌ no code completion, although it uses style objects, but they are POJOs, so the IDE/Editor has no idea that "they should be camelCased CSS properties"
+- ❌ no TS support (and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362))
+- 🟠 bundles nested styles even if they are not used in component
+- 🟠 it supports string based styles, but they are a second-class citizen
+- 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
+- ✅ it has a low learning curve
+
+**Observations**:
+- very easy and simple to use API, intuitive
+- found a way to use types for dynamic props, but it's not elegant, or very friendly
+- creates very minimal and atomic class names, which it a great approach
+
 <br />
 
 ### Stitches
@@ -314,7 +328,7 @@ Page                                                           Size     First Lo
 
 ### JSS
 
-It appears to be a mature solution, with big docs and plugings. The API is intuitive and very easy to use, love it. However, it lacks some modern features, especially TS support and code completion.
+It appears to be a mature solution, with big docs and plugings. The API is intuitive and very easy to use, love it, great integration for React using hooks. However, it lacks some modern features, especially TS support and code completion.
 
 - ❌ no code completion, although it uses style objects
 - ❌ no TS support
