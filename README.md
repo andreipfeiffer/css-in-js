@@ -27,7 +27,7 @@ yarn start
 | [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
 | [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
-| [JSS](#jss)                             | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | +19.0 KB | +20.0 KB |
 | [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ |      ??? |      ??? |
 
 <br />
@@ -291,6 +291,41 @@ Page                                                           Size     First Lo
 <br />
 
 ### JSS
+
+It appears to be a mature solution, with big docs and plugings. The API is intuitive and very easy to use, love it. However, it lacks some modern features, especially TS support and code completion.
+
+- ❌ no code completion, although it uses style objects
+- ❌ no TS support
+- 🟠 bundles nested styles even if they are not used in component
+- 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
+- ✅ it has a low learning curve
+- ✅ full CSS support apparently (I GUESS ALL DO)
+- ✅ out-of-the-box theming support
+
+**???**
+
+- `react-jss` uses className by default. There's also `styled-jss` that uses Styled Components approach, but it has no types, and couldn't make it work on top of `react-jss`.
+- the way you attach styles to components is similar to React Native StyleSheets, you define an object with all subcomponents styles, and attach them to various subcomponents classnames.
+- very easy and simple to use API, intuitive
+- lack TS support, you can feel it when dealing with dynamic styles based on props, which can't be typed and statically checked
+- no intellisence on properties/values
+- nesting not supported ootb, but has a plugin for that
+- global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the react-jss SSR setup docs, with the plugin-globals docs on usage, no luck (using the default global stylesheet instead)
+
+```
+Page                              Size     First Load JS
+┌ ○ /                             1.98 kB        84.9 kB
+├   /_app                         0 B            64.3 kB
+├ ○ /404                          3.03 kB        67.3 kB
+└ ○ /other                        501 B          83.5 kB
++ First Load JS shared by all     64.3 kB
+  ├ chunks/commons.7af247.js      13.1 kB
+  ├ chunks/framework.37f4a7.js    42.1 kB
+  ├ chunks/main.99ad68.js         6.62 kB
+  ├ chunks/pages/_app.ea9fff.js   1.78 kB
+  ├ chunks/webpack.50bee0.js      751 B
+  └ css/d9aac052842a915b5cc7.css  325 B
+```
 
 <br />
 
