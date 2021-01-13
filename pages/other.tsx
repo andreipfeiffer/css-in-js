@@ -10,6 +10,7 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
+      {/* styles can be declared directly inside the component */}
       <h1
         className={css({
           maxWidth: "75vw",

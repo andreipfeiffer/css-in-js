@@ -1,37 +1,32 @@
-import css from "styled-jsx/css";
+import { CssFelaStyle, useFela } from "react-fela";
 
 type Props = {
   value: number;
   onChange(value: number): void;
 };
 
-export function Input({ value, onChange }: Props) {
-  const { className, styles } = getStyles(value);
+export function Input(props: Props) {
+  const { value, onChange } = props;
+  const { css } = useFela(props);
 
   return (
     <>
       <label>
         User input styles:{" "}
         <input
-          className={className}
+          className={css(inputStyle)}
           type="number"
           value={value}
           onChange={(e) => onChange(+e.target.value)}
         />
       </label>
-
-      {/* we need to add the styles manually here, otherwise, they will not be applied */}
-      {/* NOTE: this is an object, not a string, as the type say  */}
-      {styles}
     </>
   );
 }
 
-function getStyles(width: number) {
-  return css.resolve`
-    input {
-      padding: 0.5em;
-      width: ${width}px;
-    }
-  `;
-}
+// styles can also be declared as a rule
+// rule typings are a bit convoluted
+const inputStyle: CssFelaStyle<{}, Props> = (props) => ({
+  padding: "0.5em",
+  width: `${props.value}px`,
+});
