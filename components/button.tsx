@@ -1,4 +1,4 @@
-import css from "styled-jsx/css";
+import { createUseStyles } from "react-jss";
 
 enum Color {
   grey = "#cccccc",
@@ -15,83 +15,72 @@ type Props = {
 };
 
 export function Button(props: Props) {
-  const { children, color = "grey", onClick } = props;
+  const { children, onClick } = props;
+  const classes = useStyles(props);
 
   return (
-    <button onClick={onClick}>
-      <span>{children}</span>
-
-      <style jsx>{button}</style>
-      <style jsx>
-        {`
-          // dynamic styles, need to be split from static styles
-          button {
-            color: ${Color[color]};
-          }
-        `}
-      </style>
+    <button onClick={onClick} className={classes.button}>
+      <span className={classes.text}>{children}</span>
     </button>
   );
 }
 
-const button = css`
-  button {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+const useStyles = createUseStyles({
+  button: {
+    border: 0,
+    height: "3em",
+    padding: "0 2em",
+    borderRadius: "1.5em",
+    cursor: "pointer",
+    fontWeight: "bold",
+    width: "100vw",
+    display: "block",
+    outline: 0,
+    backgroundColor: "currentcolor",
+    margin: "1em auto",
 
-  span {
-    color: white;
-  }
+    color: (props: Props) => Color[props.color || "grey"],
 
-  button:hover {
-    animation-name: button-animation;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
-  }
+    "&:hover": {
+      animationName: "$button_animation",
+      animationFillMode: "forwards",
+      animationDuration: "0.5s",
+    },
+  },
 
-  @media only screen and (min-width: 640px) {
-    button {
-      width: 100%;
-    }
-  }
+  text: {
+    color: "white",
+  },
 
-  @keyframes button-animation {
-    from {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-    to {
-      transform: translateY(-0.5em);
-      box-shadow: 0 0.5em 0 0 #ddd;
-    }
-  }
+  "@media (min-width: 640px)": {
+    button: {
+      width: "100%",
+    },
+  },
 
-  // the following styled should be ignored, as they are not needed
-  strong {
-    color: red;
-  }
+  "@keyframes button_animation": {
+    from: {
+      transform: "translateY(0)",
+      boxShadow: "none",
+    },
+    to: {
+      transform: "translateY(-0.5em)",
+      boxShadow: "0 0.5em 0 0 #ddd",
+    },
+  },
 
-  .unused_styles {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
-`;
+  unused_styles: {
+    color: "red",
+    border: 0,
+    height: "3em",
+    padding: "0 2em",
+    borderRadius: "1.5em",
+    cursor: "pointer",
+    fontWeight: "bold",
+    width: "100vw",
+    display: "block",
+    outline: 0,
+    backgroundColor: "currentcolor",
+    margin: "1em auto",
+  },
+});

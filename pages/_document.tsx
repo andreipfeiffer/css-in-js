@@ -6,6 +6,7 @@ export default class JssDocument extends Document {
     const registry = new SheetsRegistry();
     const generateId = createGenerateId();
     const originalRenderPage = ctx.renderPage;
+
     ctx.renderPage = () =>
       originalRenderPage({
         enhanceApp: (App) => (props) => (
