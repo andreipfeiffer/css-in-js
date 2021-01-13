@@ -310,6 +310,7 @@ It appears to be a mature solution, with big docs and plugings. The API is intui
 - nesting not supported ootb, but has a plugin for that
 - global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the react-jss SSR setup docs, with the plugin-globals docs on usage, no luck (using the default global stylesheet instead)
 - looks like it's the most heavy-weighted solution
+- cannot see injected styles: https://github.com/cssinjs/jss/issues/1125#issue-455194189
 
 ```
 Page                              Size     First Load JS
@@ -380,10 +381,6 @@ The solution is not that popular, but it used `.css` extraction with colocated s
 ### Styletron
 
 It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers work at Uber and they use it internally. It focused on generating unique atomic CSS classes, which could potentially deduplicate a lot of code.
-
-### JSS
-
-I didn't find an integration with Next.js example. It appears that `react-jss` has TS support, although the docs state _"TODO hooks support"_.
 
 ### Radium
 
