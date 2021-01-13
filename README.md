@@ -338,7 +338,7 @@ Page                             Size     First Load JS
 
 ### Stitches
 
-Very young solution, built and maintained by Modulz, very close to stable v1 release (as of Jan 13th 2021), is probably the most solid, modern and well-thought-out solution. The experience is just great, full TS support, a lot of other useful features baked in the lib. It identifies as "light-weight", but at 8KB it's debatable. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience.
+Very young solution, built and maintained by Modulz, very close to stable v1 release (as of Jan 13th 2021), is probably the most solid, modern and well-thought-out solution. The experience is just great, full TS support, a lot of other useful features baked in the lib. It identifies as "light-weight", but at 8KB it's debatable. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience. The documentation is exactly what you'd expect, no more, no less information (maybe missing the search feature).
 
 - 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or styles created inside the component to get access to the `props`, or inline styles for user defined styles)
 - 🟠 bundles nested styles even if they are not used in component
