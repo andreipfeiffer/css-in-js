@@ -25,8 +25,8 @@ yarn start
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ | 🟠 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ |      ??? |      ??? |
-| [Stitches](#stitches)                   | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
+| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | +13.7 KB | +13.7 KB |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | +19.0 KB | +20.0 KB |
 | [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
 
@@ -85,7 +85,7 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 🟠 **Increased FCP**  
 For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. 
-- **CSS Modules** and **Treat** dont' have this problem, because they extract
+- **CSS Modules** and **Treat** dont' have this problem, because they perform `.css` file extraction
 
 <br />
 
@@ -96,7 +96,7 @@ Most solution say they remove unused code/styles. This is only **half-true**. Un
 
 🟠 **Debugging / Inspecting**  
 Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
-   - **JSS** uses `insertRule()` in dev mode as well, so you cannot see what gets injected
+   - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
 
 Basically, what you get is code removal when you delete the component, because the styles are colocated. Also, when using Styled Components syntax (available with many solutions) you get the styles removed when you delete the Styled Component.
 
@@ -310,7 +310,7 @@ It appears to be a mature solution, with quite a number of users. The API is int
 
 - ❌ no code completion, although it uses style objects, but they are POJOs, so the IDE/Editor has no idea that "they should be camelCased CSS properties"
 - ❌ no TS support (and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362))
-- 🟠 bundles nested styles even if they are not used in component
+- 🟠 bundles nested styles even if they are not used in component, but it's more difficult, cause nesting should not be used, and the atomic classes reduces this impact even more
 - 🟠 it supports string based styles, but they are a second-class citizen
 - 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
 - ✅ it has a low learning curve
@@ -320,9 +320,55 @@ It appears to be a mature solution, with quite a number of users. The API is int
 - found a way to use types for dynamic props, but it's not elegant, or very friendly
 - creates very minimal and atomic class names, which it a great approach
 
+```
+Page                             Size     First Load JS
+┌ ○ /                            3.46 kB        78.6 kB
+├   /_app                        0 B            75.2 kB
+├ ○ /404                         3.03 kB        78.2 kB
+└ ○ /other                       2.06 kB        77.2 kB
++ First Load JS shared by all    75.2 kB
+  ├ chunks/commons.7af247.js     13.1 kB
+  ├ chunks/framework.37f4a7.js   42.1 kB
+  ├ chunks/main.03531f.js        6.62 kB
+  ├ chunks/pages/_app.f7ff86.js  12.6 kB
+  └ chunks/webpack.50bee0.js     751 B
+```
+
 <br />
 
 ### Stitches
+
+Very young solution, built and maintained by Modulz, very close to stable v1 release (as of Jan 13th 2021), is probably the most solid, modern and well-thought-out solution. The experience is just great, full TS support, a lot of other useful features baked in the lib. It identifies as "light-weight", but at 8KB it's debatable. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience.
+
+- 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or styles created inside the component to get access to the `props`, or inline styles for user defined styles)
+- 🟠 bundles nested styles even if they are not used in component
+- ✅ great DX, code completion out-of-the-box
+- ✅ it has a pretty low learning curve
+- ✅ built-in TypeScript support
+
+**Observations**:
+- uses `insertRule()` in development also, so you cannot see what gets bundled
+- splits styles into atomic class names
+- it generates a shitton of classes, it also expands short-hand properties (like `padding: 1em`)
+- does not support string styling with tagged templates (to reduce bundle size, as they say)
+- but they support both `styled` & `css` approaches
+- great design tokens management and usage
+- very simple API, a pleasure to work with
+
+```
+Page                                                           Size     First Load JS
+┌ ○ /                                                          2.42 kB        73.9 kB
+├   /_app                                                      0 B            71.5 kB
+├ ○ /404                                                       3.03 kB        74.5 kB
+└ ○ /other                                                     959 B          72.4 kB
++ First Load JS shared by all                                  71.5 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.f723af.js  8.46 kB
+  ├ chunks/commons.7af247.js                                   13.1 kB
+  ├ chunks/framework.9d5241.js                                 41.8 kB
+  ├ chunks/main.99ad68.js                                      6.62 kB
+  ├ chunks/pages/_app.51b7a9.js                                832 B
+  └ chunks/webpack.50bee0.js                                   751 B
+```
 
 <br />
 
@@ -346,6 +392,7 @@ It appears to be a mature solution, with big docs and plugings. The API is intui
 - global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the react-jss SSR setup docs, with the plugin-globals docs on usage, no luck (using the default global stylesheet instead)
 - looks like it's the most heavy-weighted solution
 - cannot see injected styles: https://github.com/cssinjs/jss/issues/1125#issue-455194189
+- cannot nest media queries, which makes the syntax exactly the same as plain CSS
 
 ```
 Page                              Size     First Load JS
