@@ -1,6 +1,5 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-
-// import "../styles/globals.css";
+import { css } from "../stitches.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,40 +9,34 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-/*
-const global_styles = css.global`
-  html,
-  body {
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+css.global({
+  "body, html": {
+    padding: 0,
+    margin: 0,
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
 
-  html,
-  body,
-  button,
-  input {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 16px;
-  }
+  "html, body, button, input": {
+    fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif`,
+    fontSize: "16px",
+  },
 
-  a:link,
-  a:visited {
-    color: dodgerblue;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  "a:link, a:visited": {
+    color: "dodgerblue",
+    textDecoration: "none",
+  },
 
-  * {
-    box-sizing: border-box;
-  }
-`;
-*/
+  "a:hover": {
+    textDecoration: "underline",
+  },
+
+  "*": {
+    boxSizing: "border-box",
+  },
+});
+
 export default MyApp;

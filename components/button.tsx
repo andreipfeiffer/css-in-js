@@ -1,4 +1,4 @@
-import css from "styled-jsx/css";
+import { css, styled } from "../stitches.config";
 
 enum Color {
   grey = "#cccccc",
@@ -15,83 +15,86 @@ type Props = {
 };
 
 export function Button(props: Props) {
-  const { children, color = "grey", onClick } = props;
+  const { children, onClick } = props;
 
   return (
-    <button onClick={onClick}>
+    <StyledButton onClick={onClick} color={props.color || "grey"}>
       <span>{children}</span>
-
-      <style jsx>{button}</style>
-      <style jsx>
-        {`
-          // dynamic styles, need to be split from static styles
-          button {
-            color: ${Color[color]};
-          }
-        `}
-      </style>
-    </button>
+    </StyledButton>
   );
 }
 
-const button = css`
-  button {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+const button_animation = css.keyframes({
+  from: {
+    transform: "translateY(0)",
+    boxShadow: "none",
+  },
+  to: {
+    transform: "translateY(-0.5em)",
+    boxShadow: "0 0.5em 0 0 #ddd",
+  },
+});
 
-  span {
-    color: white;
-  }
+const StyledButton = styled("button", {
+  border: 0,
+  height: "3em",
+  padding: "0 2em",
+  borderRadius: "1.5em",
+  cursor: "pointer",
+  fontWeight: "bold",
+  width: "100vw",
+  display: "block",
+  outline: 0,
+  backgroundColor: "currentcolor",
+  margin: "1em auto",
 
-  button:hover {
-    animation-name: button-animation;
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
-  }
+  span: {
+    color: "white",
+  },
 
-  @media only screen and (min-width: 640px) {
-    button {
-      width: 100%;
-    }
-  }
+  ":hover": {
+    animation: `${button_animation}`,
+    animationFillMode: "forwards",
+    animationDuration: "0.5s",
+  },
 
-  @keyframes button-animation {
-    from {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-    to {
-      transform: translateY(-0.5em);
-      box-shadow: 0 0.5em 0 0 #ddd;
-    }
-  }
+  // breakpoints defined in config
+  desktop: {
+    width: "100%",
+  },
 
-  // the following styled should be ignored, as they are not needed
-  strong {
-    color: red;
-  }
+  variants: {
+    color: {
+      blue: {
+        color: Color.blue,
+      },
+      green: {
+        color: Color.green,
+      },
+      yellow: {
+        color: Color.yellow,
+      },
+      red: {
+        color: Color.red,
+      },
+      grey: {
+        color: Color.grey,
+      },
+    },
+  },
 
-  .unused_styles {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
-`;
+  "& .unused_styles": {
+    color: "red",
+    border: 0,
+    height: "3em",
+    padding: "0 2em",
+    borderRadius: "1.5em",
+    cursor: "pointer",
+    fontWeight: "bold",
+    width: "100vw",
+    display: "block",
+    outline: 0,
+    backgroundColor: "currentcolor",
+    margin: "1em auto",
+  },
+});

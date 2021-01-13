@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { styled } from "../stitches.config";
+import { css } from "../stitches.config";
 import { Button } from "../components/button";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
-      <Heading>Another route</Heading>
+      <h1 className={heading}>Another route</h1>
 
       <p>
         Styles should be code-splitted, loaded only when the route is loaded.
@@ -23,7 +23,7 @@ export default function Home() {
   );
 }
 
-const Heading = styled("h1", {
+const heading = css({
   maxWidth: "75vw",
   fontSize: "1.5rem",
 });
