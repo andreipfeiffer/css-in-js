@@ -8,8 +8,6 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 ## Table of contents
 
 - [Overview](#overview)
-  - [Overall observations](#overall-observations)
-- [Analysed solutions](#analysed-solutions)
   - [CSS Modules](#css-modules)
   - [Styled JSX](#styled-jsx)
   - [Styled Components](#styled-components)
@@ -117,11 +115,8 @@ Basically, what you get is code removal when you delete the component, because t
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
 
 <br />
-<br />
 
 ---
-
-## Analysed solutions
 
 <br />
 
@@ -428,11 +423,8 @@ Page                              Size     First Load JS
 ```
 
 <br />
-<br />
 
 ## Disqualified solutions
-
----
 
 <br />
 
@@ -495,6 +487,7 @@ The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radiu
 
 The project was [discountinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
 
+<br />
 
 ## Motivation
 
