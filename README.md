@@ -1,4 +1,4 @@
-# [🚧 WIP DRAFT] CSS-in-TS research analysis
+# 🚧 [WIP DRAFT] CSS-in-TS research analysis
 
 _Last update: **Jan 2021**_
 
