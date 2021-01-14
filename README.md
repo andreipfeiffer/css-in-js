@@ -28,7 +28,6 @@ yarn start
 | [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | +19.0 KB | +20.0 KB |
-| [Otion](#otion)                         | ✅ | ❔ | ❔ | ✅ | ❔ | ❔ | ✅ | ❔ |      ??? |      ??? |
 
 <br />
 
@@ -411,10 +410,8 @@ Page                              Size     First Load JS
 
 <br />
 
-### Otion
-
-<br />
 ---
+
 <br />
 
 ### Aphrodite
@@ -459,6 +456,10 @@ The solution looked interesting, because it is supposed to be very light weight.
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
 
 The solution is not that popular, but it used `.css` extraction with colocated styles.
+
+### Otion
+
+Looks promising, atomic css and light-weight. It has a working [Next.js example](https://github.com/kripod/otion/tree/main/packages/example-nextjs), but we didn't consider it because it lacks any documentation.
 
 ### Styletron
 
