@@ -3,35 +3,31 @@
 This document is a thorough analisys of all the current **CSS-in-JS** solutions _(as of Jan 2021)_.  
 The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
 
-## Motivation
-
-The CSS language and CSS Modules technique have some limitations, some of them having altenative solutions, others just being "annoying" and "less ideal":
-
-- **Styles cannot be co-located with components**  
-  This can be cumbersome when authoring many small components. For large components/containers/pages/screens this isn't an issue, because you probably prefer to extract the styles in a separate file.
-
-- **Styles usage is disconnected from their definition**  
-  You get no IntelliSense with CSS modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX.
-
-- **Styles cannot access design tokens**  
-  Any design tokens, defined in JS/TS cannot be directly used. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense. So, the only reasonable solution would be **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
-
-## Getting Started
-
-```bash
-# install dependencies
-yarn
-
-# for development
-yarn dev
-
-# for production
-yarn build
-yarn start
-```
 <br />
 
-## Analisys Overview
+## Table of contents
+
+- [Overview](#overview)
+  - [Overall observations](#overall-observations)
+- [Analysed solutions](#analysed-solutions)
+  - [CSS Modules](#css-modules)
+  - [Styled JSX](#styled-jsx)
+  - [Styled Components](#styled-components)
+  - [Emotion](#emotion)
+  - [Treat](#treat)
+  - [TypeStyle](#typestyle)
+  - [Fela](#fela)
+  - [Stitches](#stitches)
+  - [JSS](#jss)
+- [Disqualified solutions](#disqualified-solutions)
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Disclaimer](#disclaimer)
+- [Running the examples](#running-the-examples)
+
+<br />
+
+## Overview
 
 |                                         | Co-location | DX    | String | Object | TS    | .css  | <style> | Theme | Lib  | Page |
 | :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | :---: | ---: | ---: |
@@ -39,8 +35,8 @@ yarn start
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | ❌ | ❌ | ✅ | 🟠 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | 🟠 | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | 🟠 | ❌ | ✅ | ✅ | ❌ | ✅ | 🟠 |  +3.1 KB |  +3.7 KB |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | 🟠 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | +19.0 KB | +20.0 KB |
@@ -119,6 +115,13 @@ Basically, what you get is code removal when you delete the component, because t
 
 ❌ **No component deduping**  
 If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
+
+<br />
+<br />
+
+---
+
+## Analysed solutions
 
 <br />
 
@@ -425,6 +428,9 @@ Page                              Size     First Load JS
 ```
 
 <br />
+<br />
+
+## Disqualified solutions
 
 ---
 
@@ -488,3 +494,77 @@ The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radiu
 ### Glamorous
 
 The project was [discountinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
+
+
+## Motivation
+
+The CSS language and CSS Modules technique have some limitations, some of them having altenative solutions, others just being "annoying" and "less ideal":
+
+- **Styles cannot be co-located with components**  
+  This can be cumbersome when authoring many small components. For large components/containers/pages/screens this isn't an issue, because you probably prefer to extract the styles in a separate file.
+
+- **Styles usage is disconnected from their definition**  
+  You get no IntelliSense with CSS modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX.
+
+- **Styles cannot access design tokens**  
+  Any design tokens, defined in JS/TS cannot be directly used. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense. So, the only reasonable solution would be **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
+
+<br />
+
+## Goals
+
+There are specific goals we're looking for, in order for the adoption of a CSS-in-JS solution to make sense:
+
+- SSR support and easy integration with Next.js
+- full TypeScript support
+- great DX with code completion & highlight
+- vendor prefixes
+- low learning curve and intuitive API
+- light-weight
+
+<br />
+
+Getting even more specific, we wanted to experience the usage of various solutions regarding:
+
+- defining global styles
+- using media queries
+- dynamic styles based on component `props` (aka. component variants), or from user input
+- bundle size impact
+
+<br />
+
+## Disclaimer
+
+This analysis is intended to be **objective** and **unopinionated**.  
+We don't work an any of these solutions, and have no intention, or motivation of _promoting_ or _trashing_ either of them.
+
+<br />
+
+👎 **What you WON'T FIND here?**  
+- which solution is _"the best"_, or _"the fastest"_, as we'll not add any subjective grading
+- what solution should you pick for your next project, because we have no idea what your goals are
+
+<br />
+
+👍 **What you WILL FIND here?**  
+- an overview of (almost) all CSS-in-JS solutions available at this date (Jan 2021) that we've managed to integrate into a **Next.js v10 + TypeScript** empty project, with minimal effort
+- a limited set of **quantitative** metrics that allowed us to evaluate these solutions, which might help you as well
+- an additional list of **qualitative** personal observations, which might be either minor details or deal-breakers when choosing a particular solution
+
+<br />
+
+## Running the examples
+
+Each implementation sits on their own branch, so we can have a clear separation at built time.
+
+```bash
+# install dependencies
+yarn
+
+# for development
+yarn dev
+
+# for production
+yarn build
+yarn start
+```
