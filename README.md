@@ -1,6 +1,20 @@
-# [🚧 WIP DRAFT] CSS-in-TS research analysis & synthesis
+# [🚧 WIP DRAFT] CSS-in-TS research analysis
 
-Various **CSS-in-JS** solutions comparison in React, using **CSS modules** approach as a baseline, and **Next.js** as a full-featured SSR framework for building resources.
+This document is a thorough analisys of all the current **CSS-in-JS** solutions _(as of Jan 2021)_.  
+The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
+
+## Motivation
+
+The CSS language and CSS Modules technique have some limitations, some of them having altenative solutions, others just being "annoying" and "less ideal":
+
+- **Styles cannot be co-located with components**  
+  This can be cumbersome when authoring many small components. For large components/containers/pages/screens this isn't an issue, because you probably prefer to extract the styles in a separate file.
+
+- **Styles usage is disconnected from their definition**  
+  You get no IntelliSense with CSS modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX.
+
+- **Styles cannot access design tokens**  
+  Any design tokens, defined in JS/TS cannot be directly used. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense. So, the only reasonable solution would be **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
 
 ## Getting Started
 
@@ -19,7 +33,7 @@ yarn start
 
 ## Analisys Overview
 
-|                                         | Colocation | DX    | String | Object | TS    | .css  | <style> | Theme | Lib  | Page |
+|                                         | Co-location | DX    | String | Object | TS    | .css  | <style> | Theme | Lib  | Page |
 | :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | :---: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | ❌ | ❌ | ✅ | 🟠 |  +3.5 KB |  +4.4 KB |
@@ -35,7 +49,7 @@ yarn start
 
 **LEGEND**:
 
-- **Colocation**: ability to define styles within the same file as the component (this ability also gives you the option to move the styles into a separate file and import them, but not the other way around).
+- **Co-location**: ability to define styles within the same file as the component (this ability also gives you the option to move the styles into a separate file and import them, but not the other way around).
 - **DX**: Developer eXperience which includes:
    - syntax highlighting
    - code-completion for CSS properties and values
