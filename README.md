@@ -115,7 +115,7 @@ Basically, what you get is code removal when you delete the component, because t
 <br />
 
 ❌ **No component deduping**  
-If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
+If a component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
 
 <br />
 
