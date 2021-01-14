@@ -17,7 +17,7 @@ yarn start
 ```
 <br />
 
-## Overview
+## Analisys Overview
 
 |                                         | Colocation | DX    | String | Object | TS    | .css  | <style> | Theme | Lib  | Page |
 | :-------------------------------------- | :--------: | :---: | :----: | :----: | :---: | :---: | :-----: | :---: | ---: | ---: |
@@ -86,7 +86,7 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 🟠 **Increased FCP**  
 For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. 
-- **CSS Modules** and **Treat** dont' have this problem, because they perform `.css` file extraction
+- solutions that perform `.css` file extraction dont' have this problem, includes **CSS Modules** and **Treat**
 
 <br />
 
@@ -104,7 +104,7 @@ Basically, what you get is code removal when you delete the component, because t
 <br />
 
 ❌ **No component deduping**  
-If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with module federation, currently not supported in Next.js 10.
+If a component is imported by 2 different routes, it will be send twice to the client. This is probably a limitation of Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
 
 <br />
 
