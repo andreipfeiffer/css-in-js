@@ -1,4 +1,4 @@
-# [WIP DRAFT] CSS-in-TS research analysis & synthesis
+# [🚧 WIP DRAFT] CSS-in-TS research analysis & synthesis
 
 Various **CSS-in-JS** solutions comparison in React, using **CSS modules** approach as a baseline, and **Next.js** as a full-featured SSR framework for building resources.
 
