@@ -350,7 +350,7 @@ Very young solution, built and maintained by Modulz, very close to stable v1 rel
 **Observations**:
 - uses `insertRule()` in development also, so you cannot see what gets bundled
 - splits styles into atomic class names
-- it generates a shitton of classes, it also expands short-hand properties (like `padding: 1em`), but maybe [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) scales better
+- it generates a shitton of classes, it also expands short-hand properties (like `padding: 1em`), but maybe [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) scales better, and [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) also
 - does not support string styling with tagged templates (to reduce bundle size, as they say)
 - but they support both `styled` & `css` approaches
 - great design tokens management and usage
