@@ -1,6 +1,9 @@
 # [🚧 WIP DRAFT] CSS-in-TS research analysis
 
-This document is a thorough analisys of all the current **CSS-in-JS** solutions _(as of Jan 2021)_.  
+_Last update: **Jan 2021**_
+
+This document is a thorough analisys of all the current **CSS-in-JS** solutions.  
+
 The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
 
 <br />
