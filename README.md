@@ -20,7 +20,6 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
   - [Fela](#fela)
   - [Stitches](#stitches)
   - [JSS](#jss)
-  - [... others](#disregarded-solutions)
 - [Motivation](#motivation)
 - [Goals](#goals)
 - [Disclaimer](#disclaimer)
