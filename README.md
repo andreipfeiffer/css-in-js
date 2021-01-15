@@ -29,7 +29,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 ## Overview
 
-|                                         | Co-location | DX    | String | Object | TS    | .css  | <style> | Atomic | Theme | Usage | Learn | Lib  | Page |
+|                                         | Co–location | DX    | String | Object | TS    | .css  | <style> | Atomic | Theme | Usage | Learn | Lib  | Page |
 | :-------------------------------------- | :---------: | :---: | :----: | :----: | :---: | :---: | :-----: | :----: | :---: | :---: | :---: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ? | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ? | 📉 |  +3.5 KB |  +4.4 KB |
