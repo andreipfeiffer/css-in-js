@@ -428,11 +428,11 @@ Page                              Size     First Load JS
 
 <br />
 
-### Disregarded solutions
+## Disregarded solutions
 
 <br />
 
-#### Aphrodite
+### Aphrodite
 
 It's not a popular solution, the approach is similar to **React Native StyleSheets**  way of styling components. Has built-in TypeScript support and a simple API.
 
@@ -441,7 +441,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 - no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
 - doesn't add any real value, except the ergonomics to colocate styles with the component.
 
-#### Glamor
+### Glamor
 
 I got it started with Next.js, but it feels fragile. The [Glamor official example](https://github.com/vercel/next.js/tree/canary/examples/with-glamor) throws an error regarding `rehydrate`. When commenting it out, it works, but not sure what the consequences are.
 
@@ -451,37 +451,37 @@ I got it started with Next.js, but it feels fragile. The [Glamor official exampl
 - has a lot of documented experimental features, marked as "buggy"
 - it feels like a side/internal project at FB, that is not used anymore.
 
-#### Linaria
+### Linaria
 
 Didn't manage to start it with Next.js + TypeScript.
 
 It was an interesting solution, as it promises zero-runtime overhead, generating `.css` files at build time, while the style are colocated within the components.
 
-#### Cxs
+### Cxs
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
 
 The solution looked interesting, because it is supposed to be very light weight.
 
-#### Astroturf
+### Astroturf
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
 
 The solution is not that popular, but it used `.css` extraction with colocated styles.
 
-#### Otion
+### Otion
 
 Looks promising, atomic css and light-weight. It has a working [Next.js example](https://github.com/kripod/otion/tree/main/packages/example-nextjs), but we didn't consider it because it lacks any documentation.
 
-#### Styletron
+### Styletron
 
 It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers work at Uber and they use it internally. It focused on generating unique atomic CSS classes, which could potentially deduplicate a lot of code.
 
-#### Radium
+### Radium
 
 The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
 
-#### Glamorous
+### Glamorous
 
 The project was [discountinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
 
