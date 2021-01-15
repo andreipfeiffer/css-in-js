@@ -29,17 +29,17 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 ## Overview
 
-|                                         | Co-location | DX    | String | Object | TS    | .css  | <style> | Atomic | Theme | Lib  | Page |
-| :-------------------------------------- | :---------: | :---: | :----: | :----: | :---: | :---: | :-----: | :----: | :---: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | +13.7 KB | +13.7 KB |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |  +8.5 KB |  +9.0 KB |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | +19.0 KB | +20.0 KB |
+|                                         | Co-location | DX    | String | Object | TS    | .css  | <style> | Atomic | Theme | Learn | Lib (KB)  | Page (KB) |
+| :-------------------------------------- | :---------: | :---: | :----: | :----: | :---: | :---: | :-----: | :----: | :---: | :---: | ---: | ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | 📉 | -     | -     |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | 📉 |  +3.5 |  +4.4 |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 📈 | +13.8 | +14.5 |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 📈 |  +7.1 | +11.2 |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | 📉 | -     | -     |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | 📈 |  +3.1 |  +3.7 |
+| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | 📉 | +13.7 | +13.7 |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | 📉 |  +8.5 |  +9.0 |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | 📉 | +19.0 | +20.0 |
 
 <br />
 
@@ -56,6 +56,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
 - **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
 - **Theme**: built-in support for Theming or managing design tokens/system
+- **Learn**: a very subjective opinion regarding the learning curve, you should really evaluate this on your own
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
