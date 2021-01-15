@@ -439,10 +439,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 - global styles are a bit cumbersome to define
 - no nesting support, apart from media queries & pseudo selectors
 - no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
-
-**Conclusion**: doesn't add any real value, except the ergonomics to colocate styles with the component.
-
-<br />
+- doesn't add any real value, except the ergonomics to colocate styles with the component.
 
 ### Glamor
 
@@ -452,10 +449,7 @@ I got it started with Next.js, but it feels fragile. The [Glamor official exampl
 - documentation is so and so
 - lacks any TS support
 - has a lot of documented experimental features, marked as "buggy"
-
-**Conclusion**: it feels like a side/internal project at FB, that is not used anymore.
-
-<br />
+- it feels like a side/internal project at FB, that is not used anymore.
 
 ### Linaria
 
