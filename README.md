@@ -47,8 +47,8 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 - **Co-location**: ability to define styles within the same file as the component (this ability also gives you the option to move the styles into a separate file and import them, but not the other way around).
 - **DX**: Developer eXperience which includes:
-   - syntax highlighting
-   - code-completion for CSS properties and values
+  - syntax highlighting
+  - code-completion for CSS properties and values
 - **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, like in CSS
 - **Object**: support for defining styles as objects, by writing property names in camelCase
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
@@ -56,7 +56,11 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
 - **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
 - **Theme**: built-in support for Theming or managing design tokens/system
-- **Learn**: a very subjective opinion regarding the learning curve, you should really evaluate this on your own
+- **Usage**: method of applying the styles on your components
+  - `className`: the API returns a string which you have to add to your component/element
+  - `wrapper`: the API creates a wrapper (styled) component which includes the `className`(s), which you'll render
+  - `css prop`: this is usually an additional feature for wrapper/styled components, which enables you to pass styled using a special `css` prop, similar to inline styles
+- **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
 
