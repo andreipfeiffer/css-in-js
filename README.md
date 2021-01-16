@@ -156,17 +156,13 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-- ✅ __Styles/Component co-location__  
-  Styles can be defined inside component files, or extracted as separate files
-- 🟠 __Context-aware code completion__  
-  To get syntax highlighting & code completion an editor extension is required
-- 🟠 __TypeScript support__  
-  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
+- ✅ __Styles/Component co-location__
+- 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion an editor extension is required
+- 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __`.css` file extraction__
 - ✅ __`<style>` tag injection__
 - ❌ __Atomic CSS__
 - ❌ __Theming support__  
-  No out-of-the-box theming support, so you must implement your own system  
 - __Styles definition method(s)__
   - ✅ Tagged Templates
   - ❌ Style Objects
@@ -174,8 +170,7 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
   - ✅ `className`   
   - ❌ wrapper component  
   - ❌ `css` prop  
-- 📉 __Learning curve__  
-  It has a minimal and very simple API, so it has a low learning curve
+- 📉 __Learning curve__: it has a minimal and very simple API, so it has a low learning curve
 
 <br />
 <br />
