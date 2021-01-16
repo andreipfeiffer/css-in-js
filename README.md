@@ -183,12 +183,12 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 
 #### Other worth mentioning observations
 
-- out-of-the-box support with Next.js
-- cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
-- you'll need to [split static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), otherwise it will render duplicate styles
-- unique class names are added to elements that are not targetted in style definition (un-needed html pollution)
-- for user input styles, it generates a new class name for each change, but it removes the old one
+- 👍 out-of-the-box support with Next.js
+- 👍 for user input styles, it generates a new class name for each change, but it removes the old one
 - unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
+- you'll need to optimize your styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
+- 👎 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication
+- 👎 unique class names are added to elements, even if you don't target them in your style definition, resulting in un-needed slight html pollution
 
 <br />
 
