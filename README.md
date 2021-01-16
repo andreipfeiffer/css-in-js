@@ -179,8 +179,6 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 
 - 📉 __Low Learning curve__: because the API is minimal and very simple
 
-<br />
-
 #### Other worth mentioning observations
 
 - out-of-the-box support with Next.js
@@ -189,8 +187,6 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - unique class names are added to elements that are not targetted in style definition (un-needed html pollution)
 - for user input styles, it generates a new class name for each change, but it removes the old one
 - unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
-
-<br />
 
 #### Conclusion
 
