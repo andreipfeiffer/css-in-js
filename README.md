@@ -156,6 +156,26 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
+- ✅ Styles/Component co-location
+- 🟠 Context-aware code completion
+- 🟠 TypeScript support
+- ❌ `.css` file extraction
+- ✅ `<style>` tag injection
+- ❌ Atomic CSS
+- ❌ Theming support
+- Styles definition method(s)
+  - ✅ Tagged Template Strings support
+  - ❌ Style Objects support
+- Styles usage method(s)
+  - ✅ `className`
+  - ❌ wrapper component
+  - ❌ `css` prop
+- 📉 Learning curve
+
+<br />
+<br />
+<br />
+
 - 🟠 need additional editor plugin for highlight & language service
 - 🟠 has TypeScript support (via `@types`), but not sure if/how they help, as there isn't any library API to use, or it's very minimal
 - 🟠 bundles all defined styles even if they are not used in component
