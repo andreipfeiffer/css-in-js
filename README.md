@@ -156,24 +156,26 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-✅ __Styles/Component co-location__: styles can be defined inside component files, or extracted as separate files  
-🟠 __Context-aware code completion__: to get syntax highlighting & code completion an editor extension is required  
-🟠 __TypeScript support__: `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
-❌ __`.css` file extraction__: -  
-✅ __`<style>` tag injection__: CSS is injected via `<style>` tag  
-❌ __Atomic CSS__: -  
-❌ __Theming support__: no out-of-the-box theming support, so you must implement your own system  
-
-Styles definition method(s):  
-✅ __Tagged Template Strings support__  
-❌ __Style Objects support__  
-
-Styles usage method(s):  
-✅ __`className`__   
-❌ __wrapper component__  
-❌ __`css` prop__  
-
-📉 Learning curve
+- ✅ __Styles/Component co-location__  
+  Styles can be defined inside component files, or extracted as separate files
+- 🟠 __Context-aware code completion__  
+  To get syntax highlighting & code completion an editor extension is required
+- 🟠 __TypeScript support__  
+  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
+- ❌ __`.css` file extraction__
+- ✅ __`<style>` tag injection__
+- ❌ __Atomic CSS__
+- ❌ __Theming support__  
+  No out-of-the-box theming support, so you must implement your own system  
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ❌ Style Objects
+- __Styles usage method(s)__
+  - ✅ `className`   
+  - ❌ wrapper component  
+  - ❌ `css` prop  
+- 📉 __Learning curve__  
+  It has a minimal and very simple API, so it has a low learning curve
 
 <br />
 <br />
