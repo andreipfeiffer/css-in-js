@@ -163,9 +163,9 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - ❌ __No Theming support__  
 - 📉 __Low Learning curve__: because the API is minimal and very simple
 
-__Styles output__  
-- ❌ `.css` file extraction
-- ✅ `<style>` tag injection
+- __Styles output__  
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
 
 <br />
 
