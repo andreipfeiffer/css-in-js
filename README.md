@@ -162,10 +162,10 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion an editor extension is required
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __No Atomic CSS__
-- ❌ __No Theming support__  
-- 📉 __Low Learning curve__: because the API is minimal and very simple  
+- ❌ __No Theming support__
+- 📉 __Low Learning curve__: because the API is minimal and very simple
 
-- Styles output
+- __Styles output__
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
@@ -174,9 +174,9 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
   - ❌ Style Objects
 
 - __Styles usage method(s)__
-  - ✅ `className`   
-  - ❌ wrapper component  
-  - ❌ `css` prop  
+  - ✅ `className`
+  - ❌ wrapper component
+  - ❌ `css` prop
 
 <br />
 
