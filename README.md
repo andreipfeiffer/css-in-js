@@ -198,6 +198,8 @@ Overall, you feel like writting plain CSS, with the added benefit of being able 
 
 The downsides are the overall experience of writting plain CSS, __without nesting support__ pseudo classes and media queries getting pretty cumbersome to define.
 
+<br />
+
 ```
 Page                                                           Size     First Load JS
 ┌ ○ /                                                          2.64 kB        69.3 kB
