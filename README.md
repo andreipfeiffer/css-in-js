@@ -181,7 +181,7 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 
 <br />
 
-__Other worth mentioning observations__
+#### Other worth mentioning observations
 
 - out-of-the-box support with Next.js
 - cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
@@ -192,7 +192,7 @@ __Other worth mentioning observations__
 
 <br />
 
-__Conclusion__
+#### Conclusion
 
 Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
