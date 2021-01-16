@@ -48,7 +48,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - ✅: full out-of-the-box support
 - 🟠: partial support
 - ❌: lack of support
-- **Co-location**: ability to define styles within the same file as the component 
+- **Co-location**: ability to define styles within the same file as the component  
   You can also extract the styles into a separate file and import them, but the other way around does not apply
 - **DX**: Developer eXperience which includes:
   - syntax highlighting
