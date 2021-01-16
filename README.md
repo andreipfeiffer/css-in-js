@@ -159,22 +159,26 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - ✅ __Styles/Component co-location__
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion an editor extension is required
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
-- ❌ __Atomic CSS__
-- ❌ __Theming support__  
-- 📉 __Learning curve__: it has a minimal and very simple API, so it has a low learning curve
-
+- ❌ __No Atomic CSS__
+- ❌ __No Theming support__  
+- 📉 __Low Learning curve__: because the API is minimal and very simple
+<br />
 __Styles output__
 - ❌ `.css` file extraction
 - ✅ `<style>` tag injection
-
+<br />
 __Styles definition method(s)__
 - ✅ Tagged Templates
 - ❌ Style Objects
-
+<br />
 __Styles usage method(s)__
 - ✅ `className`   
 - ❌ wrapper component  
 - ❌ `css` prop  
+<br />
+__Other worth mentioning features__
+- ✅ out-of-the-box support with Next.js
+- ❌ cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
 
 <br />
 <br />
