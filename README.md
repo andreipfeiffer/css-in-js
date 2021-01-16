@@ -167,43 +167,29 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-<br />
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ❌ Style Objects
 
-__Styles definition method(s)__
-- ✅ Tagged Templates
-- ❌ Style Objects
+- __Styles usage method(s)__
+  - ✅ `className`   
+  - ❌ wrapper component  
+  - ❌ `css` prop  
 
-<br />
+__Other worth mentioning observations__
 
-__Styles usage method(s)__
-- ✅ `className`   
-- ❌ wrapper component  
-- ❌ `css` prop  
+- out-of-the-box support with Next.js
+- cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
+- you'll need to [split static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), otherwise it will render duplicate styles
+- unique class names are added to elements that are not targetted in style definition (un-needed html pollution)
+- for user input styles, it generates a new class name for each change, but it removes the old one
+- unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
 
-<br />
+__Conclusion__
 
-__Other worth mentioning features__
-- ✅ out-of-the-box support with Next.js
-- ❌ cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
+Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
-<br />
-<br />
-<br />
-
-- 🟠 need additional editor plugin for highlight & language service
-- 🟠 has TypeScript support (via `@types`), but not sure if/how they help, as there isn't any library API to use, or it's very minimal
-- 🟠 bundles all defined styles even if they are not used in component
-- ✅ out-of-the-box support with Next.js
-- ✅ has a minimal API, so it has a low learning curve
-- ✅ styles on element/tags like `button` are automatically scoped (unique class names are added)
-- ✅ can get generated `className`, or `styles` object (but it contains an entire React component, with all the static & dynamic styles)
-- ✅ page styles are more convenient, because they can be colocated within the Page component
-
-**Observations**:
-- need to [split static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), otherwise it will render duplicate output
-- cannot use nesting, like `& span`, or `&:hover`
-- user input styles: it generates a new class name for each change, but it removes the old one
-- unique class names are added to elements that are not targetted in style definition (highly polluted html)
+The downsides are the overall experience of writting plain CSS, __without nesting support__ pseudo classes and media queries get pretty cumbersome to define, similar to plain CSS.
 
 ```
 Page                                                           Size     First Load JS
