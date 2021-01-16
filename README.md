@@ -156,9 +156,7 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-Version: __3.4__ | [View Docs](https://github.com/vercel/styled-jsx) | Version: __3.4__ | Maintained by [Vercel](https://github.com/vercel) | 
-
-Page overhead: __+4.4 KB__
+Version: __3.4__ | [View Docs](https://github.com/vercel/styled-jsx) | Maintained by [Vercel](https://github.com/vercel) | Launched in __2017__
 
 <br />
 
@@ -201,6 +199,10 @@ Page overhead: __+4.4 KB__
 Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
 The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes and media queries getting pretty cumbersome to define.
+
+<br />
+
+Page overhead: __+4.4 KB__
 
 <br />
 
