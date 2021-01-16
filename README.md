@@ -156,12 +156,14 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
+<br />
+
 - ✅ __Styles/Component co-location__
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion an editor extension is required
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__  
-- 📉 __Low Learning curve__: because the API is minimal and very simple
+- 📉 __Low Learning curve__: because the API is minimal and very simple  
 
 - __Styles output__  
   - ❌ `.css` file extraction
