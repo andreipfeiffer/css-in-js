@@ -176,6 +176,8 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
   - ❌ wrapper component  
   - ❌ `css` prop  
 
+<br />
+
 __Other worth mentioning observations__
 
 - out-of-the-box support with Next.js
@@ -185,11 +187,13 @@ __Other worth mentioning observations__
 - for user input styles, it generates a new class name for each change, but it removes the old one
 - unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
 
+<br />
+
 __Conclusion__
 
 Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
-The downsides are the overall experience of writting plain CSS, __without nesting support__ pseudo classes and media queries get pretty cumbersome to define, similar to plain CSS.
+The downsides are the overall experience of writting plain CSS, __without nesting support__ pseudo classes and media queries getting pretty cumbersome to define.
 
 ```
 Page                                                           Size     First Load JS
