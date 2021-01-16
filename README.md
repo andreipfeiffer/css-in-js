@@ -162,20 +162,28 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__  
 - 📉 __Low Learning curve__: because the API is minimal and very simple
+
 <br />
+
 __Styles output__
 - ❌ `.css` file extraction
 - ✅ `<style>` tag injection
+
 <br />
+
 __Styles definition method(s)__
 - ✅ Tagged Templates
 - ❌ Style Objects
+
 <br />
+
 __Styles usage method(s)__
 - ✅ `className`   
 - ❌ wrapper component  
 - ❌ `css` prop  
+
 <br />
+
 __Other worth mentioning features__
 - ✅ out-of-the-box support with Next.js
 - ❌ cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS
