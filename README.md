@@ -161,20 +161,20 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __Atomic CSS__
 - ❌ __Theming support__  
-
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
-- __Styles definition method(s)__
-  - ✅ Tagged Templates
-  - ❌ Style Objects
-
-- __Styles usage method(s)__
-  - ✅ `className`   
-  - ❌ wrapper component  
-  - ❌ `css` prop  
 - 📉 __Learning curve__: it has a minimal and very simple API, so it has a low learning curve
+
+__Styles output__
+- ❌ `.css` file extraction
+- ✅ `<style>` tag injection
+
+__Styles definition method(s)__
+- ✅ Tagged Templates
+- ❌ Style Objects
+
+__Styles usage method(s)__
+- ✅ `className`   
+- ❌ wrapper component  
+- ❌ `css` prop  
 
 <br />
 <br />
