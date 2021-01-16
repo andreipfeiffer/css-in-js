@@ -190,6 +190,7 @@ Version: __3.4__ | [View Docs](https://github.com/vercel/styled-jsx) | Maintaine
 - 😏 unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
 - 🤓 you'll need to optimize your styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
 - 🤨 unique class names are added to elements, even if you don't target them in your style definition, resulting in un-needed slight html pollution
+- 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
 - 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication
 
 <br />
