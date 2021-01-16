@@ -45,7 +45,11 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 **LEGEND**:
 
-- **Co-location**: ability to define styles within the same file as the component (this ability also gives you the option to move the styles into a separate file and import them, but not the other way around).
+- ✅: full out-of-the-box support
+- 🟠: partial support
+- ❌: lack of support
+- **Co-location**: ability to define styles within the same file as the component 
+  You can also extract the styles into a separate file and import them, but the other way around does not apply
 - **DX**: Developer eXperience which includes:
   - syntax highlighting
   - code-completion for CSS properties and values
