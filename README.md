@@ -156,7 +156,9 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-[View Docs](https://github.com/vercel/styled-jsx) | Page overhead: __+4.4 KB__
+Version: __3.4__ | [View Docs](https://github.com/vercel/styled-jsx) | Version: __3.4__ | Maintained by [Vercel](https://github.com/vercel) | 
+
+Page overhead: __+4.4 KB__
 
 <br />
 
