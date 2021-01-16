@@ -163,7 +163,6 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
-- 📉 __Low Learning curve__: because the API is minimal and very simple
 
 - __Styles output__
   - ❌ `.css` file extraction
@@ -177,6 +176,8 @@ Very simple solution, doesn't have a dedicated website for documentation, everyt
   - ✅ `className`
   - ❌ wrapper component
   - ❌ `css` prop
+
+- 📉 __Low Learning curve__: because the API is minimal and very simple
 
 <br />
 
