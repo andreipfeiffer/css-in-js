@@ -45,11 +45,11 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 **LEGEND**:
 
-- ✅: full out-of-the-box support
-- 🟠: partial support
+- ✅: full & out-of-the-box support
+- 🟠: partial/limited support (or not ideal)
 - ❌: lack of support
-- **Co-location**: ability to define styles within the same file as the component  
-  You can also extract the styles into a separate file and import them, but the other way around does not apply
+- **Co-location**:  
+  Ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply
 - **DX**: Developer eXperience which includes:
   - syntax highlighting
   - code-completion for CSS properties and values
@@ -63,7 +63,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - **Usage**: method of applying the styles on your components
   - `className`: the API returns a string which you have to add to your component/element
   - `wrapper`: the API creates a wrapper (styled) component which includes the `className`(s), which you'll render
-  - `css prop`: this is usually an additional feature for wrapper/styled components, which enables you to pass styled using a special `css` prop, similar to inline styles
+  - `css` prop: this is usually an additional feature for wrapper/styled components, which enables you to pass styled using a special css prop, similar to inline styles
 - **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
 - **Lib**: size in KB of the library that is shipped in a production build
 - **Bundle**: increase in KB (as an average), for an entire single page built for production
