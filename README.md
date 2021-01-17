@@ -34,7 +34,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📈 |  +7.1 KB | +11.2 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📈 |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ? | ? | ? | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📈 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 | +13.7 KB | +13.7 KB |
@@ -327,15 +327,36 @@ Page                                                           Size     First Lo
 
 ### Emotion
 
-Probably the most comprehensive, complete, sofisticated solution. Detailed documentation, built with TypeScript, looks mature being at version 11.
+Probably the most comprehensive, complete and sofisticated solution. Detailed documentation, fully built with TypeScript, looks very mature, rich in features and well maintained.
 
 Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction)
 
+<br />
 
-- 🟠 it has a higher learning curve
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Built-in Theming support__
+- ✅ __Context-aware code completion__
+- ❌ __No Atomic CSS__
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ❌ `className`
+  - ✅ `styled` component
+  - ✅ `css` prop
+
+- 📈 __Higher Learning curve__: simply because you have to learn the API, which is big
+
+
 - 🟠 bundles nested styles even if they are not used in component
 - ✅ good DX, since you can use objects (not necessarily strings), provides code completion
-- ✅ built-in TypeScript support
 - ✅ provides nesting selectors
 
 **Observations**:
