@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
-      <H1>Another route</H1>
+      <Heading>Another route</Heading>
 
       <p>
         Styles should be code-splitted, loaded only when the route is loaded.
@@ -23,7 +23,8 @@ export default function Home() {
   );
 }
 
-const H1 = styled.h1`
+// Styled components with strings or objects
+const Heading = styled.h1`
   max-width: 75vw;
   font-size: 1.5rem;
 `;
