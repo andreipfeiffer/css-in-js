@@ -29,8 +29,8 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 ## Overview
 
-|                                         | Co&#8209;location | DX    | String | Object | TS    | .css  | <style> | Atomic | Theme | Usage | Learn | Lib  | Page |
-| :-------------------------------------- | :---------: | :---: | :----: | :----: | :---: | :---: | :-----: | :----: | :---: | :---: | :---: | ---: | ---: |
+|                                         | Co&#8209;location | DX    | tmpl\`\` | `{}`  | TS    | `.css` | `<style>` | Atomic | Theme | Usage | Learn | Lib  | Page |
+| :-------------------------------------- | :---------------: | :---: | :------: | :---: | :---: | :----: | :-------: | :----: | :---: | :---: | :---: | ---: | ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ? | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ? | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | 📈 | +13.8 KB | +14.5 KB |
@@ -45,15 +45,16 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 **LEGEND**:
 
-- ✅: full & out-of-the-box support
-- 🟠: partial/limited support (or not ideal)
-- ❌: lack of support
-- **Co-location**: ability to define styles within the same file as the component.  
+✅ - full & out-of-the-box support  
+🟠 - partial/limited support (or not ideal)  
+❌ - lack of support  
+
+1. **Co-location**: ability to define styles within the same file as the component.  
   You can also extract the styles into a separate file and import them, but the other way around does not apply.
-- **DX**: Developer eXperience which includes:
+2. **DX**: Developer eXperience which includes:
   - syntax highlighting
   - code-completion for CSS properties and values
-- **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, just like in CSS syntax
+3. **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, just like in CSS syntax
   - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
   - requires additional code editor plugins for syntax highlight and code completion
 - **Object**: support for defining styles as objects, by writing property names in camelCase
