@@ -1,5 +1,5 @@
+/** @jsxImportSource @emotion/react */
 import { useRouter } from "next/router";
-import styled from "@emotion/styled";
 import { Button } from "../components/button";
 
 export default function Home() {
@@ -9,7 +9,14 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
-      <Heading>Another route</Heading>
+      <h1
+        css={{
+          maxWidth: "75vw",
+          fontSize: "1.5rem",
+        }}
+      >
+        Another route
+      </h1>
 
       <p>
         Styles should be code-splitted, loaded only when the route is loaded.
@@ -22,9 +29,3 @@ export default function Home() {
     </main>
   );
 }
-
-// Styled components with strings or objects
-const Heading = styled.h1`
-  max-width: 75vw;
-  font-size: 1.5rem;
-`;

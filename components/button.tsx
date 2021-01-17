@@ -1,5 +1,5 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
+/** @jsxImportSource @emotion/react */
+import { keyframes, css } from "@emotion/react";
 
 enum Color {
   grey = "#cccccc",
@@ -16,12 +16,20 @@ type Props = {
 };
 
 export function Button(props: Props) {
-  const { children, onClick } = props;
+  const { children, color = "grey", onClick } = props;
 
   return (
-    <StyledButton onClick={onClick} {...props}>
+    <button
+      onClick={onClick}
+      css={[
+        button_styles,
+        {
+          color: Color[color],
+        },
+      ]}
+    >
       <span>{children}</span>
-    </StyledButton>
+    </button>
   );
 }
 
@@ -36,8 +44,39 @@ to {
 }
 `;
 
-const StyledButton = styled.button<Props>(
-  {
+const button_styles = css({
+  border: 0,
+  height: "3em",
+  padding: "0 2em",
+  borderRadius: "1.5em",
+  cursor: "pointer",
+  fontWeight: "bold",
+  width: "100vw",
+  display: "block",
+  outline: 0,
+  backgroundColor: "currentColor",
+  margin: "1em auto",
+
+  "&:hover": {
+    animationName: button_animation,
+    animationFillMode: "forwards",
+    animationDuration: "0.5s",
+  },
+
+  "& span": {
+    color: "white",
+  },
+
+  "@media only screen and (min-width: 640px)": {
+    width: "100%",
+  },
+
+  // the following styled should be ignored, as they are not needed
+  strong: {
+    color: "red",
+  },
+
+  "& .unused_styles": {
     border: 0,
     height: "3em",
     padding: "0 2em",
@@ -49,41 +88,5 @@ const StyledButton = styled.button<Props>(
     outline: 0,
     backgroundColor: "currentColor",
     margin: "1em auto",
-
-    "&:hover": {
-      animationName: button_animation,
-      animationFillMode: "forwards",
-      animationDuration: "0.5s",
-    },
-
-    "& span": {
-      color: "white",
-    },
-
-    "@media only screen and (min-width: 640px)": {
-      width: "100%",
-    },
-
-    // the following styled should be ignored, as they are not needed
-    strong: {
-      color: "red",
-    },
-
-    "& .unused_styles": {
-      border: 0,
-      height: "3em",
-      padding: "0 2em",
-      borderRadius: "1.5em",
-      cursor: "pointer",
-      fontWeight: "bold",
-      width: "100vw",
-      display: "block",
-      outline: 0,
-      backgroundColor: "currentColor",
-      margin: "1em auto",
-    },
   },
-  (props) => ({
-    color: Color[props.color || "grey"],
-  })
-);
+});

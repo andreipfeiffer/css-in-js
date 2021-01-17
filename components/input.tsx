@@ -1,19 +1,20 @@
-import styled from "@emotion/styled";
+/** @jsxImportSource @emotion/react */
 
 type Props = {
   value: number;
   onChange(value: number): void;
-  className?: string;
 };
 
-function InputUnstyled({ value, onChange, className }: Props) {
+export function Input({ value, onChange }: Props) {
   return (
     <>
       <label>
         User input styles:{" "}
         <input
-          // if we pass additional className, they will be prepended
-          className={className}
+          css={{
+            padding: "0.5em",
+            width: `${value}px`,
+          }}
           type="number"
           value={value}
           onChange={(e) => onChange(+e.target.value)}
@@ -22,12 +23,3 @@ function InputUnstyled({ value, onChange, className }: Props) {
     </>
   );
 }
-
-export const Input = styled(InputUnstyled)<Props>(
-  {
-    padding: "0.5em",
-  },
-  (props) => ({
-    width: `${props.value}px`,
-  })
-);
