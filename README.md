@@ -33,7 +33,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 | :--- | :------------------: | :---: | :-------------: | :-----: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :------------: | :------------: | :-------: |     ---: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📈 |  +7.1 KB | +11.2 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ? | ? | ? | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📈 |  +3.1 KB |  +3.7 KB |
@@ -91,6 +91,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 13. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
 14. **Lib**: size in KB of the library that is shipped in a production build
 15. **Bundle**: increase in KB (as an average), for the entire index page production build
+    - keep in mind that this includes an almost __empty page__, with only a couple of components, which is great for evaluating the cost of the solution, but does not offer any insight on how it scales (logarithmic, linear, or exponential)
 
 <br />
 
@@ -189,7 +190,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 <br />
 
 - ✅ __Styles/Component co-location__
-- 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion an editor extension is required
+- 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
@@ -204,7 +205,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 - __Styles usage method(s)__
   - ✅ `className`
-  - ❌ wrapper component
+  - ❌ `styled` component
   - ❌ `css` prop
 
 - 📉 __Low Learning curve__: because the API is minimal and very simple
@@ -254,19 +255,56 @@ Page                                                           Size     First Lo
 
 ### Styled Components
 
-Probably the most popular solution, good documentation. It uses Tagged Templates to defines styles, but can use objects as well, but apparently it's a second class citizen.
+For sure one of the most popular and mature solutions, with good documentation. It uses Tagged Templates to defines styles, but can use objects as well.
 
-- 🟠 it has a higher learning curve
-- 🟠 need additional editor plugin for highlight & language service
-- 🟠 bundles nested styles even if they are not used in component (however, if you don't use a StyledComponent, it won't be bundled, as it is not referenced)
-- ✅ pretty good TS support (via `@types`), except when using Object Styles, which is a newer approach apparently
-- ✅ provides nesting selectors
+Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs)
 
-**Observations**:
-- need to split static & dynamic styles, otherwise it will render duplicate output
-- de-facto are Tagged Templates, but you can also use Object Styles, however mixing them is confusing, because syntax is different (kebab vs camel, EOL character, quotes, etc)
-- some more complex syntax appears to be a bit cumbersome to get it right
-- user input styles: it generates a new class name for each change, but it does NOT remove the old one
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__:  `@types` can be additionaly installed
+- ✅ __Built-in Theming support__
+- 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
+- ❌ __No Atomic CSS__
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ❌ `className`
+  - ✅ `styled` component
+  - 🟠 `css` prop
+
+- 📈 __Higher Learning curve__: because you have to learn the API, get used to using the styled wrapper components, and basically a new way to manage your styles
+
+<br />
+
+#### Other worth mentioning observations
+
+- 😍 provides __nesting__ selectors, so defining __pseudo classes__ and __media queries__ is a pleasure
+- 🧐 the `css` prop is mentioned in the API docs, but there are no usage examples
+- 🤓 need to split static & dynamic styles, otherwise it will render duplicate output
+- 😕 bundles nested styles even if they are not used in component
+- 😵 you can mix Tagged Templates with Styled Objects, which could lead to convoluted and different syntax for each approach (kebab vs camel, EOL character, quotes, interpolation, etc)
+- 🥴 some more complex syntax appears to be a bit cumbersome to get it right (mixing animations, with Styled Objects, dynamic styles based on `Props` variations, etc)
+- 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
+
+#### Conclusion
+
+Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules you'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating your existing styles, and for starting from scratch. Also, the maintainers did a pretty good job so far keeping up with most of the innovations in this field.
+
+But before adopting it, you must be aware that it comes with a certain cost for your bundle size.
+
+<br />
+
+Page overhead: __+14.5 KB__
+
+<br />
 
 ```
 Page                                                           Size     First Load JS
