@@ -294,6 +294,8 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 - 🥴 some more complex syntax appears to be a bit cumbersome to get it right (mixing animations, with Styled Objects, dynamic styles based on `Props` variations, etc)
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
 
+<br />
+
 #### Conclusion
 
 Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules you'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating your existing styles, and for starting from scratch. Also, the maintainers did a pretty good job so far keeping up with most of the innovations in this field.
@@ -326,6 +328,9 @@ Page                                                           Size     First Lo
 ### Emotion
 
 Probably the most comprehensive, complete, sofisticated solution. Detailed documentation, built with TypeScript, looks mature being at version 11.
+
+Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction)
+
 
 - 🟠 it has a higher learning curve
 - 🟠 bundles nested styles even if they are not used in component
