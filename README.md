@@ -48,8 +48,8 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - ✅: full & out-of-the-box support
 - 🟠: partial/limited support (or not ideal)
 - ❌: lack of support
-- **Co-location**:  
-  Ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply
+- **Co-location**: ability to define styles within the same file as the component.  
+  You can also extract the styles into a separate file and import them, but the other way around does not apply.
 - **DX**: Developer eXperience which includes:
   - syntax highlighting
   - code-completion for CSS properties and values
@@ -61,7 +61,14 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
   - without TS support, you won't get code completion
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
 - **.css**: support for extracting and serving the styles as native `.css` files
+  - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
+  - it also reduces bundle size, because you don't need runtime styles evaluation, to inject the styles
+  - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time
+  - more suitable for less dynamic solutions (ie: e-commerce)
 - **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
+  - makes dynamic styling super easy
+  - incurs longer load
+  - more suited for highly dynamic and interactive applications
 - **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
 - **Theme**: built-in support for Theming or managing design tokens/system
 - **Usage**: method of applying the styles on your components
@@ -109,8 +116,8 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 <br />
 
 🟠 **Increased FCP**  
-For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML. 
-- solutions that perform `.css` file extraction dont' have this problem, includes **CSS Modules** and **Treat**
+For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than using regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML, increasing parsing time. 
+- solutions that perform `.css` file extraction don't have this problem (this includes **CSS Modules** and **Treat**)
 
 <br />
 
