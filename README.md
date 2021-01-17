@@ -53,8 +53,12 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 - **DX**: Developer eXperience which includes:
   - syntax highlighting
   - code-completion for CSS properties and values
-- **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, like in CSS
+- **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, just like in CSS syntax
+  - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
+  - requires additional code editor plugins for syntax highlight and code completion
 - **Object**: support for defining styles as objects, by writing property names in camelCase
+  - more suitable for new projects, when you don't need to migrate existing CSS
+  - without TS support, you won't get code completion
 - **TS**: TypeScript support for library API, either built-in, or via `@types` package
 - **.css**: support for extracting and serving the styles as native `.css` files
 - **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
