@@ -29,17 +29,17 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 
 ## Overview
 
-|                                         | Co&#8209;location | DX    | tmpl\`\` | `{}`  | TS    | `.css` | `<style>` | Atomic | Theme | Usage | Learn | Lib  | Page |
-| :-------------------------------------- | :---------------: | :---: | :------: | :---: | :---: | :----: | :-------: | :----: | :---: | :---: | :---: | ---: | ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ? | 📉 | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ? | 📉 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | 📈 | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | 📈 |  +7.1 KB | +11.2 KB |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ? | 📉 | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | 📈 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | 📉 | +13.7 KB | +13.7 KB |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | 📉 |  +8.5 KB |  +9.0 KB |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | 📉 | +19.0 KB | +20.0 KB |
+|      | 1. Co&#8209;location | 2. DX | 3. `` css` ` `` | 4. `{}` | 5. TS | 6. `.css` | 7. `<style>` | 8. Atomic | 9. Theme | 10. `className` | 11. `styled.p` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
+| :--- | :------------------: | :---: | :-------------: | :-----: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :------------: | :------------: | :-------: |     ---: |     ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ? | ? | ? | 📉 | -        | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📉 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📈 | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📈 |  +7.1 KB | +11.2 KB |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ? | ? | ? | 📉 | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📈 |  +3.1 KB |  +3.7 KB |
+| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 | +13.7 KB | +13.7 KB |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 |  +8.5 KB |  +9.0 KB |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📉 | +19.0 KB | +20.0 KB |
 
 <br />
 
@@ -52,33 +52,45 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 1. **Co-location**: ability to define styles within the same file as the component.  
   You can also extract the styles into a separate file and import them, but the other way around does not apply.
 2. **DX**: Developer eXperience which includes:
-  - syntax highlighting
-  - code-completion for CSS properties and values
-3. **String**: support for defining styles as strings, using ES Tagged Templates and writing property names in kebab-case, just like in CSS syntax
-  - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
-  - requires additional code editor plugins for syntax highlight and code completion
-- **Object**: support for defining styles as objects, by writing property names in camelCase
-  - more suitable for new projects, when you don't need to migrate existing CSS
-  - without TS support, you won't get code completion
-- **TS**: TypeScript support for library API, either built-in, or via `@types` package
-- **.css**: support for extracting and serving the styles as native `.css` files
-  - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
-  - it also reduces bundle size, because you don't need runtime styles evaluation, to inject the styles
-  - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time
-  - more suitable for less dynamic solutions (ie: e-commerce)
-- **style tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
-  - makes dynamic styling super easy
-  - incurs longer load
-  - more suited for highly dynamic and interactive applications
-- **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
-- **Theme**: built-in support for Theming or managing design tokens/system
-- **Usage**: method of applying the styles on your components
-  - `className`: the API returns a string which you have to add to your component/element
-  - `wrapper`: the API creates a wrapper (styled) component which includes the `className`(s), which you'll render
-  - `css` prop: this is usually an additional feature for wrapper/styled components, which enables you to pass styled using a special css prop, similar to inline styles
-- **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
-- **Lib**: size in KB of the library that is shipped in a production build
-- **Bundle**: increase in KB (as an average), for an entire single page built for production
+    - syntax highlighting
+    - code-completion for CSS properties and values
+3. **String**: support for defining styles as strings
+    - uses ES Tagged Templates and `kebab-case` for property names, just like plain CSS syntax
+    - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
+    - requires additional code editor plugins for syntax highlight and code completion
+4. **Object**: support for defining styles as objects
+    - uses plain JacaScript Objects and `camelCase` for property names
+    - more suitable for new projects, when you don't need to migrate existing CSS
+    - without TS support, you won't get code completion
+5. **TS**: TypeScript support for library API, either built-in, or via `@types` package, which should include
+    - typings for the library API
+    - Style Object typings (in case the library supports the object syntax)
+    - `Props` generics (if needed)
+6. **`.css`**: support for extracting and serving the styles as native `.css` files
+    - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
+    - it also reduces bundle size, because you don't need runtime styles evaluation, to inject the styles
+    - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time
+    - more suitable for less dynamic solutions (ie: e-commerce)
+7. **`style` tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
+    - makes dynamic styling super easy
+    - incurs longer load
+    - more suited for highly dynamic and interactive applications
+8. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
+    - this generates a separate CSS class for each CSS property (or for each unique combination of classes)
+    - you'll get larger HTML files, because each styled element will contain a large number of CSS classes applied
+    - it will theoretically reduce the scaling growth of your styles
+9. **Theme**: built-in support for Theming or managing design tokens/system
+10. **`className`**: the API returns a string which you have to add to your component/element
+    - similar how you would use regular styling of React components
+11. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s), which you'll render
+    - you'll have to learn a new way to define styles
+    - it also introduces a bit of indiretion when figuring out what native element gets rendered
+12. **`css` prop**: allows passing styles using a special css prop, similar to inline styles
+    - this is usually an additional feature for styled components, but it can also work separately
+    - it's a nice and flexible ergonomic API
+13. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
+14. **Lib**: size in KB of the library that is shipped in a production build
+15. **Bundle**: increase in KB (as an average), for the entire index page production build
 
 <br />
 
