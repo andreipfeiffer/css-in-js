@@ -34,7 +34,7 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📈 |  +7.1 KB | +11.2 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ? | ? | ? | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📈 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 | +13.7 KB | +13.7 KB |
@@ -191,7 +191,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 - ✅ __Styles/Component co-location__
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
-- 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS (the whole definition is 22 lines of simple code)
+- 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
 
@@ -212,11 +212,16 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 <br />
 
-#### Other worth mentioning observations
+#### Other benefits
 
 - 😌 out-of-the-box support with Next.js
 - 👍 for user input styles, it generates a new class name for each change, but it removes the old one
 - 😏 unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
+
+<br />
+
+#### Worth mentioning observations
+
 - 🤓 you'll need to optimize your styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
 - 🤨 unique class names are added to elements, even if you don't target them in your style definition, resulting in un-needed slight html pollution
 - 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
@@ -262,7 +267,7 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 <br />
 
 - ✅ __Styles/Component co-location__
-- ✅ __TypeScript support__:  `@types` can be additionaly installed
+- ✅ __TypeScript support__:  `@types` must be additionaly installed, via DefinitelyTyped
 - ✅ __Built-in Theming support__
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
 - ❌ __No Atomic CSS__
@@ -284,9 +289,14 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 
 <br />
 
-#### Other worth mentioning observations
+#### Other benefits
 
 - 😍 provides __nesting__ selectors, so defining __pseudo classes__ and __media queries__ is a pleasure
+
+<br />
+
+#### Worth mentioning observations
+
 - 🧐 the `css` prop is mentioned in the API docs, but there are no usage examples
 - 🤓 need to split static & dynamic styles, otherwise it will render duplicate output
 - 😕 bundles nested styles even if they are not used in component
@@ -336,7 +346,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - ✅ __Styles/Component co-location__
 - ✅ __TypeScript support__
 - ✅ __Built-in Theming support__
-- ✅ __Context-aware code completion__
+- ✅ __Context-aware code completion__: if you use `styled` components approach, you must install an additional editor plugin
 - ❌ __No Atomic CSS__
 
 - __Styles output__
@@ -352,31 +362,48 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
   - ✅ `styled` component
   - ✅ `css` prop
 
-- 📈 __Higher Learning curve__: simply because you have to learn the API, which is big
+- 📉 __Low Learning curve__: when using the `css` prop, which is the primary approach, the API is pretty straightforward
 
+<br />
 
-- 🟠 bundles nested styles even if they are not used in component
-- ✅ good DX, since you can use objects (not necessarily strings), provides code completion
-- ✅ provides nesting selectors
+#### Other benefits
 
-**Observations**:
-- dynamic props are not as straightforward to use with TS, not sure how to structure the components, I guess it needs a different angle approach
-- there are naming conflicts between Component Props and Element Attribute names (see custom Input component: passed Props `onChange()` and input `onChange()`)
-- user input styles: it generates a new class name for each change, but it does NOT remove the old one
-- cannot (easily) split static and dynamic styles, it doesn't properly separate them, even if defined separately (highly poluted duplicated styles in head)
+- 😍 provides __nesting__ selectors, so defining __pseudo classes__ and __media queries__ is a pleasure
+- 😎 the `css` prop is great ergonomic, however it seems to be a newer approach, based on React 17 new `jsx` runtime, and [configuring](https://emotion.sh/docs/css-prop) it is not trivial, differs on your setup, and implies some boilerplate (but this should change soon)
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
+- 😑 using `styled` will add `3 KB` to you bundle, because it's imported from a separate package
+- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants (same applies to `css` prop & `styled` components)
+
+<br />
+
+#### Conclusions
+
+Overall Emotion looks to be a very solid and flexible approach. The novel `css` prop approach offers great ergonomics for developers. Working with dynamic styles and TypeScript is pretty easy and intuitive. Supporting both `strings` and `objects` when defining styles, it can be easily used both when migrating from plain CSS, or starting from scratch. The bundle overhead is not negligible, but it's much smaller than other solutions, especially if you consider the rich set of features it offers.
+
+<br />
+
+Page overhead: __+7.7 KB__ (with `css` prop) and __+10.7 KB__ (with `styled` components)
+
+<br />
 
 ```
 Page                                                           Size     First Load JS
-┌ ○ /                                                          5.86 kB        76.1 kB
-├   /_app                                                      0 B            70.2 kB
-├ ○ /404                                                       3.03 kB        73.3 kB
-└ ○ /other                                                     4.46 kB        74.7 kB
-+ First Load JS shared by all                                  70.2 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.0d44a7.js  7.17 kB
+┌ ○ /                                                          2.47 kB        72.6 kB
+├   /_app                                                      0 B            70.1 kB
+├ ○ /404                                                       3.03 kB        73.1 kB
+└ ○ /other                                                     1.04 kB        71.1 kB
++ First Load JS shared by all                                  70.1 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.19c2e4.js  7.1 kB
   ├ chunks/commons.800e6d.js                                   13.1 kB
   ├ chunks/framework.9d5241.js                                 41.8 kB
   ├ chunks/main.45755e.js                                      6.55 kB
-  ├ chunks/pages/_app.2f0633.js                                880 B
+  ├ chunks/pages/_app.398ef5.js                                832 B
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
