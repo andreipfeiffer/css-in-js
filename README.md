@@ -29,8 +29,8 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tagged` ` `` | 4. `{ }` | 5. TS | 6. `.css` | 7. `<style>` | 8. Atomic | 9. Theme | 10. `className` | 11. `styled` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
-| :--- | :------------------: | :---: | :----------------: | :------: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :-----------: | :------------: | :-------: |     ---: |     ---: |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `.css` | 7. `<style>` | 8. Atomic | 9. Theme | 10. `className` | 11. `styled` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
+| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
@@ -54,7 +54,7 @@ The libraries are not presented in any particular order. If you're interested in
 2. **DX**: Developer eXperience which includes:
     - syntax highlighting
     - code-completion for CSS properties and values
-3. **`` tagged` ` ``**: support for defining __styles as strings__
+3. **`` tag` ` ``**: support for defining __styles as strings__
     - uses ES Tagged Templates and `kebab-case` for property names, just like plain CSS syntax
     - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
     - requires additional code editor plugins for syntax highlight and code completion
