@@ -142,14 +142,14 @@ For solutions that don't support `.css` file extraction, **SSRed** styles are ad
 🟠 **Dead code removal**  
 Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** or **nested styles** will bundle unused styles. Even solutions that don't offer this option, have the same problem.
 
+Basically, what you get is code removal when you delete the component, because the styles are colocated.
+
 <br />
 
 🟠 **Debugging / Inspecting**  
 Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
    - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
    - **TypeStyle** does NOT use `insertRule()`, not even in production
-
-Basically, what you get is code removal when you delete the component, because the styles are colocated. Also, when using Styled Components syntax (available with many solutions) you get the styles removed when you delete the Styled Component.
 
 <br />
 
