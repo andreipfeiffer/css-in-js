@@ -689,16 +689,18 @@ The project was [discountinued](https://github.com/paypal/glamorous/issues/419) 
 
 ## Motivation
 
-The CSS language and CSS Modules technique have some limitations, some of them having altenative solutions, others just being "annoying" and "less ideal":
+The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations having altenative solutions, others are just being "annoying" and "less ideal":
 
 - **Styles cannot be co-located with components**  
-  This can be cumbersome when authoring many small components. For large components/containers/pages/screens this isn't an issue, because you probably prefer to extract the styles in a separate file.
+  This can be frustrating when authoring many small components, but it's not a deal breaker. For large components/containers/pages/screens this isn't an actual issue, because you probably prefer to extract the styles in a separate file.
 
 - **Styles usage is disconnected from their definition**  
-  You get no IntelliSense with CSS modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX.
+  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes refactoring very cumbersome, because of the lack of safety.
 
 - **Styles cannot access design tokens**  
-  Any design tokens, defined in JS/TS cannot be directly used. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense. So, the only reasonable solution would be **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
+  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarouns for this issue, neither of them being elegant:
+  1. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
+  2. We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
 
 <br />
 
@@ -708,17 +710,17 @@ There are specific goals we're looking for, in order for the adoption of a CSS-i
 
 - SSR support and easy integration with Next.js
 - full TypeScript support
-- great DX with code completion & highlight
-- vendor prefixes
+- great DX with code completion & syntax highlight
+- out-of-the-box vendor prefixes
 - low learning curve and intuitive API
 - light-weight
 
 <br />
 
-Getting even more specific, we wanted to experience the usage of various solutions regarding:
+Getting even more specific, we wanted to experience the usage of various CSS-in-JS solutions regarding:
 
 - defining global styles
-- using media queries
+- using media queries & pseudo classes
 - dynamic styles based on component `props` (aka. component variants), or from user input
 - bundle size impact
 
@@ -727,20 +729,21 @@ Getting even more specific, we wanted to experience the usage of various solutio
 ## Disclaimer
 
 This analysis is intended to be **objective** and **unopinionated**.  
-We don't work an any of these solutions, and have no intention, or motivation of _promoting_ or _trashing_ either of them.
+I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
+I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
 
 <br />
 
 👎 **What you WON'T FIND here?**  
-- which solution is _"the best"_, or _"the fastest"_, as we'll not add any subjective grading
-- what solution should you pick for your next project, because we have no idea what your goals are
+- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or performance metrics
+- what solution should you pick for your next project, because I have no idea what your project is and what your goals are
 
 <br />
 
 👍 **What you WILL FIND here?**  
-- an overview of (almost) all CSS-in-JS solutions available at this date (Jan 2021) that we've managed to integrate into a **Next.js v10 + TypeScript** empty project, with minimal effort
-- a limited set of **quantitative** metrics that allowed us to evaluate these solutions, which might help you as well
-- an additional list of **qualitative** personal observations, which might be either minor details or deal-breakers when choosing a particular solution
+- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that I've managed to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
+- a limited set of **quantitative** metrics that allowed me to evaluate these solutions, which might help you as well;
+- an additional list of **qualitative** personal observations, which might be either minor details or deal-breakers when choosing a particular solution.
 
 <br />
 
