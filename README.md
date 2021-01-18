@@ -37,7 +37,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 | +13.7 KB | +13.7 KB |
+| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📉 | +19.0 KB | +20.0 KB |
 
@@ -572,6 +572,9 @@ Page                                                           Size     First Lo
 
 It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks, love it. However, it lacks some modern features, especially TS support and code completion. The docs are also minimal, the information is spread in on various pages sometimes hard to find without a search feature, and the examples and use cases are not comprehensive.
 
+Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://typestyle.github.io/)
+
+
 - ❌ no code completion, although it uses style objects, but they are POJOs, so the IDE/Editor has no idea that "they should be camelCased CSS properties"
 - ❌ no TS support (and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362))
 - 🟠 bundles nested styles even if they are not used in component, but it's more difficult, cause nesting should not be used, and the atomic classes reduces this impact even more
@@ -788,7 +791,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 <br />
 
 👍 **What you WILL FIND here?**  
-- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that I've managed to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
+- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
 - a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
 
