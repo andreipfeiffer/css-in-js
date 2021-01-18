@@ -38,7 +38,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 |  +8.5 KB |  +9.0 KB |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📉 | +19.0 KB | +20.0 KB |
 
 <br />
@@ -76,9 +76,9 @@ The libraries are not presented in any particular order. If you're interested in
     - incurs longer load
     - more suited for highly dynamic and interactive applications
 8. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
-    - this generates a separate CSS class for each CSS property (or for each unique combination of classes)
-    - you'll get larger HTML files, because each styled element will contain a large number of CSS classes applied
-    - it will theoretically reduce the scaling growth of your styles
+    - this generates a separate CSS class for each CSS property
+    - you'll get larger HTML files, because each element will contain a large number of CSS classes applied
+    - theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well
 9. **Theme**: built-in support for Theming or managing design tokens/system
 10. **`className`**: the API returns a string which you have to add to your component/element
     - similar how you would normally style React components, so it's easy to adopt because you don't have to learn a new approach
@@ -234,7 +234,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 <br />
 
-#### Conclusion
+#### Conclusions
 
 Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
@@ -311,7 +311,7 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 
 <br />
 
-#### Conclusion
+#### Conclusions
 
 Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules you'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating your existing styles, and for starting from scratch. Also, the maintainers did a pretty good job so far keeping up with most of the innovations in this field.
 
@@ -649,22 +649,65 @@ Page                             Size     First Load JS
 
 ### Stitches
 
-Very young solution, built and maintained by Modulz, very close to stable v1 release (as of Jan 13th 2021), is probably the most solid, modern and well-thought-out solution. The experience is just great, full TS support, a lot of other useful features baked in the lib. It identifies as "light-weight", but at 8KB it's debatable. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience. The documentation is exactly what you'd expect, no more, no less information (maybe missing the search feature).
+Very young library, is probably the most solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
-- 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or styles created inside the component to get access to the `props`, or inline styles for user defined styles)
-- 🟠 bundles nested styles even if they are not used in component
-- ✅ great DX, code completion out-of-the-box
-- ✅ it has a pretty low learning curve
-- ✅ built-in TypeScript support
+Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs)
 
-**Observations**:
-- uses `insertRule()` in development also, so you cannot see what gets bundled
-- splits styles into atomic class names
-- it generates a shitton of classes, it also expands short-hand properties (like `padding: 1em`), but maybe [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) scales better, and [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) also
-- does not support string styling with tagged templates (to reduce bundle size, as they say)
-- but they support both `styled` & `css` approaches
-- great design tokens management and usage
-- very simple API, a pleasure to work with
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Context-aware code completion__
+- ✅ __Built-in Theming support__
+- ✅ __Atomic CSS__
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ❌ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ✅ `className`
+  - ✅ `styled` component
+  - ✅ `css` prop _(used only to override `styled` components)_
+
+- 📉 __Low Learning curve__: the API is simple and intuitive, documentation is top-notch
+
+<br />
+
+#### Other benefits
+
+- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
+- 😌 easy and simple to use API, a pleasure to work with
+- 😎 great design tokens management and usage
+- 🥰 documentation is exactly what you'd expect, no more, no less
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 😵 uses `insertRule()` in development also, so you cannot see what gets bundled
+- 🤨 it expands short-hand properties, from `padding: 1em;` to `padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em;`
+- 🤔 dynamic styles can be defined either using built-in `variants` (for predefined styles), or styles created inside the component to get access to the `props`
+- 🧐 would help a lot to get the search feature inside the docs
+
+<br />
+
+#### Conclusions
+
+Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience. The first thing that will impress you is definitely the documentation. The second, is the API they exposes which you cannot enjoy. The features they provide are not huge in quantity, but are very well-thought-out.
+
+However, you cannot ignore the fact that it's still in beta. Also, the authors identify as "light-weight", but at 8KB it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
+
+<br />
+
+Page overhead: __+8.5 KB__
+
+<br />
 
 ```
 Page                                                           Size     First Load JS
