@@ -1,10 +1,10 @@
-# 🚧 [WIP DRAFT] CSS-in-TS research analysis
+# CSS-in-TS research analysis
 
 _Last update: **Jan 2021**_
 
-This document is a thorough analysis of all the current **CSS-in-JS** solutions. The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
+This document is a thorough analysis of all the current **CSS-in-JS** solutions. The baseline rference is a **CSS Modules** approach, and **Next.js** as a SSR framework for building resources with full **TypeScript** support.
 
-The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
+Please checkout our [goals](#goals) before jumping to conclusions.
 
 <br />
 
@@ -920,6 +920,8 @@ This analysis is intended to be **objective** and **unopinionated**:
 - an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
 - a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
+
+The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
 
 <br />
 
