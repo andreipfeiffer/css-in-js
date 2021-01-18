@@ -29,8 +29,8 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` css` ` `` | 4. `{}` | 5. TS | 6. `.css` | 7. `<style>` | 8. Atomic | 9. Theme | 10. `className` | 11. `styled.p` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
-| :--- | :------------------: | :---: | :-------------: | :-----: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :------------: | :------------: | :-------: |     ---: |     ---: |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tagged` ` `` | 4. `{ }` | 5. TS | 6. `.css` | 7. `<style>` | 8. Atomic | 9. Theme | 10. `className` | 11. `styled` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
+| :--- | :------------------: | :---: | :----------------: | :------: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :-----------: | :------------: | :-------: |     ---: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
@@ -54,11 +54,12 @@ The libraries are not presented in any particular order. If you're interested in
 2. **DX**: Developer eXperience which includes:
     - syntax highlighting
     - code-completion for CSS properties and values
-3. **String**: support for defining styles as strings
+3. **`` tagged` ` ``**: support for defining __styles as strings__
     - uses ES Tagged Templates and `kebab-case` for property names, just like plain CSS syntax
     - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
     - requires additional code editor plugins for syntax highlight and code completion
-4. **Object**: support for defining styles as objects
+    - usually implies slightly larger bundles and slower performance, because the strings must be parsed before
+4. **`{ }`**: support for defining __styles as objects__
     - uses plain JacaScript Objects and `camelCase` for property names
     - more suitable for new projects, when you don't need to migrate existing CSS
     - without TS support, you won't get code completion
@@ -728,25 +729,63 @@ Page                                                           Size     First Lo
 
 ### JSS
 
-It appears to be a mature solution, with big docs and plugings. The API is intuitive and very easy to use, love it, great integration for React using hooks. However, it lacks some modern features, especially TS support and code completion.
+Probably the grandaddy around here, JSS is a very mature solution being the first of them, and still being maintained. The API is intuitive and very easy to use, great integration for React using hooks.
 
-- ❌ no code completion, although it uses style objects
-- ❌ no TS support
-- 🟠 bundles nested styles even if they are not used in component
-- 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
-- ✅ it has a low learning curve
+Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2016__ | [View Docs](https://cssinjs.org/)
 
-**Observations**:
-- `react-jss` uses className by default. There's also `styled-jss` that uses Styled Components approach, but it has no types, and couldn't make it work on top of `react-jss`.
-- the way you attach styles to components is similar to React Native StyleSheets, you define an object with all subcomponents styles, and attach them to various subcomponents classnames.
-- very easy and simple to use API, intuitive
-- lack TS support, you can feel it when dealing with dynamic styles based on props, which can't be typed and statically checked
-- no intellisence on properties/values
-- nesting not supported ootb, but has a plugin for that
-- global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the react-jss SSR setup docs, with the plugin-globals docs on usage, no luck (using the default global stylesheet instead)
-- looks like it's the most heavy-weighted solution
-- cannot see injected styles: https://github.com/cssinjs/jss/issues/1125#issue-455194189
-- cannot nest media queries, which makes the syntax exactly the same as plain CSS
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __Built-in Theming support__
+- ❌ __Atomic CSS__
+- ❌ __TypeScript support__
+- ❌ __Context-aware code completion__
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ❌ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ✅ `className`
+  - 🟠 `styled` component (_see details below_)
+  - ❌ `css` prop
+
+- 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
+
+<br />
+
+#### Other benefits
+
+- 😌 easy and simple to use API, very intuitive if you're used to hooks
+- 😎 it has a lot of plugins that can add many additional features (but will also increase bundle size)
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 🥺 supports __nesting__ only for __pseudo classes__, not for __media queries__, which makes the syntax exactly the same as plain CSS
+- 😬 provides nesting selectors, but only with additional plugin
+- 🤔 `react-jss` uses className by default. There's also `styled-jss` that uses __Styled Components__ approach, but it has no types, and couldn't make it work on top of `react-jss`.
+- 😖 global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the `react-jss` SSR setup docs, with the `plugin-globals` docs on usage, without any luck
+
+<br />
+
+#### Conclusions
+
+The API is similar in many ways to React Native StyleSheets, while the hooks helper allows for easy dynamic styles definition. There are many plugins that can add a lot of features to the core functionality, but you should take a close look at the total bundle size, which is significant even with the bare minimum only.
+
+Being the first CSS-in-JS solution built, it lacks many of the modern features that focuses on developer experience.
+
+<br />
+
+Page overhead: __+20.0 KB__
+
+<br />
 
 ```
 Page                              Size     First Load JS
@@ -774,7 +813,7 @@ Page                              Size     First Load JS
 It's not a popular solution, the approach is similar to **React Native StyleSheets**  way of styling components. Has built-in TypeScript support and a simple API.
 
 - global styles are a bit cumbersome to define
-- no nesting support, apart from media queries & pseudo selectors
+- able to nest media queries & pseudo selectors, but cannot nest arbitrary rules/selectors
 - no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
 - doesn't add any real value, except the ergonomics to colocate styles with the component.
 
@@ -783,7 +822,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 I got it started with Next.js, but it feels fragile. The [Glamor official example](https://github.com/vercel/next.js/tree/canary/examples/with-glamor) throws an error regarding `rehydrate`. When commenting it out, it works, but not sure what the consequences are.
 
 - it looks like an unmaintained or abandoned package
-- documentation is so and so
+- documentation is pretty minimal
 - lacks any TS support
 - has a lot of documented experimental features, marked as "buggy"
 - it feels like a side/internal project at FB, that is not used anymore.
@@ -798,13 +837,13 @@ It was an interesting solution, as it promises zero-runtime overhead, generating
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
 
-The solution looked interesting, because it is supposed to be very light weight.
+The solution looked interesting, because it is supposed to be very light-weight.
 
 ### Astroturf
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
 
-The solution is not that popular, but it used `.css` extraction with colocated styles.
+The solution is not that popular, but it was the first to use `.css` extraction with colocated styles.
 
 ### Otion
 
