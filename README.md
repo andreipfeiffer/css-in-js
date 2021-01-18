@@ -412,16 +412,16 @@ Page                                                           Size     First Lo
 
 ### Treat
 
-Modern solution, with great TypeScript integration and low runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates CSS files, similar to Linaria & CSS modules.
+Modern solution with great TypeScript integration and no runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates static CSS files, similar to CSS Modules, Linaria, or Astroturf.
 
 Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2019__ | [View Docs](https://seek-oss.github.io/treat/)
 
 <br />
 
-- ❌ __Styles/Component co-location__
 - ✅ __TypeScript support__
 - ✅ __Built-in Theming support__
-- ✅ __Context-aware code completion__: if you use `styled` components approach, you must install an additional editor plugin
+- ✅ __Context-aware code completion__
+- ❌ __No Styles/Component co-location__: styles must be placed in an external `.treat.ts` file
 - ❌ __No Atomic CSS__
 
 - __Styles output__
@@ -437,7 +437,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
   - ❌ `styled` component
   - ❌ `css` prop
 
-- 📉 __Low Learning curve__: static styling is more or less the same as with CSS Modules, but with typing support, so the only thing required to learn is the component variants API, which is pretty straightforward and easy to learn
+- 📉 __Low Learning curve__: coming from CSS Modules it'll feel like home, the additional API required for variants is pretty straightforward and easy to learn
 
 <br />
 
@@ -459,9 +459,13 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 When using Treat, you feel a lot like using CSS Modules: you need an external file for styles, you place the styles on the elements using `className`, you handle dynamic styles with __inline styles__, etc. However, you don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, you don't do any __copy-paste__, they have great error messages to help you not doing things you're not supposed to do.
 
-Treat is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support.
+The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, you'll have to use inline styles.
 
-It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
+Treat is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support. It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
+
+<br />
+
+Page overhead: __-__
 
 <br />
 
