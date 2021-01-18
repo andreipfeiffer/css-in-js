@@ -412,24 +412,58 @@ Page                                                           Size     First Lo
 
 ### Treat
 
-More modern, with great TypeScript integration and low runtime overhead, it's pretty minimal in its features. Everything is processed at compile time, and it generates CSS files, similar to Linaria & CSS modules.
+Modern solution, with great TypeScript integration and low runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates CSS files, similar to Linaria & CSS modules.
 
 Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2019__ | [View Docs](https://seek-oss.github.io/treat/)
 
-- 🟠 it doesn't handle dynamic styles (can use built-in `variants` based on predefined types, or inline styles for user defined styles)
-- 🟠 bundles defined styles even if they are not used in component (but a bit more difficult, because you are not allowed nested types)
-- ✅ great DX, code completion out-of-the-box
-- ✅ it has a pretty low learning curve
-- ✅ built-in TypeScript support
+<br />
 
-**Observations**:
-- it's built with restrictions in mind, great TS experience
-- it's pretty similar to CSS modules, like needing external file, having CSS files generated, putting `className` strings on elements, handling dynamic styles differently, etc
-- it's different to CSS modules considering:
-  - TypeScript integration
-  - stricter in defining styles
-  - easier to use media queries with JS values
-- it feels like CSS modules, but you don't write CSS
+- ❌ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Built-in Theming support__
+- ✅ __Context-aware code completion__: if you use `styled` components approach, you must install an additional editor plugin
+- ❌ __No Atomic CSS__
+
+- __Styles output__
+  - ✅ `.css` file extraction
+  - ❌ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ❌ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ✅ `className`
+  - ❌ `styled` component
+  - ❌ `css` prop
+
+- 📉 __Low Learning curve__: static styling is more or less the same as with CSS Modules, but with typing support, so the only thing required to learn is the component variants API, which is pretty straightforward and easy to learn
+
+<br />
+
+#### Other benefits
+
+- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
+- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices, like __specificity wars__
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles styles even if they are not used in component
+- 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user defined styles
+
+<br />
+
+#### Conclusions
+
+When using Treat, you feel a lot like using CSS Modules: you need an external file for styles, you place the styles on the elements using `className`, you handle dynamic styles with __inline styles__, etc. However, you don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, you don't do any __copy-paste__, they have great error messages to help you not doing things you're not supposed to do.
+
+Treat is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support.
+
+It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
+
+<br />
 
 ```
 Page                                Size     First Load JS
