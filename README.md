@@ -728,9 +728,9 @@ Getting even more specific, we wanted to experience the usage of various CSS-in-
 
 ## Disclaimer
 
-This analysis is intended to be **objective** and **unopinionated**.  
-I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
-I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
+This analysis is intended to be **objective** and **unopinionated**:
+- I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
+- I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
 
 <br />
 
@@ -742,8 +742,8 @@ I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ to
 
 👍 **What you WILL FIND here?**  
 - an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that I've managed to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
-- a limited set of **quantitative** metrics that allowed me to evaluate these solutions, which might help you as well;
-- an additional list of **qualitative** personal observations, which might be either minor details or deal-breakers when choosing a particular solution.
+- a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
+- an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
 
 <br />
 
