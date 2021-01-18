@@ -129,6 +129,11 @@ All solutions generate unique class names, like CSS Modules do.
 
 <br />
 
+✅ **No inline styles**  
+None of the solutions generate inline styles, which is an older approach, used by pioneers like Radium & Glamor. The approach is less performant than CSS classes, so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
+
+<br />
+
 ✅ **Full CSS support**  
 All solutions support most CSS properties that you would need: **pseudo classes & elements**, **media queries**, **keyframes** are the ones that we tested.
 
