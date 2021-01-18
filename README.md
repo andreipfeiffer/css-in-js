@@ -90,8 +90,9 @@ The baseline is a **CSS modules** approach, and **Next.js** as a full-featured S
     - it's a nice and flexible ergonomic API
 13. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
 14. **Lib**: size in KB of the library that is shipped in a production build
-15. **Bundle**: increase in KB (as an average), for the entire index page production build
-    - keep in mind that this includes an almost __empty page__, with only a couple of components, which is great for evaluating the cost of the solution, but does not offer any insight on how it scales (logarithmic, linear, or exponential)
+15. **Bundle**: the increase in KB compared to __CSS Modules__, for the entire index page production build
+    - keep in mind that this includes an almost __empty page__, with only a couple of components
+    - this is great for evaluating the minimal overhead, but does not offer any insight on the scaling factor: logarithmic, linear, or exponential
 
 <br />
 
@@ -149,7 +150,7 @@ Basically, what you get is code removal when you delete the component, because t
 <br />
 
 ❌ **No component deduping**  
-If a component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js and probably could be fixed with [module federation](https://webpack.js.org/concepts/module-federation/#use-cases), currently not supported in Next.js 10.
+If the same component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js, and __not related to the CSS-in-JS solution__. In Next.js, code-splitting works at the route level, bundling all components required for a specific route, but according to their [official blog](https://nextjs.org/blog/next-9-2#improved-code-splitting-strategy) and [web.dev](https://web.dev/granular-chunking-nextjs/) if a component is used in __more than 50%__ of the pages, it should be included in the `commons` bundle. However, in our example, we have 2 pages, each of them importing the `Button` component, and it's included in each page bundle, not in the `commons` bundle.
 
 <br />
 
