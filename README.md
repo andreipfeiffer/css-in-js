@@ -882,23 +882,22 @@ The CSS language and CSS Modules approach have some limitations especially if yo
 
 ## Goals
 
-There are specific goals we're looking for, in order for the adoption of a CSS-in-JS solution to make sense:
+There are specific goals we're looking for:
 
-- SSR support and easy integration with Next.js
-- full TypeScript support
-- great DX with code completion & syntax highlight
-- out-of-the-box vendor prefixes
-- low learning curve and intuitive API
-- light-weight
+- 🥇 SSR support and easy integration with Next.js
+- 🥇 full TypeScript support
+- 🥇 great DX with code completion & syntax highlight
+- 🥈 light-weight
+- 🥉 low learning curve and intuitive API
 
 <br />
 
 Getting even more specific, we wanted to experience the usage of various CSS-in-JS solutions regarding:
 
-- defining global styles
-- using media queries & pseudo classes
-- dynamic styles based on component `props` (aka. component variants), or from user input
-- bundle size impact
+- defining __global styles__
+- using __media queries__ & __pseudo classes__
+- __dynamic styles__ based on component `props` (aka. component variants), or from user input
+- __bundle size__ impact
 
 <br />
 
