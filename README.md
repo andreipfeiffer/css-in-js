@@ -37,7 +37,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ❌ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📉 | +19.0 KB | +20.0 KB |
 
@@ -570,22 +570,66 @@ Page                                                           Size     First Lo
 
 ### Fela
 
-It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks, love it. However, it lacks some modern features, especially TS support and code completion. The docs are also minimal, the information is spread in on various pages sometimes hard to find without a search feature, and the examples and use cases are not comprehensive.
+It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks, love it.
 
-Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://typestyle.github.io/)
+Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/)
 
+<br />
 
-- ❌ no code completion, although it uses style objects, but they are POJOs, so the IDE/Editor has no idea that "they should be camelCased CSS properties"
-- ❌ no TS support (and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362))
-- 🟠 bundles nested styles even if they are not used in component, but it's more difficult, cause nesting should not be used, and the atomic classes reduces this impact even more
-- 🟠 it supports string based styles, but they are a second-class citizen
-- 🟠 provides nesting selectors, but only with plugin (which adds even more to bundle)
-- ✅ it has a low learning curve
+- ✅ __Styles/Component co-location__
+- ✅ __Built-in Theming support__
+- ✅ __Atomic CSS__
+- 🟠 __TypeScript support__: it exposes Flow types, which work ok
+- 🟠 __Context-aware code completion__: styles defined outside the component require explicit typing to get code completion
 
-**Observations**:
-- very easy and simple to use API, intuitive
-- found a way to use types for dynamic props, but it's not elegant, or very friendly
-- creates very minimal and atomic class names, which it a great approach
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - 🟠 Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ✅ `className`
+  - ❌ `styled` component
+  - ❌ `css` prop
+
+- 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
+
+<br />
+
+#### Other benefits
+
+- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
+- 😌 easy and simple to use API, very intuitive if you're used to hooks
+- 🥳 creates very short and atomic class names (like `a`, `b`, ...)
+- 😎 it has a lot of plugins that can add many additional features (but will also increase bundle size)
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 🤨 when defining styles outside the component, you'll have to explicitly add some internal typings to get code completion
+- 🥺 there's no actual TS support and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362)
+- 🤕 without TS support, we cannot get fully type-safe integration into Next.js + TS (there are [missing types from the definition file](https://twitter.com/pfeiffer_andrei/status/1349106486740475904))
+- 🤔 the docs say it supports string based styles, but they are a second-class citizen and they seem to work only for global styles
+- 😵 the docs are also minimal, the information is spread on various pages, sometimes hard to find without a search feature, and the examples and use cases are not comprehensive
+
+<br />
+
+#### Conclusions
+
+Fela looks to be a mature solution, with active development. It introduces 2 great features which we enjoyed a lot. The first one is the basic principle that _"Style as a Function of State"_. Working with dynamic styles feels super natural and integrates perfectly with React's mindset. The second is atomic CSS class names, which should potentially scale great when used in large applications.
+
+The lack of TS support however is a bummer, if you're looking for a fully type-safe solution. Also, the scaling benefits of atomic CSS should be measured against the library bundle size.
+
+<br />
+
+Page overhead: __+13.7 KB__
+
+<br />
 
 ```
 Page                             Size     First Load JS
