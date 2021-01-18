@@ -2,9 +2,9 @@
 
 _Last update: **Jan 2021**_
 
-This document is a thorough analysis of all the current **CSS-in-JS** solutions.  
+This document is a thorough analysis of all the current **CSS-in-JS** solutions. The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
 
-The baseline is a **CSS modules** approach, and **Next.js** as a full-featured SSR framework for building resources with full **TypeScript** support.
+The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
 
 <br />
 
