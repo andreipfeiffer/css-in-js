@@ -29,17 +29,17 @@ Please checkout our [goals](#goals) before jumping to conclusions.
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 9. Theme | 6. `.css` | 7. `<style>` | 8. Atomic | 10. `className` | 11. `styled` | 12. `css` prop | 13. Learn | 14. Lib  | 15. Page |
-| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :-------: | :----------: | :-------: | :------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | .❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | .❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | .✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | .✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | .✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | .🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | .✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | .✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  +8.5 KB |  +9.0 KB |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | .✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | +19.0 KB | +20.0 KB |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib  | 17. Page |
+| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ? | ? | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ? | ? | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ? | ? | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ? | ? | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ? | ? | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  +8.5 KB |  +9.0 KB |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ? | ? | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | +19.0 KB | +20.0 KB |
 
 <br />
 
@@ -67,34 +67,36 @@ Please checkout our [goals](#goals) before jumping to conclusions.
     - typings for the library API
     - Style Object typings (in case the library supports the object syntax)
     - `Props` generics (if needed)
-6. **`.css`**: support for extracting and serving the styles as native `.css` files
+6. **`&` ctx**: ?
+7. **Nesting**: ?
+8. **Theme**: built-in support for Theming or managing design tokens/system
+9. **`.css`**: support for extracting and serving the styles as native `.css` files
     - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
     - it also reduces bundle size, because you don't need runtime styles evaluation, to inject the styles
     - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time
     - more suitable for less dynamic solutions (ie: e-commerce)
-7. **`style` tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
+10. **`style` tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
     - makes dynamic styling super easy
     - incurs longer load
     - more suited for highly dynamic and interactive applications
-8. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
+11. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
     - this generates a separate CSS class for each CSS property
     - you'll get larger HTML files, because each element will contain a large number of CSS classes applied
     - theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well
-9. **Theme**: built-in support for Theming or managing design tokens/system
-10. **`className`**: the API returns a string which you have to add to your component/element
+12. **`className`**: the API returns a string which you have to add to your component/element
     - similar how you would normally style React components, so it's easy to adopt because you don't have to learn a new approach
     - you'll probably have to use string concatenation, or interpolation, to combine styles
-11. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s)
+13. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s)
     - you'll have to learn a new way to define styles
     - it also introduces a bit of indiretion when figuring out what native element gets rendered
     - first introduced and popularized by Styled Components
-12. **`css` prop**: allows passing styles using a special css prop, similar to inline styles
+14. **`css` prop**: allows passing styles using a special css prop, similar to inline styles
     - this is usually an additional feature for styled components, but it can also work separately
     - it's a nice and flexible ergonomic API
     - first introduced and popularized by Emotion v10
-13. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
-14. **Lib**: size in KB of the library that is shipped in a production build
-15. **Bundle**: the increase in KB compared to __CSS Modules__, for the entire index page production build
+15. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
+16. **Lib**: size in KB of the library that is shipped in a production build
+17. **Bundle**: the increase in KB compared to __CSS Modules__, for the entire index page production build
     - keep in mind that this includes an almost __empty page__, with only a couple of components
     - this is great for evaluating the minimal overhead, but does not offer any insight on the scaling factor: logarithmic, linear, or exponential
 
