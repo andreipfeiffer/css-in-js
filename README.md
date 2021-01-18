@@ -36,7 +36,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | 📉 | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ? | ? | ? | 📈 |  +3.1 KB |  +3.7 KB |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ? | ? | ? | 📉 |  +8.5 KB |  +9.0 KB |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ? | ? | ? | 📉 | +19.0 KB | +20.0 KB |
@@ -81,13 +81,16 @@ The libraries are not presented in any particular order. If you're interested in
     - it will theoretically reduce the scaling growth of your styles
 9. **Theme**: built-in support for Theming or managing design tokens/system
 10. **`className`**: the API returns a string which you have to add to your component/element
-    - similar how you would use regular styling of React components
-11. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s), which you'll render
+    - similar how you would normally style React components, so it's easy to adopt because you don't have to learn a new approach
+    - you'll probably have to use string concatenation, or interpolation, to combine styles
+11. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s)
     - you'll have to learn a new way to define styles
     - it also introduces a bit of indiretion when figuring out what native element gets rendered
+    - first introduced and popularized by Styled Components
 12. **`css` prop**: allows passing styles using a special css prop, similar to inline styles
     - this is usually an additional feature for styled components, but it can also work separately
     - it's a nice and flexible ergonomic API
+    - first introduced and popularized by Emotion v10
 13. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
 14. **Lib**: size in KB of the library that is shipped in a production build
 15. **Bundle**: the increase in KB compared to __CSS Modules__, for the entire index page production build
@@ -144,6 +147,7 @@ Most solution say they remove unused code/styles. This is only **half-true**. Un
 🟠 **Debugging / Inspecting**  
 Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
    - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
+   - **TypeStyle** does NOT use `insertRule()`, not even in production
 
 Basically, what you get is code removal when you delete the component, because the styles are colocated. Also, when using Styled Components syntax (available with many solutions) you get the styles removed when you delete the Styled Component.
 
@@ -490,19 +494,62 @@ Page                                Size     First Load JS
 
 ### TypeStyle
 
-Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are React wrappers (at least 2) but the typing feels a bit cumbersome.
+Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are 2 React wrappers available, but the typings feels a bit convoluted.
 
-- 🟠 it doesn't handle dynamic styles, you have to use JS functions to compute styles
-- 🟠 bundles nested styles even if they are not used in component
-- 🟠 it has a learning curve, you don't feel you write CSS
-- 🟠 out-of-the-box theming support (but it uses TS namespaces, which is a non-recommended feature of the language)
-- ✅ great DX, code completion out-of-the-box
-- ✅ built-in TypeScript support
+Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Launched in __2017__ | [View Docs](https://typestyle.github.io/)
 
-**Observations**:
-- it creates a single `<style>` tag, with all the styles bundled, and replaced (don't know if this has a major impact, since it replaces the entire tag)
-- don't know how to split dynamic and static styles, it's easy to create duplicate styles
-- overall, you have to learn new ways to write CSS, with the only benefit of colocating styles
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Context-aware code completion__
+- 🟠 __Built-in Theming support__: uses TS `namespaces` to define theming, which is [not recommended](https://basarat.gitbook.io/typescript/project/namespaces) even by the author himself, or by TS core team member [Orta Therox](https://youtu.be/8qm49TyMUPI?t=1277).
+- ❌ __No Atomic CSS__
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- __Styles definition method(s)__
+  - ❌ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles usage method(s)__
+  - ✅ `className`
+  - ❌ `styled` component
+  - ❌ `css` prop
+
+- 📈 __High Learning curve__: the API is simple, but it doesn't provide a lot of features, so you'll still need to do manual work and to re-adjust the way you'll author styles
+
+<br />
+
+#### Other benefits
+
+- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 😕 it doesn't handle dynamic styles, so you have to use regular JS functions to compute styles
+- 🤨 when composing styles, you'll have to manually add some internal typings
+- 🤔 don't know how to split dynamic and static styles, it's very easy to create duplicated generated code
+- 😱 it creates a single `<style>` tag with all the styles, and replaces it on update, and apparently it doesn't use `insertRule()` which might be a performance drawback in large & highly dynamic UIs
+
+<br />
+
+#### Conclusions
+
+Overall TypeStyle seems a minimal library, relatively easy to adopt because you don't have to rewrite your components, thanks to the classic `className` approach, but you have to rewrite your styles, because of the Style Object syntax. You don't feel like writting CSS, so there is a learning curve you need to get through.
+
+With Next.js or React in general you don't get much value out-of-the-box, so you still need to perform a lot of manual work. The external [react-typestyle](https://github.com/Malpaux/react-typestyle) bindings don't support hooks, it seems to be an abandoned project and the typings are too convoluted to be considered an elegant solution.
+
+<br />
+
+Page overhead: __+3.7 KB__
+
+<br />
 
 ```
 Page                                                           Size     First Load JS
