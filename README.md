@@ -31,7 +31,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 |      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib  | 17. Page |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | - | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
@@ -209,7 +209,7 @@ This is a well established, mature and solid approach. Without a doubt, it's a g
   - ✅ `.css` file extraction
   - ❌ `<style>` tag injection
 
-- 📉 __Low Learning curve__: easy to learn, but difficult to master
+- 📉📈 __Learning curve__: easy to learn, but difficult to master
 
 <br />
 
