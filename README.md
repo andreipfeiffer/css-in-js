@@ -481,7 +481,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Conclusions
 
-When using Treat, you feel a lot like using CSS Modules: you need an external file for styles, you place the styles on the elements using `className`, you handle dynamic styles with __inline styles__, etc. However, you don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, you don't do any __copy-paste__, they have great error messages to help you not doing things you're not supposed to do.
+When using Treat, you feel a lot like using CSS Modules: you need an external file for styles, you place the styles on the elements using `className`, you handle dynamic styles with __inline styles__, etc. However, you don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, you don't do any __copy-paste__, they have great error messages to help you not doing things you're not supposed to do. It's also the only analyzed solution the __extracts styles as `.css` files__ at built time, which should greatly improve the page load metrics.
 
 The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, you'll have to use inline styles.
 
