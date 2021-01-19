@@ -2,9 +2,9 @@
 
 _Last update: **Jan 2021**_
 
-This document is a thorough analysis of all the current **CSS-in-JS** solutions. The baseline rference is a **CSS Modules** approach, and **Next.js** as a SSR framework for building resources with full **TypeScript** support.
+This document contains a thorough analysis of all the current **CSS-in-JS** solutions. The baseline reference we'll use for comparison is a **CSS Modules** approach. We'll also use **Next.js** as a SSR framework for building resources. Last important aspect is type-safety with full **TypeScript** support.
 
-Please checkout our [goals](#goals) before jumping to conclusions.
+Please checkout our [goals](#goals) before drawing your own conclusions.
 
 <br />
 
