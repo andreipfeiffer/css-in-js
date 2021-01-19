@@ -174,10 +174,42 @@ If the same component is imported by 2 different routes, it will be send twice t
 
 <br />
 
-### CSS modules
+### CSS Modules
 
-- **TypeScript** can be used, but only as inline styles, not in CSS files, same applies for **dynamic or user styles**
-- media queries with TS/JS values cannot be used, so they should be handled as inline styles with JS match media, or via SSR props from user agent
+This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, or any other methodology to structure and organize your CSS.
+
+<br />
+
+- ✅ __Context-aware code completion__
+- ❌ __No Styles/Component co-location__
+- ❌ __No TypeScript support__
+- ❌ __No Atomic CSS__
+- ❌ __No Theming support__
+
+- __Styles definition method(s)__
+  - ✅ plain CSS
+  - ❌ Style Objects
+
+- __Styles nesting__
+  - ❌ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
+  - ✅ `className`
+  - ❌ `styled` component
+  - ❌ `css` prop
+
+- __Styles output__
+  - ✅ `.css` file extraction
+  - ❌ `<style>` tag injection
+
+- 📉 __Low Learning curve__: easy to learn, but difficult to master
+
+<br />
+
+This is the baseline we'll consider when comparing all the following __CSS-in-JS__ solutions. Checkout the [motivation](#motivation) to better understand the limitations of this approach that we'll try to fill.
+
+<br />
 
 ```
 Page                                Size     First Load JS
