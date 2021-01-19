@@ -184,6 +184,8 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, or any other methodology to structure and organize your CSS, especially in component-based applications.
 
+[Back to Overview](#overview)
+
 <br />
 
 - ✅ __Context-aware code completion__
@@ -240,7 +242,7 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launched in __2017__ | [View Docs](https://github.com/vercel/styled-jsx)
+Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launched in __2017__ | [View Docs](https://github.com/vercel/styled-jsx) | [Back to Overview](#overview)
 
 <br />
 
@@ -321,7 +323,7 @@ Page                                                           Size     First Lo
 
 For sure one of the most popular and mature solutions, with good documentation. It uses Tagged Templates to defines styles by default, but can use objects as well. It also popularized the `styled` components approach, which creates a new component along with the defined styles.
 
-Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs)
+Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs) | [Back to overview](#overview)
 
 <br />
 
@@ -396,7 +398,7 @@ Page                                                           Size     First Lo
 
 Probably the most comprehensive, complete and sofisticated solution. Detailed documentation, fully built with TypeScript, looks very mature, rich in features and well maintained.
 
-Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction)
+Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction) | [Back to overview](#overview)
 
 <br />
 
@@ -475,7 +477,7 @@ Page                                                           Size     First Lo
 
 Modern solution with great TypeScript integration and no runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates static CSS files, similar to CSS Modules, Linaria, or Astroturf.
 
-Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2019__ | [View Docs](https://seek-oss.github.io/treat/)
+Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2019__ | [View Docs](https://seek-oss.github.io/treat/) | [Back to overview](#overview)
 
 <br />
 
@@ -556,7 +558,7 @@ Page                                Size     First Load JS
 
 Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are React wrappers available, but the typings feels a bit convoluted.
 
-Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Launched in __2017__ | [View Docs](https://typestyle.github.io/)
+Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Launched in __2017__ | [View Docs](https://typestyle.github.io/) | [Back to overview](#overview)
 
 <br />
 
@@ -630,7 +632,7 @@ Page                                                           Size     First Lo
 
 It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks.
 
-Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/)
+Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/) | [Back to overview](#overview)
 
 <br />
 
@@ -712,7 +714,7 @@ Page                             Size     First Load JS
 
 Very young library, probably the most solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
-Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs)
+Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | [Back to overview](#overview)
 
 <br />
 
@@ -794,7 +796,7 @@ Page                                                           Size     First Lo
 
 Probably the grandaddy around here, JSS is a very mature solution being the first of them, and still being maintained. The API is intuitive and very easy to use, great integration for React using hooks.
 
-Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2016__ | [View Docs](https://cssinjs.org/)
+Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2016__ | [View Docs](https://cssinjs.org/) | [Back to overview](#overview)
 
 <br />
 
