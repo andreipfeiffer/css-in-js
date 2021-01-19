@@ -68,8 +68,8 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
     - Style Object typings (in case the library supports the object syntax)
     - `Props` generics (if needed)
 6. **`&` ctx**: support for __contextual styles__, allowing to easily define __pseudo classes/elements__ and __media queries__ without the need to repeat yourself
-    - can either support the SASS `&` parent symbol
-    - or some specific API/syntax to achieve this
+    - can either support the SASS/LESS/Stylus `&` parent selector
+    - or provide some specific API or syntax to achieve this
 7. **Nesting**: support for __arbitrary nested rules/selectors__
     - this feature allows for great flexibility, which is required in some specific use-cases
     - but it also introduces too many ways of defining styles, which might cause chaos in very restrictive use-cases, or when you want to enforce good-practices, consistency, scalability and maintainability
@@ -197,7 +197,7 @@ This is a well established, mature and solid approach. Without a doubt, it's a g
   - ❌ Style Objects
 
 - __Styles nesting__
-  - ❌ Contextual styles
+  - ❌ Contextual styles: _(requires SASS, LESS or Stylus)_
   - ✅ Abitrary nesting
 
 - __Styles apply method(s)__
