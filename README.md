@@ -170,7 +170,9 @@ Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a 
 <br />
 
 ❌ **No component deduping**  
-If the same component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js, and __not related to the CSS-in-JS solution__. In Next.js, code-splitting works at the route level, bundling all components required for a specific route, but according to their [official blog](https://nextjs.org/blog/next-9-2#improved-code-splitting-strategy) and [web.dev](https://web.dev/granular-chunking-nextjs/) if a component is used in __more than 50%__ of the pages, it should be included in the `commons` bundle. However, in our example, we have 2 pages, each of them importing the `Button` component, and it's included in each page bundle, not in the `commons` bundle.
+If the same component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js, and __not related to the CSS-in-JS solution__.
+
+In Next.js, code-splitting works at the route level, bundling all components required for a specific route, but according to their [official blog](https://nextjs.org/blog/next-9-2#improved-code-splitting-strategy) and [web.dev](https://web.dev/granular-chunking-nextjs/) if a component is used in __more than 50%__ of the pages, it should be included in the `commons` bundle. However, in our example, we have 2 pages, each of them importing the `Button` component, and it's included in each page bundle, not in the `commons` bundle. Since the code required for styling is bundled with the component, this limitation will impact the styles as well, so it's worth keeping this in mind.
 
 <br />
 
@@ -211,7 +213,7 @@ This is a well established, mature and solid approach. Without a doubt, it's a g
 
 <br />
 
-This is the baseline we'll consider when comparing all the following __CSS-in-JS__ solutions. Checkout the [motivation](#motivation) to better understand the limitations of this approach that we'll try to fill.
+This is the baseline we'll consider when comparing all the following __CSS-in-JS__ solutions. Checkout the [motivation](#motivation) to better understand the limitations of this approach that we're trying to fill.
 
 <br />
 
@@ -273,24 +275,24 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 - 😌 out-of-the-box support with Next.js
 - 👍 for user input styles, it generates a new class name for each change, but it removes the old one
-- 😏 unlike CSS modules, you can target HTML `elements` also, and it generates unique class names for them
+- 😏 unlike CSS modules, we can target HTML `elements` also, and it generates unique class names for them
 
 <br />
 
 #### Worth mentioning observations
 
-- 🤓 you'll need to optimize your styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
-- 🤨 unique class names are added to elements, even if you don't target them in your style definition, resulting in un-needed slight html pollution
+- 🤓 we'll need to optimize our styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
+- 🤨 unique class names are added to elements, even if we don't target them in our style definition, resulting in un-needed slight html pollution
 - 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
-- 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication, so you might have to add SASS support to get this feature
+- 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication, so we might have to add SASS support to get this feature
 
 <br />
 
 #### Conclusions
 
-Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
+Overall, we felt like writting plain CSS, with the added benefit of being able to define the styles along with the component, so we __don't need an additional `.css` file__. We can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. We get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
-The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes/elements and media queries getting pretty cumbersome to define.
+The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes/elements and media queries getting pretty cumbersome to manage.
 
 <br />
 
@@ -317,7 +319,7 @@ Page                                                           Size     First Lo
 
 ### Styled Components
 
-For sure one of the most popular and mature solutions, with good documentation. It uses Tagged Templates to defines styles, but can use objects as well.
+For sure one of the most popular and mature solutions, with good documentation. It uses Tagged Templates to defines styles by default, but can use objects as well. It also popularized the `styled` components approach, which creates a new component along with the defined styles.
 
 Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs)
 
@@ -326,7 +328,7 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 - ✅ __Styles/Component co-location__
 - ✅ __TypeScript support__:  `@types` must be additionaly installed, via DefinitelyTyped
 - ✅ __Built-in Theming support__
-- 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
+- 🟠 __Context-aware code completion__: requires an editor extension/plugin
 - ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
@@ -346,26 +348,26 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📈 __Higher Learning curve__: because you have to learn the API, get used to using the styled wrapper components, and basically a new way to manage your styles
+- 📈 __Higher Learning curve__: we have to learn the API, get used to using the `styled` wrapper components, and basically get used to a new way to manage our styles
 
 <br />
 
 #### Worth mentioning observations
 
 - 🧐 the `css` prop is mentioned in the API docs, but there are no usage examples
-- 🤓 need to split static & dynamic styles, otherwise it will render duplicate output
+- 🤓 we need to split static & dynamic styles, otherwise it will render duplicate output
 - 😕 bundles nested styles even if they are not used in component
-- 😵 you can mix Tagged Templates with Styled Objects, which could lead to convoluted and different syntax for each approach (kebab vs camel, EOL character, quotes, interpolation, etc)
-- 🥴 some more complex syntax appears to be a bit cumbersome to get it right (mixing animations, with Styled Objects, dynamic styles based on `Props` variations, etc)
+- 😵 we can mix Tagged Templates with Styled Objects, which could lead to convoluted and different syntax for each approach (kebab vs camel, EOL character, quotes, interpolation, etc)
+- 🥴 some more complex syntax appears to be a bit cumbersome to get right (mixing animations with Styled Objects, dynamic styles based on `Props` variations, etc)
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
 
 <br />
 
 #### Conclusions
 
-Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules you'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating your existing styles, and for starting from scratch. Also, the maintainers did a pretty good job so far keeping up with most of the innovations in this field.
+Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules we'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating our existing styles, and for starting a project from scratch. Also, the maintainers did a pretty good job keeping up with most of the innovations in this field.
 
-But before adopting it, you must be aware that it comes with a certain cost for your bundle size.
+However before adopting it, we must be aware that it comes with a certain cost for our bundle size.
 
 <br />
 
@@ -401,7 +403,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - ✅ __Styles/Component co-location__
 - ✅ __TypeScript support__
 - ✅ __Built-in Theming support__
-- ✅ __Context-aware code completion__: if you use `styled` components approach, you must install an additional editor plugin
+- ✅ __Context-aware code completion__: for using the `styled` components approach, an additional editor plugin is required
 - ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
@@ -421,13 +423,13 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection  
 
-- 📉 __Low Learning curve__: when using the `css` prop, which is the primary approach, the API is pretty straightforward
+- 📉 __Low Learning curve__: when using the `css` prop, which is the primary approach, the API is pretty straightforward (the `styled` approach however incurs the same learning curve for [Styled Components](#styled-components))
 
 <br />
 
 #### Other benefits
 
-- 😎 the `css` prop is great ergonomic, however it seems to be a newer approach, based on React 17 new `jsx` runtime, and [configuring](https://emotion.sh/docs/css-prop) it is not trivial, differs on your setup, and implies some boilerplate (but this should change soon)
+- 😎 the `css` prop offers great ergonomics during development, however it seems to be a newer approach, based on [React 17 new `jsx` transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html), and [configuring](https://emotion.sh/docs/css-prop) it is not trivial, differs on your setup, and implies some boilerplate (which should change soon and become easier)
 
 <br />
 
@@ -435,14 +437,16 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 
 - 😕 bundles nested styles even if they are not used in component
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
-- 😑 using `styled` will add `3 KB` to you bundle, because it's imported from a separate package
+- 😑 using `styled` approach will add `3 KB` to our bundle, because it's imported from a separate package
 - 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants (same applies to `css` prop & `styled` components)
 
 <br />
 
 #### Conclusions
 
-Overall Emotion looks to be a very solid and flexible approach. The novel `css` prop approach offers great ergonomics for developers. Working with dynamic styles and TypeScript is pretty easy and intuitive. Supporting both `strings` and `objects` when defining styles, it can be easily used both when migrating from plain CSS, or starting from scratch. The bundle overhead is not negligible, but it's much smaller than other solutions, especially if you consider the rich set of features it offers.
+Overall Emotion looks to be a very solid and flexible approach. The novel `css` prop approach offers great ergonomics for developers. Working with dynamic styles and TypeScript is pretty easy and intuitive. Supporting both `strings` and `objects` when defining styles, it can be easily used both when migrating from plain CSS, or starting from scratch. The bundle overhead is not negligible, but definitely much smaller than other solutions, especially if you consider the rich set of features that it offers.
+
+It seems it doesn't have a dedicated focus on performance, but more on Developer eXperience. It looks like a perfect "well-rounded" solution.
 
 <br />
 
@@ -498,13 +502,13 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
   - ✅ `.css` file extraction
   - ❌ `<style>` tag injection
 
-- 📉 __Low Learning curve__: coming from CSS Modules it'll feel like home, the additional API required for variants is pretty straightforward and easy to learn
+- 📉 __Low Learning curve__: coming from CSS Modules it feels like home, the additional API required for variants is pretty straightforward and easy to learn
 
 <br />
 
 #### Other benefits
 
-- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices, like __specificity wars__
+- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices like __specificity wars__
 
 <br />
 
@@ -517,9 +521,9 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Conclusions
 
-When using Treat, you feel a lot like using CSS Modules: you need an external file for styles, you place the styles on the elements using `className`, you handle dynamic styles with __inline styles__, etc. However, you don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, you don't do any __copy-paste__, they have great error messages to help you not doing things you're not supposed to do. It's also the only analyzed solution the __extracts styles as `.css` files__ at built time, which should greatly improve the page load metrics.
+When using Treat, we felt a lot like using CSS Modules: we need an external file for styles, we place the styles on the elements using `className`, we handle dynamic styles with __inline styles__, etc. However, we don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, so we don't do any __copy-paste__. Error messages are very helpful in guiding us when we do something we're not supposed to do. It's also the only analyzed solution the __extracts styles as `.css` files__ at built time, which should greatly improve the page load metrics.
 
-The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, you'll have to use inline styles.
+The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, we'll have to use inline styles.
 
 Treat is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support. It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
 
@@ -550,7 +554,7 @@ Page                                Size     First Load JS
 
 ### TypeStyle
 
-Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are 2 React wrappers available, but the typings feels a bit convoluted.
+Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are React wrappers available, but the typings feels a bit convoluted.
 
 Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Launched in __2017__ | [View Docs](https://typestyle.github.io/)
 
@@ -579,25 +583,25 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📈 __High Learning curve__: the API is simple, but it doesn't provide a lot of features, so you'll still need to do manual work and to re-adjust the way you'll author styles
+- 📈 __High Learning curve__: the API is simple, but it doesn't provide a lot of features, so we'll still need to do manual work and to re-adjust the way we'll author styles
 
 <br />
 
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 😕 it doesn't handle dynamic styles, so you have to use regular JS functions to compute styles
-- 🤨 when composing styles, you'll have to manually add some internal typings
-- 🤔 don't know how to split dynamic and static styles, it's very easy to create duplicated generated code
-- 😱 it creates a single `<style>` tag with all the styles, and replaces it on update, and apparently it doesn't use `insertRule()` which might be a performance drawback in large & highly dynamic UIs
+- 😕 it doesn't handle dynamic styles, so we have to use regular JS functions to compute styles
+- 🤨 when composing styles, we'll have to manually add some internal typings
+- 🤔 don't know how to split dynamic and static styles, so it's very easy to create duplicated generated code
+- 😱 it creates a single `<style>` tag with all the styles, and replaces it on update, and apparently it doesn't use `insertRule()`, not even in production builds, which might be an important performance drawback in large & highly dynamic UIs
 
 <br />
 
 #### Conclusions
 
-Overall TypeStyle seems a minimal library, relatively easy to adopt because you don't have to rewrite your components, thanks to the classic `className` approach, but you have to rewrite your styles, because of the Style Object syntax. You don't feel like writting CSS, so there is a learning curve you need to get through.
+Overall TypeStyle seems a minimal library, relatively easy to adopt because we don't have to rewrite our components, thanks to the classic `className` approach. However we do have to rewrite our styles, because of the Style Object syntax. We didn't feel like writting CSS, so there is a learning curve we need to climb.
 
-With Next.js or React in general you don't get much value out-of-the-box, so you still need to perform a lot of manual work. The external [react-typestyle](https://github.com/Malpaux/react-typestyle) bindings don't support hooks, it seems to be an abandoned project and the typings are too convoluted to be considered an elegant solution.
+With Next.js or React in general we don't get much value out-of-the-box, so we still need to perform a lot of manual work. The external [react-typestyle](https://github.com/Malpaux/react-typestyle) binding doesn't support hooks, it seems to be an abandoned project and the typings are too convoluted to be considered an elegant solution.
 
 <br />
 
@@ -624,7 +628,7 @@ Page                                                           Size     First Lo
 
 ### Fela
 
-It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks, love it.
+It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks.
 
 Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/)
 
@@ -633,7 +637,7 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - ✅ __Styles/Component co-location__
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
-- 🟠 __TypeScript support__: it exposes Flow types, which work ok
+- 🟠 __TypeScript support__: it exposes Flow types, which work ok, from our (limited) experience
 - 🟠 __Context-aware code completion__: styles defined outside the component require explicit typing to get code completion
 
 - __Styles definition method(s)__
@@ -653,13 +657,13 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
+- 📉 __Low Learning curve__: the API is simple, considering that we're comfortable with React hooks
 
 <br />
 
 #### Other benefits
 
-- 😌 easy and simple to use API, very intuitive if you're used to hooks
+- 😌 easy and simple to use API, very intuitive
 - 🥳 creates very short and atomic class names (like `a`, `b`, ...)
 - 😎 it has a lot of plugins that can add many additional features (but will also increase bundle size)
 
@@ -668,19 +672,19 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 🤨 when defining styles outside the component, you'll have to explicitly add some internal typings to get code completion
+- 🤨 when defining styles outside the component, we have to explicitly add some internal typings to get code completion
 - 🥺 there's no actual TS support and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362)
 - 🤕 without TS support, we cannot get fully type-safe integration into Next.js + TS (there are [missing types from the definition file](https://twitter.com/pfeiffer_andrei/status/1349106486740475904))
 - 🤔 the docs say it supports string based styles, but they are a second-class citizen and they seem to work only for global styles
-- 😵 the docs are also minimal, the information is spread on various pages, sometimes hard to find without a search feature, and the examples and use cases are not comprehensive
+- 😵 some information in the docs is spread on various pages, sometimes hard to find without a search feature, and the examples and use cases are not comprehensive
 
 <br />
 
 #### Conclusions
 
-Fela looks to be a mature solution, with active development. It introduces 2 great features which we enjoyed a lot. The first one is the basic principle that _"Style as a Function of State"_. Working with dynamic styles feels super natural and integrates perfectly with React's mindset. The second is atomic CSS class names, which should potentially scale great when used in large applications.
+Fela looks to be a mature solution, with active development. It introduces 2 great features which we enjoyed a lot. The first one is the basic principle that _"Style as a Function of State"_ which makes working with dynamic styles feel super natural and integrates perfectly with React's mindset. The second is atomic CSS class names, which should potentially scale great when used in large applications.
 
-The lack of TS support however is a bummer, if you're looking for a fully type-safe solution. Also, the scaling benefits of atomic CSS should be measured against the library bundle size.
+The lack of TS support however is a bummer, considering we're looking for a fully type-safe solution. Also, the scaling benefits of atomic CSS should be measured against the library bundle size.
 
 <br />
 
@@ -706,7 +710,7 @@ Page                             Size     First Load JS
 
 ### Stitches
 
-Very young library, is probably the most solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
+Very young library, probably the most solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
 Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs)
 
@@ -743,15 +747,15 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 - 😌 easy and simple to use API, a pleasure to work with
 - 😎 great design tokens management and usage
-- 🥰 documentation is exactly what you'd expect, no more, no less
+- 🥰 documentation is exactly what we'd expect: no more, no less
 
 <br />
 
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 😵 uses `insertRule()` in development also, so you cannot see what gets bundled
-- 🤨 it expands short-hand properties, from `padding: 1em;` to `padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em;`
+- 😵 uses `insertRule()` in development also, so we cannot see what gets bundled
+- 🤨 it expands short-hand properties, from `padding: 1em;` will become `padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em;`
 - 🤔 dynamic styles can be defined either using built-in `variants` (for predefined styles), or styles created inside the component to get access to the `props`
 - 🧐 would help a lot to get the search feature inside the docs
 
@@ -759,9 +763,9 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 #### Conclusions
 
-Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took the best features from all other solutions and put them together for an awesome development experience. The first thing that will impress you is definitely the documentation. The second, is the API they exposes which you cannot enjoy. The features they provide are not huge in quantity, but are very well-thought-out.
+Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took some of the best features from other solutions and put them together for an awesome development experience. The first thing that impressed us was definitely the documentation. The second, is the API they expose which is close to top-notch. The features they provide are not huge in quantity, but are very well-thought-out.
 
-However, you cannot ignore the fact that it's still in beta. Also, the authors identify as "light-weight", but at 8KB it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
+However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as "light-weight", but at 8KB it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
 
 <br />
 
@@ -817,13 +821,13 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
+- 📉 __Low Learning curve__: the API is simple, considering that we're comfortable with React hooks
 
 <br />
 
 #### Other benefits
 
-- 😌 easy and simple to use API, very intuitive if you're used to hooks
+- 😌 easy and simple to use API, very intuitive
 - 😎 it has a lot of plugins that can add many additional features (but will also increase bundle size)
 
 <br />
@@ -831,7 +835,6 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 😬 provides nesting selectors, but only with additional plugin
 - 🤔 `react-jss` uses className by default. There's also `styled-jss` that uses __Styled Components__ approach, but it has no types, and couldn't make it work on top of `react-jss`.
 - 😖 global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the `react-jss` SSR setup docs, with the `plugin-globals` docs on usage, without any luck
 
@@ -839,9 +842,9 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 
 #### Conclusions
 
-The API is similar in many ways to React Native StyleSheets, while the hooks helper allows for easy dynamic styles definition. There are many plugins that can add a lot of features to the core functionality, but you should take a close look at the total bundle size, which is significant even with the bare minimum only.
+The API is similar in many ways to React Native StyleSheets, while the hooks helper allows for easy dynamic styles definition. There are many plugins that can add a lot of features to the core functionality, but attention must be payed to the total bundle size, which is significant even with the bare minimum only.
 
-Being the first CSS-in-JS solution built, it lacks many of the modern features that focuses on developer experience.
+Also, being the first CSS-in-JS solution built, it lacks many of the modern features that focuses on developer experience.
 
 <br />
 
