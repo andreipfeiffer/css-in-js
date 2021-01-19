@@ -176,7 +176,7 @@ If the same component is imported by 2 different routes, it will be send twice t
 
 ### CSS Modules
 
-This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, or any other methodology to structure and organize your CSS.
+This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, or any other methodology to structure and organize your CSS, especially in component-based applications.
 
 <br />
 
