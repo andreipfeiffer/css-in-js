@@ -108,6 +108,10 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 ### Overall observations
 
+The following observations apply for all solutions (with minor pointed exceptions) and are explained here.
+
+<br />
+
 ✅ **Code splitting**  
 Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
 
