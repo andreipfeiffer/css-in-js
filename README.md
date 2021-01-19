@@ -31,7 +31,7 @@ Please checkout our [goals](#goals) before jumping to conclusions.
 
 |      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib  | 17. Page |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ? | ? | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ? | ? | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
@@ -39,7 +39,7 @@ Please checkout our [goals](#goals) before jumping to conclusions.
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ? | ? | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ? | ? | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ? | ? | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  +8.5 KB |  +9.0 KB |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | ? | ? | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | +19.0 KB | +20.0 KB |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | +19.0 KB | +20.0 KB |
 
 <br />
 
@@ -67,8 +67,12 @@ Please checkout our [goals](#goals) before jumping to conclusions.
     - typings for the library API
     - Style Object typings (in case the library supports the object syntax)
     - `Props` generics (if needed)
-6. **`&` ctx**: ?
-7. **Nesting**: ?
+6. **`&` ctx**: support for __contextual styles__, allowing to easily define __pseudo classes/elements__ and __media queries__ without the need to repeat yourself
+    - can either support the SASS `&` parent symbol
+    - or some specific API/syntax to achieve this
+7. **Nesting**: support for __arbitrary nested rules/selectors__
+    - this feature allows for great flexibility, which is required in some specific use-cases
+    - but it also introduces too many ways of defining styles, which might cause chaos in very restrictive use-cases, or when you want to enforce good-practices, consistency, scalability and maintainability
 8. **Theme**: built-in support for Theming or managing design tokens/system
 9. **`.css`**: support for extracting and serving the styles as native `.css` files
     - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
@@ -208,18 +212,22 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ✅ Tagged Templates
   - ❌ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ❌ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ✅ `className`
   - ❌ `styled` component
   - ❌ `css` prop
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
 
 - 📉 __Low Learning curve__: because the API is minimal and very simple
 
@@ -238,7 +246,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - 🤓 you'll need to optimize your styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
 - 🤨 unique class names are added to elements, even if you don't target them in your style definition, resulting in un-needed slight html pollution
 - 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
-- 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication
+- 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication, so you might have to add SASS support to get this feature
 
 <br />
 
@@ -246,7 +254,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 Overall, you feel like writting plain CSS, with the added benefit of being able to define the styles along with the component, so you __don't need an additional `.css` file__, but you can extract the styles if you choose to. You can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. You get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
-The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes and media queries getting pretty cumbersome to define.
+The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes/elements and media queries getting pretty cumbersome to define.
 
 <br />
 
@@ -285,26 +293,24 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 - 🟠 __Context-aware code completion__:  to get syntax highlighting & code completion, an editor extension is required
 - ❌ __No Atomic CSS__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ✅ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ❌ `className`
   - ✅ `styled` component
   - 🟠 `css` prop
 
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
 - 📈 __Higher Learning curve__: because you have to learn the API, get used to using the styled wrapper components, and basically a new way to manage your styles
-
-<br />
-
-#### Other benefits
-
-- 😍 provides __nesting__ selectors, so defining __pseudo classes__ and __media queries__ is a pleasure
 
 <br />
 
@@ -362,18 +368,22 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - ✅ __Context-aware code completion__: if you use `styled` components approach, you must install an additional editor plugin
 - ❌ __No Atomic CSS__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ✅ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ❌ `className`
   - ✅ `styled` component
   - ✅ `css` prop
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection  
 
 - 📉 __Low Learning curve__: when using the `css` prop, which is the primary approach, the API is pretty straightforward
 
@@ -381,7 +391,6 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 
 #### Other benefits
 
-- 😍 provides __nesting__ selectors, so defining __pseudo classes__ and __media queries__ is a pleasure
 - 😎 the `css` prop is great ergonomic, however it seems to be a newer approach, based on React 17 new `jsx` runtime, and [configuring](https://emotion.sh/docs/css-prop) it is not trivial, differs on your setup, and implies some boilerplate (but this should change soon)
 
 <br />
@@ -436,18 +445,22 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 - ❌ __No Styles/Component co-location__: styles must be placed in an external `.treat.ts` file
 - ❌ __No Atomic CSS__
 
-- __Styles output__
-  - ✅ `.css` file extraction
-  - ❌ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ❌ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ❌ Abitrary nesting
+
+- __Styles apply method(s)__
   - ✅ `className`
   - ❌ `styled` component
   - ❌ `css` prop
+
+- __Styles output__
+  - ✅ `.css` file extraction
+  - ❌ `<style>` tag injection
 
 - 📉 __Low Learning curve__: coming from CSS Modules it'll feel like home, the additional API required for variants is pretty straightforward and easy to learn
 
@@ -455,7 +468,6 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Other benefits
 
-- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
 - 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices, like __specificity wars__
 
 <br />
@@ -514,26 +526,24 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
 - 🟠 __Built-in Theming support__: uses TS `namespaces` to define theming, which is [not recommended](https://basarat.gitbook.io/typescript/project/namespaces) even by the author himself, or by TS core team member [Orta Therox](https://youtu.be/8qm49TyMUPI?t=1277).
 - ❌ __No Atomic CSS__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ❌ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ✅ `className`
   - ❌ `styled` component
   - ❌ `css` prop
 
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
 - 📈 __High Learning curve__: the API is simple, but it doesn't provide a lot of features, so you'll still need to do manual work and to re-adjust the way you'll author styles
-
-<br />
-
-#### Other benefits
-
-- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
 
 <br />
 
@@ -590,18 +600,22 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - 🟠 __TypeScript support__: it exposes Flow types, which work ok
 - 🟠 __Context-aware code completion__: styles defined outside the component require explicit typing to get code completion
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - 🟠 Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ✅ `className`
   - ❌ `styled` component
   - ❌ `css` prop
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
 
 - 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
 
@@ -609,7 +623,6 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 
 #### Other benefits
 
-- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
 - 😌 easy and simple to use API, very intuitive if you're used to hooks
 - 🥳 creates very short and atomic class names (like `a`, `b`, ...)
 - 😎 it has a lot of plugins that can add many additional features (but will also increase bundle size)
@@ -669,18 +682,22 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ❌ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
   - ✅ `className`
   - ✅ `styled` component
   - ✅ `css` prop _(used only to override `styled` components)_
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
 
 - 📉 __Low Learning curve__: the API is simple and intuitive, documentation is top-notch
 
@@ -688,7 +705,6 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 #### Other benefits
 
-- 😍 supports __nesting__, so defining __pseudo classes__ and __media queries__ is a pleasure
 - 😌 easy and simple to use API, a pleasure to work with
 - 😎 great design tokens management and usage
 - 🥰 documentation is exactly what you'd expect, no more, no less
@@ -748,18 +764,22 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 - ❌ __TypeScript support__
 - ❌ __Context-aware code completion__
 
-- __Styles output__
-  - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection
-
 - __Styles definition method(s)__
   - ❌ Tagged Templates
   - ✅ Style Objects
 
-- __Styles usage method(s)__
+- __Styles nesting__
+  - 🟠 Contextual styles: _(works for pseudo classes/elements, not for media queries)_
+  - 🟠 Abitrary nesting: _(requires separate plugin)_
+
+- __Styles apply method(s)__
   - ✅ `className`
   - 🟠 `styled` component (_see details below_)
   - ❌ `css` prop
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
 
 - 📉 __Low Learning curve__: the API is simple, if you're used to hooks you'll get used to it in no time
 
@@ -775,7 +795,6 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 🥺 supports __nesting__ only for __pseudo classes__, not for __media queries__, which makes the syntax exactly the same as plain CSS
 - 😬 provides nesting selectors, but only with additional plugin
 - 🤔 `react-jss` uses className by default. There's also `styled-jss` that uses __Styled Components__ approach, but it has no types, and couldn't make it work on top of `react-jss`.
 - 😖 global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the `react-jss` SSR setup docs, with the `plugin-globals` docs on usage, without any luck
