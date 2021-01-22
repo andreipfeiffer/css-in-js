@@ -937,8 +937,11 @@ The CSS language and CSS Modules approach have some limitations especially if yo
 - **Styles cannot be co-located with components**  
   This can be frustrating when authoring many small components, but it's not a deal breaker. For large components/containers/pages/screens this isn't an actual issue, because you probably prefer to extract the styles in a separate file.
 
+- **Styling pseudos and media queries requires duplication**  
+  Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
+
 - **Styles usage is disconnected from their definition**  
-  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes refactoring very cumbersome, because of the lack of safety.
+  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
 - **Styles cannot access design tokens**  
   Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarouns for this issue, neither of them being elegant:
