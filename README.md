@@ -932,7 +932,7 @@ The project was [discountinued](https://github.com/paypal/glamorous/issues/419) 
 
 ## Motivation
 
-The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations having altenative solutions, others are just being "annoying" and "less ideal":
+The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have altenative solutions, others are just being "annoying" and "less ideal":
 
 - **Styles cannot be co-located with components**  
   This can be frustrating when authoring many small components, but it's not a deal breaker. For large components/containers/pages/screens this isn't an actual issue, because you probably prefer to extract the styles in a separate file.
