@@ -23,7 +23,14 @@ export default function Home() {
   );
 }
 
+/* tagged template strings */
 const Heading = styled.h1`
   max-width: 75vw;
   font-size: 1.5rem;
 `;
+
+/* object styles */
+// const Heading = styled.h1({
+//   maxWidth: "75vw",
+//   fontSize: "1.5em",
+// });
