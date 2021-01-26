@@ -31,15 +31,15 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 |      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib  | 17. Page |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | - | -        | -        |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.5 KB |  +4.4 KB |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | +13.8 KB | +14.5 KB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.2 KB |  +7.7 KB |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -        | -        |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  +3.1 KB |  +3.7 KB |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | +13.7 KB | +13.7 KB |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  +8.5 KB |  +9.0 KB |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | +19.0 KB | +20.0 KB |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     | -        |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.9 kB /  +10.7 kb |  +4.4 kB |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 |             +13.8 kB | +14.5 kB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |              +7.2 kB |  +7.7 kB |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -                    | -        |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |              +3.1 kB |  +3.7 kB |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 |             +13.7 kB | +13.7 kB |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |              +8.5 kB |  +9.0 kB |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 |             +19.0 kB | +20.0 kB |
 
 <br />
 
@@ -99,8 +99,8 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
     - it's a nice and flexible ergonomic API
     - first introduced and popularized by Emotion v10
 15. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
-16. **Lib**: size in KB of the library that is shipped in a production build
-17. **Bundle**: the increase in KB compared to __CSS Modules__, for the entire index page production build
+16. **Lib**: size in kB of the library that is shipped in a production build
+17. **Bundle**: the increase in kB compared to __CSS Modules__, for the entire index page production build
     - keep in mind that this includes an almost __empty page__, with only a couple of components
     - this is great for evaluating the minimal overhead, but does not offer any insight on the scaling factor: logarithmic, linear, or exponential
 
@@ -219,6 +219,10 @@ This is the baseline we'll consider when comparing all the following __CSS-in-JS
 
 <br />
 
+Index page size: __71.5 kB__ (transferred, gzipped), __201 kB__ (total resources, uncompressed)
+
+<br />
+
 ```
 Page                                Size     First Load JS
 ┌ ○ /                               2.15 kB        64.9 kB
@@ -298,7 +302,8 @@ The downsides are the overall experience of writting plain CSS. __Without nestin
 
 <br />
 
-Page overhead: __+4.4 KB__
+`Index page size`: __75.1 kB__ (transferred, gzipped), __214 kB__ (total resources, uncompressed)
+`vs. CSS Modules`: __+3.6 kB__ (transferred, gzipped), __+13 kB__ (total resources, uncompressed)
 
 <br />
 
@@ -373,7 +378,7 @@ However before adopting it, we must be aware that it comes with a certain cost f
 
 <br />
 
-Page overhead: __+14.5 KB__
+Page overhead: __+14.5 kB__
 
 <br />
 
@@ -439,7 +444,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 
 - 😕 bundles nested styles even if they are not used in component
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
-- 😑 using `styled` approach will add `3 KB` to our bundle, because it's imported from a separate package
+- 😑 using `styled` approach will add `3 kB` to our bundle, because it's imported from a separate package
 - 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants (same applies to `css` prop & `styled` components)
 
 <br />
@@ -452,7 +457,7 @@ It seems it doesn't have a dedicated focus on performance, but more on Developer
 
 <br />
 
-Page overhead: __+7.7 KB__ (with `css` prop) and __+10.7 KB__ (with `styled` components)
+Page overhead: __+7.7 kB__ (with `css` prop) and __+10.7 kB__ (with `styled` components)
 
 <br />
 
@@ -607,7 +612,7 @@ With Next.js or React in general we don't get much value out-of-the-box, so we s
 
 <br />
 
-Page overhead: __+3.7 KB__
+Page overhead: __+3.7 kB__
 
 <br />
 
@@ -690,7 +695,7 @@ The lack of TS support however is a bummer, considering we're looking for a full
 
 <br />
 
-Page overhead: __+13.7 KB__
+Page overhead: __+13.7 kB__
 
 <br />
 
@@ -767,11 +772,11 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took some of the best features from other solutions and put them together for an awesome development experience. The first thing that impressed us was definitely the documentation. The second, is the API they expose which is close to top-notch. The features they provide are not huge in quantity, but are very well-thought-out.
 
-However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as "light-weight", but at 8KB it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
+However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as "light-weight", but at __8 kB__ it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
 
 <br />
 
-Page overhead: __+8.5 KB__
+Page overhead: __+8.5 kB__
 
 <br />
 
@@ -850,7 +855,7 @@ Also, being the first CSS-in-JS solution built, it lacks many of the modern feat
 
 <br />
 
-Page overhead: __+20.0 KB__
+Page overhead: __+20.0 kB__
 
 <br />
 
