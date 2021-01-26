@@ -302,8 +302,11 @@ The downsides are the overall experience of writting plain CSS. __Without nestin
 
 <br />
 
-`Index page size`: __75.1 kB__ (transferred, gzipped), __214 kB__ (total resources, uncompressed)
-`vs. CSS Modules`: __+3.6 kB__ (transferred, gzipped), __+13 kB__ (total resources, uncompressed)
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                3.9 kB |      10.7 kb |
+| Index page size |               75.1 kB |       214 kB |
+| vs. CSS Modules |           __+3.6 kB__ |   __+13 kB__ |
 
 <br />
 
