@@ -219,7 +219,10 @@ This is the baseline we'll consider when comparing all the following __CSS-in-JS
 
 <br />
 
-Index page size: __71.5 kB__ (transferred, gzipped), __201 kB__ (total resources, uncompressed)
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                     - |            - |
+| Index page size |               71.5 kB |       201 kB |
 
 <br />
 
