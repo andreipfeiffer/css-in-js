@@ -34,7 +34,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                   | -        |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  +3.9 kB / +10.7 kB |  +4.4 kB |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | +14.2 kB / +36.7 kB | +14.5 kB |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |             +7.2 kB |  +7.7 kB |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  +7.5 kB / +19.0 kb |  +7.7 kB |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -                   | -        |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |             +3.1 kB |  +3.7 kB |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 |            +13.7 kB | +13.7 kB |
@@ -467,7 +467,11 @@ It seems it doesn't have a dedicated focus on performance, but more on Developer
 
 <br />
 
-Page overhead: __+7.7 kB__ (with `css` prop) and __+10.7 kB__ (with `styled` components)
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                7.5 kB |      19.0 kb |
+| Index page size |               78.4 kB |       221 kB |
+| vs. CSS Modules |           __+6.9 kB__ |   __+20 kB__ |
 
 <br />
 
