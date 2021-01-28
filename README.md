@@ -1057,19 +1057,19 @@ The project was [discountinued](https://github.com/paypal/glamorous/issues/419) 
 
 The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have altenative solutions, others are just being "annoying" and "less ideal":
 
-- **Styles cannot be co-located with components**  
-  This can be frustrating when authoring many small components, but it's not a deal breaker. For large components/containers/pages/screens this isn't an actual issue, because you probably prefer to extract the styles in a separate file.
+1. **Styles cannot be co-located with components**  
+  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
 
-- **Styling pseudos and media queries requires duplication**  
+2. **Styling pseudos and media queries requires selector duplication**  
   Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
 
-- **Styles usage is disconnected from their definition**  
+3. **Styles usage is disconnected from their definition**  
   You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
-- **Styles cannot access design tokens**  
+4. **Using type-safe design tokens is a nightmare**  
   Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarouns for this issue, neither of them being elegant:
-  1. We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
-  2. We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
+  - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
+  - We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
 
 <br />
 
