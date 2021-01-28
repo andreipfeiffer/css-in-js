@@ -29,17 +29,17 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib (gzip/raw) | 17. Page (gzip/raw) |
-| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     | -                |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.9 kB / +10.7 kB` |  `+4.4 kB / TBD` |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | `+14.2 kB / +36.7 kB` | `+14.5 kB / TBD` |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  `+7.5 kB / +19.0 kb` |  `+7.7 kB / TBD` |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 | -                     | -                |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |       `+3.1 kB / TBD` |  `+3.7 kB / TBD` |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 |      `+13.7 kB / TBD` | `+13.7 kB / TBD` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |       `+8.5 kB / TBD` |  `+9.0 kB / TBD` |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 |      `+19.0 kB / TBD` | `+20.0 kB / TBD` |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip/raw) |
+| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | `+13.9 kB / +39.0 kB` |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  `+6.9 kB / +20.0 kB` |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 |  __`+0.3 kB /  -0.1 kB`__ |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  `+2.8 kB / +19.0 kB` |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
+| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.1 kB / +63.0 kB` |
 
 <br />
 
@@ -98,11 +98,11 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
     - this is usually an additional feature for styled components, but it can also work separately
     - it's a nice and flexible ergonomic API
     - first introduced and popularized by Emotion v10
-15. **Learn**: a slightly subjective opinion regarding the learning curve, you should really evaluate this on your own
-16. **Lib**: size in kB of the library that is shipped in a production build
-17. **Bundle**: the increase in kB compared to __CSS Modules__, for the entire index page production build
+15. **Learn**: a subjective opinion regarding the learning curve (NOTE: you should really evaluate this on your own !!!)
+16. **Page delta**: the total page size difference in kB (transferred gzipped / uncompressed resources) compared to __CSS Modules__, for the entire index page production build
     - keep in mind that this includes an almost __empty page__, with only a couple of components
-    - this is great for evaluating the minimal overhead, but does not offer any insight on the scaling factor: logarithmic, linear, or exponential
+    - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential
+    - the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed)
 
 <br />
 
@@ -308,7 +308,7 @@ The downsides are the overall experience of writting plain CSS. __Without nestin
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                3.9 kB |      10.7 kb |
+| Runtime library |                3.9 kB |      10.7 kB |
 | Index page size |               75.1 kB |       214 kB |
 | vs. CSS Modules |           __+3.6 kB__ |   __+13 kB__ |
 
@@ -387,7 +387,7 @@ However before adopting it, we must be aware that it comes with a certain cost f
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |               14.2 kB |      36.7 kb |
+| Runtime library |               14.2 kB |      36.7 kB |
 | Index page size |               85.4 kB |       240 kB |
 | vs. CSS Modules |          __+13.9 kB__ |   __+39 kB__ |
 
@@ -470,7 +470,7 @@ It seems it doesn't have a dedicated focus on performance, but more on Developer
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                7.5 kB |      19.0 kb |
+| Runtime library |                7.5 kB |      19.0 kB |
 | Index page size |               78.4 kB |       221 kB |
 | vs. CSS Modules |           __+6.9 kB__ |   __+20 kB__ |
 
