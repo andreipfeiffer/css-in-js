@@ -29,7 +29,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib (gzip/raw)  | 17. Page (gzip/raw) |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib (gzip/raw) | 17. Page (gzip/raw) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     | -                |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.9 kB / +10.7 kB` |  `+4.4 kB / TBD` |
