@@ -551,7 +551,11 @@ Treat is built with restrictions in mind, with a strong user-centric focus, bala
 
 <br />
 
-Page overhead: __-__
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                     - |            - |
+| Index page size |               71.8 kB |       200 kB |
+| vs. CSS Modules |           __+0.3 kB__ |    __-1 kB__ |
 
 <br />
 
@@ -627,7 +631,12 @@ With Next.js or React in general we don't get much value out-of-the-box, so we s
 
 <br />
 
-Page overhead: __+3.7 kB__
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                     - |            - |
+| Index page size |               71.8 kB |       200 kB |
+| vs. CSS Modules |           __+0.3 kB__ |    __-1 kB__ |
+| Index page size |               71.5 kB |       201 kB |
 
 <br />
 
