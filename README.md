@@ -293,7 +293,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - 🤓 we'll need to optimize our styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
 - 🤨 unique class names are added to elements, even if we don't target them in our style definition, resulting in un-needed slight html pollution
 - 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
-- 😢 cannot use __nesting__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication, so we might have to add SASS support to get this feature
+- 😢 there's no support for __contextual styles__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication (a [SASS plugin](https://github.com/vercel/styled-jsx#css-preprocessing-via-plugins) is required to get this feature)
 
 <br />
 
