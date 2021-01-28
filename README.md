@@ -911,9 +911,11 @@ Page                              Size     First Load JS
   └ css/d9aac052842a915b5cc7.css  325 B
 ```
 
+<br />
+
 ### Goober
 
-A really light-weight solution, not very popular, but with lots of features.
+A really light-weight solution, not very popular, but with a load of features.
 
 Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianbote_) | Launched in __2019__ | [View Docs](https://goober.js.org/) | ... [back to Overview](#overview)
 
