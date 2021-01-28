@@ -1,21 +1,25 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-import css from "styled-jsx/css";
 
-// import "../styles/globals.css";
+import React from "react";
+import { prefix } from "goober-autoprefixer";
+import { setup } from "goober";
+import { createGlobalStyles } from "goober/global";
 
-function MyApp({ Component, pageProps }: AppProps) {
+// goober's needs to know how to render the `styled` nodes.
+// So to let it know, we run the `setup` function with the
+// `createElement` function and prefixer function.
+setup(React.createElement, prefix);
+
+export function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-
-      <style global jsx>
-        {global_styles}
-      </style>
+      <GlobalStyles />
     </>
   );
 }
 
-const global_styles = css.global`
+const GlobalStyles = createGlobalStyles`
   html,
   body {
     padding: 0;
