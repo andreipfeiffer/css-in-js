@@ -633,10 +633,9 @@ With Next.js or React in general we don't get much value out-of-the-box, so we s
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                     - |            - |
-| Index page size |               71.8 kB |       200 kB |
-| vs. CSS Modules |           __+0.3 kB__ |    __-1 kB__ |
-| Index page size |               71.5 kB |       201 kB |
+| Runtime library |                4.5 kB |       8.6 kB |
+| Index page size |               74.3 kB |       210 kB |
+| vs. CSS Modules |           __+2.8 kB__ |   __+19 kB__ |
 
 <br />
 
@@ -719,7 +718,11 @@ The lack of TS support however is a bummer, considering we're looking for a full
 
 <br />
 
-Page overhead: __+13.7 kB__
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |               13.1 kB |      42.6 kB |
+| Index page size |               84.1 kB |       246 kB |
+| vs. CSS Modules |          __+12.6 kB__ |   __+45 kB__ |
 
 <br />
 
@@ -800,7 +803,11 @@ However, we cannot ignore the fact that it's still in beta. Also, the authors id
 
 <br />
 
-Page overhead: __+8.5 kB__
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                8.9 kB |      29.5 kB |
+| Index page size |               80.1 kB |       233 kB |
+| vs. CSS Modules |           __+8.6 kB__ |   __+32 kB__ |
 
 <br />
 
@@ -879,7 +886,11 @@ Also, being the first CSS-in-JS solution built, it lacks many of the modern feat
 
 <br />
 
-Page overhead: __+20.0 kB__
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |               19.1 kB |      58.5 kB |
+| Index page size |               91.6 kB |       264 kB |
+| vs. CSS Modules |          __+20.1 kB__ |   __+63 kB__ |
 
 <br />
 
