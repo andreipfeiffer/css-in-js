@@ -20,6 +20,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
   - [Fela](#fela)
   - [Stitches](#stitches)
   - [JSS](#jss)
+  - [Goober](#goober)
 - [Motivation](#motivation)
 - [Goals](#goals)
 - [Disclaimer](#disclaimer)
@@ -40,6 +41,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
 | [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.1 kB / +63.0 kB` |
+| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | 📉 |  `+2.2 kB /  +7.0 kB` |
 
 <br />
 
@@ -907,6 +909,85 @@ Page                              Size     First Load JS
   ├ chunks/pages/_app.ea9fff.js   1.78 kB
   ├ chunks/webpack.50bee0.js      751 B
   └ css/d9aac052842a915b5cc7.css  325 B
+```
+
+### Goober
+
+A really light-weight solution, not very popular, but with lots of features.
+
+Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianbote_) | Launched in __2019__ | [View Docs](https://goober.js.org/) | ... [back to Overview](#overview)
+
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __Built-in Theming support__
+- ✅ __TypeScript support__
+- ✅ __Context-aware code completion__
+- ❌ __Atomic CSS__
+
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
+  - ✅ `className`
+  - ✅ `styled` component (_see details below_)
+  - 🟠 `css` prop (_is supported, but requires a separate babel plugin_)
+
+- __Styles output__
+  - ❌ `.css` file extraction
+  - ✅ `<style>` tag injection
+
+- 📉 __Low Learning curve__: if you're using only the `css` API with `className`, it's a low learning curve
+
+<br />
+
+#### Other benefits
+
+- 🤏 really tiny
+- 😎 it supports a very wide range of defining styles, so it's pretty versatile and full featured in this regard (however, I fear that having all these options at your disposal, a large team would mix various ways if defining styles)
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
+- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants
+- 😱 it creates a single `<style>` tag with all the styles, and appends to it on update, and apparently it doesn't use `insertRule()`, not even in production builds, which might be an important performance drawback in large & highly dynamic UIs
+
+<br />
+
+#### Conclusions
+
+Looking at Goober you cannot ask yourself what kind of magic did Cristian Bote do to fit all the features inside this tiny library. It is really mind blowing. It is marketed as being _"less than 1KB"_, which is not actually true (maybe it was in the past, when it didn't have all these features).
+
+<br />
+
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                2.8 kB |       5.2 kB |
+| Index page size |               73.7 kB |       208 kB |
+| vs. CSS Modules |           __+2.2 kB__ |    __+7 kB__ |
+
+<br />
+
+```
+Page                             Size     First Load JS
+┌ ○ /                            3.89 kB        68.4 kB
+├   /_app                        0 B            64.6 kB
+├ ○ /404                         3.03 kB        67.6 kB
+└ ○ /other                       2.49 kB          67 kB
++ First Load JS shared by all    64.6 kB
+  ├ chunks/commons.7af247.js     13.1 kB
+  ├ chunks/framework.9d5241.js   41.8 kB
+  ├ chunks/main.03531f.js        6.62 kB
+  ├ chunks/pages/_app.8a4776.js  2.37 kB
+  └ chunks/webpack.50bee0.js     751 B
 ```
 
 <br />
