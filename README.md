@@ -29,7 +29,7 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib (gzip/raw)  | 17. Page (gzip/raw) |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Lib (gzip/raw)  | 17. Page (gzip/raw) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     | -                |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.9 kB / +10.7 kB` |  `+4.4 kB / TBD` |
@@ -284,14 +284,15 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 - 😌 out-of-the-box support with Next.js
 - 👍 for user input styles, it generates a new class name for each change, but it removes the old one
-- 😏 unlike CSS modules, we can target HTML `elements` also, and it generates unique class names for them
+- 👌 it generates slightly smaller styles than the default CSS modules settings, probably due to shorter unique class names (you can see this in the difference between the runtime library size __3.9 kB__ and the page size increase, which I'd expect to be larger, but instead it's __3.6 kB__, this being tiny code base, so this delta might scale)
 
 <br />
 
 #### Worth mentioning observations
 
+- 😏 unlike CSS modules, we can target HTML `elements` also, and it generates unique class names for them (not sure if it's a good practice, though)
 - 🤓 we'll need to optimize our styles by [splitting static & dynamic styles](https://github.com/vercel/styled-jsx#dynamic-styles), to avoid rendering duplicated styles
-- 🤨 unique class names are added to elements, even if we don't target them in our style definition, resulting in un-needed slight html pollution
+- 🤨 unique class names are added to elements, even if we don't target them in our style definition, resulting in un-needed slight html pollution (optimizing this is cumbersome, and it's _a lot of work for little benefit_)
 - 😕 it will bundle any defined styles, regardless if they are used or not, just like plain CSS
 - 😢 there's no support for __contextual styles__, so defining __pseudo classes__ or __media queries__ has the same downsides as plain CSS, requiring selectors/class names duplication (a [SASS plugin](https://github.com/vercel/styled-jsx#css-preprocessing-via-plugins) is required to get this feature)
 
@@ -299,7 +300,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 #### Conclusions
 
-Overall, we felt like writting plain CSS, with the added benefit of being able to define the styles along with the component, so we __don't need an additional `.css` file__. We can also __use any JS/TS constants of functions__. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. We get all these benefits at a very low price, with a pretty __small bundle overhead__.
+Overall, we felt like writting plain CSS, with the added benefit of being able to define the styles along with the component, so we __don't need an additional `.css` file__. Indeed, this is the philosophy of the library: supporting CSS syntax inside the component file. We can __use any JS/TS constants of functions__ with string interpolation. Working with __dynamic styles is pretty easy__ because it's plain JavaScript in the end. We get all these benefits at a very low price, with a pretty __small bundle overhead__.
 
 The downsides are the overall experience of writting plain CSS. __Without nesting support__ pseudo classes/elements and media queries getting pretty cumbersome to manage.
 
