@@ -966,13 +966,13 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
 
 #### Conclusions
 
-Looking at Goober you cannot ask yourself what kind of magic did Cristian Bote do to fit all the features inside this tiny library. It is really mind blowing. It is marketed as being _"less than 1KB"_, which is not actually true (maybe it was in the past, when it didn't have all these features).
+Looking at Goober you cannot ask yourself what kind of magic did Cristian Bote do to fit all the features inside this tiny library. It is really mind blowing. It is marketed as being _"less than 1KB"_, which is not entirely accurate, but still... it's the smallest library we've tested.
 
 <br />
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                2.8 kB |       5.2 kB |
+| Runtime library |                1.6 kB |       2.8 kB |
 | Index page size |               73.7 kB |       208 kB |
 | vs. CSS Modules |           __+2.2 kB__ |    __+7 kB__ |
 
