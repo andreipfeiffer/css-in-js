@@ -1,15 +1,18 @@
 # CSS-in-TS research analysis - ⚠️ Working Draft
 
-_Last update: **Jan 2021**_
+> _Last update: **Jan 2021**_
 
 This document contains a thorough analysis of all the current **CSS-in-JS** solutions. The baseline reference we'll use for comparison is a **CSS Modules** approach. We're using **Next.js** as a SSR framework for building resources. Last important aspect is type-safety with full **TypeScript** support.
 
-Please checkout our [goals](#goals) before drawing your own conclusions.
+> ✋ Please checkout our [goals](#goals) before drawing your own conclusions.
 
 <br />
 
 ## Table of contents
 
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Disclaimer](#disclaimer)
 - [Overview](#overview)
   - [CSS Modules](#css-modules)
   - [Styled JSX](#styled-jsx)
@@ -21,16 +24,90 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
   - [Stitches](#stitches)
   - [JSS](#jss)
   - [Goober](#goober)
-- [Motivation](#motivation)
-- [Goals](#goals)
-- [Disclaimer](#disclaimer)
+- [Disregarded solutions](#disregarded-solutions)
+  - [Aphrodite](#aphrodite)
+  - [Glamor](#glamor)
+  - [Linaria](#linaria)
+  - [Cxs](#cxs)
+  - [Astroturf](#astroturf)
+  - [Styletron](#styletron)
+  - [Radium](#radium)
+  - [Glamorous](#glamorous)
 - [Running the examples](#running-the-examples)
+- [Feedback and Suggestions](#feedback-and-suggestions)
 
 <br />
 
+## Motivation
+
+The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" and "less ideal":
+
+1. **Styles cannot be co-located with components**  
+  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
+
+2. **Styling pseudos and media queries requires selector duplication**  
+  Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
+
+3. **Styles usage is disconnected from their definition**  
+  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
+
+4. **Using type-safe design tokens is a nightmare**  
+  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarounds for this issue, neither of them being elegant:
+   - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
+   - We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
+
+<br />
+
+## Goals
+
+There are specific goals we're looking for:
+
+- 🥇 SSR support and easy integration with Next.js
+- 🥇 full TypeScript support
+- 🥇 great DX with code completion & syntax highlight
+- 🥈 light-weight
+- 🥉 low learning curve and intuitive API
+
+<br />
+
+Getting even more specific, we wanted to experience the usage of various CSS-in-JS solutions regarding:
+
+- defining __global styles__
+- using __media queries__ & __pseudo classes__
+- __dynamic styles__ based on component `props` (aka. component variants), or from user input
+- __bundle size__ impact
+
+<br />
+
+## Disclaimer
+
+This analysis is intended to be **objective** and **unopinionated**:
+- I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
+- I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
+
+<br />
+
+👎 **What you WON'T FIND here?**  
+- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or performance metrics
+- what solution should you pick for your next project, because I have no idea what your project is and what your goals are
+
+<br />
+
+👍 **What you WILL FIND here?**  
+- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
+- a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
+- an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
+
+The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
+
+<br/>
+
+---
+
+
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip/raw) |
+|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
@@ -153,7 +230,7 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 <br />
 
-🟠 **Increased FCP**  
+🟠 **Increased [FCP](https://web.dev/fcp/)(First Contentful Paint)**  
 For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than using regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML, increasing parsing time. 
 - solutions that perform `.css` file extraction don't have this problem (this includes **CSS Modules** and **Treat**)
 
@@ -998,7 +1075,6 @@ Page                             Size     First Load JS
 
 ## Disregarded solutions
 
-<br />
 
 ### Aphrodite
 
@@ -1023,7 +1099,7 @@ I got it started with Next.js, but it feels fragile. The [Glamor official exampl
 
 Didn't manage to start it with Next.js + TypeScript.
 
-It was an interesting solution, as it promises zero-runtime overhead, generating `.css` files at build time, while the style are colocated within the components.
+It was an interesting solution, as it promises zero-runtime overhead, generating `.css` files at build time, while the style are collocated within the components.
 
 ### Cxs
 
@@ -1035,7 +1111,7 @@ The solution looked interesting, because it is supposed to be very light-weight.
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
 
-The solution is not that popular, but it was the first to use `.css` extraction with colocated styles.
+The solution is not that popular, but it was the first to use `.css` extraction with collocated styles.
 
 ### Otion
 
@@ -1047,75 +1123,11 @@ It looks like a not so popular solution, which also lacks support for TypeScript
 
 ### Radium
 
-The projest was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
+The project was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
 
 ### Glamorous
 
-The project was [discountinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
-
-<br />
-
-## Motivation
-
-The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have altenative solutions, others are just being "annoying" and "less ideal":
-
-1. **Styles cannot be co-located with components**  
-  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
-
-2. **Styling pseudos and media queries requires selector duplication**  
-  Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
-
-3. **Styles usage is disconnected from their definition**  
-  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
-
-4. **Using type-safe design tokens is a nightmare**  
-  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarouns for this issue, neither of them being elegant:
-   - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
-   - We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
-
-<br />
-
-## Goals
-
-There are specific goals we're looking for:
-
-- 🥇 SSR support and easy integration with Next.js
-- 🥇 full TypeScript support
-- 🥇 great DX with code completion & syntax highlight
-- 🥈 light-weight
-- 🥉 low learning curve and intuitive API
-
-<br />
-
-Getting even more specific, we wanted to experience the usage of various CSS-in-JS solutions regarding:
-
-- defining __global styles__
-- using __media queries__ & __pseudo classes__
-- __dynamic styles__ based on component `props` (aka. component variants), or from user input
-- __bundle size__ impact
-
-<br />
-
-## Disclaimer
-
-This analysis is intended to be **objective** and **unopinionated**:
-- I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
-- I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
-
-<br />
-
-👎 **What you WON'T FIND here?**  
-- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or performance metrics
-- what solution should you pick for your next project, because I have no idea what your project is and what your goals are
-
-<br />
-
-👍 **What you WILL FIND here?**  
-- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
-- a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
-- an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
-
-The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
+The project was [discontinued](https://github.com/paypal/glamorous/issues/419) in favor of Emotion.
 
 <br />
 
@@ -1139,6 +1151,6 @@ yarn start
 
 ---
 
-<br />
+## Feedback and Suggestions
 
 To get in touch, my DMs are open [@pfeiffer_andrei](https://twitter.com/pfeiffer_andrei)
