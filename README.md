@@ -87,8 +87,10 @@ Please checkout our [goals](#goals) before drawing your own conclusions.
     - more suited for highly dynamic and interactive applications
 11. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
     - this generates a separate CSS class for each CSS property
+    - it's a bit more difficult to debug/inspect when dealing with many class names applied
     - you'll get larger HTML files, because each element will contain a large number of CSS classes applied
     - theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well
+    - it's debatable if the styles size reduction, is greater than the html size increase (what is the final delta)
 12. **`className`**: the API returns a string which you have to add to your component/element
     - similar how you would normally style React components, so it's easy to adopt because you don't have to learn a new approach
     - you'll probably have to use string concatenation, or interpolation, to combine styles
