@@ -26,7 +26,7 @@ This document contains a thorough analysis of all the current **CSS-in-JS** solu
   - [Stitches](#stitches)
   - [JSS](#jss)
   - [Goober](#goober)
-- [Disregarded solutions](#disregarded-solutions)
+- [Libraries not included](#libraries-not-included)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
 
@@ -73,7 +73,8 @@ There are specific goals we're looking for:
 - 🥇 full TypeScript support
 - 🥇 great DX with code completion & syntax highlight
 - 🥈 light-weight
-- 🥉 low learning curve and intuitive API
+- 🥈 comprehensive documentation
+- 🥉 intuitive API and low learning curve
 
 <br />
 
@@ -1120,8 +1121,11 @@ Page                             Size     First Load JS
 
 <br />
 
-## Disregarded solutions
+## Libraries not included
 
+We know there are a lot of other libraries out there, besides the ones covered above. Acording to our [goals](#goals), we're only covered the ones that have support for **React**, support for **SSR**, an easy integration with **Next.js**, good **documentation** and a sense of ongoing **support and maintenance**.
+
+<br />
 
 ### Aphrodite
 
