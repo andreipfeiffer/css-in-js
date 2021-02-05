@@ -4,7 +4,9 @@
 
 This document contains a thorough analysis of all the current **CSS-in-JS** solutions. The baseline reference we'll use for comparison is a **CSS Modules** approach. We're using **Next.js** as a SSR framework for building resources. Last important aspect is type-safety with full **TypeScript** support.
 
-> ✋ Please checkout our [goals](#goals) before drawing your own conclusions.
+<br />
+
+> ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before drawing jumping to conclusions.
 
 <br />
 
@@ -25,14 +27,6 @@ This document contains a thorough analysis of all the current **CSS-in-JS** solu
   - [JSS](#jss)
   - [Goober](#goober)
 - [Disregarded solutions](#disregarded-solutions)
-  - [Aphrodite](#aphrodite)
-  - [Glamor](#glamor)
-  - [Linaria](#linaria)
-  - [Cxs](#cxs)
-  - [Astroturf](#astroturf)
-  - [Styletron](#styletron)
-  - [Radium](#radium)
-  - [Glamorous](#glamorous)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
 
@@ -40,13 +34,26 @@ This document contains a thorough analysis of all the current **CSS-in-JS** solu
 
 ## Motivation
 
-The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" and "less ideal":
+The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
 
 1. **Styles cannot be co-located with components**  
   This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
 
 2. **Styling pseudos and media queries requires selector duplication**  
   Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
+  
+  ```css
+  .button {}
+  
+  // duplicated selector declaration for pseudo classes/elements
+  .button:hover {}
+  .button::after {}
+  
+  @media (min-width: 640px) {
+    // duplicated selector declaration inside media queries
+    .button {}
+  }
+  ```
 
 3. **Styles usage is disconnected from their definition**  
   You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
