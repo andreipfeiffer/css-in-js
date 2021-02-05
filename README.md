@@ -42,18 +42,18 @@ The CSS language and CSS Modules approach have some limitations especially if yo
 2. **Styling pseudos and media queries requires selector duplication**  
   Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
   
-  ```css
-  .button {}
-  
-  // duplicated selector declaration for pseudo classes/elements
-  .button:hover {}
-  .button::after {}
-  
-  @media (min-width: 640px) {
-    // duplicated selector declaration inside media queries
+    ```css
     .button {}
-  }
-  ```
+
+    // duplicated selector declaration for pseudo classes/elements
+    .button:hover {}
+    .button::after {}
+
+    @media (min-width: 640px) {
+      // duplicated selector declaration inside media queries
+      .button {}
+    }
+    ```
 
 3. **Styles usage is disconnected from their definition**  
   You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
@@ -107,10 +107,10 @@ This analysis is intended to be **objective** and **unopinionated**:
 
 The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
 
-<br/>
-
 ---
 
+<br/>
+<br/>
 
 ## Overview
 
@@ -192,7 +192,11 @@ The libraries are not presented in any particular order. If you're interested in
     - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential
     - the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed)
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Overall observations
 
@@ -331,7 +335,11 @@ Page                                Size     First Load JS
   └ css/d9aac052842a915b5cc7.css    325 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Styled JSX
 
@@ -417,7 +425,11 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Styled Components
 
@@ -496,7 +508,11 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Emotion
 
@@ -579,7 +595,11 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Treat
 
@@ -664,7 +684,11 @@ Page                                Size     First Load JS
   └ css/08916f1dfb6533efc4a4.css    286 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### TypeStyle
 
@@ -742,7 +766,11 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Fela
 
@@ -828,7 +856,11 @@ Page                             Size     First Load JS
   └ chunks/webpack.50bee0.js     751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Stitches
 
@@ -914,7 +946,11 @@ Page                                                           Size     First Lo
   └ chunks/webpack.50bee0.js                                   751 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### JSS
 
@@ -997,7 +1033,11 @@ Page                              Size     First Load JS
   └ css/d9aac052842a915b5cc7.css  325 B
 ```
 
-<br />
+<br/>
+
+---
+
+<br/>
 
 ### Goober
 
@@ -1155,8 +1195,6 @@ yarn start
 ```
 
 <br />
-
----
 
 ## Feedback and Suggestions
 
