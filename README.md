@@ -6,7 +6,7 @@ This document contains a thorough analysis of all the current **CSS-in-JS** solu
 
 <br />
 
-> ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before drawing jumping to conclusions.
+> ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
 
 <br />
 
@@ -1202,4 +1202,9 @@ yarn start
 
 ## Feedback and Suggestions
 
-To get in touch, my DMs are open [@pfeiffer_andrei](https://twitter.com/pfeiffer_andrei)
+To get in touch, my DMs are open [@pfeiffer_andrei](https://twitter.com/pfeiffer_andrei).
+
+Special thanks go to persons that helped putting this document together, and making it more accurate:
+
+- Martin Hochel ([@martin_hotell](https://twitter.com/martin_hotell))
+- Oleg Isonen ([@oleg008](https://twitter.com/oleg008))
