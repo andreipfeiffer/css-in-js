@@ -46,16 +46,17 @@ const useStyles = createUseStyles({
       animationFillMode: "forwards",
       animationDuration: "0.5s",
     },
+
+    "@media (min-width: 640px)": {
+      "&": {
+        width: "100%",
+      },
+    },
   },
 
+  // this can also be nested, by targeting "& span"
   text: {
     color: "white",
-  },
-
-  "@media (min-width: 640px)": {
-    button: {
-      width: "100%",
-    },
   },
 
   "@keyframes button_animation": {
