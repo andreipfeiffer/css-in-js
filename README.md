@@ -1123,7 +1123,7 @@ Page                             Size     First Load JS
 
 ## Libraries not included
 
-We know there are a lot of other libraries out there, besides the ones covered above. Acording to our [goals](#goals), we're only covered the ones that have support for **React**, support for **SSR**, an easy integration with **Next.js**, good **documentation** and a sense of ongoing **support and maintenance**.
+We know there are a lot of other libraries out there, besides the ones covered above. We're only covered the ones that have support for **React**, support for **SSR**, an easy integration with **Next.js**, good **documentation** and a sense of ongoing **support and maintenance**. Please checkout our [goals](#goals).
 
 <br />
 
