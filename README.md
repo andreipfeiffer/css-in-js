@@ -1204,7 +1204,9 @@ yarn start
 
 To get in touch, my DMs are open [@pfeiffer_andrei](https://twitter.com/pfeiffer_andrei).
 
-Special thanks go to persons that helped putting this document together, and making it more accurate:
+<br />
+
+**Special thanks and appreciations** go to persons that helped putting this document together, and making it more accurate:
 
 - Martin Hochel ([@martin_hotell](https://twitter.com/martin_hotell))
 - Oleg Isonen ([@oleg008](https://twitter.com/oleg008))
