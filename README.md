@@ -145,6 +145,8 @@ The libraries are not presented in any particular order. If you're interested in
 
 The ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply.
 
+[⬆️ to overview](#overview)
+
 <br />
 
 #### 2. DX
@@ -318,6 +320,8 @@ The total page size difference in kB (transferred gzipped & minified / uncompres
 - keep in mind that this includes an almost __empty page__, with only a couple of components;
 - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential;
 - the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed);
+
+[⬆️ to overview](#overview)
 
 <br/>
 
