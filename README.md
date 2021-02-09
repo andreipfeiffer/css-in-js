@@ -115,13 +115,13 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | 4. [`{ }`](#4--object-styles) | [5. TS](#5-ts) | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | `+13.9 kB / +39.0 kB` |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  `+6.9 kB / +20.0 kB` |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 |  __`+0.3 kB /  -0.1 kB`__ |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
@@ -132,9 +132,9 @@ The libraries are not presented in any particular order. If you're interested in
 
 ### LEGEND:
 
-✅ - full & out-of-the-box support  
-🟠 - partial or limited support, less than ideal, or requiring some additional manual work for full support
-❌ - lack of support  
+- ✅ - full & out-of-the-box support
+- 🟠 - partial or limited support, less than ideal, or requiring some additional manual work for full support
+- ❌ - lack of support
 
 <br />
 
@@ -173,10 +173,15 @@ Support for defining __styles as objects__, using plain JavaScript objects:
 - we don't need additional tooling for syntax highlighting, as we get it out-of-the-box because we have to deal with JS code;
 - without proper TS definitions shipped with the library, we won't get code completion (☝️ we're only interested in TS, not Flow);
 
-5. **TS**: TypeScript support for library API, either built-in, or via `@types` package, which should include
-    - typings for the library API
-    - Style Object typings (in case the library supports the object syntax)
-    - `Props` generics (if needed)
+<br />
+
+#### 5. TS
+
+TypeScript support, either built-in, or via `@types` package, which should include:
+- typings for the library API;
+- Style Object typings (in case the library supports the object syntax);
+- `Props` generics (if needed);
+
 6. **`&` ctx**: support for __contextual styles__, allowing to easily define __pseudo classes/elements__ and __media queries__ without the need to repeat yourself
     - can either support the SASS/LESS/Stylus `&` parent selector
     - or provide some specific API or syntax to achieve this
