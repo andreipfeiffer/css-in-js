@@ -1344,7 +1344,7 @@ To get in touch, my DMs are open [@pfeiffer_andrei](https://twitter.com/pfeiffer
 
 <br />
 
-**Special thanks and appreciations** go to persons that helped putting this document together, and making it more accurate:
+**Special thanks and appreciations** go to everyone that helped putting this document together, and making it more accurate:
 
 - Martin Hochel ([@martin_hotell](https://twitter.com/martin_hotell))
 - Oleg Isonen ([@oleg008](https://twitter.com/oleg008))
