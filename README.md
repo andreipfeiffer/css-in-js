@@ -115,7 +115,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6-&-ctx) | [7. Nesting](#7-nesting) | 8. Theme | [9. `.css`](#9-.css) | [10. `<style>`](#10-style) | [11. Atomic](#11-atomic) | [12. `className`](#12-.classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Learn](#15-learning-curve) | [16. Page delta (gzip + minified / minified)](#16-page-delta) |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | 8. Theme | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Learn](#15-learning-curve) | [16. Page delta (gzip + minified / minified)](#16-page-size-delta) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
@@ -236,7 +236,7 @@ Support for extracting and serving the styles as static `.css` files:
 
 <br />
 
-#### 10. `style` tag
+#### 10. `<style>` tag
 
 Support for serving the styles injected inside `<style>` tags in the document's `<head>`:
 
@@ -302,7 +302,7 @@ Allows passing styles using a special `css` prop, similar how you would define i
 #### 15. Learning curve
 
 A **subjective** opinion regarding the learning curve, considering that I have experience with CSS Modules, React, Hooks, TS.  
-☝️ Note: this is very _superficial_, and meant to be only a _note to myself_. You should really evaluate this on your own.
+Note ☝️ - this is very _superficial_, and meant to be only a _note to myself_. You should really evaluate this on your own.
 
 [⬆️ to overview](#overview)
 
@@ -310,7 +310,7 @@ A **subjective** opinion regarding the learning curve, considering that I have e
 
 #### 16. Page size delta
 
-The total page size difference in kB (transferred gzipped / uncompressed resources) compared to __CSS Modules__, for the entire index page production build using Next.js:
+The total page size difference in kB (transferred gzipped & minified / uncompressed & minified) compared to __CSS Modules__, for the entire index page production build using Next.js:
 
 - keep in mind that this includes an almost __empty page__, with only a couple of components;
 - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential;
