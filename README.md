@@ -48,12 +48,12 @@ The CSS language and CSS Modules approach have some limitations especially if yo
     ```css
     .button {}
 
-    // duplicated selector declaration for pseudo classes/elements
+    /* duplicated selector declaration for pseudo classes/elements */
     .button:hover {}
     .button::after {}
 
     @media (min-width: 640px) {
-      // duplicated selector declaration inside media queries
+      /* duplicated selector declaration inside media queries */
       .button {}
     }
     ```
