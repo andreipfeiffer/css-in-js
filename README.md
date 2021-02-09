@@ -341,8 +341,6 @@ Components used only in a specific route will only be bundled for that route. Th
 
 All solutions offer a way to define global styles, some with a separate API.  
 
-- **JSS** has a convoluted API for this, which requires an additional plugin, which we didn't figure out how to implement
-
 <br />
 
 #### ✅ SSR
@@ -354,8 +352,6 @@ All solutions offer Server-Side Render support, and are easy to integrate with b
 #### ✅ Vendor prefixes
 
 All solutions automatically add vendor specific prefixes out-of-the-box.
-
-- **JSS** requires an additional plugin for this
 
 <br />
 
