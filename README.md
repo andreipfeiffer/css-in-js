@@ -115,7 +115,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | 1. Co&#8209;location | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
+|      | [1. Co&#8209;location](#1-co-location) | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
@@ -130,14 +130,17 @@ The libraries are not presented in any particular order. If you're interested in
 
 <br />
 
-**LEGEND**:
+### LEGEND:
 
 ✅ - full & out-of-the-box support  
 🟠 - partial/limited support (or not ideal)  
 ❌ - lack of support  
 
-1. **Co-location**: ability to define styles within the same file as the component.  
-  You can also extract the styles into a separate file and import them, but the other way around does not apply.
+
+#### 1. Co-location
+
+The ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply.
+
 2. **DX**: Developer eXperience which includes:
     - syntax highlighting
     - code-completion for CSS properties and values
