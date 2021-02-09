@@ -324,16 +324,18 @@ The total page size difference in kB (transferred gzipped & minified / uncompres
 
 ### Overall observations
 
-The following observations apply for all solutions (with minor pointed exceptions) and are explained here.
+The following observations apply for all solutions (with minor pointed exceptions).
 
 <br />
 
-✅ **Code splitting**  
+### ✅ Code splitting
+
 Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
 
 <br />
 
-✅ **Global styles**  
+### ✅ Global styles
+
 All solutions offer a way to define global styles, some with a separate API.  
    - **JSS** has a convoluted API for this, which requires an additional plugin, which we didn't figure out how to implement
 
