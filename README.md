@@ -328,66 +328,79 @@ The following observations apply for all solutions (with minor pointed exception
 
 <br />
 
-### ✅ Code splitting
+#### ✅ Code splitting
 
 Components used only in a specific route will only be bundled for that route. This is something that Next.js performs out-of-the-box.
 
 <br />
 
-### ✅ Global styles
+#### ✅ Global styles
 
 All solutions offer a way to define global styles, some with a separate API.  
-   - **JSS** has a convoluted API for this, which requires an additional plugin, which we didn't figure out how to implement
+
+- **JSS** has a convoluted API for this, which requires an additional plugin, which we didn't figure out how to implement
 
 <br />
 
-✅ **SSR**  
-All solutions are able to be Server-Side Rendered by Next.js.
+#### ✅ SSR
+
+All solutions offer Server-Side Render support, and are easy to integrate with by Next.js.
 
 <br />
 
-✅ **Vendor prefixes**  
-All solutions add vendor specific prefixes out-of-the-box.
-   - **JSS** requires an additional plugin for this
+#### ✅ Vendor prefixes
+
+All solutions automatically add vendor specific prefixes out-of-the-box.
+
+- **JSS** requires an additional plugin for this
 
 <br />
 
-✅ **Unique class names**  
-All solutions generate unique class names, like CSS Modules do.
+#### ✅ Unique class names
+
+All solutions generate unique class names, like CSS Modules do. The algorithms used to generate these names vary a lot between libraries:
+
+- some libraries use a **hashing** algorithm, requiring more computing, but resulting in idempotent names (for example: `.heading` style from `Card` component will always have the `.Card_heading_h7Ys5` hash);
+- other libraries use **counting**, basically incrementing either a number (`.heading-0-2-1`, `.input-0-2-2`), or the alphabet letters (`a, b, c, ... aa, ab, ac`, etc), making this approach more performant, but resulting in non-idempotent class names (can't figure out if this has any potential drawbacks, or not);
 
 <br />
 
-✅ **No inline styles**  
-None of the solutions generate inline styles, which is an older approach, used by pioneers like Radium & Glamor. The approach is less performant than CSS classes, so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
+#### ✅ No inline styles
+
+None of the solutions generate inline styles, which is an older approach, used by Radium & Glamor. The approach is less performant than CSS classes, so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
 
 <br />
 
-✅ **Full CSS support**  
-All solutions support most CSS properties that you would need: **pseudo classes & elements**, **media queries**, **keyframes** are the ones that we tested.
+#### ✅ Full CSS support
+
+All solutions support most CSS properties that you would need: **pseudo classes & elements**, **media queries** and **keyframes** are the ones that we've tested.
 
 <br />
 
-🟠 **Increased [FCP](https://web.dev/fcp/)(First Contentful Paint)**  
+#### 🟠 Increased [FCP](https://web.dev/fcp/)(First Contentful Paint) !!! ⚠️ Warning: this is not actually true and will be updated !!!
+
 For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than using regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML, increasing parsing time. 
 - solutions that perform `.css` file extraction don't have this problem (this includes **CSS Modules** and **Treat**)
 
 <br />
 
-🟠 **Dead code removal**  
-Most solution say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to large `.css` files as we used to write a century ago. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to write **selectors** or **nested styles** will bundle unused styles. Even solutions that don't offer this option, have the same problem.
+#### 🟠 Dead code removal
 
-Basically, what you get is code removal when you delete the component, because the styles are colocated.
+Most solutions say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to plain `.css` files as we used to write _a decade ago_. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to define **arbitrary selectors** or **nested styles** will bundle them, regardless if they are used or not inside the component. We've managed to ship unused styles with all the tested solutions.
+
+Basically, what we get is code removal when you delete the component, or you don't import it anymore.
 
 <br />
 
-🟠 **Debugging / Inspecting**  
+### 🟠 Debugging / Inspecting !!! ⚠️ Warning: this is not 100% accurate and will be updated !!!
+
 Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
    - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
    - **TypeStyle** does NOT use `insertRule()`, not even in production
 
 <br />
 
-❌ **No component deduping**  
+#### ❌ No component deduping
 If the same component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js, and __not related to the CSS-in-JS solution__.
 
 In Next.js, code-splitting works at the route level, bundling all components required for a specific route, but according to their [official blog](https://nextjs.org/blog/next-9-2#improved-code-splitting-strategy) and [web.dev](https://web.dev/granular-chunking-nextjs/) if a component is used in __more than 50%__ of the pages, it should be included in the `commons` bundle. However, in our example, we have 2 pages, each of them importing the `Button` component, and it's included in each page bundle, not in the `commons` bundle. Since the code required for styling is bundled with the component, this limitation will impact the styles as well, so it's worth keeping this in mind.
