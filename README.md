@@ -153,7 +153,7 @@ Refers to the **Developer eXperience** which includes 2 main aspects:
 
 <br />
 
-#### 3. `` tag` ` `` (Tagged Templates) [⬆️](#overview)
+#### 3. `` tag` ` `` (Tagged Templates)
 
 Support for defining __styles as strings__, using ES Tagged Templates:
 
@@ -161,6 +161,8 @@ Support for defining __styles as strings__, using ES Tagged Templates:
 - enables easier migration from plain CSS to CSS-in-JS, because we don't have to completely re-write your styles;
 - requires installing additional code editor plugin(s) for [syntax highlight and code completion](#2-dx), otherwise your code would look like a plain `string`;
 - requires an additional step to parse the string and convert it to JS, which can be done either at built time (slower builds), or at runtime (slightly larger payload);
+
+[⬆️ to overview](#overview)
 
 <br />
 
