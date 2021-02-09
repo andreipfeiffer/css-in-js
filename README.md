@@ -392,7 +392,7 @@ Basically, what we get is code removal when you delete the component, or you don
 
 <br />
 
-### 🟠 Debugging / Inspecting !!! ⚠️ Warning: this is not 100% accurate and will be updated !!!
+#### 🟠 Debugging / Inspecting !!! ⚠️ Warning: this is not 100% accurate and will be updated !!!
 
 Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
    - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
