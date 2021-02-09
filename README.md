@@ -128,7 +128,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
-| [JSS](#jss)                             | ✅ | ❌ | ❌ | ✅ | ❌ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.1 kB / +63.0 kB` |
+| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.1 kB / +63.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | 📉 |  `+2.2 kB /  +7.0 kB` |
 
 <br />
@@ -1098,27 +1098,27 @@ Page                                                           Size     First Lo
 
 Probably the grandaddy around here, JSS is a very mature solution being the first of them, and still being maintained. The API is intuitive and very easy to use, great integration for React using hooks.
 
-Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2016__ | [View Docs](https://cssinjs.org/) | ... [back to Overview](#overview)
+Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2014__ | [View Docs](https://cssinjs.org/) | ... [back to Overview](#overview)
 
 <br />
 
 - ✅ __Styles/Component co-location__
 - ✅ __Built-in Theming support__
 - ❌ __Atomic CSS__
-- ❌ __TypeScript support__
+- ❌ __TypeScript support__ _([definition files](https://github.com/cssinjs/jss/blob/master/packages/react-jss/src/index.d.ts) exist, but for some reason, they [don't work](https://github.com/andreipfeiffer/css-in-js/issues/9#issuecomment-774125968))_
 - ❌ __Context-aware code completion__
 
 - __Styles definition method(s)__
-  - ❌ Tagged Templates
+  - 🟠 Tagged Templates: _(requires separate [plugin](https://cssinjs.org/jss-plugin-template?v=v10.5.1), with limited features)_
   - ✅ Style Objects
 
 - __Styles nesting__
-  - 🟠 Contextual styles: _(works for pseudo classes/elements, not for media queries)_
-  - 🟠 Abitrary nesting: _(requires separate plugin)_
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
 
 - __Styles apply method(s)__
   - ✅ `className`
-  - 🟠 `styled` component (_see details below_)
+  - 🟠 `styled` component _(available with additional [plugin](https://cssinjs.org/styled-jss?v=v2.2.3))_
   - ❌ `css` prop
 
 - __Styles output__
