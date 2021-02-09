@@ -115,7 +115,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | 2. DX | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | 3. `` tag` ` `` | 4. `{ }` | 5. TS | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
@@ -133,26 +133,46 @@ The libraries are not presented in any particular order. If you're interested in
 ### LEGEND:
 
 ✅ - full & out-of-the-box support  
-🟠 - partial/limited support (or not ideal)  
+🟠 - partial or limited support, less than ideal, or requiring some additional manual work for full support
 ❌ - lack of support  
 
+<br />
 
 #### 1. Co-location
 
 The ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply.
 
-2. **DX**: Developer eXperience which includes:
-    - syntax highlighting
-    - code-completion for CSS properties and values
-3. **`` tag` ` ``**: support for defining __styles as strings__
-    - uses ES Tagged Templates and `kebab-case` for property names, just like plain CSS syntax
-    - enables easier migration from plain CSS to CSS-in-JS, because you don't have to re-write your styles
-    - requires additional code editor plugins for syntax highlight and code completion
-    - usually implies slightly larger bundles and slower performance, because the strings must be parsed before
-4. **`{ }`**: support for defining __styles as objects__
-    - uses plain JacaScript Objects and `camelCase` for property names
-    - more suitable for new projects, when you don't need to migrate existing CSS
-    - without TS support, you won't get code completion
+<br />
+
+#### 2. DX
+
+Refers to the **Developer eXperience** which includes 2 main aspects:
+
+- **syntax highlighting** for styles definition;
+- **code-completion/suggestions** for supported CSS properties, and available values (we're evaluating only the suggestion feature, not type-safety);
+
+<br />
+
+#### 3. `` tag` ` `` (Tagged Templates)
+
+Support for defining __styles as strings__, using ES Tagged Templates:
+
+- uses `kebab-case` for property names, just like plain CSS syntax;
+- enables easier migration from plain CSS to CSS-in-JS, because we don't have to completely re-write your styles;
+- requires installing additional code editor plugin(s) for [syntax highlight and code completion](#2-dx), otherwise your code would look like a plain `string`;
+- requires an additional step to parse the string and convert it to JS, which can be done either at built time (slower builds), or at runtime (slightly larger payload);
+
+<br />
+
+#### 4. `{ }` (Object Styles)
+
+Support for defining __styles as objects__, using plain JavaScript objects:
+
+- uses `camelCase` for property names, like we do in [React Native](https://reactnative.dev/docs/next/style);
+- migrating existing CSS requires a complete rewrite (don't know how we would automate this);
+- we don't need additional tooling for syntax highlighting, as we get it out-of-the-box because we have to deal with JS code;
+- without proper TS definitions shipped with the library, we won't get code completion (☝️ we're only interested in TS, not Flow);
+
 5. **TS**: TypeScript support for library API, either built-in, or via `@types` package, which should include
     - typings for the library API
     - Style Object typings (in case the library supports the object syntax)
