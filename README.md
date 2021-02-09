@@ -115,7 +115,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | 6. `&` ctx | 7. Nesting | 8. Theme | 9. `.css` | 10. `<style>` | 11. Atomic | 12. `className` | 13. `styled` | 14. `css` prop | 15. Learn | 16. Page delta (gzip & minified/minified) |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6-&-ctx) | [7. Nesting](#7-nesting) | 8. Theme | [9. `.css`](#9-.css) | [10. `<style>`](#10-style) | [11. Atomic](#11-atomic) | [12. `className`](#12-.classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Learn](#15-learning-curve) | [16. Page delta (gzip + minified / minified)](#16-page-delta) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
@@ -151,6 +151,8 @@ Refers to the **Developer eXperience** which includes 2 main aspects:
 - **syntax highlighting** for styles definition;
 - **code-completion/suggestions** for supported CSS properties, and available values (we're evaluating only the suggestion feature, not type-safety);
 
+[⬆️ to overview](#overview)
+
 <br />
 
 #### 3. `` tag` ` `` (Tagged Templates)
@@ -175,53 +177,144 @@ Support for defining __styles as objects__, using plain JavaScript objects:
 - we don't need additional tooling for syntax highlighting, as we get it out-of-the-box because we have to deal with JS code;
 - without proper TS definitions shipped with the library, we won't get code completion (☝️ we're only interested in TS, not Flow);
 
+[⬆️ to overview](#overview)
+
 <br />
 
 #### 5. TS
 
 TypeScript support, either built-in, or via `@types` package, which should include:
+
 - typings for the library API;
 - Style Object typings (in case the library supports the object syntax);
 - `Props` generics (if needed);
 
-6. **`&` ctx**: support for __contextual styles__, allowing to easily define __pseudo classes/elements__ and __media queries__ without the need to repeat yourself
-    - can either support the SASS/LESS/Stylus `&` parent selector
-    - or provide some specific API or syntax to achieve this
-7. **Nesting**: support for __arbitrary nested rules/selectors__
-    - this feature allows for great flexibility, which is required in some specific use-cases
-    - but it also introduces too many ways of defining styles, which might cause chaos in very restrictive use-cases, or when you want to enforce good-practices, consistency, scalability and maintainability
-8. **Theme**: built-in support for Theming or managing design tokens/system
-9. **`.css`**: support for extracting and serving the styles as native `.css` files
-    - this increases FCP metric because the document is parsed faster, and .css files can be fetched in parallel with other resources
-    - it also reduces bundle size, because you don't need runtime styles evaluation, to inject the styles
-    - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time
-    - more suitable for less dynamic solutions (ie: e-commerce)
-10. **`style` tag**: support for serving the styles as injected `<style>` tags in the document's `<head>`
-    - makes dynamic styling super easy
-    - incurs longer load
-    - more suited for highly dynamic and interactive applications
-11. **Atomic**: ability to generate atomic css classes and increasing reusability, reducing style duplication
-    - this generates a separate CSS class for each CSS property
-    - it's a bit more difficult to debug/inspect when dealing with many class names applied
-    - you'll get larger HTML files, because each element will contain a large number of CSS classes applied
-    - theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well
-    - it's debatable if the styles size reduction, is greater than the html size increase (what is the final delta)
-12. **`className`**: the API returns a string which you have to add to your component/element
-    - similar how you would normally style React components, so it's easy to adopt because you don't have to learn a new approach
-    - you'll probably have to use string concatenation, or interpolation, to combine styles
-13. **`styled`**: the API creates a wrapper (styled) component which includes the `className`(s)
-    - you'll have to learn a new way to define styles
-    - it also introduces a bit of indiretion when figuring out what native element gets rendered
-    - first introduced and popularized by Styled Components
-14. **`css` prop**: allows passing styles using a special css prop, similar to inline styles
-    - this is usually an additional feature for styled components, but it can also work separately
-    - it's a nice and flexible ergonomic API
-    - first introduced and popularized by Emotion v10
-15. **Learn**: a subjective opinion regarding the learning curve (NOTE: you should really evaluate this on your own !!!)
-16. **Page delta**: the total page size difference in kB (transferred gzipped / uncompressed resources) compared to __CSS Modules__, for the entire index page production build
-    - keep in mind that this includes an almost __empty page__, with only a couple of components
-    - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential
-    - the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed)
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 6. `&` ctx (Contextual Styles)
+
+Support for __contextual styles__ allowing us to easily define __pseudo classes & elements__ and __media queries__ without the need to repeat the selector, as required in plain CSS:
+
+- can either support the SASS/LESS/Stylus `&` parent selector;
+- or provide any specific API or syntax to achieve this;
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 7. Nesting
+
+Support for __arbitrary nested selectors__:
+
+- this feature allows for great flexibility, which might be useful, or required in some specific use-cases;
+- to keep in mind that it also introduces too many ways of defining styles, which might cause chaos if we want to enforce good-practices, consistency, scalability and maintainability;
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 8. Theme
+
+Built-in support for Theming or managing design tokens/system. Note that **we haven't tested this feature**.
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 9. `.css` (Static CSS extraction)
+
+Support for extracting and serving the styles as static `.css` files:
+ 
+- it reduces the total bundle/page size, because we don't need additional runtime styles evaluation, to inject the styles;
+- this approach affects **FCP/FMP** metrics negatively when users have an empty cache, and positively when having full cached styles;
+- dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
+- more suitable for less interactive solutions, where you serve a lot of different pages and you want to take advantage of cached styles (ie: e-commerce, blogs);
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 10. `style` tag
+
+Support for serving the styles injected inside `<style>` tags in the document's `<head>`:
+
+- makes dynamic styling super easy;
+- incurs larger payload, because we're also shipping a runtime library to handle dynamic styles;
+- when using SSR, styles required for the initial render are shipped twice to the client: once during SSR, and again during hydration;
+- more suited for highly dynamic and interactive (single page) applications;
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 11. Atomic CSS
+
+The ability to generate **atomic css classes**, thus increasing style reusability, and reducing duplication:
+
+- this generates a separate CSS class for each CSS property;
+- you'll get larger HTML files, because each element will contain a large number of CSS classes applied;
+- theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well;
+- it's debatable if the CSS total size reduction, is greater than the HTML size increase (what is the final delta)
+- theoretically, if the class names are shorter than the CSS property definition, the delta is positive so we're shipping less bytes;
+- however, we're basically moving part of bytes from CSS to HTML, which might be harder to cache if we have dynamic SSRed pages;
+- also, depends a lot on what changes more frequently: the styles? or the markup?
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 12. `className`
+
+The library API returns a `string` which we have to add to our component or element;
+
+- this is similar how we would normally style React components, so it's easy to adopt because we don't have to learn a new way of dealing with styles;
+- to combine styles we'll probably have to use string concatenation;
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 13. `styled`
+
+The API creates a wrapper (styled) component which includes the generated `className`(s):
+
+- we'll have to learn a new way to define styles, because we're not applying styles to elements, instead we're creating new components that include the styles elements;
+- this also introduces a bit of indiretion when figuring out what native element gets rendered inside a larger component;
+- this technique was first introduced and popularized by [Styled Components](#styled-components);
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 14. `css` prop
+
+Allows passing styles using a special `css` prop, similar how you would define inline styles, but the library generates a unique CSS class name behind the scenes:
+
+- it's a convenient and ergonomic API;
+- this technique was first introduced and popularized by [Emotion](#emotion) v10;
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 15. Learning curve
+
+A **subjective** opinion regarding the learning curve, considering that I have experience with CSS Modules, React, Hooks, TS.  
+☝️ Note: this is very _superficial_, and meant to be only a _note to myself_. You should really evaluate this on your own.
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 16. Page size delta
+
+The total page size difference in kB (transferred gzipped / uncompressed resources) compared to __CSS Modules__, for the entire index page production build using Next.js:
+
+- keep in mind that this includes an almost __empty page__, with only a couple of components;
+- this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential;
+- the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed);
 
 <br/>
 
