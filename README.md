@@ -408,6 +408,8 @@ It's true that you can fetch in **parallel** other `<head>` resources (additiona
 📬 **Full cache**  
 However, on subsequent visits, the entire `.css` resource would be cached, so **FCP** and **LCP** would be positively impacted.
 
+<br />
+
 💡 **Key points**  
 This solution appears to be better suited in some use-cases:
 - we have many Server Side Rendered pages that our users visit, maybe even containing a common `.css` file that can be cached when visiting other pages;
@@ -435,6 +437,8 @@ When the user's cache is full, the additional `.js` files won't require fetching
 However, if the page is **SSRed**, the inlined critical CSS rendered in the `<style>` tag of the document will be downloaded again, unless we deal with static HTML that can be cached as well, or we deal with HTML caching on our infrastructure.
 
 But, by default, we will ship extra bytes on every page HTTP request, regardless if it's cached or not.
+
+<br />
 
 💡 **Key points**  
 This solution appears to be better suited in some use-cases:
