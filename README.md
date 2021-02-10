@@ -1106,10 +1106,10 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 - ✅ __Built-in Theming support__
 - ❌ __Atomic CSS__
 - 🟠 __TypeScript support__ _([definition files](https://github.com/cssinjs/jss/blob/master/packages/react-jss/src/index.d.ts) exist, but for some reason, they [don't work](https://github.com/andreipfeiffer/css-in-js/issues/9#issuecomment-774125968))_
-- 🟠 __Context-aware code completion__ _(didn't work for us, due to lack of TS support)_
+- 🟠 __Context-aware code completion__ _(Object Styles didn't work for us, due to lack of TS support)_
 
 - __Styles definition method(s)__
-  - 🟠 Tagged Templates: _(requires separate [plugin](https://cssinjs.org/jss-plugin-template?v=v10.5.1), with limited features)_
+  - 🟠 Tagged Templates: _(available with additional [plugin](https://cssinjs.org/jss-plugin-template?v=v10.5.1), with limited features)_
   - ✅ Style Objects
 
 - __Styles nesting__
@@ -1139,8 +1139,13 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 🤔 `react-jss` uses className by default. There's also `styled-jss` that uses __Styled Components__ approach, but it has no types, and couldn't make it work on top of `react-jss`.
-- 😖 global styles are cumbersome to setup, requires plugin, tried to mix the JSS setup docs, with the `react-jss` SSR setup docs, with the `plugin-globals` docs on usage, without any luck
+- 😳 keep in mind that [`react-jss` package](https://github.com/cssinjs/jss/blob/master/packages/react-jss/package.json#L47), which is used with React/Next.js, depends on [jss-preset-default](https://cssinjs.org/jss-preset-default), which includes many [plugins](https://github.com/cssinjs/jss/blob/master/packages/jss-preset-default/package.json#L35-L47) by default, so you don't need to manually add some of the plugins;
+- 🤔 `react-jss` uses className by default. There's also `styled-jss` that uses __Styled Components__ approach, but it has no types, and couldn't make it work on top of `react-jss`;
+- 😤 global styles were frustrating to setup, we've finally managed to used them thanks to [StackOverFlow](https://stackoverflow.com/questions/54201412/how-can-i-add-style-to-the-body-element-with-jss), because the docs have no mention of `injectSheet` API (or we couldn't find it anywhere);
+- 😖 the docs are generally difficult to follow, and finding the information you need is a cumbersome process:
+   - there is no search;
+   - there are a lot of plugins, so you don't know where to look for a particular feature;
+   - some plugins influence other plugins, or other docs pages, and they sometimes don't contain all the combinations of features, so the docs are not comprehensive (ie: we had to figure out on our own how to use **contextual styles** with **media queries**).
 
 <br />
 
