@@ -411,7 +411,7 @@ However, on subsequent visits, the entire `.css` resource would be cached, so **
 <br />
 
 💡 **Key points**  
-This solution appears to be better suited in some use-cases:
+This solution appears to be better suited when:
 - we have many Server Side Rendered pages that our users visit, maybe even containing a common `.css` file that can be cached when visiting other pages;
 - we don't update the styles frequently, so they can be cached for longer periods of time;
 - we want to optimize for returning visitors, affecting first-time visits instead;
@@ -441,9 +441,9 @@ But, by default, we will ship extra bytes on every page HTTP request, regardless
 <br />
 
 💡 **Key points**  
-This solution appears to be better suited in some use-cases:
+This solution appears to be better suited when:
 - we deal with SPA (Single Page Applications), where we have one (or few) SSR pages;
-- we update the styles frequently (ie: daily), so even if we could cache them, it won't have a positive impact;
+- we update the styles frequently, so even if they could be cached, it won't have a positive impact;
 - we want to optimize for first-time visitors, affecting returning visitors instead;
 
 <br />
