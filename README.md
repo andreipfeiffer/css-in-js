@@ -1313,7 +1313,7 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
 #### Other benefits
 
 - 🤏 really tiny
-- 😎 it supports a very wide range of defining styles, so it's pretty versatile and full featured in this regard (however, I fear that having all these options at your disposal, a large team would mix various ways if defining styles)
+- 😎 it supports a very wide range of defining styles, so it's pretty versatile and full featured in this regard (however, I fear that having all these options, a large team could mix various ways of defining styles, so it's more difficult to _enforce consistency_)
 
 <br />
 
