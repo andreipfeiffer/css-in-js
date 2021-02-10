@@ -397,9 +397,27 @@ Basically, what we get is code removal when you delete the component, or you don
 
 #### 🟠 Debugging / Inspecting !!! ⚠️ Warning: this is not 100% accurate and will be updated !!!
 
-Most solutions inject the `<style>` tag in the DOM in `DEVELOPMENT`, which is a slower approach, but enables style inspecting using browser dev tools. But when building for `PRODUCTION`, they use [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the CSSOM, which is a way faster approach, but you cannot inspect the styles.
-   - **JSS** and **Stitches** use `insertRule()` in dev mode as well, so you cannot see what gets injected
-   - **TypeStyle** does NOT use `insertRule()`, not even in production
+There are 2 methods to inject & update styles into the DOM from JavaScript:
+
+##### Method 1: Using `<style>` tag(s)
+
+This approach implies adding one or more `<style>` tag(s) in the DOM (either in the `<head>` or somewhere in the `<body>`), using [.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) to add the `<style>` Node(s), in addition with either [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), [.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) to update the `<style>` tag(s).
+
+- using this approach, we can easily _see_ what styles get added to the DOM, because we can inspect the DOM from our DevTools, like any other DOM Node;
+- using only one `<style>` tag and updating its whole content, could be slow to update the entire DOM, when we actually changed only a tiny set of CSS rule(s);
+- most libraries use this solution in `DEVELOPMENT` mode, because it provides a better debugging experience;
+   - **TypeStyle** uses this in `PRODUCTION` also;
+
+##### Method 2: Using `CSSStyleSheet` API
+
+Another approach, first used by **JSS**, is to inject the styles directly into the **CSSOM** using [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule).
+
+- using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements, it will point to an empty `<style>` tag;
+   - to see all the injected styles, you'll have to select the `<style>` tag;
+   - get access to it via `$0` in Chrome DevTools (or get a reference to it in any other way, using the DOM API);
+   - access `.sheet.cssRules` on the `<style>` tag to see the Array of CSS rules that it contains;
+- this method is apparently more performant than the previous one, so most libraries use this method in `PRODUCTION`;
+   - **JSS** and **Stitches** use it in `DEVELOPMENT` mode as well;
 
 <br />
 
