@@ -401,18 +401,20 @@ There are 2 methods to inject & update styles into the DOM from JavaScript:
 
 <br />
 
-**1. Using `<style>` tag(s)**: this approach implies adding one or more `<style>` tag(s) in the DOM (either in the `<head>` or somewhere in the `<body>`), using [.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) to add the `<style>` Node(s), in addition with either [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), [.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) to update the `<style>` tag(s).
+**1. Using `<style>` tag(s)**  
+This approach implies adding one or more `<style>` tag(s) in the DOM (either in the `<head>` or somewhere in the `<body>`), using [.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) to add the `<style>` Node(s), in addition with either [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), [.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) to update the `<style>` tag(s).
 
 - using this approach, we can easily _see_ what styles get added to the DOM, because we can inspect the DOM from our DevTools, like any other DOM Node;
-- using only one `<style>` tag and updating its whole content, could be slow to update the entire DOM, when we actually changed only a tiny set of CSS rule(s);
+- using only one `<style>` tag and updating its whole content, could be slow to update the entire DOM when we actually changed only a tiny set of CSS rule(s);
 - most libraries use this solution in `DEVELOPMENT` mode, because it provides a better debugging experience;
    - **TypeStyle** uses this in `PRODUCTION` also;
 
 <br />
 
-**2. Using `CSSStyleSheet` API**: first used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the **CSSOM**.
+**2. Using `CSSStyleSheet` API**  
+First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the **CSSOM**.
 
-- using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements, it will point to an empty `<style>` tag;
+- using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements it will point to an empty `<style>` tag;
    - to see all the injected styles, you'll have to select the `<style>` tag;
    - get access to it via `$0` in Chrome DevTools (or get a reference to it in any other way, using the DOM API);
    - access `.sheet.cssRules` on the `<style>` tag to see the Array of CSS rules that it contains;
