@@ -393,19 +393,26 @@ Also, there are 2 different scenarios we need to consider:
 
 #### 1. `.css` file extraction  
 
-Solutions that generate `.css` static files, which normally you would include as `<link>` tag(s) in the `<head>` of your page, will basically be a [rendering-blocking resource](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css), highly affects **FCP**, **LCP**, and any metric regarding rendering time.
+Solutions that generate `.css` static files, which you normally would include as `<link>` tag(s) in the `<head>` of your page, are basically [rendering-blocking resources](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css). This highly affects **FCP**, **LCP** and any other metric that follows.
 
 📭 **Empty cache**  
 If the user has an empty cache, the following needs to happen, **negatively** impacting **FCP** and **LCP**:
 
-- the browser needs to make an additional request, which incurs: a full **RTT** (Round Trip Time) to our server;
-- transfer all CSS content;
-- parsing it and building the CSSOM;
-- all these will delay any rendering of the `<body>` (even if the entire HTML is already loaded, and it may even be eagerly parsed and some resources already fetched in advance, like images);
-- it's true that you can fetch in parallel other `<head>` resources (additional `.css` or `.js` files), but normally this a bad practice, anyway;
+- the browser needs to make an additional request, which implies a full **RTT** (Round Trip Time) to our server;
+- transfer all CSS file content;
+- parse it and build the CSSOM;
+- these will delay any rendering of the `<body>`, even if the entire HTML is already loaded, and it may even be eagerly parsed, and some resources already fetched in advance;
+
+It's true that you can fetch in **parallel** other `<head>` resources (additional `.css` or `.js` files), but this is generally a bad practice;
 
 📬 **Full cache**  
 However, on subsequent visits, the entire `.css` resource would be cached, so **FCP** and **LCP** would be positively impacted.
+
+💡 **Key points**  
+This solution appears to be better suited in some use-cases:
+- we have many Server Side Rendered pages that our users visit, maybe even containing a common `.css` file that can be cached when visiting other pages;
+- we don't update the styles frequently, so they can be cached for longer periods of time;
+- we want to optimize for returning visitors, affecting first-time visits instead;
 
 <br />
 
@@ -429,9 +436,17 @@ However, if the page is **SSRed**, the inlined critical CSS rendered in the `<st
 
 But, by default, we will ship extra bytes on every page HTTP request, regardless if it's cached or not.
 
+💡 **Key points**  
+This solution appears to be better suited in some use-cases:
+- we deal with SPA (Single Page Applications), where we have one (or few) SSR pages;
+- we update the styles frequently (ie: daily), so even if we could cache them, it won't have a positive impact;
+- we want to optimize for first-time visitors, affecting returning visitors instead;
+
 <br />
 
 #### 🟠 Critical CSS extraction
+
+⚠️ Work in progress...
 
 <br />
 
