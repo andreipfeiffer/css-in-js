@@ -232,7 +232,7 @@ Built-in support for Theming or managing design tokens/system. Note that **we ha
 
 Support for extracting and serving the styles as static `.css` files:
  
-- it reduces the total bundle/page size, because we don't need additional runtime styles evaluation, to inject the styles;
+- it reduces the total bundle/page size, because we don't need additional runtime library, to inject and evaluate the styles;
 - this approach affects **FCP/FMP** metrics negatively when users have an empty cache, and positively when having full cached styles;
 - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
 - more suitable for less interactive solutions, where you serve a lot of different pages and you want to take advantage of cached styles (ie: e-commerce, blogs);
@@ -380,10 +380,58 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 <br />
 
-#### 🟠 Increased [FCP](https://web.dev/fcp/)(First Contentful Paint) !!! ⚠️ Warning: this is not actually true and will be updated !!!
+#### 🟠 Performance Metrics
 
-For solutions that don't support `.css` file extraction, **SSRed** styles are added as `<style>` tags in the `<head>`, which will result in higher FCP than using regular CSS, because `.css` files can and will be loaded in paralel to other resources, while big `<style>` content will be sent and parsed along with the HTML, increasing parsing time. 
-- solutions that perform `.css` file extraction don't have this problem (this includes **CSS Modules** and **Treat**)
+Understanding how these features affect [Core Web Vitals](https://web.dev/vitals/#core-web-vitals) and [Performance Metrics](https://web.dev/lighthouse-performance/#metrics) in general is an extremely important factor to consider, and the way styles are delivered to the client has probably the biggest impact, so let's analyse this in detail.
+
+Also, there are 2 different scenarios we need to consider:
+
+- 📭 **Empty cache**: the user visits our page for the first time, or a returning user visits our page after the cache was invalidated (a new version was released);
+- 📬 **Full cache**: a returning user visits our page, and has all static resources cached (`.js`, `.css`, media, etc);
+
+<br />
+
+#### 1. `.css` file extraction  
+
+Solutions that generate `.css` static files, which normally you would include as `<link>` tag(s) in the `<head>` of your page, will basically be a [rendering-blocking resource](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css), highly affects **FCP**, **LCP**, and any metric regarding rendering time.
+
+📭 **Empty cache**  
+If the user has an empty cache, the following needs to happen, **negatively** impacting **FCP** and **LCP**:
+
+- the browser needs to make an additional request, which incurs: a full **RTT** (Round Trip Time) to our server;
+- transfer all CSS content;
+- parsing it and building the CSSOM;
+- all these will delay any rendering of the `<body>` (even if the entire HTML is already loaded, and it may even be eagerly parsed and some resources already fetched in advance, like images);
+- it's true that you can fetch in parallel other `<head>` resources (additional `.css` or `.js` files), but normally this a bad practice, anyway;
+
+📬 **Full cache**  
+However, on subsequent visits, the entire `.css` resource would be cached, so **FCP** and **LCP** would be positively impacted.
+
+<br />
+
+#### 2. `<style>` tag injected styles
+
+During **SSR**, styles will be added as `<style>` tag(s) in the `<head>` of the page. Keep in mind that these usually do NOT include all styles needed for the page, because most libraries perform [Critical CSS extraction](#-critical-css-extraction), so these `styles` should be usually smaller than the entire `.css` static file discussed previously.
+
+📭 **Empty cache**  
+Because we're shipping less CSS bytes, and they are inlined inside the `.html` file, this would result in faster **FCP** and **LCP**:
+
+- we don't need additional requests for `.css` files, so the browser is not blocked;
+- if we move all other `.js` files requests to the end of the document, `<head>` won't do any requests, so rendering will occur super fast;
+- however, eventually we would ship additional bytes, that were not needed with static `.css` extraction:
+   - the runtime library (between 1.6kB - 20kB);
+   - the styles required for the page, bundled in `.js` files along with the components, during [hydration](https://nextjs.org/docs/basic-features/pages#pre-rendering) (this includes all the critical CSS already shipped inside the `<style>` tag + others);
+- all these files are required to be fetched, parsed and executed to get a **fully interactive** page;
+
+📬 **Full cache**  
+When the user's cache is full, the additional `.js` files won't require fetching, as they are already cached.  
+However, if the page is **SSRed**, the inlined critical CSS rendered in the `<style>` tag of the document will be downloaded again, unless we deal with static HTML that can be cached as well, or we deal with HTML caching on our infrastructure.
+
+But, by default, we will ship extra bytes on every page HTTP request, regardless if it's cached or not.
+
+<br />
+
+#### 🟠 Critical CSS extraction
 
 <br />
 
@@ -401,7 +449,8 @@ There are 2 methods to inject & update styles into the DOM from JavaScript:
 
 <br />
 
-**1. Using `<style>` tag(s)**  
+##### 1. Using `<style>` tag(s)
+
 This approach implies adding one or more `<style>` tag(s) in the DOM (either in the `<head>` or somewhere in the `<body>`), using [.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) to add the `<style>` Node(s), in addition with either [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), [.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) to update the `<style>` tag(s).
 
 - using this approach, we can easily _see_ what styles get added to the DOM, because we can inspect the DOM from our DevTools, like any other DOM Node;
@@ -411,7 +460,8 @@ This approach implies adding one or more `<style>` tag(s) in the DOM (either in 
 
 <br />
 
-**2. Using `CSSStyleSheet` API**  
+##### 2. Using `CSSStyleSheet` API
+
 First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the **CSSOM**.
 
 - using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements it will point to an empty `<style>` tag;
