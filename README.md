@@ -128,7 +128,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
-| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.1 kB / +63.0 kB` |
+| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | 📉 |  `+2.2 kB /  +7.0 kB` |
 
 <br />
@@ -1159,25 +1159,25 @@ Also, being the first CSS-in-JS solution built, it lacks many of the modern feat
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |               19.1 kB |      58.5 kB |
-| Index page size |               91.6 kB |       264 kB |
-| vs. CSS Modules |          __+20.1 kB__ |   __+63 kB__ |
+| Runtime library |               19.3 kB |      58.7 kB |
+| Index page size |               91.7 kB |       266 kB |
+| vs. CSS Modules |          __+20.2 kB__ |   __+65 kB__ |
 
 <br />
 
 ```
-Page                              Size     First Load JS
-┌ ○ /                             1.98 kB        84.9 kB
-├   /_app                         0 B            64.3 kB
-├ ○ /404                          3.03 kB        67.3 kB
-└ ○ /other                        501 B          83.5 kB
-+ First Load JS shared by all     64.3 kB
-  ├ chunks/commons.7af247.js      13.1 kB
-  ├ chunks/framework.37f4a7.js    42.1 kB
-  ├ chunks/main.99ad68.js         6.62 kB
-  ├ chunks/pages/_app.ea9fff.js   1.78 kB
-  ├ chunks/webpack.50bee0.js      751 B
-  └ css/d9aac052842a915b5cc7.css  325 B
+Page                                                           Size     First Load JS
+┌ ○ /                                                          2.42 kB        85.9 kB
+├   /_app                                                      0 B            83.4 kB
+├ ○ /404                                                       3.03 kB        86.5 kB
+└ ○ /other                                                     969 B          84.4 kB
++ First Load JS shared by all                                  83.4 kB
+  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.c41897.js  18.9 kB
+  ├ chunks/commons.f6669c.js                                   13.1 kB
+  ├ chunks/framework.37f4a7.js                                 42.1 kB
+  ├ chunks/main.c73430.js                                      6.62 kB
+  ├ chunks/pages/_app.fb643d.js                                2 kB
+  └ chunks/webpack.245f04.js                                   751 B
 ```
 
 <br/>
