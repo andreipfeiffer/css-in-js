@@ -1378,12 +1378,15 @@ However, it has quite a few limitations (at least as of Feb 2021) that makes it 
 - dynamic styles are cumbersome to use:
    - it supports styles toggling, similar to `classNames` lib, but not dynamically/computed/expression based;
    - not sure if this is a limitation regarding static extraction (although Treat is doing it), or a TS poor typing limitation, or regarding atomic CSS class name generation;
+   - there is an experimental addon [style9-components](https://github.com/johanholmerin/style9-components.macro) that tries to solve this;
 - no support user styles, so we have to use inline styles;
 - no global styles support (not a deal breaker for us);
-- no theming support, as it doesn't handle dynamic styles very well (not a deal breaker for us);
+- no theming support, as it doesn't handle dynamic styles very well (not a deal breaker for us):
+   - there is some exploration in this regard, with [style9-theme](https://github.com/johanholmerin/style9-theme.macro);
 - documentation is not comprehensive, it contains a lot of code comments, without code examples, making it even more difficult to follow & understand
 
 Some pluses:
+- it's the first lib we've tested that actually doesn't bundle unused styles;
 - it doesn't allow arbitrary seletors / nesting, which is a good thing, because it enforces good practices and consistency;
 - it is framework anostic;
 
