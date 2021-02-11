@@ -1362,6 +1362,35 @@ We know there are a lot of other libraries out there, besides the ones covered a
 
 <br />
 
+### style9
+
+[Style9](https://github.com/johanholmerin/style9) is a new library, inspired by Facebook's own CSS-in-JS solution called stylex. Style9 is unique because it's the only open source library that supports both `.css` static extraction + atomic CSS. It has TS support and easy to integrate with Next.js.
+
+However, it has quite a few limitations (at least as of Feb 2021) that makes it practically unusable in a real production application that we would want to scale, both in code & team size:
+
+- CSS properties are a bit weirdly typed and you also have to learn a few proprietary and opinionated rules:
+   - `fontSize`, or `borderRadius` must be `string`, so you cannot use `fontSize: "2em";`, for instance;
+   - `padding`/`margin` supports `string`, but expands it automatically, so you cannot use `margin: "0 auto";`, for instance;
+- TS types are custom, and a bit limited:
+   - `boxShadow` is not supported, for instance;
+- no Media Queries support (at least with TypeScript), which is a **total deal breaker** for us;
+- cannot use design tokens defined as `Enum` or `POJO`, only constants are supported, which is a **smaller deal breaker** for us;
+- dynamic styles are cumbersome to use:
+   - it supports styles toggling, similar to `classNames` lib, but not dynamically/computed/expression based;
+   - not sure if this is a limitation regarding static extraction (although Treat is doing it), or a TS poor typing limitation, or regarding atomic CSS class name generation;
+- no support user styles, so we have to use inline styles;
+- no global styles support (not a deal breaker for us);
+- no theming support, as it doesn't handle dynamic styles very well (not a deal breaker for us);
+- documentation is not comprehensive, it contains a lot of code comments, without code examples, making it even more difficult to follow & understand
+
+Some pluses:
+- it doesn't allow arbitrary seletors / nesting, which is a good thing, because it enforces good practices and consistency;
+- it is framework anostic;
+
+As a conclusion, it wants to be a powerful solution with very interesting features, but it's not mature yet. As far as we see, it mostly designed towards more static solutions. Dynamic styling seems to be difficult to handle, and it's probably not the selling point.
+
+<br />
+
 ### Aphrodite
 
 It's not a popular solution, the approach is similar to **React Native StyleSheets**  way of styling components. Has built-in TypeScript support and a simple API.
