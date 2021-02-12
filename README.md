@@ -99,8 +99,8 @@ This analysis is intended to be **objective** and **unopinionated**:
 <br />
 
 👎 **What you WON'T FIND here?**  
-- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or performance metrics
-- what solution should you pick for your next project, because I have no idea what your project is and what your goals are
+- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or any rendering performance metrics (you can checkout [necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
+- what solution should you pick for your next project, because I have no idea what your project is and what your goals are;
 
 <br />
 
@@ -370,7 +370,7 @@ All solutions generate unique class names, like CSS Modules do. The algorithms u
 
 #### ✅ No inline styles
 
-None of the solutions generate inline styles, which is an older approach, used by Radium & Glamor. The approach is less performant than CSS classes, so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
+None of the solutions generate inline styles, which is an older approach, used by Radium & Glamor. The approach is [less performant than CSS classes](https://esbench.com/bench/5908f78199634800a0347e94), so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
 
 <br />
 
