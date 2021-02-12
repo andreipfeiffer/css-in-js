@@ -3836,10 +3836,10 @@ style-loader@1.2.1:
     loader-utils "^2.0.0"
     schema-utils "^2.6.6"
 
-style9@^0.5.9:
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/style9/-/style9-0.5.9.tgz#dd0185212f4952ed6e2d9c72744bc9bda96cfb42"
-  integrity sha512-8zbM1Jj5n9bhLIT/mYcXb/xzY2BskXqOnJ3yziKtfdYGo9AGDPzndNnGW5a2dbOTePMNaYTPKgvXytLg5inwzw==
+style9@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/style9/-/style9-0.6.1.tgz#262c286e0b4ce14585610ce77214637a2e34aa31"
+  integrity sha512-zq6sI1UNIQZ6TDhQ+QmNOQq50W9mqbDH44HJmbbwmBKrCgeV2CSHbeNPEpYB+yGv5C82HtQomj29cxZY7CGvJQ==
   dependencies:
     "@babel/core" "^7.10.4"
     "@babel/types" "^7.8.3"
