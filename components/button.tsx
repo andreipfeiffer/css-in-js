@@ -24,22 +24,23 @@ type Props = {
 export function Button(props: Props) {
   const { children, color = "grey", onClick } = props;
 
+  // @todo dynamic styles require some boilerplate/hacks
+  // don't have a way to define variants for a single style (like "button")
+  // since the "styles" contain a list of elements
+  const button_styles = style9(
+    styles.button,
+    styles[`button_${color}` as const]
+  );
+
   return (
-    <button
-      onClick={onClick}
-      className={styles("button", {
-        // @todo cannot use dynamic styling here, so we have to repeat ourselves
-        button_green: color === "green",
-        button_blue: color === "blue",
-        button_grey: color === "grey",
-        button_red: color === "red",
-        button_yellow: color === "yellow",
-      })}
-    >
+    <button onClick={onClick} className={button_styles}>
       <span className={styles("text")}>{children}</span>
     </button>
   );
 }
+
+// @todo this is currently a hack, as MQ are not fully supported yet
+const media: any = "@media (min-width: 640px)";
 
 const styles = style9.create({
   button: {
@@ -48,9 +49,7 @@ const styles = style9.create({
     padding: "2em",
     paddingTop: 0,
     paddingBottom: 0,
-    // @todo cannot use string
-    // borderRadius: "1.5em",
-    borderRadius: 24,
+    borderRadius: "1.5em",
     cursor: "pointer",
     fontWeight: "bold",
     width: "100vw",
@@ -65,12 +64,10 @@ const styles = style9.create({
       animationName: style9.keyframes({
         from: {
           transform: "translateY(0)",
-          // @todo boxShadow not supported
           boxShadow: "none",
         },
         to: {
           transform: "translateY(-0.5em)",
-          // @todo boxShadow not supported
           boxShadow: "0 0.5em 0 0 #ddd",
         },
       }),
@@ -78,10 +75,9 @@ const styles = style9.create({
       animationDuration: "0.5s",
     },
 
-    // @todo media queries thow a runtime exception
-    // ["@media (min-width: 640px)" as any]: {
-    //   width: "100%",
-    // },
+    [media]: {
+      width: "100%",
+    },
   },
 
   button_blue: {

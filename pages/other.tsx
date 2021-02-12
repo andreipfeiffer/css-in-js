@@ -26,8 +26,6 @@ export default function Home() {
 const styles = style9.create({
   heading: {
     maxWidth: "75vw",
-    // @todo not sure why we cannot specify a string here
-    // fontSize: "1.5em",
-    fontSize: 24,
+    fontSize: "1.5em",
   },
 });

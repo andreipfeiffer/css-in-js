@@ -7,11 +7,5 @@ module.exports = withPlugins([
   [withStyle9()(withTM())],
   [
     // your other plugins here, or next config
-    {
-      typescript: {
-        // @todo needed to be able to build, having TS errors on boxShadow
-        ignoreBuildErrors: true,
-      },
-    },
   ],
 ]);
