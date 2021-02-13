@@ -869,7 +869,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Other benefits
 
-- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices like __specificity wars__
+- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices like __specificity wars__ (this is impossible to be statically type-checked without pattern matching, so it will throw a runtime exception)
 
 <br />
 
@@ -882,7 +882,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Conclusions
 
-When using Treat, we felt a lot like using CSS Modules: we need an external file for styles, we place the styles on the elements using `className`, we handle dynamic styles with __inline styles__, etc. However, we don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, so we don't do any __copy-paste__. Error messages are very helpful in guiding us when we do something we're not supposed to do. It's also the only analyzed solution the __extracts styles as `.css` files__ at built time, which should greatly improve the page load metrics.
+When using Treat, we felt a lot like using CSS Modules: we need an external file for styles, we place the styles on the elements using `className`, we handle dynamic styles with __inline styles__, etc. However, we don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, so we don't do any __copy-paste__. Error messages are very helpful in guiding us when we do something we're not supposed to do. It's also the only analyzed solution that __extracts styles as `.css` files__ at built time, which provides better caching (learn more about the [performance implications](#1-css-file-extraction)).
 
 The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, we'll have to use inline styles.
 
