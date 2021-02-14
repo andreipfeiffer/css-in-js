@@ -37,13 +37,13 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 ## Motivation
 
-The CSS language and CSS Modules approach have some limitations especially if you want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
+The CSS language and CSS Modules approach have some limitations especially if we want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
 
 1. **Styles cannot be co-located with components**  
   This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
 
 2. **Styling pseudos and media queries requires selector duplication**  
-  Another frustrating fact at some point is the need to duplicate your class name when defining __pseudo classes and elements__, or __media queries__. You can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
+  Another frustrating fact at some point is the need to duplicate our class name when defining __pseudo classes and elements__, or __media queries__. We can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
   
     ```css
     .button {}
@@ -59,7 +59,7 @@ The CSS language and CSS Modules approach have some limitations especially if yo
     ```
 
 3. **Styles usage is disconnected from their definition**  
-  You get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
+  We get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
 4. **Using type-safe design tokens is a nightmare**  
   Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarounds for this issue, neither of them being elegant:
@@ -143,7 +143,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 #### 1. Co-location
 
-The ability to define styles within the same file as the component. You can also extract the styles into a separate file and import them, but the other way around does not apply.
+The ability to define styles within the same file as the component. We can also extract the styles into a separate file and import them, but the other way around does not apply.
 
 [⬆️ to overview](#overview)
 
@@ -165,8 +165,8 @@ Refers to the **Developer eXperience** which includes 2 main aspects:
 Support for defining __styles as strings__, using ES Tagged Templates:
 
 - uses `kebab-case` for property names, just like plain CSS syntax;
-- enables easier migration from plain CSS to CSS-in-JS, because we don't have to completely re-write your styles;
-- requires installing additional code editor plugin(s) for [syntax highlight and code completion](#2-dx), otherwise your code would look like a plain `string`;
+- enables easier migration from plain CSS to CSS-in-JS, because we don't have to completely re-write the styles;
+- requires installing additional code editor plugin(s) for [syntax highlight and code completion](#2-dx), otherwise our code would look like a plain `string`;
 - requires an additional step to parse the string and convert it to JS, which can be done either at built time (slower builds), or at runtime (slightly larger payload);
 
 [⬆️ to overview](#overview)
@@ -235,7 +235,7 @@ Support for extracting and serving the styles as static `.css` files:
 - it reduces the total bundle/page size, because we don't need additional runtime library, to inject and evaluate the styles;
 - this approach affects **FCP/FMP** metrics negatively when users have an empty cache, and positively when having full cached styles;
 - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
-- more suitable for less interactive solutions, where you serve a lot of different pages and you want to take advantage of cached styles (ie: e-commerce, blogs);
+- more suitable for less interactive solutions, where we serve a lot of different pages and we want to take advantage of cached styles (ie: e-commerce, blogs);
 
 [⬆️ to overview](#overview)
 
@@ -259,8 +259,8 @@ Support for serving the styles injected inside `<style>` tags in the document's 
 The ability to generate **atomic css classes**, thus increasing style reusability, and reducing duplication:
 
 - this generates a separate CSS class for each CSS property;
-- you'll get larger HTML files, because each element will contain a large number of CSS classes applied;
-- theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of your styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well;
+- we'll get larger HTML files, because each element will contain a large number of CSS classes applied;
+- theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of our styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well;
 - it's debatable if the CSS total size reduction, is greater than the HTML size increase (what is the final delta)
 - theoretically, if the class names are shorter than the CSS property definition, the delta is positive so we're shipping less bytes;
 - however, we're basically moving part of bytes from CSS to HTML, which might be harder to cache if we have dynamic SSRed pages;
@@ -295,7 +295,7 @@ The API creates a wrapper (styled) component which includes the generated `class
 
 #### 14. `css` prop
 
-Allows passing styles using a special `css` prop, similar how you would define inline styles, but the library generates a unique CSS class name behind the scenes:
+Allows passing styles using a special `css` prop, similar how we would define inline styles, but the library generates a unique CSS class name behind the scenes:
 
 - it's a convenient and ergonomic API;
 - this technique was first introduced and popularized by [Emotion](#emotion) v10;
@@ -710,7 +710,7 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 
 #### Conclusions
 
-Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. You don't feel like writting CSS, so coming from CSS Modules we'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating our existing styles, and for starting a project from scratch. Also, the maintainers did a pretty good job keeping up with most of the innovations in this field.
+Styled components offers a novel approach to styling components using the `styled` method which creates a new component including the defined styles. We don't feel like writting CSS, so coming from CSS Modules we'll have to learn a new, more programatic way, to define styles. Because it allows both `string` and `object` syntax, it's a pretty flexibile solution both for migrating our existing styles, and for starting a project from scratch. Also, the maintainers did a pretty good job keeping up with most of the innovations in this field.
 
 However before adopting it, we must be aware that it comes with a certain cost for our bundle size.
 
@@ -1364,17 +1364,14 @@ We know there are a lot of other libraries out there, besides the ones covered a
 
 ### style9
 
-[Style9](https://github.com/johanholmerin/style9) is a new library, inspired by Facebook's own CSS-in-JS solution called stylex. Style9 is unique because it's the only open source library that supports both `.css` static extraction + atomic CSS. It has TS support and easy to integrate with Next.js.
+[Style9](https://github.com/johanholmerin/style9) is a new library, inspired by Facebook's own CSS-in-JS solution called stylex. Style9 is unique because it's the only open source library that supports both `.css` static extraction + atomic CSS, and/or styles co-location. It has TS support and easy to integrate with Next.js.
 
 However, it has quite a few limitations (at least as of Feb 2021) that makes it practically unusable in a real production application that we would want to scale, both in code & team size:
 
-- CSS properties are a bit weirdly typed and you also have to learn a few proprietary and opinionated rules:
-   - `fontSize`, or `borderRadius` must be `string`, so you cannot use `fontSize: "2em";`, for instance;
-   - `padding`/`margin` supports `string`, but expands it automatically, so you cannot use `margin: "0 auto";`, for instance;
-- TS types are custom, and a bit limited:
-   - `boxShadow` is not supported, for instance;
-- no Media Queries support (at least with TypeScript), which is a **total deal breaker** for us;
-- cannot use design tokens defined as `Enum` or `POJO`, only constants are supported, which is a **smaller deal breaker** for us;
+- It has some limitations regarding shorthand CSS properties, because it generates atomic CSS classes:
+   - `padding`/`margin` supports `strings`, but expands it automatically, so we cannot use `margin: "0 auto";`, for instance;
+- Media Queries support with TypeScript is a bit flimsy and not very clean (we have to use `any` type assertions);
+- cannot use design tokens defined as `Enum` or `POJO`, only constants are supported, which is a **small deal breaker** for us;
 - dynamic styles are cumbersome to use:
    - it supports styles toggling, similar to `classNames` lib, but not dynamically/computed/expression based;
    - not sure if this is a limitation regarding static extraction (although Treat is doing it), or a TS poor typing limitation, or regarding atomic CSS class name generation;
@@ -1390,7 +1387,7 @@ Some pluses:
 - it doesn't allow arbitrary seletors / nesting, which is a good thing, because it enforces good practices and consistency;
 - it is framework anostic;
 
-As a conclusion, it wants to be a powerful solution with very interesting features, but it's not mature yet. As far as we see, it mostly designed towards more static solutions. Dynamic styling seems to be difficult to handle, and it's probably not the selling point.
+As a conclusion, it wants to be a powerful solution with very interesting and unique set of features, but it's not mature yet. As far as we see, it's currently mostly designed towards more static solutions. Dynamic styling seems to be difficult to handle, at least for the moment.
 
 <br />
 
@@ -1400,7 +1397,7 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 
 - global styles are a bit cumbersome to define
 - able to nest media queries & pseudo selectors, but cannot nest arbitrary rules/selectors
-- no dynamic out-of-the-box support, so you have to get around that, like inline styles I guess, or like in React Native
+- no dynamic out-of-the-box support, so we have to get around that, like inline styles I guess, or like in React Native
 - doesn't add any real value, except the ergonomics to colocate styles with the component.
 
 ### Glamor
