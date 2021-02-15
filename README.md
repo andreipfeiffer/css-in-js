@@ -1340,7 +1340,7 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
 
 - 😕 bundles nested styles even if they are not used in component
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
-- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants
+- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles for component variants, specifically problematic for SSR
 - 😱 it creates a single `<style>` tag with all the styles, and appends to it on update, and apparently it doesn't use `insertRule()`, not even in production builds, which might be an important performance drawback in large & highly dynamic UIs
 
 <br />
