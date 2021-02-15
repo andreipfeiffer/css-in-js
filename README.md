@@ -1068,7 +1068,6 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - 🤨 when defining styles outside the component, we have to explicitly add some internal typings to get code completion
 - 🥺 there's no actual TS support and the maintainer considers it a [low priority](https://github.com/robinweser/fela/issues/590#issuecomment-409373362)
 - 🤕 without TS support, we cannot get fully type-safe integration into Next.js + TS (there are [missing types from the definition file](https://twitter.com/pfeiffer_andrei/status/1349106486740475904))
-- 😕 it generates a lot of duplication during SSR, when using dynamic styles 
 - 🤔 the docs say it supports string based styles, but they are a second-class citizen and they seem to work only for global styles
 - 😵 some information in the docs is spread on various pages, sometimes hard to find without a search feature, and the examples and use cases are not comprehensive
 
