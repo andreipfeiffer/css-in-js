@@ -804,7 +804,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - 😕 bundles nested styles even if they are not used in component
 - 🤫 for user input styles, it generates a new class name for each update, but it does NOT remove the old ones, appending indefinitely to the DOM
 - 😑 using `styled` approach will add `3 kB` to our bundle, because it's imported from a separate package
-- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles in head for component variants (same applies to `css` prop & `styled` components)
+- 🤔 don't know how to split static and dynamic styles, resulting in highly polluted duplicated styles for component variants, specifically problematic for SSR (same applies to `css` prop & `styled` components)
 
 <br />
 
