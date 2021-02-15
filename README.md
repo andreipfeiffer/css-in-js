@@ -976,7 +976,7 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
 - 😕 bundles nested styles even if they are not used in component
 - 😕 it doesn't handle dynamic styles, so we have to use regular JS functions to compute styles
 - 🤨 when composing styles, we'll have to manually add some internal typings
-- 🤔 don't know how to split dynamic and static styles, so it's very easy to create duplicated generated code
+- 🤔 don't know how to split dynamic and static styles, so it's very easy to create duplicated generated code with dynamic styles, specifically problematic with SSR
 - 😱 it creates a single `<style>` tag with all the styles, and replaces it on update, and apparently it doesn't use `insertRule()`, not even in production builds, which might be an important performance drawback in large & highly dynamic UIs
 
 <br />
