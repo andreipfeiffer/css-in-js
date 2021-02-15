@@ -389,6 +389,21 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 <br />
 
+#### ✅ Critical CSS extraction
+
+Most solutions market themselves as being able to _**"extract critical CSS"**_ during SSR, which does **NOT** refer to [above-the-fold critical CSS extraction](https://web.dev/extract-critical-css/), as we initially thought.
+
+What they actually do:
+- during SSR, they only generate styles for the **visible** elements for the static rendered page;
+- they don't inject styles for elements that are dynamically rendered, or lazy loaded;
+
+With 100% static styles, there would be actually no benefit. With dynamic pages that render very few elements on the server, and most components are rendered dynamically on the client, the benefit increases.
+
+All solutions support this feature:
+- **Treat** is the only exception, because it extracts all styles as fully static `.css`;
+
+<br />
+
 #### 🟠 Performance Metrics
 
 Understanding how these features affect [Core Web Vitals](https://web.dev/vitals/#core-web-vitals) and [Performance Metrics](https://web.dev/lighthouse-performance/#metrics) in general is an extremely important factor to consider, and the way styles are delivered to the client has probably the biggest impact, so let's analyse this in detail.
@@ -454,12 +469,6 @@ This solution appears to be better suited when:
 - we deal with SPA (Single Page Applications), where we have one (or few) SSR pages;
 - we update the styles frequently, so even if they could be cached, it won't have a positive impact;
 - we want to optimize for first-time visitors, affecting returning visitors instead;
-
-<br />
-
-#### 🟠 Critical CSS extraction
-
-⚠️ Work in progress...
 
 <br />
 
