@@ -1410,12 +1410,39 @@ However, it has quite a few limitations (at least as of Feb 2021) that makes it 
    - there is some exploration in this regard, with [style9-theme](https://github.com/johanholmerin/style9-theme.macro);
 - documentation is not comprehensive, it contains a lot of code comments, without code examples, making it even more difficult to follow & understand
 
-Some pluses:
+Some upsides:
 - it's the first lib we've tested that actually doesn't bundle unused styles;
 - it doesn't allow arbitrary seletors / nesting, which is a good thing, because it enforces good practices and consistency;
 - it is framework anostic;
 
 As a conclusion, it wants to be a powerful solution with very interesting and unique set of features, but it's not mature yet. As far as we see, it's currently mostly designed towards more static solutions. Dynamic styling seems to be difficult to handle, at least for the moment.
+
+<br />
+
+### Tailwind
+
+Not an actual CSS-in-JS library, more like a replacement for traditional CSS styling. It uses atomic CSS classes (some of them having multiple properties) that we attach to html elements. We don't write CSS, instead we use a different DSL to specify styles, pseudo classes, media queries, etc.
+
+The reason we didn't include it in our thorough review is because it doesn't fully meet our [goals](#goals):
+- it doesn't provide TS support, or type-safety
+  - we cannot use out own design tokens from `.ts` files to include them in `tailwind.config` (cannot `import` any file, cannot require `.ts`)
+  - using `tailwind.config` directly offers no type-safety when importing it, or using [`resolveConfig`](https://tailwindcss.com/docs/configuration#referencing-in-java-script)
+  - there is a [PR on Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/50921), but we're not sure if it will support the custom config, as well
+  - there might be workarounds, but these are just proofs that there isn't a clean way to achieve this
+- dynamic styles have some limitations: we have to be aware of [purging](https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html) to not get missing design tokens in production builds
+- we have to learn a new DSL: some style are similar and easy to deduce from their CSS counterparts, others are pretty different, and we have to learn (`rounded`, `place-self/content`, `divide`, `ring`)
+- some advanced CSS features, like [`::after` pseudo elements](https://github.com/tailwindlabs/tailwindcss/discussions/2119) are tricky
+
+Some upsides:
+- we don't write CSS, which is indeed difficult to master
+- the entire team uses the same "styling system"
+- a shitton of predefined design tokens, plus the ability to customize them
+- successfully bundles only used styles, doesn't bundle all classes defined in `tailwind.config`
+   - exception: keyframe animations (spin, ping, etc)
+   - beware of purging
+   
+Tailwind seems to be more than a _styling tool_, it also offers some out-of-the-box utils + a ready-made design system that you can use right away.
+
 
 <br />
 
