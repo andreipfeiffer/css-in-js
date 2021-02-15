@@ -947,7 +947,7 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
 - ✅ __Framework agnostic__
-- 🟠 __Built-in Theming support__: uses TS `namespaces` to define theming, which is [not recommended](https://basarat.gitbook.io/typescript/project/namespaces) even by the author himself, or by TS core team member [Orta Therox](https://youtu.be/8qm49TyMUPI?t=1277).
+- 🟠 __Built-in Theming support__: uses TS `namespaces` to define theming, which is [not a recommended TS feature](https://basarat.gitbook.io/typescript/project/namespaces) even by the author himself, or by TS core team member [Orta Therox](https://youtu.be/8qm49TyMUPI?t=1277).
 - ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
