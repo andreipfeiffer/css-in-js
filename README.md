@@ -595,7 +595,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
-- ❌ __Framework agnostic__
+- ❌ __Not Framework agnostic__
 
 - __Styles definition method(s)__
   - ✅ Tagged Templates
@@ -1122,7 +1122,7 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - ✅ __Context-aware code completion__
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
-- ❌ __Framework agnostic__
+- ❌ __Not Framework agnostic__: there is a `@stitches/core` package, but only React is supported at the moment
 
 - __Styles definition method(s)__
   - ❌ Tagged Templates
