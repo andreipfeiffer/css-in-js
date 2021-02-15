@@ -118,18 +118,18 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Learn](#15-learning-curve) | [16. Page size delta](#16-page-size-delta) |
-| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | -  | -                     |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | 📈 | `+13.9 kB / +39.0 kB` |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | 📉 |  `+6.9 kB / +20.0 kB` |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | 📉 |  `+0.3 kB /  -0.1 kB` |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | 📈 |  `+2.8 kB / +19.0 kB` |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | 📉 | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | 📉 |  `+8.6 kB / +32.0 kB` |
-| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | 📉 | `+20.2 kB / +65.0 kB` |
-| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | 📉 |  `+2.2 kB /  +7.0 kB` |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Learn](#16-learning-curve) | [17. Page size delta](#17-page-size-delta) |
+| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: | :-------: |     ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -  | -                     |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | ✅ | 📈 | `+13.9 kB / +39.0 kB` |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | 📉 |  `+6.9 kB / +20.0 kB` |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | 📉 |  `+0.3 kB /  -0.1 kB` |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 📈 |  `+2.8 kB / +19.0 kB` |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | 📉 | `+12.6 kB / +45.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 📉 |  `+8.6 kB / +32.0 kB` |
+| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | 📉 | `+20.2 kB / +65.0 kB` |
+| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ | 📉 |  `+2.2 kB /  +7.0 kB` |
 
 <br />
 
@@ -305,7 +305,15 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 <br />
 
-#### 15. Learning curve
+#### 15. Framework agnostic
+
+The library can be used without, or with any framework. Some libraries are built specifically for React only.
+
+[⬆️ to overview](#overview)
+
+<br />
+
+#### 16. Learning curve
 
 A **subjective** opinion regarding the learning curve, considering that I have experience with CSS Modules, React, Hooks, TS.  
 Note ☝️ - this is very _superficial_, and meant to be only a _note to myself_. You should really evaluate this on your own.
@@ -314,7 +322,7 @@ Note ☝️ - this is very _superficial_, and meant to be only a _note to myself
 
 <br />
 
-#### 16. Page size delta
+#### 17. Page size delta
 
 The total page size difference in kB (transferred gzipped & minified / uncompressed & minified) compared to __CSS Modules__, for the entire index page production build using Next.js:
 
@@ -513,6 +521,7 @@ Launched in __2015__ | [Back to Overview](#overview)
 <br />
 
 - ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
 - ❌ __No Styles/Component co-location__
 - ❌ __No TypeScript support__
 - ❌ __No Atomic CSS__
@@ -586,6 +595,7 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - 🟠 __TypeScript support__:  `@types` can be additionaly installed, but the API is too minimal to require TS
 - ❌ __No Atomic CSS__
 - ❌ __No Theming support__
+- ❌ __Framework agnostic__
 
 - __Styles definition method(s)__
   - ✅ Tagged Templates
@@ -674,6 +684,7 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
 - ✅ __Styles/Component co-location__
 - ✅ __TypeScript support__:  `@types` must be additionaly installed, via DefinitelyTyped
 - ✅ __Built-in Theming support__
+- ✅ __Framework agnostic__
 - 🟠 __Context-aware code completion__: requires an editor extension/plugin
 - ❌ __No Atomic CSS__
 
@@ -758,6 +769,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - ✅ __TypeScript support__
 - ✅ __Built-in Theming support__
 - ✅ __Context-aware code completion__: for using the `styled` components approach, an additional editor plugin is required
+- ✅ __Framework agnostic__
 - ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
@@ -844,6 +856,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 - ✅ __TypeScript support__
 - ✅ __Built-in Theming support__
 - ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
 - ❌ __No Styles/Component co-location__: styles must be placed in an external `.treat.ts` file
 - ❌ __No Atomic CSS__
 
@@ -933,6 +946,7 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
 - ✅ __Styles/Component co-location__
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
 - 🟠 __Built-in Theming support__: uses TS `namespaces` to define theming, which is [not recommended](https://basarat.gitbook.io/typescript/project/namespaces) even by the author himself, or by TS core team member [Orta Therox](https://youtu.be/8qm49TyMUPI?t=1277).
 - ❌ __No Atomic CSS__
 
@@ -1015,6 +1029,7 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - ✅ __Styles/Component co-location__
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
+- ✅ __Framework agnostic__
 - 🟠 __TypeScript support__: it exposes Flow types, which work ok, from our (limited) experience
 - 🟠 __Context-aware code completion__: styles defined outside the component require explicit typing to get code completion
 
@@ -1107,6 +1122,7 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - ✅ __Context-aware code completion__
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
+- ❌ __Framework agnostic__
 
 - __Styles definition method(s)__
   - ❌ Tagged Templates
@@ -1194,6 +1210,7 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 
 - ✅ __Styles/Component co-location__
 - ✅ __Built-in Theming support__
+- ✅ __Framework agnostic__
 - ❌ __Atomic CSS__
 - 🟠 __TypeScript support__ _([definition files](https://github.com/cssinjs/jss/blob/master/packages/react-jss/src/index.d.ts) exist, but for some reason, they [don't work](https://github.com/andreipfeiffer/css-in-js/issues/9#issuecomment-774125968))_
 - 🟠 __Context-aware code completion__ _(Object Styles didn't work for us, due to lack of TS support)_
@@ -1288,6 +1305,7 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
 - ✅ __Built-in Theming support__
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
 - ❌ __Atomic CSS__
 
 - __Styles definition method(s)__
