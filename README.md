@@ -893,6 +893,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 #### Other benefits
 
 - 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices like __specificity wars__ (this is impossible to be statically type-checked without pattern matching, so it will throw a runtime exception)
+- 🥳 generates the same filename hash on build, if styles haven't changes, meaning that end-users benefit of CSS cache-ing even when deploying new versions with component updates only (logic, or content), without styles updates
 
 <br />
 
