@@ -249,7 +249,7 @@ Support for serving the styles injected inside `<style>` tags in the document's 
 
 - makes dynamic styling super easy;
 - incurs larger payload, because we're also shipping a runtime library to handle dynamic styles;
-- when using SSR, styles required for the initial render are shipped twice to the client: once during SSR, and again during hydration;
+- when using SSR, styles required for the initial render are shipped twice to the client: once during SSR, and again during [hydration](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration-issues);
 - more suited for highly dynamic and interactive (single page) applications;
 
 [⬆️ to overview](#overview)
@@ -454,7 +454,7 @@ Because we're shipping less CSS bytes, and they are inlined inside the `.html` f
 - if we move all other `.js` files requests to the end of the document, `<head>` won't do any requests, so rendering will occur super fast;
 - however, eventually we would ship additional bytes, that were not needed with static `.css` extraction:
    - the runtime library (between 1.6kB - 20kB);
-   - the styles required for the page, bundled in `.js` files along with the components, during [hydration](https://nextjs.org/docs/basic-features/pages#pre-rendering) (this includes all the critical CSS already shipped inside the `<style>` tag + others);
+   - the styles required for the page, bundled in `.js` files along with the components, during [hydration](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration-issues) (this includes all the critical CSS already shipped inside the `<style>` tag + others);
 - all these files are required to be fetched, parsed and executed to get a **fully interactive** page;
 
 📬 **Full cache**  
