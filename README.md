@@ -1398,17 +1398,13 @@ We know there are a lot of other libraries out there, besides the ones covered a
 
 However, it has quite a few limitations (at least as of Feb 2021) that makes it practically unusable in a real production application that we would want to scale, both in code & team size:
 
-- It has some limitations regarding shorthand CSS properties, because it generates atomic CSS classes:
-   - `padding`/`margin` supports `strings`, but expands it automatically, so we cannot use `margin: "0 auto";`, for instance;
-- Media Queries support with TypeScript is a bit flimsy and not very clean (we have to use `any` type assertions);
-- cannot use design tokens defined as `Enum` or `POJO`, only constants are supported, which is a **small deal breaker** for us;
-- dynamic styles are cumbersome to use:
+- cannot use design tokens defined as `Enum` or `POJO`, only constant primitives are supported, which is a **big deal breaker**;
+- dynamic styles are not trivial:
    - it supports styles toggling, similar to `classNames` lib, but not dynamically/computed/expression based;
-   - not sure if this is a limitation regarding static extraction (although Treat is doing it), or a TS poor typing limitation, or regarding atomic CSS class name generation;
+   - for user styles, so we have to use inline styles;
    - there is an experimental addon [style9-components](https://github.com/johanholmerin/style9-components.macro) that tries to solve this;
-- no support user styles, so we have to use inline styles;
-- no global styles support (not a deal breaker for us);
-- no theming support, as it doesn't handle dynamic styles very well (not a deal breaker for us):
+- no global styles support;
+- no theming support (not a deal breaker for us):
    - there is some exploration in this regard, with [style9-theme](https://github.com/johanholmerin/style9-theme.macro);
 - documentation is not comprehensive, it contains a lot of code comments, without code examples, making it even more difficult to follow & understand
 
