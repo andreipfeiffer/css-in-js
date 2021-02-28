@@ -24,13 +24,7 @@ type Props = {
 export function Button(props: Props) {
   const { children, color = "grey", onClick } = props;
 
-  // @todo dynamic styles require some boilerplate/hacks
-  // don't have a way to define variants for a single style (like "button")
-  // since the "styles" contain a list of elements
-  const button_styles = style9(
-    styles.button,
-    styles[`button_${color}` as const]
-  );
+  const button_styles = style9(styles.button, button_color[color]);
 
   return (
     <button onClick={onClick} className={button_styles}>
@@ -38,9 +32,6 @@ export function Button(props: Props) {
     </button>
   );
 }
-
-// @todo this is currently a hack, as MQ are not fully supported yet
-const media: any = "@media (min-width: 640px)";
 
 const styles = style9.create({
   button: {
@@ -75,8 +66,10 @@ const styles = style9.create({
       animationDuration: "0.5s",
     },
 
-    [media]: {
-      width: "100%",
+    "@media": {
+      "(min-width: 640px)": {
+        width: "100%",
+      },
     },
   },
 
@@ -114,5 +107,23 @@ const styles = style9.create({
     outlineWidth: 0,
     backgroundColor: "currentColor",
     margin: "1em auto",
+  },
+});
+
+const button_color = style9.create({
+  blue: {
+    color: BLUE,
+  },
+  green: {
+    color: GREEN,
+  },
+  yellow: {
+    color: YELLOW,
+  },
+  red: {
+    color: RED,
+  },
+  grey: {
+    color: GREY,
   },
 });
