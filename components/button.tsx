@@ -73,22 +73,6 @@ const styles = style9.create({
     },
   },
 
-  button_blue: {
-    color: BLUE,
-  },
-  button_green: {
-    color: GREEN,
-  },
-  button_yellow: {
-    color: YELLOW,
-  },
-  button_red: {
-    color: RED,
-  },
-  button_grey: {
-    color: GREY,
-  },
-
   text: {
     color: "white",
   },
@@ -110,7 +94,7 @@ const styles = style9.create({
   },
 });
 
-const button_color = style9.create({
+const button_color = style9.create<typeof Color>({
   blue: {
     color: BLUE,
   },
