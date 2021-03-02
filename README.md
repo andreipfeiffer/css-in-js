@@ -524,7 +524,7 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 ### CSS Modules
 
-This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, or any other methodology to structure and organize your CSS, especially in component-based applications.
+This is a well established, mature and solid approach. Without a doubt, it's a great improvement over BEM, SMACCS, OOCSS, or any other scalable CSS methodology to structure and organize our CSS, especially in component-based applications.
 
 Launched in __2015__ | [Back to Overview](#overview)
 
