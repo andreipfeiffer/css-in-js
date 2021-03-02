@@ -94,13 +94,17 @@ Getting even more specific, we wanted to experience the usage of various CSS-in-
 ## Disclaimer
 
 This analysis is intended to be **objective** and **unopinionated**:
-- I don't work on any of these solutions, and have no intention or motivation of _promoting_ or _trashing_ either of them.  
-- I have no prior experience with any CSS-in-JS solution, so I'm __not biased__ towards any of them. I've equally used all the solutions analyzed here.
+- I have not built my own CSS-in-JS library.
+- I don't work on any of these libraries.
+- I have **no intention or motivation of _promoting_ or _trashing_** either of them.  
+- I have **no prior experience** with any CSS-in-JS solution, so I'm **not biased** towards any of them.
+- I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them.
 
 <br />
 
 👎 **What you WON'T FIND here?**  
-- which solution is _"the best"_, or _"the fastest"_, as I'll not add any subjective grading, or any rendering performance metrics (you can checkout [necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
+- which solution is _"the best"_, as I'll not add any subjective grading;
+- which solution is _"the fastest"_, as I'm not concearned about rendering performance metrics (you can checkout [necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
 - what solution should you pick for your next project, because I have no idea what your project is and what your goals are;
 
 <br />
@@ -110,7 +114,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 - a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
 
-The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) talk by Max Stoiber.
+The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) insightful talk by Max Stoiber.
 
 ---
 
