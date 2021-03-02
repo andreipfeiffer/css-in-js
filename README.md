@@ -40,10 +40,10 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 ## Motivation
 
-The CSS language and CSS Modules approach have some limitations especially if we want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
+The **CSS language** and **CSS Modules** have some limitations especially if we want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
 
 1. **Styles cannot be co-located with components**  
-  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the .css file, searching for a given class name, and not being able to easily _"go to style definition"_ is a huge productivity bottleneck.
+  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the `.css` file, searching for a given class name, and not being able to easily _"go to style definition"_ is an important productivity drawback.
 
 2. **Styling pseudos and media queries requires selector duplication**  
   Another frustrating fact at some point is the need to duplicate our class name when defining __pseudo classes and elements__, or __media queries__. We can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
@@ -64,16 +64,16 @@ The CSS language and CSS Modules approach have some limitations especially if we
 3. **Styles usage is disconnected from their definition**  
   We get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
-4. **Using type-safe design tokens is a nightmare**  
-  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are 2 workarounds for this issue, neither of them being elegant:
-   - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety
-   - We could use **inline styles**, which is less performant and also introduces another way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places.
+4. **Using type-safe design tokens is non-trivial**  
+  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are at least 2 workarounds for this issue, neither of them being elegant:
+   - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety when using them in `.module.css`.
+   - We could use **inline styles**, which is less performant, and it also introduces a different way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places: the component file and the `.css` file.
 
 <br />
 
 ## Goals
 
-There are specific goals we're looking for:
+There are specific goals we're looking for with this analysis:
 
 - 🥇 SSR support and easy integration with Next.js
 - 🥇 full TypeScript support
@@ -100,7 +100,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 - I don't work on any of these libraries.
 - I have **no intention or motivation of _promoting_ or _trashing_** either of them.  
 - I have **no prior experience** with any CSS-in-JS solution, so I'm **not biased** towards any of them.
-- I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them.
+- I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them. So, you can safely say I'm a jack of all ~~trades~~CSS-in-JS libraries, but master of none.
 
 <br />
 
