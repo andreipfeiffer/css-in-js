@@ -312,7 +312,8 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 #### 15. Framework agnostic
 
-The library can be used without, or with any framework. Some libraries are built specifically for React only.
+Allows usage without, or with any framework. Some libraries are built specifically for React only.  
+**NOTE**: some libraries like **Stitches**, **Emotion**, or **Treat** document only React usage, although they have a **core** that's framework agnostic.
 
 [⬆️ to overview](#overview)
 
