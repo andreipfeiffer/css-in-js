@@ -18,8 +18,10 @@ Last important aspect is type-safety with full **TypeScript** support.
 - [Motivation](#motivation)
 - [Goals](#goals)
 - [Disclaimer](#disclaimer)
-- [Overview](#overview)
+- [**Overview**](#overview)
+  - [Legend](#legend)
   - [Overall observations](#overall-observations)
+- Libraries review
   - [**CSS Modules**](#css-modules)
   - [**Styled JSX**](#styled-jsx)
   - [**Styled Components**](#styled-components)
