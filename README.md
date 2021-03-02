@@ -1418,7 +1418,7 @@ However, it has quite a few limitations (at least as of Feb 2021) that makes it 
 Some upsides:
 - it's the first lib we've tested that actually doesn't bundle unused styles;
 - it doesn't allow arbitrary seletors / nesting, which is a good thing, because it enforces good practices and consistency;
-- it is framework anostic;
+- it is framework agnostic;
 
 As a conclusion, it wants to be a powerful solution with very interesting and unique set of features, but it's not mature yet. As far as we see, it's currently mostly designed towards more static solutions. Dynamic styling seems to be difficult to handle, at least for the moment.
 
