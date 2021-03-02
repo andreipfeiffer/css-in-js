@@ -7,9 +7,9 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 <br />
 
-> 🗓 _Last update: **Mar 2021**_
-
 > ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
+
+> 🗓 _Last update: **Mar 2021**_
 
 <br />
 
