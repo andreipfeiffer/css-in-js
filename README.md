@@ -100,7 +100,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 - I don't work on any of these libraries.
 - I have **no intention or motivation of _promoting_ or _trashing_** either of them.  
 - I have **no prior experience** with any CSS-in-JS solution, so I'm **not biased** towards any of them.
-- I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them. So, you can safely say I'm a jack of all ~~trades~~CSS-in-JS libraries, but master of none.
+- I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them. So, you can safely say _I'm a jack of all ~~trades~~ CSS-in-JS libraries, but master of none_.
 
 <br />
 
