@@ -1,6 +1,7 @@
 # An in-depth CSS-in-TS analysis
 
-This document contains a thorough analysis of all the current **CSS-in-JS** solutions, that support **Server Side Rendering** and **TypeScript**.  
+This document contains a thorough analysis of all the current **CSS-in-JS** solutions, that support **Server Side Rendering** and **TypeScript**.
+
 The baseline reference we'll use for comparison is a **CSS Modules** approach.  
 We're using **Next.js** as a SSR framework for building resources.  
 Last important aspect is type-safety with full **TypeScript** support.
