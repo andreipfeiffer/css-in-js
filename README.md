@@ -1,4 +1,4 @@
-# A thorough CSS-in-TS analysis
+# A thorough analysis of CSS-in-TS
 
 This document contains an in-depth analysis of all the current **CSS-in-JS** solutions, that support **Server Side Rendering** and **TypeScript**.
 
