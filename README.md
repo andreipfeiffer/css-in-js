@@ -901,7 +901,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Other benefits
 
-- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, when it's actually discourages bad-practices like __specificity wars__ (this is impossible to be statically type-checked without pattern matching, so it will throw a runtime exception)
+- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, but it actually discourages bad-practices like __specificity wars__, which should be avoided when scaling CSS (however, this is impossible to be statically type-checked without _pattern matching_, so it will throw a runtime exception)
 - 🥳 generates the same filename hash on build, if styles haven't changes, meaning that end-users benefit of CSS cache-ing even when deploying new versions with component updates only (logic, or content), without styles updates
 
 <br />
@@ -909,7 +909,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 #### Worth mentioning observations
 
 - 😕 bundles styles even if they are not used in component
-- 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user defined styles
+- 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user-defined styles
 
 <br />
 
