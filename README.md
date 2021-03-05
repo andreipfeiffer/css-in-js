@@ -33,7 +33,7 @@ Last important aspect is type-safety with full **TypeScript** support.
   - [**Stitches**](#stitches)
   - [**JSS**](#jss)
   - [**Goober**](#goober)
-  - [**Compiled**](#goober)
+  - [**Compiled**](#compiled)
 - [Libraries not included](#libraries-not-included)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
