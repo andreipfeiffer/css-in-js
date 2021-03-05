@@ -33,6 +33,7 @@ Last important aspect is type-safety with full **TypeScript** support.
   - [**Stitches**](#stitches)
   - [**JSS**](#jss)
   - [**Goober**](#goober)
+  - [**Compiled**](#goober)
 - [Libraries not included](#libraries-not-included)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
@@ -138,6 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 📉 |  `+8.6 kB / +32.0 kB` |
 | [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | 📉 | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ | 📉 |  `+2.2 kB /  +7.0 kB` |
+| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ theme | ❌ soon | ✅ | ✅ | ? classname | ✅ | ✅ | ❌ ? | 📉 |  `? kB /  ? kB` |
 
 <br />
 
@@ -1389,6 +1391,88 @@ Page                             Size     First Load JS
   ├ chunks/framework.9d5241.js   41.8 kB
   ├ chunks/main.03531f.js        6.62 kB
   ├ chunks/pages/_app.8a4776.js  2.37 kB
+  └ chunks/webpack.50bee0.js     751 B
+```
+
+<br/>
+
+---
+
+<br/>
+
+### Compiled
+
+WIP
+
+Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs) | Launched in __2020__ | [View Docs](https://compiledcssinjs.com/docs/) | ... [back to Overview](#overview)
+
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Context-aware code completion__
+- ✅ __Atomic CSS__
+- ❌ __Framework agnostic__
+- ❌ __Built-in Theming support__
+
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Abitrary nesting
+
+- __Styles apply method(s)__
+  - ❌ `className`
+  - ✅ `styled` component
+  - ✅ `css` prop
+
+- __Styles output__
+  - ❌ `.css` file extraction _(currently under development, will be shipped in 2021)_
+  - ✅ `<style>` tag injection
+
+- 📉 __Low Learning curve__: considering that `css` prop is very intuitive
+
+<br />
+
+#### Other benefits
+
+- WIP
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+
+<br />
+
+#### Conclusions
+
+WIP
+
+<br />
+
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                ??? kB |       ??? kB |
+| Index page size |               74.8 kB |       214 kB |
+| vs. CSS Modules |           __+3.3 kB__ |   __+17 kB__ |
+
+<br />
+
+```
+Page                             Size     First Load JS
+┌ ○ /                            4.16 kB        68.5 kB
+├   /_app                        0 B            64.3 kB
+├ ○ /404                         3.03 kB        67.4 kB
+└ ○ /other                       2.78 kB        67.1 kB
++ First Load JS shared by all    64.3 kB
+  ├ chunks/commons.7af247.js     13.1 kB
+  ├ chunks/framework.9d5241.js   41.8 kB
+  ├ chunks/main.03531f.js        6.62 kB
+  ├ chunks/pages/_app.175699.js  2.17 kB
   └ chunks/webpack.50bee0.js     751 B
 ```
 
