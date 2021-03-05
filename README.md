@@ -139,7 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 📉 |  `+8.6 kB / +32.0 kB` |
 | [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | 📉 | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ | 📉 |  `+2.2 kB /  +7.0 kB` |
-| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ theme | ❌ soon | ✅ | ✅ | ? classname | ✅ | ✅ | ❌ ? | 📉 |  `? kB /  ? kB` |
+| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ | 📉 |  `? kB /  ? kB` |
 
 <br />
 
@@ -1232,7 +1232,7 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 - ✅ __Styles/Component co-location__
 - ✅ __Built-in Theming support__
 - ✅ __Framework agnostic__
-- ❌ __Atomic CSS__
+- ❌ __No Atomic CSS__
 - 🟠 __TypeScript support__ _([definition files](https://github.com/cssinjs/jss/blob/master/packages/react-jss/src/index.d.ts) exist, but for some reason, they [don't work](https://github.com/andreipfeiffer/css-in-js/issues/9#issuecomment-774125968))_
 - 🟠 __Context-aware code completion__ _(Object Styles didn't work for us, due to lack of TS support)_
 
@@ -1327,7 +1327,7 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
 - ✅ __Framework agnostic__
-- ❌ __Atomic CSS__
+- ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
   - ✅ Tagged Templates
@@ -1412,8 +1412,8 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
 - ✅ __Atomic CSS__
-- ❌ __Framework agnostic__
-- ❌ __Built-in Theming support__
+- ❌ __Not Framework agnostic__
+- ❌ __No Built-in Theming support__
 
 - __Styles definition method(s)__
   - ✅ Tagged Templates
@@ -1424,7 +1424,7 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
   - ✅ Abitrary nesting
 
 - __Styles apply method(s)__
-  - ❌ `className`
+  - 🟠 `className` _(only supported with a custom [ClassNames](https://compiledcssinjs.com/docs/class-names) component)_
   - ✅ `styled` component
   - ✅ `css` prop
 
