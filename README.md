@@ -139,7 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | 📉 |  `+8.6 kB / +32.0 kB` |
 | [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | 📉 | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ | 📉 |  `+2.2 kB /  +7.0 kB` |
-| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ | 📉 |  `? kB /  ? kB` |
+| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ | 📉 |  `+2.0 kB /  +7.0 kB` |
 
 <br />
 
@@ -535,7 +535,7 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 Some of the libraries are missing a separate `.js` chunk when building for production, which should contain the **runtime library code**. Instead, the runtime library seems to be included in the `_app.***.js` chunk, along with other code, making it a bit difficult to determine exactly the size of the runtime library.
 
-I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
+This applies to [Fela](#fela), [Goober](#goober) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
 
 <br />
 
@@ -1113,11 +1113,11 @@ The lack of TS support however is a bummer, considering we're looking for a full
 
 <br />
 
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |               13.1 kB |      42.6 kB |
-| Index page size |               84.1 kB |       246 kB |
-| vs. CSS Modules |          __+12.6 kB__ |   __+45 kB__ |
+|                 |     Transferred / gzipped |              Uncompressed |
+| :-------------- | ------------------------: | ------------------------: |
+| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
+| Index page size |                   84.1 kB |                    246 kB |
+| vs. CSS Modules |              __+12.6 kB__ |                __+45 kB__ |
 
 <br />
 
@@ -1383,11 +1383,11 @@ Looking at Goober you cannot ask yourself what kind of magic did Cristian Bote d
 
 <br />
 
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |                1.6 kB |       2.8 kB |
-| Index page size |               73.7 kB |       208 kB |
-| vs. CSS Modules |           __+2.2 kB__ |    __+7 kB__ |
+|                 |     Transferred / gzipped |              Uncompressed |
+| :-------------- | ------------------------: | ------------------------: |
+| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
+| Index page size |                   73.7 kB |                    208 kB |
+| vs. CSS Modules |               __+2.2 kB__ |                 __+7 kB__ |
 
 <br />
 
@@ -1471,11 +1471,11 @@ The total bundle overhead is pretty small, the runtime library being quite light
 
 <br />
 
-|                 |    Transferred / gzipped |             Uncompressed |
-| :-------------- | -----------------------: | -----------------------: |
-| Runtime library | [???](#missing-chunk) kB | [???](#missing-chunk) kB |
-| Index page size |                  73.5 kB |                   208 kB |
-| vs. CSS Modules |              __+2.0 kB__ |                __+7 kB__ |
+|                 |     Transferred / gzipped |              Uncompressed |
+| :-------------- | ------------------------: | ------------------------: |
+| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
+| Index page size |                   73.5 kB |                    208 kB |
+| vs. CSS Modules |               __+2.0 kB__ |                 __+7 kB__ |
 
 <br />
 
