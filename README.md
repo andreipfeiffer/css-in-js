@@ -365,6 +365,8 @@ Components used only in a specific route will only be bundled for that route. Th
 
 All solutions offer a way to define global styles, some with a separate API.  
 
+- **Compiled** is the only library that don't have a dedicated API for global styles at the moment, bit it's [planned](https://github.com/atlassian-labs/compiled/issues/62)
+
 <br />
 
 #### ✅ SSR
@@ -1316,7 +1318,7 @@ Page                                                           Size     First Lo
 
 ### Goober
 
-A really light-weight solution, not very popular, but with a load of features.
+A very light-weight solution, with a loads of features.
 
 Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianbote_) | Launched in __2019__ | [View Docs](https://goober.js.org/) | ... [back to Overview](#overview)
 
@@ -1402,7 +1404,7 @@ Page                             Size     First Load JS
 
 ### Compiled
 
-WIP
+A rather new library, having the huge Attlasian platform supporting and probably using it. Many existing features, even more in development, or planned for development.
 
 Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs) | Launched in __2020__ | [View Docs](https://compiledcssinjs.com/docs/) | ... [back to Overview](#overview)
 
@@ -1413,7 +1415,7 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 - ✅ __Context-aware code completion__
 - ✅ __Atomic CSS__
 - ❌ __Not Framework agnostic__
-- ❌ __No Built-in Theming support__
+- ❌ __No Built-in Theming support__ _(at least at the moment, but it is [planned](https://github.com/atlassian-labs/compiled/issues/18))_
 
 - __Styles definition method(s)__
   - ✅ Tagged Templates
@@ -1438,42 +1440,49 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 
 #### Other benefits
 
-- WIP
+- 😌 using the `css` prop is seemless and trivial, not requiring any special setup, unlike Emotion
 
 <br />
 
 #### Worth mentioning observations
 
+- 🧐 styles are not placed in the `<head>` during SSR, instead they are placed right before the element using them in the `<body>`, which could potentially provide slightly faster Paint metrict, such as FCP, or LCP, because the browser can start rendering the body faster and incrementally, not waiting for the entire block of styles to be parsed
 - 😕 bundles nested styles even if they are not used in component
+- 😳 `ClassNames` API, which enables us to apply styles as class name strings, is a bit convoluted and weird at first sight.
 
 <br />
 
 #### Conclusions
 
-WIP
+Compiled is a very promising library. Considering that it offers both atomic CSS, and it plans to support static `.css` extraction, with excelent TypeScript support and style co-location, it would be quite unique (having only [style9](#style9) as a direct competitor).
+
+Also, we cannot ignore that is has Attlasian supporting its development, which puts a (slightly) bigger weight on the confidence level.
+
+The total bundle overhead is pretty small, the runtime library being quite light-weight. With static `.css` file extraction, this could potentially become even smaller.
 
 <br />
 
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |                ??? kB |       ??? kB |
-| Index page size |               74.8 kB |       214 kB |
-| vs. CSS Modules |           __+3.3 kB__ |   __+17 kB__ |
+|                 |    Transferred / gzipped |             Uncompressed |
+| :-------------- | -----------------------: | -----------------------: |
+| Runtime library | [???](#missing-chunk) kB | [???](#missing-chunk) kB |
+| Index page size |                  73.5 kB |                   208 kB |
+| vs. CSS Modules |              __+2.0 kB__ |                __+7 kB__ |
 
 <br />
 
 ```
-Page                             Size     First Load JS
-┌ ○ /                            4.16 kB        68.5 kB
-├   /_app                        0 B            64.3 kB
-├ ○ /404                         3.03 kB        67.4 kB
-└ ○ /other                       2.78 kB        67.1 kB
-+ First Load JS shared by all    64.3 kB
-  ├ chunks/commons.7af247.js     13.1 kB
-  ├ chunks/framework.9d5241.js   41.8 kB
-  ├ chunks/main.03531f.js        6.62 kB
-  ├ chunks/pages/_app.175699.js  2.17 kB
-  └ chunks/webpack.50bee0.js     751 B
+Page                              Size     First Load JS
+┌ ○ /                             4.16 kB        66.9 kB
+├   /_app                         0 B            62.7 kB
+├ ○ /404                          3.03 kB        65.8 kB
+└ ○ /other                        2.78 kB        65.5 kB
++ First Load JS shared by all     62.7 kB
+  ├ chunks/commons.7af247.js      13.1 kB
+  ├ chunks/framework.9d5241.js    41.8 kB
+  ├ chunks/main.03531f.js         6.62 kB
+  ├ chunks/pages/_app.c413ef.js   558 B
+  ├ chunks/webpack.50bee0.js      751 B
+  └ css/d9aac052842a915b5cc7.css  325 B
 ```
 
 <br />
