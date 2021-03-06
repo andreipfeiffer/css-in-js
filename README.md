@@ -407,10 +407,10 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 Most solutions market themselves as being able to _**"extract critical CSS"**_ during SSR, which does **NOT** refer to [above-the-fold critical CSS extraction](https://web.dev/extract-critical-css/), as we initially thought.
 
 What they actually do:
-- during SSR, they only generate styles for the **visible** elements for the static rendered page;
-- they don't inject styles for elements that are dynamically rendered, or lazy loaded;
+- during SSR, they only generate styles for the **visible** elements of the static rendered page;
+- they don't inject CSS for elements that are dynamically rendered, or lazy loaded;
 
-With 100% static styles, there would be actually no benefit. With dynamic pages that render very few elements on the server, and most components are rendered dynamically on the client, the benefit increases.
+With 100% static CSS, there would be actually no benefit. With dynamic pages that render very few elements on the server, and most components are rendered dynamically on the client, the benefit increases.
 
 All solutions support this feature:
 - **Treat** is the only exception, because it extracts all styles as fully static `.css`;
@@ -495,7 +495,7 @@ Basically, what we get is code removal when you delete the component, or you don
 
 #### 🟠 Debugging / Inspecting
 
-There are 2 methods to inject & update styles into the DOM from JavaScript:
+There are 2 methods to inject CSS into the DOM & update it from JavaScript:
 
 <br />
 
@@ -512,13 +512,14 @@ This approach implies adding one or more `<style>` tag(s) in the DOM (either in 
 
 ##### 2. Using `CSSStyleSheet` API
 
-First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject the styles directly into the **CSSOM**.
+First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject CSS rules directly into the **CSSOM**.
 
 - using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements it will point to an empty `<style>` tag;
    - to see all the injected styles, you'll have to select the `<style>` tag;
    - get access to it via `$0` in Chrome DevTools (or get a reference to it in any other way, using the DOM API);
    - access `.sheet.cssRules` on the `<style>` tag to see the Array of CSS rules that it contains;
-- this method is apparently more performant than the previous one, so most libraries use this method in `PRODUCTION`;
+- this method is apparently more performant than the previous one, during dynamic styles update, so most libraries use this method in `PRODUCTION`;
+   - performance gains apply only when adding new CSS rules, or updating existing ones (ie: dynamic styles update at runtime);
    - **JSS** and **Stitches** use it in `DEVELOPMENT` mode as well;
 
 <br />
