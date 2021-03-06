@@ -524,9 +524,18 @@ First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://d
 <br />
 
 #### ❌ No component deduping
+
 If the same component is imported by 2 different routes, it will be send twice to the client. This is surely a limitation of the bundler/build system, in our case Next.js, and __not related to the CSS-in-JS solution__.
 
 In Next.js, code-splitting works at the route level, bundling all components required for a specific route, but according to their [official blog](https://nextjs.org/blog/next-9-2#improved-code-splitting-strategy) and [web.dev](https://web.dev/granular-chunking-nextjs/) if a component is used in __more than 50%__ of the pages, it should be included in the `commons` bundle. However, in our example, we have 2 pages, each of them importing the `Button` component, and it's included in each page bundle, not in the `commons` bundle. Since the code required for styling is bundled with the component, this limitation will impact the styles as well, so it's worth keeping this in mind.
+
+<br />
+
+#### ❌ Missing chunk
+
+Some of the libraries are missing a separate `.js` chunk when building for production, which should contain the **runtime library code**. Instead, the runtime library seems to be included in the `_app.***.js` chunk, along with other code, making it a bit difficult to determine exactly the size of the runtime library.
+
+I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
 
 <br />
 
