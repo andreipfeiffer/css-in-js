@@ -7,16 +7,15 @@ type Props = {
 };
 
 export function Input({ value, onChange }: Props) {
-  const styles = css({
-    width: `${value}px`,
-  });
-
   return (
     <>
       <label>
         User input styles:{" "}
         <input
-          className={`${inputStaticStyles} ${styles}`}
+          className={css({
+            width: `${value}px`,
+            padding: "0.5em",
+          })}
           type="number"
           value={value}
           onChange={(e) => onChange(+e.target.value)}
@@ -25,7 +24,3 @@ export function Input({ value, onChange }: Props) {
     </>
   );
 }
-
-const inputStaticStyles = css({
-  padding: "0.5em",
-});
