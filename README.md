@@ -127,19 +127,19 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Learn](#16-learning-curve) | [17. Page size delta](#17-page-size-delta) |
-| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: | :-------: |     ---: |
-| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -  | -                     |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | 📉 |  `+3.6 kB / +13.0 kB` |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | ❌ | 📈 | `+13.9 kB / +39.0 kB` |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | 📉 |  `+6.9 kB / +20.0 kB` |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | 📉 |  `+0.3 kB /  -0.1 kB` |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 📈 |  `+2.8 kB / +19.0 kB` |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | 📉 | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | 📉 |  `+8.6 kB / +32.0 kB` |
-| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | 📉 | `+20.2 kB / +65.0 kB` |
-| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ | 📉 |  `+2.2 kB /  +7.0 kB` |
-| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ | 📉 |  `+2.0 kB /  +7.0 kB` |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Page size delta](#16-page-size-delta) |
+| :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
+| [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -                     |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+3.6 kB / +13.0 kB` |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | 🟠 | ❌ | `+13.9 kB / +39.0 kB` |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |  `+6.9 kB / +20.0 kB` |
+| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ |  `+8.6 kB / +32.0 kB` |
+| [JSS](#jss)                             | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
+| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
+| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
 
 <br />
 
@@ -324,16 +324,7 @@ Allows usage without, or with any framework. Some libraries are built specifical
 
 <br />
 
-#### 16. Learning curve
-
-A **subjective** opinion regarding the learning curve, considering that I have experience with CSS Modules, React, Hooks, TS.  
-Note ☝️ - this is very _superficial_, and meant to be only a _note to myself_. You should really evaluate this on your own.
-
-[⬆️ to overview](#overview)
-
-<br />
-
-#### 17. Page size delta
+#### 16. Page size delta
 
 The total page size difference in kB (transferred gzipped & minified / uncompressed & minified) compared to __CSS Modules__, for the entire index page production build using Next.js:
 
@@ -576,8 +567,6 @@ Launched in __2015__ | [Back to Overview](#overview)
   - ✅ `.css` file extraction
   - ❌ `<style>` tag injection
 
-- 📉📈 __Learning curve__: easy to learn, but difficult to master
-
 <br />
 
 This is the baseline we'll consider when comparing all the following __CSS-in-JS__ solutions. Checkout the [motivation](#motivation) to better understand the limitations of this approach that we're trying to fill.
@@ -645,8 +634,6 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 - __Styles output__
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
-
-- 📉 __Low Learning curve__: because the API is minimal and very simple
 
 <br />
 
@@ -737,8 +724,6 @@ Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📈 __Higher Learning curve__: we have to learn the API, get used to using the `styled` wrapper components, and basically get used to a new way to manage our styles
-
 <br />
 
 #### Worth mentioning observations
@@ -820,8 +805,6 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 - __Styles output__
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection  
-
-- 📉 __Low Learning curve__: when using the `css` prop, which is the primary approach, the API is pretty straightforward (the `styled` approach however incurs the same learning curve for [Styled Components](#styled-components))
 
 <br />
 
@@ -908,8 +891,6 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 - __Styles output__
   - ✅ `.css` file extraction
   - ❌ `<style>` tag injection
-
-- 📉 __Low Learning curve__: coming from CSS Modules it feels like home, the additional API required for variants is pretty straightforward and easy to learn
 
 <br />
 
@@ -1000,8 +981,6 @@ Version: __`2.1`__ | Maintained by [Basarat](https://twitter.com/basarat) | Laun
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📈 __High Learning curve__: the API is simple, but it doesn't provide a lot of features, so we'll still need to do manual work and to re-adjust the way we'll author styles
-
 <br />
 
 #### Worth mentioning observations
@@ -1082,8 +1061,6 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - __Styles output__
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
-
-- 📉 __Low Learning curve__: the API is simple, considering that we're comfortable with React hooks
 
 <br />
 
@@ -1174,8 +1151,6 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📉 __Low Learning curve__: the API is simple and intuitive, documentation is top-notch
-
 <br />
 
 #### Other benefits
@@ -1264,8 +1239,6 @@ Version: __`10.5`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 - __Styles output__
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
-
-- 📉 __Low Learning curve__: the API is simple, considering that we're comfortable with React hooks
 
 <br />
 
@@ -1358,8 +1331,6 @@ Version: __`2.0`__ | Maintained by [Cristian Bote](https://twitter.com/cristianb
   - ❌ `.css` file extraction
   - ✅ `<style>` tag injection
 
-- 📉 __Low Learning curve__: if you're using only the `css` API with `className`, it's a low learning curve
-
 <br />
 
 #### Other benefits
@@ -1443,8 +1414,6 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 - __Styles output__
   - ❌ `.css` file extraction _(currently under development, will be shipped in 2021)_
   - ✅ `<style>` tag injection
-
-- 📉 __Low Learning curve__: considering that `css` prop is very intuitive
 
 <br />
 
