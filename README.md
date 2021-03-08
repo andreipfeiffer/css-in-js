@@ -1427,6 +1427,7 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 
 - 🧐 styles are not placed in the `<head>` during SSR, instead they are placed right before the element using them in the `<body>`, which could potentially provide slightly faster Paint metrict, such as FCP, or LCP, because the browser can start rendering the body faster and incrementally, not waiting for the entire block of styles to be parsed
 - 😕 bundles nested styles even if they are not used in component
+- 😔 currently has no API for global styles, but it is [planned](https://github.com/atlassian-labs/compiled/issues/62) to be added
 - 😳 `ClassNames` API, which enables us to apply styles as class name strings, is a bit convoluted and weird at first sight.
 
 <br />
