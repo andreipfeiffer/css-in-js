@@ -1511,6 +1511,7 @@ The reason we didn't include it in our thorough review is because it doesn't ful
 - dynamic styles have some limitations: we have to be aware of [purging](https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html) to not get missing design tokens in production builds
 - we have to learn a new DSL: some style are similar and easy to deduce from their CSS counterparts, others are pretty different, and we have to learn (`rounded`, `place-self/content`, `divide`, `ring`)
 - some advanced CSS features, like [`::after` pseudo elements](https://github.com/tailwindlabs/tailwindcss/discussions/2119) are tricky
+- there are libraries like [xwind](https://github.com/Arthie/xwind) which integrates Tailwind with CSS-in-JS solutions, which is supports our theory that Tawilwind is not a replacement for CSS-in-JS, not does it address the same problems
 
 Some upsides:
 - we don't write CSS, which is indeed difficult to master
