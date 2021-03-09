@@ -478,15 +478,15 @@ This solution appears to be better suited when:
 
 #### 🟠 Dead code removal
 
-Most solutions say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to plain `.css` files as we used to write _a decade ago_. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to define **arbitrary selectors** or **nested styles** will bundle them, regardless if they are used or not inside the component. We've managed to ship unused styles with all the tested solutions.
+Most solutions say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially if you compare it to plain `.css` files as we used to write _a decade ago_. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to define **arbitrary selectors** or **nested styles** will bundle them, regardless if they are used or not inside the component. We've managed to ship unused styles with all the tested solutions.
 
-True & full unused code removal is difficult to implement, as the CSS syntax is not type-checked, nor statically analyzable. Also, the dynamic nature of components and markup make it practically impossible in certain scenarios, considering the markup is dynamically rendered:
+True & full unused code removal is difficult to implement, as the CSS syntax is not type-checked, nor statically analyzable. Also, the dynamic nature of components make it practically impossible in certain scenarios, especially when the markup is dynamically rendered:
 - `& span`: descendant elements;
 - `&:nth-child()`: certain pseudo selectors;
 - `& .bg-${color}`: dynamic selectors;
 - `.parent &`: parent selectors;
 
-Basically, what we get is code removal when we delete the component, or we don't import it anymore.
+Basically, what we get is code removal when we delete the component, or we don't import it anymore. That's implicit behaviour, because the styles are a direct dependency of the component. When the component is gone, so are its styles.
 
 <br />
 
