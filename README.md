@@ -42,13 +42,13 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 ## Motivation
 
-The **CSS language** and **CSS Modules** have some limitations especially if we want to have solid and type-safe code. Some of these limitations have alterative solutions, others are just being "annoying" or "less than ideal":
+The **CSS language** and **CSS Modules** have some limitations, especially if we want to have type-safe code. Some of these limitations have alterative solutions, others are just being _annoying_ or _less than ideal_:
 
 1. **Styles cannot be co-located with components**  
-  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the component and the `.css` file, searching for a given class name, and not being able to easily _"go to style definition"_ is an important productivity drawback.
+  This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the `component.js` file and the `component.css` file, searching for a given class name, and not being able to easily _"go to style definition"_, is an important productivity drawback.
 
 2. **Styling pseudos and media queries requires selector duplication**  
-  Another frustrating fact at some point is the need to duplicate our class name when defining __pseudo classes and elements__, or __media queries__. We can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, which all support the `&` parent selector, enabling __contextual styling__.
+  Another frustrating fact is the need to duplicate our CSS classes when defining __pseudo classes and elements__, or __media queries__. We can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, that supports the `&` parent selector, enabling __contextual styling__.
   
     ```css
     .button {}
@@ -64,12 +64,15 @@ The **CSS language** and **CSS Modules** have some limitations especially if we 
     ```
 
 3. **Styles usage is disconnected from their definition**  
-  We get no IntelliSense with CSS Modules, of what styles/classes are defined in the `.module.css` files, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
+  We get no IntelliSense with CSS Modules, of what CSS classes are defined in the `component.css` file, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
-4. **Using type-safe design tokens is non-trivial**  
-  Any design tokens, defined in JS/TS cannot be directly used in CSS. There are at least 2 workarounds for this issue, neither of them being elegant:
-   - We could inject them as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety when using them in `.module.css`.
+4. **Using type-safe design tokens in CSS is non-trivial**  
+  Any [design tokens](https://spectrum.adobe.com/page/design-tokens/) defined in JS/TS (to benefit from type-safety) cannot be directly used in CSS.
+  
+  There are at least 2 workarounds for this issue, neither of them being elegant:
+   - We could inject them as [CSS Custom Properties / Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety when using them in `.module.css`.
    - We could use **inline styles**, which is less performant, and it also introduces a different way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places: the component file and the `.css` file.
+   - We could use CSS (or SASS) as the source of truth for design tokens, by storing them as CSS Custom Properties and read them from JS using DOM queries, but we'd still need to manually update both the CSS and JS code when we perform any change, because we don't have type-safety when dealing with CSS;
 
 <br />
 
@@ -99,23 +102,22 @@ Getting even more specific, we wanted to experience the usage of various CSS-in-
 
 This analysis is intended to be **objective** and **unopinionated**:
 - I have not built my own CSS-in-JS library.
-- I don't work on any of these libraries.
-- I have **no intention or motivation of _promoting_ or _trashing_** either of them.  
+- I don't work on any of the libraries reviewed here.
+- I have **no intention or motivation for _promoting_ or _trashing_** either of them.
 - I have **no prior experience** with any CSS-in-JS solution, so I'm **not biased** towards any of them.
 - I have **equally used** all the solutions analyzed here, which also means I have **no extensive experience** with any of them. So, you can safely say _I'm a jack of all ~~trades~~ CSS-in-JS libraries, but master of none_.
 
 <br />
 
 👎 **What you WON'T FIND here?**  
-- which solution is _"the best"_, as I'll not add any subjective grading;
+- which solution is _"the best"_, as I'll not add any grading, which would also be highly subjective;
 - which solution is _"the fastest"_, as I'm not concearned about rendering performance metrics (you can checkout [necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
-- what solution should you pick for your next project, because I have no idea what your project is and what your goals are;
 
 <br />
 
 👍 **What you WILL FIND here?**  
 - an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
-- a limited set of **quantitative metrics** that allowed me to evaluate these solutions, which might help you as well;
+- a limited set of **quantitative metrics** that allowed us to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
 
 The libraries are not presented in any particular order. If you're interested in a brief __history of CSS-in-JS__, you should checkout the [Past, Present, and Future of CSS-in-JS](https://www.youtube.com/watch?v=75kmPj_iUOA) insightful talk by Max Stoiber.
@@ -153,7 +155,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 #### 1. Co-location
 
-The ability to define styles within the same file as the component. We can also extract the styles into a separate file and import them, but the other way around does not apply.
+The ability to define styles within the same file as the component. Note that we can also extract the styles into a separate file and import them, in case we prefer it.
 
 [⬆️ to overview](#overview)
 
@@ -164,7 +166,7 @@ The ability to define styles within the same file as the component. We can also 
 Refers to the **Developer eXperience** which includes 2 main aspects:
 
 - **syntax highlighting** for styles definition;
-- **code-completion/suggestions** for supported CSS properties, and available values (we're evaluating only the suggestion feature, not type-safety);
+- **code-completion/suggestions** for supported CSS Properties and available values (we're evaluating only the suggestion feature, not type-safety);
 
 [⬆️ to overview](#overview)
 
@@ -187,9 +189,9 @@ Support for defining __styles as strings__, using ES Tagged Templates:
 
 Support for defining __styles as objects__, using plain JavaScript objects:
 
-- uses `camelCase` for property names, like we do in [React Native](https://reactnative.dev/docs/next/style);
-- migrating existing CSS requires a complete rewrite (don't know how we would automate this);
-- we don't need additional tooling for syntax highlighting, as we get it out-of-the-box because we have to deal with JS code;
+- uses `camelCase` for property names, like we would do in [React Native](https://reactnative.dev/docs/next/style);
+- migrating existing CSS requires a complete rewrite (don't know how we could automate this);
+- we don't need additional tooling for syntax highlighting, as we get it out-of-the-box, by writting JS objects;
 - without proper TS definitions shipped with the library, we won't get code completion (☝️ we're only interested in TS, not Flow);
 
 [⬆️ to overview](#overview)
@@ -202,7 +204,7 @@ TypeScript support, either built-in, or via `@types` package, which should inclu
 
 - typings for the library API;
 - Style Object typings (in case the library supports the object syntax);
-- `Props` generics (if needed);
+- `Props` generics, where applicable (get type-safe access to component props types when defining dynamic styles);
 
 [⬆️ to overview](#overview)
 
@@ -213,7 +215,7 @@ TypeScript support, either built-in, or via `@types` package, which should inclu
 Support for __contextual styles__ allowing us to easily define __pseudo classes & elements__ and __media queries__ without the need to repeat the selector, as required in plain CSS:
 
 - can either support the SASS/LESS/Stylus `&` parent selector;
-- or provide any specific API or syntax to achieve this;
+- or provide any specific API or syntax to achieve the same result;
 
 [⬆️ to overview](#overview)
 
@@ -224,7 +226,7 @@ Support for __contextual styles__ allowing us to easily define __pseudo classes 
 Support for __arbitrary nested selectors__:
 
 - this feature allows for great flexibility, which might be useful, or required in some specific use-cases;
-- to keep in mind that it also introduces too many ways of defining styles, which might cause chaos if we want to enforce good-practices, consistency, scalability and maintainability;
+- to keep in mind that it also introduces too many ways of defining styles, which might cause chaos if we want to enforce good-practices, scalability and maintainability;
 
 [⬆️ to overview](#overview)
 
@@ -241,10 +243,10 @@ We **haven't tested out this feature**, so we're only taking notes which librari
 
 #### 9. `.css` (Static CSS extraction)
 
-Support for extracting and serving the styles as static `.css` files:
+Defined styles are extracted as static `.css` files:
  
-- it reduces the total bundle/page size, because we don't need additional runtime library, to inject and evaluate the styles;
-- this approach affects **FCP/FMP** metrics negatively when users have an empty cache, and positively when having full cached styles;
+- it reduces the total bundle/page size, because we don't need additional runtime library, for injecting and evaluating the styles;
+- this approach [affects **FCP/FMP**](#performance-metrics) metrics negatively when users have an empty cache, and positively when having full cache;
 - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
 - more suitable for less interactive solutions, where we serve a lot of different pages and we want to take advantage of cached styles (ie: e-commerce, blogs);
 
@@ -254,7 +256,7 @@ Support for extracting and serving the styles as static `.css` files:
 
 #### 10. `<style>` tag
 
-Support for serving the styles injected inside `<style>` tags in the document's `<head>`:
+Defined styles are injected inside `<style>` tags in the document's `<head>`:
 
 - makes dynamic styling super easy;
 - incurs larger payload, because we're also shipping a runtime library to handle dynamic styles;
