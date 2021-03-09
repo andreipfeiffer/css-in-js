@@ -246,7 +246,7 @@ We **haven't tested out this feature**, so we're only taking notes which librari
 Defined styles are extracted as static `.css` files:
  
 - it reduces the total bundle/page size, because we don't need additional runtime library, for injecting and evaluating the styles;
-- this approach [affects **FCP/FMP**](#performance-metrics) metrics negatively when users have an empty cache, and positively when having full cache;
+- this approach [affects **FCP/FMP**](#-performance-metrics) metrics negatively when users have an empty cache, and positively when having full cache;
 - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
 - more suitable for less interactive solutions, where we serve a lot of different pages and we want to take advantage of cached styles (ie: e-commerce, blogs);
 
@@ -272,10 +272,10 @@ Defined styles are injected inside `<style>` tags in the document's `<head>`:
 The ability to generate **atomic css classes**, thus increasing style reusability, and reducing duplication:
 
 - this generates a separate CSS class for each CSS property;
-- we'll get larger HTML files, because each element will contain a large number of CSS classes applied;
+- we'll get larger HTML files, because each element will contain a larger number of CSS classes applied;
 - theoretically [atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) reduces the scaling factor of our styles, [Facebook is doing it](https://www.youtube.com/watch?v=9JZHodNR184) as well;
 - it's debatable if the CSS total size reduction, is greater than the HTML size increase (what is the final delta)
-- theoretically, if the class names are shorter than the CSS property definition, the delta is positive so we're shipping less bytes;
+- theoretically, if the class names are shorter than the CSS property definition, the delta is positive so we're shipping less bytes (also depends a lot on compression, so not easy to draw a definite conclusion);
 - however, we're basically moving part of bytes from CSS to HTML, which might be harder to cache if we have dynamic SSRed pages;
 - also, depends a lot on what changes more frequently: the styles? or the markup?
 
@@ -288,7 +288,7 @@ The ability to generate **atomic css classes**, thus increasing style reusabilit
 The library API returns a `string` which we have to add to our component or element;
 
 - this is similar how we would normally style React components, so it's easy to adopt because we don't have to learn a new way of dealing with styles;
-- to combine styles we'll probably have to use string concatenation;
+- to combine styles we have to use string concatenation;
 
 [⬆️ to overview](#overview)
 
@@ -298,9 +298,10 @@ The library API returns a `string` which we have to add to our component or elem
 
 The API creates a wrapper (styled) component which includes the generated `className`(s):
 
-- we'll have to learn a new way to define styles, because we're not applying styles to elements, instead we're creating new components that include the styles elements;
+- we'll have to learn a new way to define styles, because we're not applying styles to elements, instead we're creating new components that include the styled elements;
 - this also introduces a bit of indiretion when figuring out what native element gets rendered inside a larger component;
 - this technique was first introduced and popularized by [Styled Components](#styled-components);
+- it's seems to be React specific
 
 [⬆️ to overview](#overview)
 
@@ -312,6 +313,7 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 - it's a convenient and ergonomic API;
 - this technique was first introduced and popularized by [Emotion](#emotion) v10;
+- it's React specific
 
 [⬆️ to overview](#overview)
 
@@ -356,15 +358,15 @@ Components used only in a specific route will only be bundled for that route. Th
 
 #### ✅ Global styles
 
-All solutions offer a way to define global styles, some with a separate API.  
+All solutions offer a way to define global styles, some with a dedicated API.
 
-- **Compiled** is the only library that don't have a dedicated API for global styles at the moment, bit it's [planned](https://github.com/atlassian-labs/compiled/issues/62)
+- **Compiled** is the only library that doesn't have a dedicated API for global styles at the moment, but it is [planned](https://github.com/atlassian-labs/compiled/issues/62)
 
 <br />
 
 #### ✅ SSR
 
-All solutions offer Server-Side Render support, and are easy to integrate with by Next.js.
+All solutions offer Server-Side Render support, and are easy to integrate with Next.js.
 
 <br />
 
@@ -376,16 +378,16 @@ All solutions automatically add vendor specific prefixes out-of-the-box.
 
 #### ✅ Unique class names
 
-All solutions generate unique class names, like CSS Modules do. The algorithms used to generate these names vary a lot between libraries:
+All solutions generate unique class names, like CSS Modules do. The algorithm used to generate these names varies a lot between libraries:
 
 - some libraries use a **hashing** algorithm, requiring more computing, but resulting in idempotent names (for example: `.heading` style from `Card` component will always have the `.Card_heading_h7Ys5` hash);
-- other libraries use **counting**, basically incrementing either a number (`.heading-0-2-1`, `.input-0-2-2`), or the alphabet letters (`a, b, c, ... aa, ab, ac`, etc), making this approach more performant, but resulting in non-idempotent class names (can't figure out if this has any potential drawbacks, or not);
+- other libraries use **counting**, basically incrementing either a number (`.heading-0-2-1`, `.input-0-2-2`), or the alphabet letters (`a, b, c, ... aa, ab, ac`, etc), making this approach more performant, but resulting in non-idempotent class names (can't figure out if this has any potential drawbacks or not);
 
 <br />
 
 #### ✅ No inline styles
 
-None of the solutions generate inline styles, which is an older approach, used by Radium & Glamor. The approach is [less performant than CSS classes](https://esbench.com/bench/5908f78199634800a0347e94), so it's [not recommended](https://reactjs.org/docs/dom-elements.html#style). It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
+None of the solutions generate inline styles, which is an older approach, used by Radium & Glamor. The approach is [less performant than CSS classes](https://esbench.com/bench/5908f78199634800a0347e94), and it's [not recommended](https://reactjs.org/docs/dom-elements.html#style) as a primary method for defining styles. It also implies using JS event handlers to trigger pseudo classes, as inline styles do not support them. Apparently, all modern solutions nowadays moved away from this approach.
 
 <br />
 
@@ -397,7 +399,7 @@ All solutions support most CSS properties that you would need: **pseudo classes 
 
 #### ✅ Critical CSS extraction
 
-Most solutions market themselves as being able to _**"extract critical CSS"**_ during SSR, which does **NOT** refer to [above-the-fold critical CSS extraction](https://web.dev/extract-critical-css/), as we initially thought.
+Most solutions market themselves as being able to _**"extract critical CSS"**_ during SSR. Please note that this does **NOT refer** to [above-the-fold critical CSS extraction](https://web.dev/extract-critical-css/), as we initially thought.
 
 What they actually do:
 - during SSR, they only generate styles for the **visible** elements of the static rendered page;
