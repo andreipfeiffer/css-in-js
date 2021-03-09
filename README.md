@@ -480,7 +480,13 @@ This solution appears to be better suited when:
 
 Most solutions say they remove unused code/styles. This is only **half-true**. Unused code is indeed more difficult to accumulate, especially of you compare it to plain `.css` files as we used to write _a decade ago_. But when compared to CSS Modules, the differencies are not that big. Any solution that offers the option to define **arbitrary selectors** or **nested styles** will bundle them, regardless if they are used or not inside the component. We've managed to ship unused styles with all the tested solutions.
 
-Basically, what we get is code removal when you delete the component, or you don't import it anymore.
+True & full unused code removal is difficult to implement, as the CSS syntax is not type-checked, nor statically analyzable. Also, the dynamic nature of components and markup make it practically impossible in certain scenarios, considering the markup is dynamically rendered:
+- `& span`: descendant elements;
+- `&:nth-child()`: certain pseudo selectors;
+- `& .bg-${color}`: dynamic selectors;
+- `.parent &`: parent selectors;
+
+Basically, what we get is code removal when we delete the component, or we don't import it anymore.
 
 <br />
 
@@ -903,7 +909,7 @@ Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 #### Worth mentioning observations
 
-- 😕 bundles styles even if they are not used in component
+- 😕 bundles all styles, exported or not, even if they are not used in component
 - 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user-defined styles
 
 <br />
