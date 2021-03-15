@@ -129,7 +129,7 @@ The libraries are not presented in any particular order. If you're interested in
 
 ## Overview
 
-|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `styled`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Page size delta](#16-page-size-delta) |
+|      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `<Styled />`](#13-styled) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Page size delta](#16-page-size-delta) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+3.6 kB / +13.0 kB` |
@@ -294,14 +294,15 @@ The library API returns a `string` which we have to add to our component or elem
 
 <br />
 
-#### 13. `styled`
+#### 13. `<Styled />`
 
-The API creates a wrapper (styled) component which includes the generated `className`(s):
+The API creates a wrapper (or `Styled`) component which includes the generated `className`(s):
 
+- this technique was first introduced and popularized by [Styled Components](#styled-components), hence the name;
 - we'll have to learn a new way to define styles, because we're not applying styles to elements, instead we're creating new components that include the styled elements;
-- this also introduces a bit of indiretion when figuring out what native element gets rendered inside a larger component;
-- this technique was first introduced and popularized by [Styled Components](#styled-components);
-- it's seems to be React specific
+- this also introduces a bit of indiretion when figuring out what native elements gets rendered inside a larger component;
+- we end up creating components like `StyledButton` or `StyledList` instead of constants like `button_styles` or `list_styles`, so regarding naming it's pretty much the same thing;
+- it's seems to be React specific;
 
 [⬆️ to overview](#overview)
 
