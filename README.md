@@ -69,7 +69,7 @@ The **CSS language** and **CSS Modules** have some limitations, especially if we
 4. **Using type-safe design tokens in CSS is non-trivial**  
   Any [design tokens](https://spectrum.adobe.com/page/design-tokens/) defined in JS/TS (to benefit from type-safety) cannot be directly used in CSS.
   
-  There are at least 2 workarounds for this issue, neither of them being elegant:
+   There are at least 2 workarounds for this issue, neither of them being elegant:
    - We could inject them as [CSS Custom Properties / Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety when using them in `.module.css`.
    - We could use **inline styles**, which is less performant, and it also introduces a different way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places: the component file and the `.css` file.
    - We could use CSS (or SASS) as the source of truth for design tokens, by storing them as CSS Custom Properties and read them from JS using DOM queries, but we'd still need to manually update both the CSS and JS code when we perform any change, because we don't have type-safety when dealing with CSS;
