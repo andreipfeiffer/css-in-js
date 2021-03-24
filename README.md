@@ -315,7 +315,7 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 - it's a convenient and ergonomic API;
 - this technique was first introduced and popularized by [Emotion](#emotion) v10;
-- it's seems to be React specific
+- it's seems to be available only for React/JSX-based syntax
 
 [⬆️ to overview](#overview)
 
