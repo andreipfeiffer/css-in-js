@@ -302,7 +302,8 @@ The API creates a wrapper (or `Styled`) component which includes the generated `
 - we'll have to learn a new way to define styles, because we're not applying styles to elements, instead we're creating new components that include the styled elements;
 - this also introduces a bit of indiretion when figuring out what native elements gets rendered inside a larger component;
 - we end up creating components like `StyledButton` or `StyledList` instead of constants like `button_styles` or `list_styles`, so regarding naming it's pretty much the same thing;
-- it's seems to be React specific;
+- since the styles/class names are not re-used (we re-use the entire component), it makes sense to encapsulate the styles within the component and not think about 2 different aspects of the same entity;
+- it's not React specific, can also be used with [Vue](https://github.com/styled-components/vue-styled-components);
 
 [⬆️ to overview](#overview)
 
@@ -314,7 +315,7 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 - it's a convenient and ergonomic API;
 - this technique was first introduced and popularized by [Emotion](#emotion) v10;
-- it's React specific
+- it's seems to be React specific
 
 [⬆️ to overview](#overview)
 
