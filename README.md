@@ -111,7 +111,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 
 👎 **What you WON'T FIND here?**  
 - which solution is _"the best"_, as I'll not add any grading, which would also be highly subjective;
-- which solution is _"the fastest"_, as I'm not concearned about rendering performance metrics (you can checkout [necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
+- which solution is _"the fastest"_, as I'm not concearned about rendering performance metrics (you can checkout [Necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
 
 <br />
 
