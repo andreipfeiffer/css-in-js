@@ -1401,9 +1401,9 @@ Page                             Size     First Load JS
 
 ### Compiled
 
-A rather new library, having the huge Attlasian platform supporting and probably using it. Many existing features, even more in development, or planned for development.
+A rather new library, having the huge Atlassian platform supporting and probably using it. Many existing features, even more in development, or planned for development.
 
-Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs) | Launched in __2020__ | [View Docs](https://compiledcssinjs.com/docs/) | ... [back to Overview](#overview)
+Version: __`0.6`__ | Maintained by [Atlassian](https://github.com/atlassian-labs) | Launched in __2020__ | [View Docs](https://compiledcssinjs.com/docs/) | ... [back to Overview](#overview)
 
 <br />
 
@@ -1420,7 +1420,7 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 
 - __Styles nesting__
   - ✅ Contextual styles
-  - ✅ Abitrary nesting
+  - ✅ Arbitrary nesting
 
 - __Styles apply method(s)__
   - 🟠 `className` _(only supported with a custom [ClassNames](https://compiledcssinjs.com/docs/class-names) component)_
@@ -1435,13 +1435,13 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 
 #### Other benefits
 
-- 😌 using the `css` prop is seemless and trivial, not requiring any special setup, unlike Emotion
+- 😌 using the `css` prop is seamless and trivial, not requiring any special setup (unlike Emotion)
 
 <br />
 
 #### Worth mentioning observations
 
-- 🧐 styles are not placed in the `<head>` during SSR, instead they are placed right before the element using them in the `<body>`, which could potentially provide slightly faster Paint metrict, such as FCP, or LCP, because the browser can start rendering the body faster and incrementally, not waiting for the entire block of styles to be parsed
+- 🧐 styles are not placed in the `<head>` during SSR - instead they are placed right before the element using them in the `<body>`, which could potentially provide slightly faster Paint metrics, such as FCP, or LCP, because the browser can start rendering the body faster and incrementally, not waiting for the entire block of styles to be parsed
 - 😕 bundles nested styles even if they are not used in component
 - 😔 currently has no API for global styles, but it is [planned](https://github.com/atlassian-labs/compiled/issues/62) to be added
 - 😳 `ClassNames` API, which enables us to apply styles as class name strings, is a bit convoluted and weird at first sight.
@@ -1450,9 +1450,9 @@ Version: __`0.6`__ | Maintained by [Attlasian](https://github.com/atlassian-labs
 
 #### Conclusions
 
-Compiled is a very promising library. Considering that it offers both atomic CSS, and it plans to support static `.css` extraction, with excelent TypeScript support and style co-location, it would be quite unique (having only [style9](#style9) as a direct competitor).
+Compiled is a very promising library. Considering that it offers both atomic CSS, and it plans to support static `.css` extraction, with excellent TypeScript support and style co-location, it would be quite unique (having only [style9](#style9) as a direct competitor).
 
-Also, we cannot ignore that is has Attlasian supporting its development, which puts a (slightly) bigger weight on the confidence level.
+Also, we cannot ignore that is has Atlassian supporting its development, which puts a (slightly) bigger weight on the confidence level.
 
 The total bundle overhead is pretty small, the runtime library being quite light-weight. With static `.css` file extraction, this could potentially become even smaller.
 
