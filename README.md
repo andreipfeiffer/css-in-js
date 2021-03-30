@@ -1135,6 +1135,8 @@ Page                             Size     First Load JS
 
 ### Stitches
 
+🚧 will be updated to `0.1-beta`
+
 Very young library, probably the most solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
 Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
