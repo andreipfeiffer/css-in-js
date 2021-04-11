@@ -1813,10 +1813,10 @@ goober-autoprefixer@^1.2.1:
   dependencies:
     tiny-css-prefixer "^1.1.4"
 
-goober@^2.0.28:
-  version "2.0.28"
-  resolved "https://registry.yarnpkg.com/goober/-/goober-2.0.28.tgz#2fc450f363da7dd4f2628529b2cb9209d86e981d"
-  integrity sha512-chb/2a0PiCW0isKEfO2FWa++SON4hrUANY5G/evhkuBk1M4k3ehm3JilctICB5AiPYbRlE+b0qFGzfDJW7z3Jw==
+goober@2.0.37:
+  version "2.0.37"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.0.37.tgz#5598c41f4c19bc1fca2c926e876a58a685faffb8"
+  integrity sha512-wgj5C7IJX2+MyHZ4TgOA+hLL1mCDW+jGorQ5KCMLF1ofE9gQkfbo1s8txIrzIsAX65XRTm0qaipolId2KMYUkw==
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   version "4.2.4"

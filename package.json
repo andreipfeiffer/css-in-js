@@ -11,7 +11,7 @@
   "dependencies": {
     "@agney/babel-plugin-goober-css-prop": "^0.0.1",
     "@next/bundle-analyzer": "^10.0.5",
-    "goober": "^2.0.28",
+    "goober": "2.0.37",
     "goober-autoprefixer": "^1.2.1",
     "next": "10.0.5",
     "next-compose-plugins": "^2.2.1",
