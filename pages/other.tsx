@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { styled } from "goober";
+// import { styled } from "goober";
 import { Button } from "../components/button";
 
 export default function Home() {
@@ -9,7 +9,14 @@ export default function Home() {
     <main>
       <Button onClick={() => router.back()}>Go Back</Button>
 
-      <Heading>Another route</Heading>
+      <h1
+        css={{
+          maxWidth: "75vw",
+          fontSize: "1.5em",
+        }}
+      >
+        Another route
+      </h1>
 
       <p>
         Styles should be code-splitted, loaded only when the route is loaded.
@@ -24,10 +31,10 @@ export default function Home() {
 }
 
 // can use either tagged templates
-const Heading = styled("h1")`
-  max-width: 75vw;
-  font-size: 1.5rem;
-`;
+// const Heading = styled("h1")`
+//   max-width: 75vw;
+//   font-size: 1.5rem;
+// `;
 
 // or object styles
 // const Heading = styled("h1")({
