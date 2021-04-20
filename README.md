@@ -1056,7 +1056,7 @@ Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser
 - ✅ __Atomic CSS__
 - ✅ __Framework agnostic__
 - 🟠 __TypeScript support__: it exposes Flow types, which work ok, from our (limited) experience
-- 🟠 __Context-aware code completion__: styles defined outside the component require explicit typing to get code completion
+- 🟠 __Context-aware code completion__: styles defined outside the component require [explicit typing](https://github.com/andreipfeiffer/css-in-js/blob/fela/components/input.tsx#L29) to get code completion
 
 - __Styles definition method(s)__
   - 🟠 Tagged Templates
