@@ -1047,7 +1047,7 @@ Page                                                           Size     First Lo
 
 It appears to be a mature solution, with quite a number of users. The API is intuitive and very easy to use, great integration for React using hooks.
 
-Version: __`11.5`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/) | ... [back to Overview](#overview)
+Version: __`11.6`__ | Maintained by [Robin Weser](https://twitter.com/robinweser) | Launched in __2016__ | [View Docs](https://fela.js.org/docs/) | ... [back to Overview](#overview)
 
 <br />
 
