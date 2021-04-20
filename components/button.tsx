@@ -1,4 +1,4 @@
-import { CssFelaStyle, useFela } from "react-fela";
+import { FelaStyle, useFela } from "react-fela";
 
 enum Color {
   grey = "#cccccc",
@@ -40,7 +40,7 @@ const button_animation = {
   },
 };
 
-const buttonStyle: CssFelaStyle<{}, Props> = (props) => ({
+const buttonStyle: FelaStyle<{}, Props> = (props) => ({
   border: 0,
   height: "3em",
   padding: "0 2em",

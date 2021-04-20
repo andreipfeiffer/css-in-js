@@ -1,4 +1,4 @@
-import { CssFelaStyle, useFela } from "react-fela";
+import { FelaStyle, useFela } from "react-fela";
 
 type Props = {
   value: number;
@@ -26,7 +26,7 @@ export function Input(props: Props) {
 
 // styles can also be declared as a rule
 // rule typings are a bit convoluted
-const inputStyle: CssFelaStyle<{}, Props> = (props) => ({
+const inputStyle: FelaStyle<{}, Props> = (props) => ({
   padding: "0.5em",
   width: `${props.value}px`,
 });
