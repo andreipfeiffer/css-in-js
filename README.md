@@ -10,7 +10,7 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 > ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
 
-> 🗓 _Last update: **Mar 2021**_
+> 🗓 _Last update: **Apr 2021**_
 
 <br />
 
