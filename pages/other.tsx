@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import * as styles from "../styles/other.treat";
+import * as styles from "../styles/other.css";
 import { Button } from "../components/button";
 
 export default function Home() {

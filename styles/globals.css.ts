@@ -1,4 +1,4 @@
-import { globalStyle } from "treat";
+import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("html, body", {
   padding: 0,

@@ -1,4 +1,4 @@
-import * as styles from "./input.treat";
+import * as styles from "./input.css";
 
 type Props = {
   value: number;

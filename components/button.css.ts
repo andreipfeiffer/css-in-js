@@ -1,5 +1,16 @@
-import { style, styleMap } from "treat";
-import { ColorVariants, Color } from "./button.types";
+import { style, keyframes, styleVariants } from "@vanilla-extract/css";
+import { Color } from "./button.types";
+
+const hoverAnimation = keyframes({
+  from: {
+    transform: "translateY(0)",
+    boxShadow: "none",
+  },
+  to: {
+    transform: "translateY(-0.5em)",
+    boxShadow: "0 0.5em 0 0 #ddd",
+  },
+});
 
 export const button = style({
   border: 0,
@@ -19,17 +30,7 @@ export const button = style({
     // animationName: "button-animation",
     animationFillMode: "forwards",
     animationDuration: "0.5s",
-
-    "@keyframes": {
-      from: {
-        transform: "translateY(0)",
-        boxShadow: "none",
-      },
-      to: {
-        transform: "translateY(-0.5em)",
-        boxShadow: "0 0.5em 0 0 #ddd",
-      },
-    },
+    animationName: hoverAnimation,
   },
 
   "@media": {
@@ -43,7 +44,7 @@ export const button_text = style({
   color: "white",
 });
 
-export const button_variants = styleMap<ColorVariants>({
+export const button_variants = styleVariants({
   blue: {
     color: Color.blue,
   },

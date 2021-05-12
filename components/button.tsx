@@ -1,4 +1,4 @@
-import * as styles from "./button.treat";
+import * as styles from "./button.css";
 import { ColorVariants } from "./button.types";
 
 type Props = {
