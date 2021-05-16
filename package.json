@@ -11,14 +11,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@linaria/babel-preset": "^3.0.0-beta.4",
+    "@linaria/core": "^3.0.0-beta.4",
+    "@linaria/react": "^3.0.0-beta.4",
+    "@linaria/shaker": "^3.0.0-beta.4",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@linaria/webpack-loader": "^3.0.0-beta.4",
     "@types/node": "14.14.25",
     "@types/react": "17.0.1",
     "@types/react-dom": "17.0.0",
+    "postcss": "^8.2.15",
     "typescript": "4.1.3"
   }
 }
