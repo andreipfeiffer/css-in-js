@@ -34,6 +34,7 @@ Last important aspect is type-safety with full **TypeScript** support.
   - [**JSS**](#jss)
   - [**Goober**](#goober)
   - [**Compiled**](#compiled)
+  - [**Linaria**](#linaria)
 - [Libraries not included](#libraries-not-included)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
@@ -142,6 +143,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
 | [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
+| [Linaria](#linaria)                     | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |  `+2.9 kB /  +7.0 kB` |
 
 <br />
 
@@ -1478,6 +1480,93 @@ Page                              Size     First Load JS
   ├ chunks/pages/_app.c413ef.js   558 B
   ├ chunks/webpack.50bee0.js      751 B
   └ css/d9aac052842a915b5cc7.css  325 B
+```
+
+---
+
+<br/>
+
+### Linaria
+
+Linaria is all about static CSS extraction and avoiding any runtime overhead.
+
+Version: __`3.0 (beta)`__ | Maintained by [Callstack](https://github.com/callstack) | Launched in __2018__ | [View Docs](https://github.com/callstack/linaria#documentation) | ... [back to Overview](#overview)
+
+<br />
+
+- ✅ __Styles/Component co-location__
+- ✅ __TypeScript support__
+- ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
+- ✅ __Built-in Theming support__
+- ❌ __No Atomic CSS__
+
+- __Styles definition method(s)__
+  - ✅ Tagged Templates
+  - ❌ Style Objects
+
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ✅ Arbitrary nesting
+
+- __Styles apply method(s)__
+  - ✅ `className`
+  - ✅ `styled` component
+  - ❌ `css` prop
+
+- __Styles output__
+  - ✅ `.css` file extraction
+  - ❌ `<style>` tag injection
+
+<br />
+
+#### Other benefits
+
+- 😎 it's the only existing library at the moment (with a stable release) that supports both co-location & static CSS extraction (Compiled could also support this soon)
+
+<br />
+
+#### Worth mentioning observations
+
+- 😕 bundles nested styles even if they are not used in component
+- 😔 [global styling](https://github.com/callstack/linaria/blob/master/docs/BASICS.md#adding-global-styles) is documented, but we didn't get to make them work with Next.js
+- 😳 documentation is not top-notch, there isn't a dedicated website, no search feature and it feels like trial & error when trying to find a piece of information
+
+<br />
+
+#### Conclusions
+
+Linaria is highly inspired from Astroturf, combining various features from other libraries.
+
+Version 3 is currently in Beta, not sure what the changelog is compared to v2. It's still in development by the _React/Native geeks_ at **Callstack.io**, but we couldn't find which of the big players use it in production.
+
+It seems to have a slightly larger overall page size (`2.9 KB`), but we didn't investigate where does this come from. Also, there's an open question if this overhead is fixed or if it scales.
+
+<br />
+
+|                 |     Transferred / gzipped |              Uncompressed |
+| :-------------- | ------------------------: | ------------------------: |
+| Runtime library |                      - kB |                      - kB |
+| Index page size |                   74.4 kB |                    208 kB |
+| vs. CSS Modules |               __+2.9 kB__ |                 __+7 kB__ |
+
+<br />
+
+```
+Page                                Size     First Load JS
+┌ ○ /                               5.05 kB        67.8 kB
+├   └ css/012ea8f1a55714e36837.css  445 B
+├   /_app                           0 B            62.8 kB
+├ ○ /404                            3.03 kB        65.8 kB
+└ ○ /other                          3.63 kB        66.4 kB
+    └ css/5fd6e40e35434dd63597.css  448 B
++ First Load JS shared by all       62.8 kB
+  ├ chunks/commons.7af247.js        13.1 kB
+  ├ chunks/framework.9d5241.js      41.8 kB
+  ├ chunks/main.03531f.js           6.62 kB
+  ├ chunks/pages/_app.fd16d9.js     578 B
+  ├ chunks/webpack.50bee0.js        751 B
+  └ css/d9aac052842a915b5cc7.css    325 B
 ```
 
 <br />
