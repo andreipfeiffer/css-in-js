@@ -1,4 +1,4 @@
-import css from "styled-jsx/css";
+import { styled } from "@linaria/react";
 
 enum Color {
   grey = "#cccccc",
@@ -9,58 +9,48 @@ enum Color {
 }
 
 type Props = {
-  children: string;
+  children: any;
   color?: keyof typeof Color;
   onClick?(): void;
 };
 
 export function Button(props: Props) {
-  const { children, color = "grey", onClick } = props;
+  const { children, ...rest } = props;
 
   return (
-    <button onClick={onClick}>
+    <StyledButton {...rest}>
       <span>{children}</span>
-
-      <style jsx>{button}</style>
-      <style jsx>
-        {`
-          // dynamic styles, need to be split from static styles
-          button {
-            color: ${Color[color]};
-          }
-        `}
-      </style>
-    </button>
+    </StyledButton>
   );
 }
 
-const button = css`
-  button {
-    border: 0;
-    height: 3em;
-    padding: 0 2em;
-    border-radius: 1.5em;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100vw;
-    display: block;
-    outline: 0;
-    background-color: currentColor;
-    margin: 1em auto;
-  }
+const StyledButton = styled.button<Props>`
+  border: 0;
+  height: 3em;
+  padding: 0 2em;
+  border-radius: 1.5em;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100vw;
+  display: block;
+  outline: 0;
+  background-color: currentColor;
+  margin: 1em auto;
+
+  color: ${(props) => Color[props.color || "grey"]};
 
   span {
     color: white;
   }
 
-  button:hover {
+  &:hover {
     animation-name: button-animation;
     animation-fill-mode: forwards;
     animation-duration: 0.5s;
   }
 
   @media only screen and (min-width: 640px) {
-    button {
+    & {
       width: 100%;
     }
   }

@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# linaria cache
+.linaria-cache/
