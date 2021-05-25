@@ -1542,6 +1542,8 @@ Version 3 is currently in Beta, not sure what the changelog is compared to v2. I
 
 It seems to have a slightly larger overall page size (`2.9 KB`), but we didn't investigate where does this come from. Also, there's an open question if this overhead is fixed or if it scales.
 
+PS: thanks to [Daniil Petrov](https://github.com/daniepetrov) for his PR with the Next.js integration
+
 <br />
 
 |                 |     Transferred / gzipped |              Uncompressed |
@@ -1648,12 +1650,6 @@ I got it started with Next.js, but it feels fragile. The [Glamor official exampl
 - lacks any TS support
 - has a lot of documented experimental features, marked as "buggy"
 - it feels like a side/internal project at FB, that is not used anymore.
-
-### Linaria
-
-Didn't manage to start it with Next.js + TypeScript.
-
-It was an interesting solution, as it promises zero-runtime overhead, generating `.css` files at build time, while the style are collocated within the components.
 
 ### Cxs
 
