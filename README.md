@@ -1195,11 +1195,11 @@ However, we cannot ignore the fact that it's still in beta.
 
 <br />
 
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |                8.9 kB |      29.5 kB |
-| Index page size |               80.1 kB |       233 kB |
-| vs. CSS Modules |           __+8.6 kB__ |   __+32 kB__ |
+|                 | Transferred / gzipped  | Uncompressed |
+| :-------------- | --------------------:  | -----------: |
+| Runtime library |                5.3 kB  |      14.4 kB |
+| Index page size |               83.1 kB  |       245 kB |
+| vs. CSS Modules |           __+11.6 kB__ |   __+44 kB__ |
 
 <br />
 
