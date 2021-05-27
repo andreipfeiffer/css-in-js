@@ -139,7 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |  `+5.3 kB / +14.4 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |  `+11.6 kB / +44 kB` |
 | [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
 | [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
@@ -1181,7 +1181,6 @@ Version: __`0.1.9`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 😵 uses `insertRule()` in development also, so we cannot see what gets bundled
 - 🤔 dynamic styles can be defined either using built-in `variants` (for predefined styles), or styles created inside the component to get access to the `props`
 - 🧐 would help a lot to get the search feature inside the docs
 
