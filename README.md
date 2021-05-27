@@ -1204,18 +1204,17 @@ However, we cannot ignore the fact that it's still in beta.
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.42 kB        73.9 kB
-├   /_app                                                      0 B            71.5 kB
-├ ○ /404                                                       3.03 kB        74.5 kB
-└ ○ /other                                                     959 B          72.4 kB
-+ First Load JS shared by all                                  71.5 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.f723af.js  8.46 kB
-  ├ chunks/commons.7af247.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.99ad68.js                                      6.62 kB
-  ├ chunks/pages/_app.51b7a9.js                                832 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                               Size     First Load JS
+┌ ○ /                              7.65 kB        75.9 kB
+├   /_app                          0 B            68.3 kB
+├ ○ /404                           3.03 kB        71.3 kB
+└ ○ /other                         6.25kB         74.5 kB
++ First Load JS shared by all      68.3 kB
+  ├ chunks/commons.7af247.js       13.1 kB
+  ├ chunks/framework.9d5241.js     41.8 kB
+  ├ chunks/main.03531f.js          6.62 kB
+  ├ chunks/pages/_app.ee5dca.js    6.11 kB
+  └ chunks/webpack.50bee0.js       751 B
 ```
 
 <br/>
