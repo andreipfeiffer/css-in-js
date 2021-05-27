@@ -52,14 +52,14 @@ const StyledButton = styled("button", {
     color: "white",
   },
 
-  ":hover": {
+  "&:hover": {
     animation: `${button_animation}`,
     animationFillMode: "forwards",
     animationDuration: "0.5s",
   },
 
   // breakpoints defined in config
-  desktop: {
+  "@desktop": {
     width: "100%",
   },
 
