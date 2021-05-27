@@ -1,8 +1,8 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-import { css, global } from "../stitches.config";
+import { global } from "../stitches.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
-	globalStyles()
+  globalStyles();
   return (
     <>
       <Component {...pageProps} />
