@@ -2,8 +2,8 @@
 
 This document contains an in-depth analysis of all the current **CSS-in-JS** solutions, that support **Server Side Rendering** and **TypeScript**.
 
-The baseline reference we'll use for comparison is a **CSS Modules** approach.  
-We're using **Next.js** as a SSR framework for building resources.  
+The baseline reference we'll use for comparison is a **CSS Modules** approach.
+We're using **Next.js** as a SSR framework for building resources.
 Last important aspect is type-safety with full **TypeScript** support.
 
 <br />
@@ -45,12 +45,12 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 The **CSS language** and **CSS Modules** have some limitations, especially if we want to have type-safe code. Some of these limitations have alterative solutions, others are just being _annoying_ or _less than ideal_:
 
-1. **Styles cannot be co-located with components**  
+1. **Styles cannot be co-located with components**
   This can be frustrating when authoring many small components, but it's not a deal breaker. However, the experience of moving back-and-forth between the `component.js` file and the `component.css` file, searching for a given class name, and not being able to easily _"go to style definition"_, is an important productivity drawback.
 
-2. **Styling pseudos and media queries requires selector duplication**  
+2. **Styling pseudos and media queries requires selector duplication**
   Another frustrating fact is the need to duplicate our CSS classes when defining __pseudo classes and elements__, or __media queries__. We can overcome these limitations using a CSS preprocessor like __SASS, LESS or Stylus__, that supports the `&` parent selector, enabling __contextual styling__.
-  
+
     ```css
     .button {}
 
@@ -64,12 +64,12 @@ The **CSS language** and **CSS Modules** have some limitations, especially if we
     }
     ```
 
-3. **Styles usage is disconnected from their definition**  
+3. **Styles usage is disconnected from their definition**
   We get no IntelliSense with CSS Modules, of what CSS classes are defined in the `component.css` file, making **copy-paste** a required tool, lowering the DX. It also makes __refactoring very cumbersome__, because of the lack of safety.
 
-4. **Using type-safe design tokens in CSS is non-trivial**  
+4. **Using type-safe design tokens in CSS is non-trivial**
   Any [design tokens](https://spectrum.adobe.com/page/design-tokens/) defined in JS/TS (to benefit from type-safety) cannot be directly used in CSS.
-  
+
    There are at least 2 workarounds for this issue, neither of them being elegant:
    - We could inject them as [CSS Custom Properties / Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), but we still don't get any IntelliSense or type-safety when using them in `.module.css`.
    - We could use **inline styles**, which is less performant, and it also introduces a different way to write styles (camelCase vs. kebab-case), while also splitting the styling in 2 different places: the component file and the `.css` file.
@@ -110,13 +110,13 @@ This analysis is intended to be **objective** and **unopinionated**:
 
 <br />
 
-👎 **What you WON'T FIND here?**  
+👎 **What you WON'T FIND here?**
 - which solution is _"the best"_, as I'll not add any grading, which would also be highly subjective;
 - which solution is _"the fastest"_, as I'm not concearned about rendering performance metrics (you can checkout [Necholas's benchmarks](https://necolas.github.io/react-native-web/benchmarks/) for this);
 
 <br />
 
-👍 **What you WILL FIND here?**  
+👍 **What you WILL FIND here?**
 - an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
 - a limited set of **quantitative metrics** that allowed us to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
@@ -139,7 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ |  `+8.6 kB / +32.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |  `+5.3 kB / +14.4 kB` |
 | [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
 | [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
@@ -236,7 +236,7 @@ Support for __arbitrary nested selectors__:
 
 #### 8. Theming
 
-Built-in support for Theming or managing tokens for a design system.  
+Built-in support for Theming or managing tokens for a design system.
 We **haven't tested out this feature**, so we're only taking notes which libraries express their support in their docs.
 
 [⬆️ to overview](#overview)
@@ -246,7 +246,7 @@ We **haven't tested out this feature**, so we're only taking notes which librari
 #### 9. `.css` (Static CSS extraction)
 
 Defined styles are extracted as static `.css` files:
- 
+
 - it reduces the total bundle/page size, because we don't need additional runtime library, for injecting and evaluating the styles;
 - this approach [affects **FCP/FMP**](#-performance-metrics) metrics negatively when users have an empty cache, and positively when having full cache;
 - dynamic styling could potentially increase the generated file, because all style combinations must be pre-generated at built time;
@@ -325,7 +325,7 @@ Allows passing styles using a special `css` prop, similar how we would define in
 
 #### 15. Framework agnostic
 
-Allows usage without, or with any framework. Some libraries are built specifically for React only.  
+Allows usage without, or with any framework. Some libraries are built specifically for React only.
 **NOTE**: some libraries like **Stitches**, **Emotion**, or **Treat** document only React usage, although they have a **core** that's framework agnostic.
 
 [⬆️ to overview](#overview)
@@ -427,11 +427,11 @@ Also, there are 2 different scenarios we need to consider:
 
 <br />
 
-#### 1. `.css` file extraction  
+#### 1. `.css` file extraction
 
 Solutions that generate `.css` static files, which you normally would include as `<link>` tag(s) in the `<head>` of your page, are basically [rendering-blocking resources](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css). This highly affects **FCP**, **LCP** and any other metric that follows.
 
-📭 **Empty cache**  
+📭 **Empty cache**
 If the user has an empty cache, the following needs to happen, **negatively** impacting **FCP** and **LCP**:
 
 - the browser needs to make an additional request, which implies a full **RTT** (Round Trip Time) to our server;
@@ -441,12 +441,12 @@ If the user has an empty cache, the following needs to happen, **negatively** im
 
 It's true that you can fetch in **parallel** other `<head>` resources (additional `.css` or `.js` files), but this is generally a bad practice;
 
-📬 **Full cache**  
+📬 **Full cache**
 However, on subsequent visits, the entire `.css` resource would be cached, so **FCP** and **LCP** would be positively impacted.
 
 <br />
 
-💡 **Key points**  
+💡 **Key points**
 This solution appears to be better suited when:
 - we have many Server Side Rendered pages that our users visit, maybe even containing a common `.css` file that can be cached when visiting other pages;
 - we don't update the styles frequently, so they can be cached for longer periods of time;
@@ -458,7 +458,7 @@ This solution appears to be better suited when:
 
 During **SSR**, styles will be added as `<style>` tag(s) in the `<head>` of the page. Keep in mind that these usually do NOT include all styles needed for the page, because most libraries perform [Critical CSS extraction](#-critical-css-extraction), so these `styles` should be usually smaller than the entire `.css` static file discussed previously.
 
-📭 **Empty cache**  
+📭 **Empty cache**
 Because we're shipping less CSS bytes, and they are inlined inside the `.html` file, this would result in faster **FCP** and **LCP**:
 
 - we don't need additional requests for `.css` files, so the browser is not blocked;
@@ -468,15 +468,15 @@ Because we're shipping less CSS bytes, and they are inlined inside the `.html` f
    - the styles required for the page, bundled in `.js` files along with the components, during [hydration](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration-issues) (this includes all the critical CSS already shipped inside the `<style>` tag + others);
 - all these files are required to be fetched, parsed and executed to get a **fully interactive** page;
 
-📬 **Full cache**  
-When the user's cache is full, the additional `.js` files won't require fetching, as they are already cached.  
+📬 **Full cache**
+When the user's cache is full, the additional `.js` files won't require fetching, as they are already cached.
 However, if the page is **SSRed**, the inlined critical CSS rendered in the `<style>` tag of the document will be downloaded again, unless we deal with static HTML that can be cached as well, or we deal with HTML caching on our infrastructure.
 
 But, by default, we will ship extra bytes on every page HTTP request, regardless if it's cached or not.
 
 <br />
 
-💡 **Key points**  
+💡 **Key points**
 This solution appears to be better suited when:
 - we deal with SPA (Single Page Applications), where we have one (or few) SSR pages;
 - we update the styles frequently, so even if they could be cached, it won't have a positive impact;
@@ -543,7 +543,7 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 Some of the libraries are missing a separate `.js` chunk when building for production, which should contain the **runtime library code**. Instead, the runtime library seems to be included in the `_app.***.js` chunk, along with other code, making it a bit difficult to determine exactly the size of the runtime library.
 
-This applies to [Fela](#fela), [Goober](#goober) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
+This applies to [Fela](#fela), [Goober](#goober) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it.
 
 <br />
 
@@ -819,7 +819,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
 
 - __Styles output__
   - ❌ `.css` file extraction
-  - ✅ `<style>` tag injection  
+  - ✅ `<style>` tag injection
 
 <br />
 
@@ -1136,11 +1136,11 @@ Page                             Size     First Load JS
 
 ### Stitches
 
-🚧 will be updated to `0.1-beta`
+🚧 currently in beta
 
 Very young library, solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
-Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
+Version: __`0.1.9`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
 
 <br />
 
@@ -1149,7 +1149,7 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - ✅ __Context-aware code completion__
 - ✅ __Built-in Theming support__
 - ✅ __Atomic CSS__
-- ❌ __Not Framework agnostic__: there is a `@stitches/core` package, but only React is supported at the moment
+- ✅ __Framework agnostic__: via the `@stitches/core` package
 
 - __Styles definition method(s)__
   - ❌ Tagged Templates
@@ -1162,7 +1162,7 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - __Styles apply method(s)__
   - ✅ `className`
   - ✅ `styled` component
-  - 🟠 `css` prop _(used only to override `styled` components)_
+  - ✅ `css` prop
 
 - __Styles output__
   - ❌ `.css` file extraction
@@ -1182,7 +1182,6 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 - 😕 bundles nested styles even if they are not used in component
 - 😵 uses `insertRule()` in development also, so we cannot see what gets bundled
-- 🤨 it expands short-hand properties, from `padding: 1em;` will become `padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em;`
 - 🤔 dynamic styles can be defined either using built-in `variants` (for predefined styles), or styles created inside the component to get access to the `props`
 - 🧐 would help a lot to get the search feature inside the docs
 
@@ -1192,7 +1191,7 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took some of the best features from other solutions and put them together for an awesome development experience. The first thing that impressed us was definitely the documentation. The second, is the API they expose which is close to top-notch. The features they provide are not huge in quantity, but are very well-thought-out.
 
-However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as "light-weight", but at __8 kB__ it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
+However, we cannot ignore the fact that it's still in beta.
 
 <br />
 
@@ -1626,7 +1625,7 @@ Some upsides:
 - successfully bundles only used styles, doesn't bundle all classes defined in `tailwind.config`
    - exception: keyframe animations (spin, ping, etc)
    - beware of purging
-   
+
 Tailwind seems to be more than a _styling tool_, it also offers some out-of-the-box utils + a ready-made design system that you can use right away.
 
 
