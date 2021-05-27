@@ -1,12 +1,12 @@
-import { createStyled } from "@stitches/react";
+import { createCss } from "@stitches/react";
 
 const theme = {
   colors: {},
 };
 
-export const { styled, css } = createStyled({
-  tokens: theme,
-  breakpoints: {
-    desktop: (rule) => `@media (min-width: 640px) { ${rule} }`,
+export const { styled, css, global, keyframes, getCssString } = createCss({
+  theme,
+  media: {
+    desktop: `(min-width: 640px)`,
   },
 });

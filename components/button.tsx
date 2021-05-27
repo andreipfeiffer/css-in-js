@@ -1,4 +1,4 @@
-import { css, styled } from "../stitches.config";
+import { styled, keyframes } from "../stitches.config";
 
 enum Color {
   grey = "#cccccc",
@@ -24,7 +24,7 @@ export function Button(props: Props) {
   );
 }
 
-const button_animation = css.keyframes({
+const button_animation = keyframes({
   from: {
     transform: "translateY(0)",
     boxShadow: "none",

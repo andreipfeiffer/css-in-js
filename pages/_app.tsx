@@ -1,7 +1,8 @@
 import type { AppProps /*, AppContext */ } from "next/app";
-import { css } from "../stitches.config";
+import { css, global } from "../stitches.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
+	globalStyles()
   return (
     <>
       <Component {...pageProps} />
@@ -9,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-css.global({
+const globalStyles = global({
   "body, html": {
     padding: 0,
     margin: 0,

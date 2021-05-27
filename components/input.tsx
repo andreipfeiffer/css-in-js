@@ -15,7 +15,7 @@ export function Input({ value, onChange }: Props) {
           className={css({
             width: `${value}px`,
             padding: "0.5em",
-          })}
+          })()}
           type="number"
           value={value}
           onChange={(e) => onChange(+e.target.value)}
