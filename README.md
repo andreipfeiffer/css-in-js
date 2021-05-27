@@ -10,7 +10,7 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 > ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
 
-> 🗓 _Last update: **Apr 2021**_
+> 🗓 _Last update: **May 2021**_
 
 <br />
 
@@ -139,7 +139,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ |  `+8.6 kB / +32.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+9.7 kB / +29.0 kB` |
 | [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
 | [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
@@ -543,7 +543,7 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 Some of the libraries are missing a separate `.js` chunk when building for production, which should contain the **runtime library code**. Instead, the runtime library seems to be included in the `_app.***.js` chunk, along with other code, making it a bit difficult to determine exactly the size of the runtime library.
 
-This applies to [Fela](#fela), [Goober](#goober) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
+This applies to [Fela](#fela), [Goober](#goober), [Stitches](#stitches) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
 
 <br />
 
@@ -1136,11 +1136,9 @@ Page                             Size     First Load JS
 
 ### Stitches
 
-🚧 will be updated to `0.1-beta`
-
 Very young library, solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
-Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
+Version: __`0.1.9 (beta)`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
 
 <br />
 
@@ -1148,8 +1146,8 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 - ✅ __TypeScript support__
 - ✅ __Context-aware code completion__
 - ✅ __Built-in Theming support__
-- ✅ __Atomic CSS__
-- ❌ __Not Framework agnostic__: there is a `@stitches/core` package, but only React is supported at the moment
+- ✅ __Framework agnostic__: _(available with `@stitches/core`)_
+- ❌ __Atomic CSS__
 
 - __Styles definition method(s)__
   - ❌ Tagged Templates
@@ -1181,8 +1179,6 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 #### Worth mentioning observations
 
 - 😕 bundles nested styles even if they are not used in component
-- 😵 uses `insertRule()` in development also, so we cannot see what gets bundled
-- 🤨 it expands short-hand properties, from `padding: 1em;` will become `padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em;`
 - 🤔 dynamic styles can be defined either using built-in `variants` (for predefined styles), or styles created inside the component to get access to the `props`
 - 🧐 would help a lot to get the search feature inside the docs
 
@@ -1192,31 +1188,30 @@ Version: __`0.0.2`__ | Maintained by [Modulz](https://github.com/modulz) | Launc
 
 Stitches is probably the most modern solution to this date, with full out-of-the-box support for TS. Without a doubt, they took some of the best features from other solutions and put them together for an awesome development experience. The first thing that impressed us was definitely the documentation. The second, is the API they expose which is close to top-notch. The features they provide are not huge in quantity, but are very well-thought-out.
 
-However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as "light-weight", but at __8 kB__ it's worth debating. Nevertheless, we will keep our eyes open and follow its growth.
+However, we cannot ignore the fact that it's still in beta. Also, the authors identify it as _"near-zero runtime"_, but at __+9 kB gzipped__ it's debatable.
 
 <br />
 
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |                8.9 kB |      29.5 kB |
-| Index page size |               80.1 kB |       233 kB |
-| vs. CSS Modules |           __+8.6 kB__ |   __+32 kB__ |
+|                 |     Transferred / gzipped |              Uncompressed |
+| :-------------- | ------------------------: | ------------------------: |
+| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
+| Index page size |                   81.2 kB |                    230 kB |
+| vs. CSS Modules |               __+9.7 kB__ |                __+29 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.42 kB        73.9 kB
-├   /_app                                                      0 B            71.5 kB
-├ ○ /404                                                       3.03 kB        74.5 kB
-└ ○ /other                                                     959 B          72.4 kB
-+ First Load JS shared by all                                  71.5 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.f723af.js  8.46 kB
-  ├ chunks/commons.7af247.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.99ad68.js                                      6.62 kB
-  ├ chunks/pages/_app.51b7a9.js                                832 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            7.66 kB        75.9 kB
+├   /_app                        0 B            68.3 kB
+├ ○ /404                         3.03 kB        71.3 kB
+└ ○ /other                       6.25 kB        74.5 kB
++ First Load JS shared by all    68.3 kB
+  ├ chunks/commons.7af247.js     13.1 kB
+  ├ chunks/framework.9d5241.js   41.8 kB
+  ├ chunks/main.03531f.js        6.62 kB
+  ├ chunks/pages/_app.ee5dca.js  6.11 kB
+  └ chunks/webpack.50bee0.js     751 B
 ```
 
 <br/>
