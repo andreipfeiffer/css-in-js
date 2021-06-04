@@ -135,7 +135,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -                     |
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+3.6 kB / +13.0 kB` |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | `+13.9 kB / +39.0 kB` |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |  `+6.9 kB / +20.0 kB` |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |  `+6.9 kB / +20.0 kB` |
 | [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
@@ -316,7 +316,7 @@ The API creates a wrapper (or `Styled`) component which includes the generated `
 Allows passing styles using a special `css` prop, similar how we would define inline styles, but the library generates a unique CSS class name behind the scenes:
 
 - it's a convenient and ergonomic API;
-- this technique was first introduced and popularized by [Emotion](#emotion) v10;
+- this technique was popularized by [Emotion](#emotion) v10;
 - it's seems to be available only for React/JSX-based syntax
 
 [⬆️ to overview](#overview)
@@ -813,7 +813,7 @@ Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitc
   - ✅ Abitrary nesting
 
 - __Styles apply method(s)__
-  - ❌ `className`
+  - ✅ `className` _(using [@emotion/css](https://emotion.sh/docs/@emotion/css))_
   - ✅ `styled` component
   - ✅ `css` prop
 
