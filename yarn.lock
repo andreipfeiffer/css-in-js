@@ -385,35 +385,35 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@vanilla-extract/babel-plugin@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/babel-plugin/-/babel-plugin-0.4.1.tgz#bd8c156f69f25dde992fb6c61a979bcc26a0e747"
-  integrity sha512-82A5OOKLs1jKwYUr3k5ubibi8nY9dbvZfiCpZc5+ek/OgYVhdhw5aetDNZpigTjWzTftOhmzAlrl4tYTEVfw9w==
+"@vanilla-extract/babel-plugin@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/babel-plugin/-/babel-plugin-1.0.1.tgz#63323b4312295767b5da71fb0ff474a17f2714ea"
+  integrity sha512-D58DcjUDticrtbDWell+6MZp0BtdVHjnkuhvR2+gwxq998WhNVh35ElITGAGEpgvzOtApImM7H20zPn1xfeQlw==
   dependencies:
     "@babel/core" "^7.13.10"
     "@babel/template" "^7.12.13"
-    "@vanilla-extract/integration" "^0.1.0"
+    "@vanilla-extract/integration" "^1.0.0"
 
-"@vanilla-extract/css@0.4.4", "@vanilla-extract/css@^0.4.0":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-0.4.4.tgz#5804160f2f9e9a8b23216819594ee6af037cd301"
-  integrity sha512-udCPcZgUFlt3ZMGBSkCR+5s6rEx2zmwHYo3Cw/q8ZxC2nSOnD8UrQY3N4EuVYC0dP30OacFcWluB2mIohyodjw==
+"@vanilla-extract/css@1.2.3", "@vanilla-extract/css@^1.2.0":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.2.3.tgz#1db483f6a92a666d493cdce91feaed59fb37353c"
+  integrity sha512-khzCBgxHk8fYvTuHbQ349ewKhSQ9qwjUC8RPHM0287ZJubFQCL9wMv/a0+3aKbtUYN3rG5dLW5lGDXJE28tS+g==
   dependencies:
     "@emotion/hash" "^0.8.0"
-    "@vanilla-extract/private" "^0.1.2"
+    "@vanilla-extract/private" "^1.0.1"
     chalk "^4.1.1"
-    css-selector-parser "^1.4.1"
+    css-what "^5.0.1"
     cssesc "^3.0.0"
     csstype "^3.0.7"
     dedent "^0.7.0"
     deep-object-diff "^1.1.0"
 
-"@vanilla-extract/integration@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-0.1.0.tgz#cde9ec8e4545b3796d0c5426cfbe99ef5351ca6a"
-  integrity sha512-YOSvd3G8lTf2DncFBlVknZ9jpJfQW7ptlOG7DTz2Ns6NLWYEQUPX2XBEnWLBU2eQSTZT1bgthU4E3B4e/y9EsQ==
+"@vanilla-extract/integration@^1.0.0", "@vanilla-extract/integration@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/integration/-/integration-1.1.0.tgz#7a766608327ffad25896b8d509b9acae07ccbcbc"
+  integrity sha512-VzDodGcoPv8loAyqIPya+UuFOr2c6D4rJ4uhIe4hms94FXZ+0qxPOXvFs7PNamt83M1zkInIj+0kEAHFC1D1gg==
   dependencies:
-    "@vanilla-extract/css" "^0.4.0"
+    "@vanilla-extract/css" "^1.2.0"
     chalk "^4.1.1"
     dedent "^0.7.0"
     esbuild "^0.11.16"
@@ -422,22 +422,19 @@
     javascript-stringify "^2.0.1"
     lodash "^4.17.21"
 
-"@vanilla-extract/private@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-0.1.2.tgz#79cb16243764c5f51b99e0a7ed137e6c5e06223e"
-  integrity sha512-LuaCxlU4BlsSlK53QQABxo53TqWFiQyjXwDCz+5tpaChhMHrmJ5/XVFQVH3zD03HATfAJcmv8WqAQOZnF0FmGg==
+"@vanilla-extract/private@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.1.tgz#c9479cebea7e7fbb07a1fe5b5c988a8753ef04ed"
+  integrity sha512-ABrFJGSmF7a1M+eDTsIeAErPhIeRyBY3ypyLQPc4bUVEK1mvF7F2gx4fTP81pm12bkS0GhjSJtM854lcPWhB+w==
 
-"@vanilla-extract/webpack-plugin@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-0.3.0.tgz#0bf8dc74ed62f3ac44dd04f5a8d79884deb4c846"
-  integrity sha512-znDK85C5wE6TUwMkG8ZUBehZUGA0AKRRulNGynfqx86W7OQCvEV2nr0Vq8uhR4aDwQX1d647exDd26FBpl7YLQ==
+"@vanilla-extract/webpack-plugin@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.1.0.tgz#9761dbfeb24271c6ca541fca311551413a79462e"
+  integrity sha512-HOcW7TYipzIBor+HruGW96fW9suWA5fgSHdsxngROm/F7AUk6SjAk/AOFD6kq4CLIG33d6ZryjRSPjb9STrfxw==
   dependencies:
-    "@vanilla-extract/css" "^0.4.0"
-    chalk "^4.1.0"
+    "@vanilla-extract/integration" "^1.1.0"
+    chalk "^4.1.1"
     debug "^4.3.1"
-    dedent "^0.7.0"
-    eval "^0.1.6"
-    javascript-stringify "^2.0.1"
     loader-utils "^2.0.0"
     lodash "^4.17.21"
     virtual-resource-loader "^1.0.0"
@@ -1435,10 +1432,10 @@ css-loader@4.3.0:
     schema-utils "^2.7.1"
     semver "^7.3.2"
 
-css-selector-parser@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/css-selector-parser/-/css-selector-parser-1.4.1.tgz#03f9cb8a81c3e5ab2c51684557d5aaf6d2569759"
-  integrity sha512-HYPSb7y/Z7BNDCOrakL4raGO2zltZkbeXyAd6Tg9obzix6QhzxCotdBl6VT0Dv4vZfJGVz3WL/xaEI9Ly3ul0g==
+css-what@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/css-what/-/css-what-5.0.1.tgz#3efa820131f4669a8ac2408f9c32e7c7de9f4cad"
+  integrity sha512-FYDTSHb/7KXsWICVsxdmiExPjCfRC4qRFBdVwv7Ax9hMnvMmEjP9RfxTEZ3qPZGmADDn2vAKSo9UcN1jKVYscg==
 
 css.escape@1.5.1:
   version "1.5.1"

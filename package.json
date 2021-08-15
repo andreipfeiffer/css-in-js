@@ -17,9 +17,9 @@
     "@next/bundle-analyzer": "^10.0.5",
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",
-    "@vanilla-extract/babel-plugin": "0.4.1",
-    "@vanilla-extract/css": "0.4.4",
-    "@vanilla-extract/webpack-plugin": "0.3.0",
+    "@vanilla-extract/babel-plugin": "1.0.1",
+    "@vanilla-extract/css": "1.2.3",
+    "@vanilla-extract/webpack-plugin": "1.1.0",
     "next-compose-plugins": "^2.2.1",
     "typescript": "^4.1.3"
   }
