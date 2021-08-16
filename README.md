@@ -539,14 +539,6 @@ In Next.js, code-splitting works at the route level, bundling all components req
 
 <br />
 
-#### ❌ Missing chunk
-
-Some of the libraries are missing a separate `.js` chunk when building for production, which should contain the **runtime library code**. Instead, the runtime library seems to be included in the `_app.***.js` chunk, along with other code, making it a bit difficult to determine exactly the size of the runtime library.
-
-This applies to [Fela](#fela), [Goober](#goober), [Stitches](#stitches) and [Compiled](#compiled). I'm not sure [why is this happening](https://github.com/vercel/next.js/pull/22786#issuecomment-791925331), or how to avoid it. 
-
-<br />
-
 ---
 
 <br />
@@ -591,26 +583,24 @@ This is the baseline we'll consider when comparing all the following __CSS-in-JS
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                     - |            - |
-| Index page size |               71.5 kB |       201 kB |
+| Index page size |               76.7 kB |       233 kB |
 
 <br />
 
 ```
 Page                                Size     First Load JS
-┌ ○ /                               2.15 kB        64.9 kB
-├   └ css/7a5b6d23ea12e90bddea.css  407 B
-├   /_app                           0 B            62.7 kB
-├ ○ /404                            3.03 kB        65.7 kB
-└ ○ /other                          706 B          63.4 kB
-    └ css/57bb8cd5308b249275fa.css  443 B
-+ First Load JS shared by all       62.7 kB
-  ├ chunks/commons.7af247.js        13.1 kB
-  ├ chunks/framework.9d5241.js      41.8 kB
-  ├ chunks/main.03531f.js           6.62 kB
-  ├ chunks/pages/_app.6e472f.js     526 B
-  ├ chunks/webpack.50bee0.js        751 B
-  └ css/d9aac052842a915b5cc7.css    325 B
+┌ ○ /                               2.19 kB        68.7 kB
+├   └ css/1d1f8eb014b85b65feee.css  450 B
+├   /_app                           0 B            66.5 kB
+├ ○ /404                            194 B          66.7 kB
+└ ○ /other                          744 B          67.2 kB
+    └ css/1c8bc5a96764df6b92b4.css  481 B
++ First Load JS shared by all       66.5 kB
+  ├ chunks/framework.895f06.js      42 kB
+  ├ chunks/main.b2b078.js           23.1 kB
+  ├ chunks/pages/_app.40892d.js     555 B
+  ├ chunks/webpack.ddd010.js        822 B
+  └ css/a92bf2d3acbab964f6ac.css    319 B
 ```
 
 <br/>
@@ -623,7 +613,7 @@ Page                                Size     First Load JS
 
 Very simple solution, doesn't have a dedicated website for documentation, everything is on Github. It's not popular, but it is the built-in solution in Next.js.
 
-Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launched in __2017__ | [View Docs](https://github.com/vercel/styled-jsx) | ... [back to Overview](#overview)
+Version: __`4.0`__ | Maintained by [Vercel](https://github.com/vercel) | Launched in __2017__ | [View Docs](https://github.com/vercel/styled-jsx) | ... [back to Overview](#overview)
 
 <br />
 
@@ -657,7 +647,6 @@ Version: __`3.4`__ | Maintained by [Vercel](https://github.com/vercel) | Launche
 
 - 😌 out-of-the-box support with Next.js
 - 👍 for user input styles, it generates a new class name for each change, but it removes the old one
-- 👌 it generates slightly smaller styles than the default CSS modules settings, probably due to shorter unique class names (you can see this in the difference between the runtime library size __3.9 kB__ and the page size increase, which I'd expect to be larger, but instead it's __3.6 kB__, this being tiny code base, so this delta might scale)
 
 <br />
 
@@ -681,25 +670,22 @@ The downsides are the overall experience of writting plain CSS. __Without nestin
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                3.9 kB |      10.7 kB |
-| Index page size |               75.1 kB |       214 kB |
-| vs. CSS Modules |           __+3.6 kB__ |   __+13 kB__ |
+| Index page size |               79.5 kB |       245 kB |
+| vs. CSS Modules |           __+2.8 kB__ |   __+12 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.64 kB        69.3 kB
-├   /_app                                                      0 B            66.6 kB
-├ ○ /404                                                       3.03 kB        69.6 kB
-└ ○ /other                                                     1.17 kB        67.8 kB
-+ First Load JS shared by all                                  66.6 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.3baab1.js  3.53 kB
-  ├ chunks/commons.7af247.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.99ad68.js                                      6.62 kB
-  ├ chunks/pages/_app.949398.js                                907 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            2.65 kB        72.6 kB
+├   /_app                        0 B              70 kB
+├ ○ /404                         194 B          70.2 kB
+└ ○ /other                       1.18 kB        71.2 kB
++ First Load JS shared by all    70 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.a4b061.js  4.12 kB
+  └ chunks/webpack.61f1b6.js     778 B
 ```
 
 <br/>
@@ -712,7 +698,7 @@ Page                                                           Size     First Lo
 
 For sure one of the most popular and mature solutions, with good documentation. It uses Tagged Templates to defines styles by default, but can use objects as well. It also popularized the `styled` components approach, which creates a new component along with the defined styles.
 
-Version: __`5.2`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs) | ... [back to Overview](#overview)
+Version: __`5.3`__ | Maintained by [Max Stoiber](https://twitter.com/mxstbr) & [others](https://opencollective.com/styled-components#category-ABOUT) | Launched in __2016__ | [View Docs](https://styled-components.com/docs) | ... [back to Overview](#overview)
 
 <br />
 
@@ -762,25 +748,22 @@ However before adopting it, we must be aware that it comes with a certain cost f
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |               14.2 kB |      36.7 kB |
-| Index page size |               85.4 kB |       240 kB |
-| vs. CSS Modules |          __+13.9 kB__ |   __+39 kB__ |
+| Index page size |               90.1 kB |       272 kB |
+| vs. CSS Modules |          __+13.4 kB__ |   __+39 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.5 kB         79.4 kB
-├   /_app                                                      0 B            76.9 kB
-├ ○ /404                                                       3.03 kB        79.9 kB
-└ ○ /other                                                     1.04 kB        77.9 kB
-+ First Load JS shared by all                                  76.9 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.3f0ffd.js  13.8 kB
-  ├ chunks/commons.7af247.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.99ad68.js                                      6.62 kB
-  ├ chunks/pages/_app.7093f3.js                                921 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            2.52 kB        83.1 kB
+├   /_app                        0 B            80.6 kB
+├ ○ /404                         194 B          80.8 kB
+└ ○ /other                       1.06 kB        81.7 kB
++ First Load JS shared by all    80.6 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.731ace.js  14.7 kB
+  └ chunks/webpack.ddd010.js     822 B
 ```
 
 <br/>
@@ -793,7 +776,7 @@ Page                                                           Size     First Lo
 
 Probably the most comprehensive, complete and sofisticated solution. Detailed documentation, fully built with TypeScript, looks very mature, rich in features and well maintained.
 
-Version: __`11.1`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction) | ... [back to Overview](#overview)
+Version: __`11.4`__ | Maintained by [Mitchell Hamilton](https://twitter.com/mitchellhamiltn) & [others](https://opencollective.com/emotion#category-ABOUT) | Launched in __2017__ | [View Docs](https://emotion.sh/docs/introduction) | ... [back to Overview](#overview)
 
 <br />
 
@@ -848,25 +831,22 @@ It seems it doesn't have a dedicated focus on performance, but more on Developer
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                7.5 kB |      19.0 kB |
-| Index page size |               78.4 kB |       221 kB |
-| vs. CSS Modules |           __+6.9 kB__ |   __+20 kB__ |
+| Index page size |               83.2 kB |       253 kB |
+| vs. CSS Modules |           __+6.5 kB__ |   __+20 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.47 kB        72.6 kB
-├   /_app                                                      0 B            70.1 kB
-├ ○ /404                                                       3.03 kB        73.1 kB
-└ ○ /other                                                     1.04 kB        71.1 kB
-+ First Load JS shared by all                                  70.1 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.19c2e4.js  7.1 kB
-  ├ chunks/commons.800e6d.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.45755e.js                                      6.55 kB
-  ├ chunks/pages/_app.398ef5.js                                832 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            2.5 kB         76.4 kB
+├   /_app                        0 B            73.9 kB
+├ ○ /404                         194 B          74.1 kB
+└ ○ /other                       1.07 kB        74.9 kB
++ First Load JS shared by all    73.9 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.6cb893.js        23.3 kB
+  ├ chunks/pages/_app.b6d380.js  7.68 kB
+  └ chunks/webpack.ddd010.js     822 B
 ```
 
 <br/>
@@ -929,25 +909,22 @@ With Next.js or React in general we don't get much value out-of-the-box, so we s
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                4.5 kB |       8.6 kB |
-| Index page size |               74.3 kB |       210 kB |
-| vs. CSS Modules |           __+2.8 kB__ |   __+19 kB__ |
+| Index page size |               78.8 kB |       241 kB |
+| vs. CSS Modules |           __+2.1 kB__ |    __+8 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.41 kB        68.6 kB
-├   /_app                                                      0 B            66.2 kB
-├ ○ /404                                                       3.03 kB        69.2 kB
-└ ○ /other                                                     953 B          67.1 kB
-+ First Load JS shared by all                                  66.2 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.250ad4.js  3.09 kB
-  ├ chunks/commons.7af247.js                                   13.1 kB
-  ├ chunks/framework.9d5241.js                                 41.8 kB
-  ├ chunks/main.99ad68.js                                      6.62 kB
-  ├ chunks/pages/_app.d59d73.js                                893 B
-  └ chunks/webpack.50bee0.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            2.44 kB        72.1 kB
+├   /_app                        0 B            69.7 kB
+├ ○ /404                         194 B          69.9 kB
+└ ○ /other                       975 B          70.7 kB
++ First Load JS shared by all    69.7 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.5b0422.js  3.81 kB
+  └ chunks/webpack.61f1b6.js     778 B
 ```
 
 <br/>
@@ -1019,24 +996,22 @@ The lack of TS support however is a bummer, considering we're looking for a full
 
 |                 |     Transferred / gzipped |              Uncompressed |
 | :-------------- | ------------------------: | ------------------------: |
-| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
-| Index page size |                   84.1 kB |                    246 kB |
-| vs. CSS Modules |              __+12.6 kB__ |                __+45 kB__ |
+| Index page size |                   88.6 kB |                    276 kB |
+| vs. CSS Modules |              __+11.9 kB__ |                __+43 kB__ |
 
 <br />
 
 ```
 Page                             Size     First Load JS
-┌ ○ /                            3.46 kB        78.6 kB
-├   /_app                        0 B            75.2 kB
-├ ○ /404                         3.03 kB        78.2 kB
-└ ○ /other                       2.06 kB        77.2 kB
-+ First Load JS shared by all    75.2 kB
-  ├ chunks/commons.7af247.js     13.1 kB
-  ├ chunks/framework.37f4a7.js   42.1 kB
-  ├ chunks/main.03531f.js        6.62 kB
-  ├ chunks/pages/_app.f7ff86.js  12.6 kB
-  └ chunks/webpack.50bee0.js     751 B
+┌ ○ /                            2.84 kB        81.7 kB
+├   /_app                        0 B            78.9 kB
+├ ○ /404                         194 B            79 kB
+└ ○ /other                       1.43 kB        80.3 kB
++ First Load JS shared by all    78.9 kB
+  ├ chunks/framework.2191d1.js   42.4 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.32bc1d.js  12.6 kB
+  └ chunks/webpack.ddd010.js     822 B
 ```
 
 <br/>
@@ -1049,7 +1024,7 @@ Page                             Size     First Load JS
 
 Very young library, solid, modern and well-thought-out solution. The overall experience is just great, full TS support, a lot of other useful features baked in the lib.
 
-Version: __`0.1.9 (beta)`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
+Version: __`0.2.5 (beta)`__ | Maintained by [Modulz](https://github.com/modulz) | Launched in __2020__ | [View Docs](https://stitches.dev/docs) | ... [back to Overview](#overview)
 
 <br />
 
@@ -1105,24 +1080,22 @@ However, we cannot ignore the fact that it's still in beta. Also, the authors id
 
 |                 |     Transferred / gzipped |              Uncompressed |
 | :-------------- | ------------------------: | ------------------------: |
-| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
-| Index page size |                   81.2 kB |                    230 kB |
-| vs. CSS Modules |               __+9.7 kB__ |                __+29 kB__ |
+| Index page size |                   82.0 kB |                    250 kB |
+| vs. CSS Modules |               __+5.3 kB__ |                __+17 kB__ |
 
 <br />
 
 ```
 Page                             Size     First Load JS
-┌ ○ /                            7.66 kB        75.9 kB
-├   /_app                        0 B            68.3 kB
-├ ○ /404                         3.03 kB        71.3 kB
-└ ○ /other                       6.25 kB        74.5 kB
-+ First Load JS shared by all    68.3 kB
-  ├ chunks/commons.7af247.js     13.1 kB
-  ├ chunks/framework.9d5241.js   41.8 kB
-  ├ chunks/main.03531f.js        6.62 kB
-  ├ chunks/pages/_app.ee5dca.js  6.11 kB
-  └ chunks/webpack.50bee0.js     751 B
+┌ ○ /                            2.43 kB        75.2 kB
+├   /_app                        0 B            72.8 kB
+├ ○ /404                         194 B            73 kB
+└ ○ /other                       984 B          73.8 kB
++ First Load JS shared by all    72.8 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.ff82f0.js  6.93 kB
+  └ chunks/webpack.61f1b6.js     778 B
 ```
 
 <br/>
@@ -1135,7 +1108,7 @@ Page                             Size     First Load JS
 
 Probably the grandaddy around here, JSS is a very mature solution being the first of them, and still being maintained. The API is intuitive and very easy to use, great integration for React using hooks.
 
-Version: __`10.6`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2014__ | [View Docs](https://cssinjs.org/) | ... [back to Overview](#overview)
+Version: __`10.7`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) and [others](https://opencollective.com/jss#category-ABOUT) | Launched in __2014__ | [View Docs](https://cssinjs.org/) | ... [back to Overview](#overview)
 
 <br />
 
@@ -1195,25 +1168,22 @@ Also, being the first CSS-in-JS solution built, it lacks many of the modern feat
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |               19.3 kB |      58.7 kB |
-| Index page size |               91.7 kB |       266 kB |
-| vs. CSS Modules |          __+20.2 kB__ |   __+65 kB__ |
+| Index page size |               94.9 kB |       293 kB |
+| vs. CSS Modules |          __+18.2 kB__ |   __+60 kB__ |
 
 <br />
 
 ```
-Page                                                           Size     First Load JS
-┌ ○ /                                                          2.42 kB        85.9 kB
-├   /_app                                                      0 B            83.4 kB
-├ ○ /404                                                       3.03 kB        86.5 kB
-└ ○ /other                                                     969 B          84.4 kB
-+ First Load JS shared by all                                  83.4 kB
-  ├ chunks/1dfa07d0b4ad7868e7760ca51684adf89ad5b4e3.c41897.js  18.9 kB
-  ├ chunks/commons.f6669c.js                                   13.1 kB
-  ├ chunks/framework.37f4a7.js                                 42.1 kB
-  ├ chunks/main.c73430.js                                      6.62 kB
-  ├ chunks/pages/_app.fb643d.js                                2 kB
-  └ chunks/webpack.245f04.js                                   751 B
+Page                             Size     First Load JS
+┌ ○ /                            2.45 kB          88 kB
+├   /_app                        0 B            85.6 kB
+├ ○ /404                         194 B          85.8 kB
+└ ○ /other                       992 B          86.6 kB
++ First Load JS shared by all    85.6 kB
+  ├ chunks/framework.2191d1.js   42.4 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.5f0007.js  19.2 kB
+  └ chunks/webpack.9c89cc.js     956 B
 ```
 
 <br/>
@@ -1280,24 +1250,22 @@ Looking at Goober you cannot ask yourself what kind of magic did Cristian Bote d
 
 |                 |     Transferred / gzipped |              Uncompressed |
 | :-------------- | ------------------------: | ------------------------: |
-| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
-| Index page size |                   73.7 kB |                    208 kB |
-| vs. CSS Modules |               __+2.2 kB__ |                 __+7 kB__ |
+| Index page size |                   77.8 kB |                    237 kB |
+| vs. CSS Modules |               __+1.1 kB__ |                 __+4 kB__ |
 
 <br />
 
 ```
 Page                             Size     First Load JS
-┌ ○ /                            3.89 kB        68.4 kB
-├   /_app                        0 B            64.6 kB
-├ ○ /404                         3.03 kB        67.6 kB
-└ ○ /other                       2.49 kB          67 kB
-+ First Load JS shared by all    64.6 kB
-  ├ chunks/commons.7af247.js     13.1 kB
-  ├ chunks/framework.9d5241.js   41.8 kB
-  ├ chunks/main.03531f.js        6.62 kB
-  ├ chunks/pages/_app.8a4776.js  2.37 kB
-  └ chunks/webpack.50bee0.js     751 B
+┌ ○ /                            2.77 kB        71.1 kB
+├   /_app                        0 B            68.3 kB
+├ ○ /404                         194 B          68.5 kB
+└ ○ /other                       2.39 kB        70.7 kB
++ First Load JS shared by all    68.3 kB
+  ├ chunks/framework.895f06.js   42 kB
+  ├ chunks/main.b2b078.js        23.1 kB
+  ├ chunks/pages/_app.5ee014.js  2.42 kB
+  └ chunks/webpack.61f1b6.js     778 B
 ```
 
 <br/>
@@ -1367,25 +1335,23 @@ The total bundle overhead is pretty small, the runtime library being quite light
 
 |                 |     Transferred / gzipped |              Uncompressed |
 | :-------------- | ------------------------: | ------------------------: |
-| Runtime library | [???](#-missing-chunk) kB | [???](#-missing-chunk) kB |
-| Index page size |                   73.5 kB |                    208 kB |
-| vs. CSS Modules |               __+2.0 kB__ |                 __+7 kB__ |
+| Index page size |                   80.2 kB |                    242 kB |
+| vs. CSS Modules |               __+3.5 kB__ |                 __+9 kB__ |
 
 <br />
 
 ```
 Page                              Size     First Load JS
-┌ ○ /                             4.16 kB        66.9 kB
-├   /_app                         0 B            62.7 kB
-├ ○ /404                          3.03 kB        65.8 kB
-└ ○ /other                        2.78 kB        65.5 kB
-+ First Load JS shared by all     62.7 kB
-  ├ chunks/commons.7af247.js      13.1 kB
-  ├ chunks/framework.9d5241.js    41.8 kB
-  ├ chunks/main.03531f.js         6.62 kB
-  ├ chunks/pages/_app.c413ef.js   558 B
-  ├ chunks/webpack.50bee0.js      751 B
-  └ css/d9aac052842a915b5cc7.css  325 B
+┌ ○ /                             2.11 kB        71.8 kB
+├   /_app                         0 B            66.5 kB
+├ ○ /404                          194 B          66.7 kB
+└ ○ /other                        888 B          70.6 kB
++ First Load JS shared by all     66.5 kB
+  ├ chunks/framework.895f06.js    42 kB
+  ├ chunks/main.b2b078.js         23.1 kB
+  ├ chunks/pages/_app.ebe095.js   576 B
+  ├ chunks/webpack.ddd010.js      822 B
+  └ css/a92bf2d3acbab964f6ac.css  319 B
 ```
 
 ---
@@ -1454,27 +1420,25 @@ PS: thanks to [Daniil Petrov](https://github.com/daniepetrov) for his PR with th
 
 |                 |     Transferred / gzipped |              Uncompressed |
 | :-------------- | ------------------------: | ------------------------: |
-| Runtime library |                      - kB |                      - kB |
-| Index page size |                   74.4 kB |                    208 kB |
-| vs. CSS Modules |               __+2.9 kB__ |                 __+7 kB__ |
+| Index page size |                   79.4 kB |                    239 kB |
+| vs. CSS Modules |               __+2.7 kB__ |                 __+6 kB__ |
 
 <br />
 
 ```
 Page                                Size     First Load JS
-┌ ○ /                               5.05 kB        67.8 kB
-├   └ css/012ea8f1a55714e36837.css  445 B
-├   /_app                           0 B            62.8 kB
-├ ○ /404                            3.03 kB        65.8 kB
-└ ○ /other                          3.63 kB        66.4 kB
-    └ css/5fd6e40e35434dd63597.css  448 B
-+ First Load JS shared by all       62.8 kB
-  ├ chunks/commons.7af247.js        13.1 kB
-  ├ chunks/framework.9d5241.js      41.8 kB
-  ├ chunks/main.03531f.js           6.62 kB
-  ├ chunks/pages/_app.fd16d9.js     578 B
-  ├ chunks/webpack.50bee0.js        751 B
-  └ css/d9aac052842a915b5cc7.css    325 B
+┌ ○ /                               4.99 kB        71.5 kB
+├   └ css/16f3e95ede28dcc048f2.css  423 B
+├   /_app                           0 B            66.5 kB
+├ ○ /404                            194 B          66.7 kB
+└ ○ /other                          3.59 kB        70.1 kB
+    └ css/3064299bff08067ec7dd.css  427 B
++ First Load JS shared by all       66.5 kB
+  ├ chunks/framework.895f06.js      42 kB
+  ├ chunks/main.b2b078.js           23.1 kB
+  ├ chunks/pages/_app.98e8c3.js     598 B
+  ├ chunks/webpack.ddd010.js        822 B
+  └ css/7739287c04a618ea0c54.css    295 B
 ```
 
 <br/>
@@ -1545,27 +1509,25 @@ The authors vision is to think of vanilla-extract as a low-level utility for bui
 
 |                 | Transferred / gzipped | Uncompressed |
 | :-------------- | --------------------: | -----------: |
-| Runtime library |                     - |            - |
-| Index page size |               73.2 kB |       216 kB |
-| vs. CSS Modules |           __+1.7 kB__ |   __+15 kB__ |
+| Index page size |               76.7 kB |       231 kB |
+| vs. CSS Modules |           __+0.0 kB__ |    __-2 kB__ |
 
 <br />
 
 ```
 Page                                Size     First Load JS
-┌ ○ /                               2.1 kB         64.8 kB
-├   └ css/7f8bdaf1431a36c6be81.css  413 B
-├   /_app                           0 B            62.7 kB
-├ ○ /404                            3.03 kB        65.8 kB
-└ ○ /other                          616 B          63.3 kB
-    └ css/df14495b6849ecc7b9dc.css  430 B
-+ First Load JS shared by all       62.7 kB
-  ├ chunks/commons.7af247.js        13.1 kB
-  ├ chunks/framework.9d5241.js      41.8 kB
-  ├ chunks/main.03531f.js           6.62 kB
-  ├ chunks/pages/_app.462f66.js     547 B
-  ├ chunks/webpack.50bee0.js        751 B
-  └ css/5eb280be8c566fd72b9a.css    321 B
+┌ ○ /                               2.09 kB        68.5 kB
+├   └ css/37c023369f5e1762e423.css  370 B
+├   /_app                           0 B            66.4 kB
+├ ○ /404                            194 B          66.6 kB
+└ ○ /other                          611 B            67 kB
+    └ css/a56b9d05c6da35ff125f.css  386 B
++ First Load JS shared by all       66.4 kB
+  ├ chunks/framework.895f06.js      42 kB
+  ├ chunks/main.700159.js           23.1 kB
+  ├ chunks/pages/_app.bfd136.js     565 B
+  ├ chunks/webpack.61f1b6.js        778 B
+  └ css/23b89d9ef0ca05e4b917.css    286 B
 ```
 
 <br />
@@ -1582,7 +1544,7 @@ We know there are a lot of other libraries out there, besides the ones covered a
 
 1. the library itself is replaced by [vanilla-extract](#vanilla-extract)
 2. Next.js integration is not supported with v2
-3. we couldn't upgrade to Next.js v11 even with v1
+3. we couldn't upgrade to Next.js v11/webpack 5 even with v1
 
 The main difference between vanilla-extract and Treat is that the latter supports IE and legacy browsers as well.
 
