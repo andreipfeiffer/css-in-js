@@ -1576,6 +1576,18 @@ We know there are a lot of other libraries out there, besides the ones covered a
 
 <br />
 
+### Treat
+
+[Treat](https://seek-oss.github.io/treat/) was initially included in the analysis with v1.6, but removed for a few reasons:
+
+1. the library itself is replaced by [vanilla-extract](#vanilla-extract)
+2. Next.js integration is not supported with v2
+3. we couldn't upgrade to Next.js v11 even with v1
+
+The main difference between vanilla-extract and Treat is that the latter supports IE and legacy browsers as well.
+
+<br />
+
 ### style9
 
 [Style9](https://github.com/johanholmerin/style9) is a new library, inspired by Facebook's own CSS-in-JS solution called stylex. Style9 is unique because it's the only open source library that supports both `.css` static extraction + atomic CSS, and/or styles co-location. It has TS support and easy to integrate with Next.js.
@@ -1626,7 +1638,6 @@ Some upsides:
    
 Tailwind seems to be more than a _styling tool_, it also offers some out-of-the-box utils + a ready-made design system that you can use right away.
 
-
 <br />
 
 ### Aphrodite
@@ -1638,6 +1649,8 @@ It's not a popular solution, the approach is similar to **React Native StyleShee
 - no dynamic out-of-the-box support, so we have to get around that, like inline styles I guess, or like in React Native
 - doesn't add any real value, except the ergonomics to colocate styles with the component.
 
+<br />
+
 ### Glamor
 
 I got it started with Next.js, but it feels fragile. The [Glamor official example](https://github.com/vercel/next.js/tree/canary/examples/with-glamor) throws an error regarding `rehydrate`. When commenting it out, it works, but not sure what the consequences are.
@@ -1648,11 +1661,15 @@ I got it started with Next.js, but it feels fragile. The [Glamor official exampl
 - has a lot of documented experimental features, marked as "buggy"
 - it feels like a side/internal project at FB, that is not used anymore.
 
+<br />
+
 ### Cxs
 
 Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-cxs) uses version 3, while today we have version 6. The example doesn't work, because the API has changed.
 
 The solution looked interesting, because it is supposed to be very light-weight.
+
+<br />
 
 ### Astroturf
 
@@ -1660,17 +1677,25 @@ Didn't manage to start it with Next.js + TypeScript. The [official example](http
 
 The solution is not that popular, but it was the first to use `.css` extraction with collocated styles.
 
+<br />
+
 ### Otion
 
 Looks promising, atomic css and light-weight. It has a working [Next.js example](https://github.com/kripod/otion/tree/main/packages/example-nextjs), but we didn't consider it because it lacks any documentation.
+
+<br />
 
 ### Styletron
 
 It looks like a not so popular solution, which also lacks support for TypeScript. It looks like the maintainers work at Uber and they use it internally. It focused on generating unique atomic CSS classes, which could potentially deduplicate a lot of code.
 
+<br />
+
 ### Radium
 
 The project was put in [Maintenance Mode](https://formidable.com/blog/2019/radium-maintenance/). They recommend other solutions.
+
+<br />
 
 ### Glamorous
 
