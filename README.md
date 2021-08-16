@@ -27,7 +27,6 @@ Last important aspect is type-safety with full **TypeScript** support.
   - [**Styled JSX**](#styled-jsx)
   - [**Styled Components**](#styled-components)
   - [**Emotion**](#emotion)
-  - [**Treat**](#treat)
   - [**TypeStyle**](#typestyle)
   - [**Fela**](#fela)
   - [**Stitches**](#stitches)
@@ -137,7 +136,6 @@ The libraries are not presented in any particular order. If you're interested in
 | [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+3.6 kB / +13.0 kB` |
 | [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | `+13.9 kB / +39.0 kB` |
 | [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |  `+6.9 kB / +20.0 kB` |
-| [Treat](#treat)                         | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+0.3 kB /  -0.1 kB` |
 | [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
 | [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
 | [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+9.7 kB / +29.0 kB` |
@@ -877,95 +875,6 @@ Page                                                           Size     First Lo
 
 <br/>
 
-### Treat
-
-Modern solution with great TypeScript integration and no runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates static CSS files, similar to CSS Modules, Linaria, or Astroturf.
-
-Version: __`1.6`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2019__ | [View Docs](https://seek-oss.github.io/treat/) | ... [back to Overview](#overview)
-
-<br />
-
-- ✅ __TypeScript support__
-- ✅ __Built-in Theming support__
-- ✅ __Context-aware code completion__
-- ✅ __Framework agnostic__
-- ❌ __No Styles/Component co-location__: styles must be placed in an external `.treat.ts` file
-- ❌ __No Atomic CSS__
-
-- __Styles definition method(s)__
-  - ❌ Tagged Templates
-  - ✅ Style Objects
-
-- __Styles nesting__
-  - ✅ Contextual styles
-  - ❌ Abitrary nesting
-
-- __Styles apply method(s)__
-  - ✅ `className`
-  - ❌ `styled` component
-  - ❌ `css` prop
-
-- __Styles output__
-  - ✅ `.css` file extraction
-  - ❌ `<style>` tag injection
-
-<br />
-
-#### Other benefits
-
-- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, but it actually discourages bad-practices like __specificity wars__, which should be avoided when scaling CSS (however, this is impossible to be statically type-checked without _pattern matching_, so it will throw a runtime exception)
-- 🥳 generates the same filename hash on build, if styles haven't changes, meaning that end-users benefit of CSS cache-ing even when deploying new versions with component updates only (logic, or content), without styles updates
-
-<br />
-
-#### Worth mentioning observations
-
-- 😕 bundles all styles, exported or not, even if they are not used in component
-- 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user-defined styles
-
-<br />
-
-#### Conclusions
-
-When using Treat, we felt a lot like using CSS Modules: we need an external file for styles, we place the styles on the elements using `className`, we handle dynamic styles with __inline styles__, etc. However, we don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, so we don't do any __copy-paste__. Error messages are very helpful in guiding us when we do something we're not supposed to do. It's also the only analyzed solution that __extracts styles as `.css` files__ at built time, which provides better caching (learn more about the [performance implications](#1-css-file-extraction)).
-
-The only thing to look out for is the limitation regarding dynamic styling. In highly interactive UIs that require user input styling, we'll have to use inline styles.
-
-Treat is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support. It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
-
-<br />
-
-|                 | Transferred / gzipped | Uncompressed |
-| :-------------- | --------------------: | -----------: |
-| Runtime library |                     - |            - |
-| Index page size |               71.8 kB |       200 kB |
-| vs. CSS Modules |           __+0.3 kB__ |    __-1 kB__ |
-
-<br />
-
-```
-Page                                Size     First Load JS
-┌ ○ /                               2.11 kB        64.8 kB
-├   └ css/4ca0d586ad5efcd1970b.css  422 B
-├   /_app                           0 B            62.7 kB
-├ ○ /404                            3.03 kB        65.8 kB
-└ ○ /other                          632 B          63.4 kB
-    └ css/adb81858cf67eabcd313.css  435 B
-+ First Load JS shared by all       62.7 kB
-  ├ chunks/commons.7af247.js        13.1 kB
-  ├ chunks/framework.9d5241.js      41.8 kB
-  ├ chunks/main.03531f.js           6.62 kB
-  ├ chunks/pages/_app.2baddf.js     546 B
-  ├ chunks/webpack.50bee0.js        751 B
-  └ css/08916f1dfb6533efc4a4.css    286 B
-```
-
-<br/>
-
----
-
-<br/>
-
 ### TypeStyle
 
 Minimal library, focused only on type-checking. It is framework agnostic, that's why it doesn't have a special API for handling dynamic styles. There are React wrappers available, but the typings feels a bit convoluted.
@@ -1576,7 +1485,7 @@ Page                                Size     First Load JS
 
 ### vanilla-extract
 
-Successor of [Treat](#treat), also be called "Treat v3", is developed and maintained by the same authors. It doesn't support IE, as it relies on CSS variables support, making it more lightweight and maintainable.
+Modern solution with great TypeScript integration and no runtime overhead. It's pretty minimal in its features, straightforward and opinionated. Everything is processed at compile time, and it generates static CSS files. Successor of [Treat](#treat), also be called "Treat v3", is developed and maintained by the same authors.
 
 Version: __`1.2`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2021__ | [View Docs](https://vanilla-extract.style/) | ... [back to Overview](#overview)
 
@@ -1608,17 +1517,27 @@ Version: __`1.2`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 <br />
 
+#### Other benefits
+
+- 👮 forbids __nested arbitrary selectors__ (ie: `& > span`), which might be seen as a downside, but it actually discourages bad-practices like __specificity wars__, which should be avoided when scaling CSS (however, this is impossible to be statically type-checked without _pattern matching_, so it will throw a runtime exception)
+- 🥳 generates the same filename hash on build, if styles haven't changes, meaning that end-users benefit of CSS cache-ing even when deploying new versions with component updates only (logic, or content), without styles updates
+
+<br />
+
 #### Worth mentioning observations
 
-- 🍬 same as [Treat](#treat) +
 - 😌 in contrast with Treat, it relies on CSS Variables support, which means: 1) it doesn't work on IE, 2) is simpler and easier to maintain, 3) it supports other bundlers besides webpack
 - 😣 [Next.js integration](https://github.com/seek-oss/vanilla-extract/discussions/89) is not very smooth at the moment, there is not officially maintained package and upgrading Next.js might require some manual plumbing
+- 😕 bundles all styles, exported or not, even if they are not used in component
+- 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user-defined styles
 
 <br />
 
 #### Conclusions
 
-Overall it's very similar to [Treat](#treat). The big difference is the wider support for bundlers and the extensibility with packages such as Sprinkles for atomic output.
+We felt a lot like using CSS Modules: we need an external file for styles, we place the styles on the elements using `className`, we handle dynamic styles with __inline styles__, etc. However, we don't write CSS, and the overall experience with TypeScript support is magnificent, because everything is typed, so we don't do any __copy-paste__. Error messages are very helpful in guiding us when we do something we're not supposed to do.
+
+vanilla-extract is built with restrictions in mind, with a strong user-centric focus, balacing the developer experience with solid TypeScript support. It's also worth mentioning that [Mark Dalgleish](https://twitter.com/markdalgleish), co-author of CSS Modules, works at Seek and he's also a contributor.
 
 The authors vision is to think of vanilla-extract as a low-level utility for building higher-level frameworks, which will probably happen in the future.
 
