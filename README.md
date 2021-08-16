@@ -133,17 +133,17 @@ The libraries are not presented in any particular order. If you're interested in
 |      | [1. Co&#8209;location](#1-co-location) | [2. DX](#2-dx) | [3. `` tag` ` ``](#3-tag-tagged-templates) | [4. `{ }`](#4--object-styles) | [5. TS](#5-ts) | [6. `&` ctx](#6--ctx-contextual-styles) | [7. Nesting](#7-nesting) | [8. Theme](#8-theming) | [9. `.css`](#9-css-static-css-extraction) | [10. `<style>`](#10-style-tag) | [11. Atomic](#11-atomic-css) | [12. `className`](#12-classname) | [13. `<Styled />`](#13-styled-) | [14. `css` prop](#14-css-prop) | [15. Agnostic](#15-framework-agnostic) | [16. Page size delta](#16-page-size-delta) |
 | :--- | :------------------: | :---: | :-------------: | :------: | :---: | :--------: | :--------: | :------: | :-------: | :-----------: | :--------: | :-------------: | :----------: | :------------: | :-------: |     ---: |
 | [CSS Modules](#css-modules)             | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | -                     |
-| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+3.6 kB / +13.0 kB` |
-| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | `+13.9 kB / +39.0 kB` |
-| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |  `+6.9 kB / +20.0 kB` |
-| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.8 kB / +19.0 kB` |
-| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+12.6 kB / +45.0 kB` |
-| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+9.7 kB / +29.0 kB` |
-| [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+20.2 kB / +65.0 kB` |
-| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
-| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
-| [Linaria](#linaria)                     | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |  `+2.9 kB /  +7.0 kB` |
-| [vanilla-extract](#vanilla-extract)     | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ |  `+1.7 kB / +15.0 kB` |
+| [Styled JSX](#styled-jsx)               | ✅ | 🟠 | ✅ | ❌ | 🟠 | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |  `+2.8 kB / +12.0 kB` |
+| [Styled Components](#styled-components) | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | `+13.4 kB / +39.0 kB` |
+| [Emotion](#emotion)                     | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |  `+6.5 kB / +20.0 kB` |
+| [TypeStyle](#typestyle)                 | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | 🟠 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ✅ |  `+2.1 kB /  +8.0 kB` |
+| [Fela](#fela)                           | ✅ | 🟠 | 🟠 | ✅ | 🟠 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | `+11.9 kB / +43.0 kB` |
+| [Stitches](#stitches)                   | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+5.3 kB / +17.0 kB` |
+| [JSS](#jss)                             | ✅ | ✅ | 🟠 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | 🟠 | ❌ | ✅ | `+18.2 kB / +60.0 kB` |
+| [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+1.1 kB /  +4.0 kB` |
+| [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+3.5 kB /  +9.0 kB` |
+| [Linaria](#linaria)                     | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |  `+2.7 kB /  +6.0 kB` |
+| [vanilla-extract](#vanilla-extract)     | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ |  `+0.0 kB /  -2.0 kB` |
 
 <br />
 
@@ -339,6 +339,8 @@ The total page size difference in kB (transferred gzipped & minified / uncompres
 - keep in mind that this includes an almost __empty page__, with only a couple of components;
 - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential;
 - the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed);
+
+NOTE: all builds were done with Next.js `11.1.0`
 
 [⬆️ to overview](#overview)
 
