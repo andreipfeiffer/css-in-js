@@ -11,17 +11,16 @@
   "dependencies": {
     "@agney/babel-plugin-goober-css-prop": "^0.0.1",
     "@next/bundle-analyzer": "^10.0.5",
-    "goober": "2.0.37",
+    "goober": "^2.0.41",
     "goober-autoprefixer": "^1.2.1",
-    "next": "10.0.5",
+    "next": "^11.1.0",
     "next-compose-plugins": "^2.2.1",
-    "next-treat": "^1.3.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
-    "@types/react": "^17.0.0",
-    "typescript": "^4.1.3"
+    "@types/react": "^17.0.18",
+    "typescript": "^4.3.5"
   }
 }
