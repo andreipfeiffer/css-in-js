@@ -10,7 +10,7 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 > ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
 
-> 🗓 _Last update: **May 2021**_
+> 🗓 _Last update: **Aug 2021**_
 
 <br />
 
@@ -1612,6 +1612,7 @@ Version: __`1.2`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 
 - 🍬 same as [Treat](#treat) +
 - 😌 in contrast with Treat, it relies on CSS Variables support, which means: 1) it doesn't work on IE, 2) is simpler and easier to maintain, 3) it supports other bundlers besides webpack
+- 😣 [Next.js integration](https://github.com/seek-oss/vanilla-extract/discussions/89) is not very smooth at the moment, there is not officially maintained package and upgrading Next.js might require some manual plumbing
 
 <br />
 
