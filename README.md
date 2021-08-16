@@ -1673,7 +1673,7 @@ The solution looked interesting, because it is supposed to be very light-weight.
 
 ### Astroturf
 
-Didn't manage to start it with Next.js + TypeScript. The [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) uses an older version of Next.js.
+Didn't manage to start it with Next.js + TypeScript. There was an [official example](https://github.com/vercel/next.js/tree/canary/examples/with-astroturf) that used an older version of Next.js, but the example if not there anymore.
 
 The solution is not that popular, but it was the first to use `.css` extraction with collocated styles.
 
