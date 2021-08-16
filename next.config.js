@@ -5,9 +5,7 @@ const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const {
   getGlobalCssLoader,
 } = require("next/dist/build/webpack/config/blocks/css/loaders");
-const {
-  default: MiniCssExtractPlugin,
-} = require("next/dist/build/webpack/plugins/mini-css-extract-plugin/src");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -22,10 +20,7 @@ function withVanillaExtract(pluginOptions = {}) {
    */
   return (nextConfig = {}) => {
     return {
-      // For Webpack 4, you'll need to install it seperately
-      future: {
-        webpack5: true,
-      },
+      webpack5: true,
       webpack(config, options) {
         const { dev, isServer } = options;
 
