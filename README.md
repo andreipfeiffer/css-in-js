@@ -35,6 +35,7 @@ Last important aspect is type-safety with full **TypeScript** support.
   - [**Goober**](#goober)
   - [**Compiled**](#compiled)
   - [**Linaria**](#linaria)
+  - [**vanilla-extract**](#vanilla-extract)
 - [Libraries not included](#libraries-not-included)
 - [Running the examples](#running-the-examples)
 - [Feedback and Suggestions](#feedback-and-suggestions)
@@ -144,6 +145,7 @@ The libraries are not presented in any particular order. If you're interested in
 | [Goober](#goober)                       | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ | ✅ | 🟠 | ✅ |  `+2.2 kB /  +7.0 kB` |
 | [Compiled](#compiled)                   | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | 🟠 | ✅ | ✅ | ❌ |  `+2.0 kB /  +7.0 kB` |
 | [Linaria](#linaria)                     | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ✅ |  `+2.9 kB /  +7.0 kB` |
+| [vanilla-extract](#vanilla-extract)     | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ | 🟠 | ✅ | ❌ | ❌ | ✅ |  `+1.7 kB / +15.0 kB` |
 
 <br />
 
@@ -1564,6 +1566,86 @@ Page                                Size     First Load JS
   ├ chunks/pages/_app.fd16d9.js     578 B
   ├ chunks/webpack.50bee0.js        751 B
   └ css/d9aac052842a915b5cc7.css    325 B
+```
+
+<br/>
+
+---
+
+<br/>
+
+### vanilla-extract
+
+Successor of [Treat](#treat), also be called "Treat v3", is developed and maintained by the same authors. It doesn't support IE, as it relies on CSS variables support, making it more lightweight and maintainable.
+
+Version: __`1.2`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | Launched in __2021__ | [View Docs](https://vanilla-extract.style/) | ... [back to Overview](#overview)
+
+<br />
+
+- ✅ __TypeScript support__
+- ✅ __Built-in Theming support__
+- ✅ __Context-aware code completion__
+- ✅ __Framework agnostic__
+- 🟠 __Atomic CSS__: can be achieved with [Sprinkles](https://www.npmjs.com/package/@vanilla-extract/sprinkles)
+- ❌ __No Styles/Component co-location__: styles must be placed in an external `.css.ts` file
+
+- __Styles definition method(s)__
+  - ❌ Tagged Templates
+  - ✅ Style Objects
+
+- __Styles nesting__
+  - ✅ Contextual styles
+  - ❌ Abitrary nesting
+
+- __Styles apply method(s)__
+  - ✅ `className`
+  - ❌ `styled` component
+  - ❌ `css` prop
+
+- __Styles output__
+  - ✅ `.css` file extraction
+  - ❌ `<style>` tag injection
+
+<br />
+
+#### Worth mentioning observations
+
+- 🍬 same as [Treat](#treat) +
+- 😌 in contrast with Treat, it relies on CSS Variables support, which means: 1) it doesn't work on IE, 2) is simpler and easier to maintain, 3) it supports other bundlers besides webpack
+
+<br />
+
+#### Conclusions
+
+Overall it's very similar to [Treat](#treat). The big difference is the wider support for bundlers and the extensibility with packages such as Sprinkles for atomic output.
+
+The authors vision is to think of vanilla-extract as a low-level utility for building higher-level frameworks, which will probably happen in the future.
+
+<br />
+
+|                 | Transferred / gzipped | Uncompressed |
+| :-------------- | --------------------: | -----------: |
+| Runtime library |                     - |            - |
+| Index page size |               73.2 kB |       216 kB |
+| vs. CSS Modules |           __+1.7 kB__ |   __+15 kB__ |
+
+<br />
+
+```
+Page                                Size     First Load JS
+┌ ○ /                               2.1 kB         64.8 kB
+├   └ css/7f8bdaf1431a36c6be81.css  413 B
+├   /_app                           0 B            62.7 kB
+├ ○ /404                            3.03 kB        65.8 kB
+└ ○ /other                          616 B          63.3 kB
+    └ css/df14495b6849ecc7b9dc.css  430 B
++ First Load JS shared by all       62.7 kB
+  ├ chunks/commons.7af247.js        13.1 kB
+  ├ chunks/framework.9d5241.js      41.8 kB
+  ├ chunks/main.03531f.js           6.62 kB
+  ├ chunks/pages/_app.462f66.js     547 B
+  ├ chunks/webpack.50bee0.js        751 B
+  └ css/5eb280be8c566fd72b9a.css    321 B
 ```
 
 <br />
