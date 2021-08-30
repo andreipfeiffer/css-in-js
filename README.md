@@ -10,11 +10,13 @@ Last important aspect is type-safety with full **TypeScript** support.
 
 > 🗓 _Last update: **Aug 2021**_
 
+> 🗞 To get a shorter overview, you can checkout the **article on CSS Tricks**:  
+> https://css-tricks.com/a-thorough-analysis-of-css-in-js/
+
+> 📽 If you prefer a video instead, you can checkout my **talk from ngPartyCZ**:  
+> https://www.youtube.com/watch?v=c7uWGhrAx9A
+
 > ✋ Please checkout our [goals](#goals) & [disclaimer](#disclaimer) before jumping to conclusions.
-
-> 🗞 To get a shorter overview, checkout the article on **CSS Tricks**: https://css-tricks.com/a-thorough-analysis-of-css-in-js/
-
-> 📽 If you prefer a video instead, checkout my talk from **ngPartyCZ**: https://www.youtube.com/watch?v=c7uWGhrAx9A
 
 <br />
 
