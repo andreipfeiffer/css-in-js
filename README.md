@@ -332,7 +332,7 @@ Allows passing styles using a special `css` prop, similar how we would define in
 #### 15. Framework agnostic
 
 Allows usage without, or with any framework. Some libraries are built specifically for React only.  
-**NOTE**: some libraries like **Stitches**, **Emotion**, or **Treat** document only React usage, although they have a **core** that's framework agnostic.
+**NOTE**: some libraries like **Stitches** or **Emotion** document only React usage, although they have a **core** that's framework agnostic.
 
 [⬆️ to overview](#overview)
 
@@ -418,8 +418,7 @@ What they actually do:
 
 With 100% static CSS, there would be actually no benefit. With dynamic pages that render very few elements on the server, and most components are rendered dynamically on the client, the benefit increases.
 
-All solutions support this feature:
-- **Treat** is the only exception, because it extracts all styles as fully static `.css`;
+**EXCEPTION**: libraries that use [static CSS extraction](#9-css-static-css-extraction).
 
 <br />
 
