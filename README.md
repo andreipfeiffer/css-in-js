@@ -342,9 +342,9 @@ Allows usage without, or with any framework. Some libraries are built specifical
 
 The total page size difference in kB (transferred gzipped & minified / uncompressed & minified) compared to __CSS Modules__, for the entire index page production build using Next.js:
 
+- the values are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed);
 - keep in mind that this includes an almost __empty page__, with only a couple of components;
 - this is great for evaluating the minimal overhead, but does NOT offer any insight on the scaling factor: logarithmic, linear, or exponential;
-- the values for the __runtime library__ are taken from Chrome Devtools Network tab, [Transferred over network vs Resource size](https://developers.google.com/web/tools/chrome-devtools/network/reference#uncompressed);
 
 NOTE: all builds were done with Next.js `11.1.0`
 
