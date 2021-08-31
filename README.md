@@ -377,13 +377,15 @@ All solutions offer a way to define global styles, some with a dedicated API.
 
 #### ✅ SSR
 
-All solutions offer Server-Side Render support, and are easy to integrate with Next.js.
+All solutions offer Server-Side Rendering support and are easy to integrate with Next.js.
 
 <br />
 
 #### ✅ Vendor prefixes
 
 All solutions automatically add vendor specific prefixes out-of-the-box.
+
+- **vanilla-extract** is the only library that requires [manual setup](https://github.com/seek-oss/vanilla-extract/blob/master/docs/treat-migration-guide.md#autoprefixer-is-no-longer-included)
 
 <br />
 
