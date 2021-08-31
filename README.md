@@ -123,7 +123,7 @@ This analysis is intended to be **objective** and **unopinionated**:
 <br />
 
 👍 **What you WILL FIND here?**  
-- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v10 + TypeScript** empty project, with __minimal effort__;
+- an overview of (almost) all CSS-in-JS solutions available at this date (see _last update_ on top) that we've tried to integrate into a **Next.js v11 + TypeScript** empty project, with __minimal effort__;
 - a limited set of **quantitative metrics** that allowed us to evaluate these solutions, which might help you as well;
 - an additional list of **qualitative personal observations**, which might be either minor details or deal-breakers when choosing a particular solution.
 
@@ -1126,7 +1126,7 @@ Version: __`10.7`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 - ❌ __No Atomic CSS__
 
 - __Styles definition method(s)__
-  - 🟠 Tagged Templates: _(available with additional [plugin](https://cssinjs.org/jss-plugin-template?v=v10.5.1), with limited features)_
+  - 🟠 Tagged Templates: _(available with additional [plugin](https://cssinjs.org/jss-plugin-template), with limited features)_
   - ✅ Style Objects
 
 - __Styles nesting__
@@ -1135,7 +1135,7 @@ Version: __`10.7`__ | Maintained by [Oleg Isonen](https://twitter.com/oleg008) a
 
 - __Styles apply method(s)__
   - ✅ `className`
-  - 🟠 `styled` component _(available with additional [plugin](https://cssinjs.org/styled-jss?v=v2.2.3))_
+  - 🟠 `styled` component _(available with additional [plugin](https://cssinjs.org/styled-jss))_
   - ❌ `css` prop
 
 - __Styles output__
