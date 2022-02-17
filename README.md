@@ -529,7 +529,7 @@ This approach implies adding one or more `<style>` tag(s) in the DOM (either in 
 
 First used by **JSS**, this method uses [`CSSStyleSheet.insertRule()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule) to inject CSS rules directly into the **CSSOM**.
 
-- using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements it will point to an empty `<style>` tag;
+- using this approach it's a bit more difficult to _see_ what styles get injected into the CSSOM, because even if you see the CSS applied on the elements (thanks to [CSS-in-JS support in Chrome](https://developer.chrome.com/blog/css-in-js/)) it will point to an empty `<style>` tag;
    - to see all the injected styles, you'll have to select the `<style>` tag;
    - get access to it via `$0` in Chrome DevTools (or get a reference to it in any other way, using the DOM API);
    - access `.sheet.cssRules` on the `<style>` tag to see the Array of CSS rules that it contains;
