@@ -1499,7 +1499,6 @@ Version: __`1.2`__ | Maintained by [Seek OSS](https://github.com/seek-oss/) | La
 #### Worth mentioning observations
 
 - 😌 in contrast with Treat, it relies on CSS Variables support, which means: 1) it doesn't work on IE, 2) is simpler and easier to maintain, 3) it supports other bundlers besides webpack
-- 😣 [Next.js integration](https://github.com/seek-oss/vanilla-extract/discussions/89) is not very smooth at the moment, there is not officially maintained package and upgrading Next.js might require some manual plumbing
 - 😕 bundles all styles, exported or not, even if they are not used in component
 - 😥 it doesn't handle dynamic styles: you can use built-in `variants` based on predefined types, or __inline styles__ for user-defined styles
 
